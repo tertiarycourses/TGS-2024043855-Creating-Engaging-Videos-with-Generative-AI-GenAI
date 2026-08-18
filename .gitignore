@@ -1,0 +1,11 @@
+# Confidential — never push assessments or reference source material
+assessment/
+reference/
+.env
+.DS_Store
+*.log
+.playwright-mcp/
+__pycache__/
+*.pyc
+# Assessment builder embeds model answers — confidential
+.claude/skills/wsq-assessment/
