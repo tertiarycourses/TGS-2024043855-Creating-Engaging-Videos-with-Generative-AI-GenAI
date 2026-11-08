@@ -68,32 +68,41 @@ def topic_ref(tnum):
     return f" (from Slide {TOPIC_SLIDES[tnum]})" if tnum in TOPIC_SLIDES else ""
 
 # ------------------------------------------------ schedule (single source of truth for timing)
-SCHEDULE = {
+SCHEDULE = {   # each LU block sums to the CP hours: LU1 4 h (9:30-14:30), LU2 5 h (14:30-18:30 + Day 2 9:30-10:30), LU3 5 h (10:30-16:30)
  1: (C.DAY_THEMES[1], [
-    ("9:30","10:00",30,"admin","Welcome, digital attendance (AM), trainer and learner introductions, ground rules, course outline and learning outcomes"),
-    ("10:00","11:00",60,"topic","Topic 1 — Create and Edit Video Script Using GenAI: the GenAI video pipeline, script writing, story structure, the RICCE prompt framework (concepts + demo)"+topic_ref(1)),
-    ("11:00","11:15",15,"break","Tea break"),
-    ("11:15","13:00",105,"lab","Hands-on: "+lab_titles([1,2])),
+    ("9:30","10:00",30,"admin","LU1 · Welcome, digital attendance (AM), introductions, ground rules, outline, learning outcomes and Higgsfield sign-up with the course link"),
+    ("10:00","10:40",40,"topic","LU1 · Concepts for Lab 1: the impact of AI on video creation, five use cases (AI movie, micro drama, influencer, singer, marketing), Cinema Studio, the lazy prompt, Supercomputer approvals, K1 quality issues"+topic_ref(1)),
+    ("10:40","11:15",35,"lab","LU1 · Hands-on: "+lab_titles([1])),
+    ("11:15","11:30",15,"break","Tea break"),
+    ("11:30","12:00",30,"topic","LU1 · Concepts for Lab 2: who/where/what happens, the Supercomputer loop, AI Director, story elements, the three-part prompt, presets and Skills"),
+    ("12:00","12:40",40,"lab","LU1 · Hands-on: "+lab_titles([2])),
+    ("12:40","13:00",20,"topic","LU1 · Concepts for Lab 3: platform specs, credit budgets, turning standards into a skill"),
     ("13:00","14:00",60,"lunch","Lunch break"),
-    ("14:00","15:30",90,"lab","Digital attendance (PM). Hands-on: "+lab_titles([3,4])),
-    ("15:30","15:45",15,"break","Tea break"),
-    ("15:45","16:45",60,"topic","Topic 2 — Improve Video Footage on GenAI-Powered Video Platforms: VEED editor toolbox, subtitles and captions, audio enhancement, quality parameters (concepts + demo)"+topic_ref(2)),
-    ("16:45","18:15",90,"lab","Hands-on: "+lab_titles([5,6])),
-    ("18:15","18:30",15,"recap","Day 1 recap and Q&A"),
+    ("14:00","14:30",30,"lab","LU1 · Digital attendance (PM). Hands-on: "+lab_titles([3])),
+    ("14:30","15:15",45,"topic","LU2 · Concepts for Lab 4: Elements — casting, character sheets, locations, props, saving Elements, image models"+topic_ref(2)),
+    ("15:15","16:15",60,"lab","LU2 · Hands-on: "+lab_titles([4])),
+    ("16:15","16:30",15,"break","Tea break"),
+    ("16:30","17:00",30,"topic","LU2 · Concepts for Lab 5: references and roles, Cinema Studio controls, shot structure and sizes, sound, Draft mode and takes"),
+    ("17:00","18:15",75,"lab","LU2 · Hands-on: "+lab_titles([5])),
+    ("18:15","18:30",15,"recap","LU2 · Day 1 recap, Q&A"),
  ]),
  2: (C.DAY_THEMES[2], [
-    ("9:30","9:45",15,"recap","Day 1 recap and digital attendance (AM)"),
-    ("9:45","10:45",60,"lab","Hands-on: "+lab_titles([7])),
-    ("10:45","11:00",15,"break","Tea break"),
-    ("11:00","12:15",75,"lab","Hands-on: "+lab_titles([8])),
-    ("12:15","13:00",45,"topic","Topic 3 — Apply New AI Technologies to Improve Video Production: AI avatars, AI music, voice cloning and dubbing, agentic AI publishing, industry standards (concepts + demo)"+topic_ref(3)),
+    ("9:30","9:45",15,"recap","LU2 · Day 1 recap and digital attendance (AM)"),
+    ("9:45","10:00",15,"topic","LU2 · Concepts for Lab 6: the director's loop, continuity, issues → fixes, quality parameters"),
+    ("10:00","10:30",30,"lab","LU2 · Hands-on: "+lab_titles([6])),
+    ("10:30","10:45",15,"break","Tea break"),
+    ("10:45","11:15",30,"topic","LU3 · Concepts for Lab 7: remedial actions, removing and replacing objects, industry standards (K4)"+topic_ref(3)),
+    ("11:15","12:00",45,"lab","LU3 · Hands-on: "+lab_titles([7])),
+    ("12:00","12:20",20,"topic","LU3 · Concepts for Lab 8: voice, music and cinematic effects (K5); evaluating new technologies (A7)"),
+    ("12:20","13:00",40,"lab","LU3 · Hands-on: "+lab_titles([8])),
     ("13:00","14:00",60,"lunch","Lunch break"),
-    ("14:00","15:00",60,"lab","Digital attendance (PM). Hands-on: "+lab_titles([9,10])),
-    ("15:00","16:00",60,"lab","Hands-on: "+lab_titles([11,12])),
-    ("16:00","16:15",15,"break","Tea break"),
-    ("16:15","16:30",15,"recap","Revision, course feedback and TRAQOM survey, Briefing for Assessment, Assessment digital attendance"),
+    ("14:00","14:30",30,"topic","LU3 · Digital attendance (PM). Concepts for Lab 9: product references, campaign stills, from stills to video"),
+    ("14:30","15:30",60,"lab","LU3 · Hands-on: "+lab_titles([9])),
+    ("15:30","15:45",15,"break","Tea break"),
+    ("15:45","16:15",30,"recap","LU3 · Course summary, the pipeline recap and mini-project preparation for the PP"),
+    ("16:15","16:30",15,"recap","LU3 · Revision, TRAQOM survey, Briefing for Assessment, Assessment digital attendance"),
     ("16:30","17:30",60,"assess","Written Assessment (WA) — Short-Answer Questions (SAQ), 1 hour, open book"),
-    ("17:30","18:30",60,"assess","Practical Performance (PP) — hands-on video-production tasks, 1 hour, open book"),
+    ("17:30","18:30",60,"assess","Practical Performance (PP) — three Higgsfield tasks, 1 hour, open book; Task 3 is the learner's own 15-second mini-project video; screenshots pasted under each task and videos uploaded to the TMS"),
  ]),
 }
 
@@ -106,9 +115,10 @@ prodoc.add_cover_page(doc,"LESSON PLAN",C.TITLE,C.VERSION.lstrip("v"),
                       org_logo=os.path.join(ASSETS,"tertiary-infotech-logo.png"),
                       course_logo=None, course_code=C.COURSE_CODE)
 prodoc.add_version_control(doc,[
- ("6.0","1 June 2025","Prior release — Creating Engaging Videos with GenAI 2-day lesson plan.",C.TRAINER),
+ ("6","1 June 2025","Prior release — Creating Engaging Videos with GenAI 2-day lesson plan.","Tertiary Infotech Academy"),
+ ("7","18 August 2026","Restructured around a 5-stage GenAI video pipeline with 12 labs on VEED and companion AI tools.","Tertiary Infotech Academy"),
  (C.VERSION.lstrip("v"),C.VERSION_DATE,
-  "Major revamp: restructured around the 5-stage GenAI video pipeline (AI script → AI video → AI voice & music → AI editing → agentic publishing); 12 hands-on labs in individual folders; updated to the 2026 VEED AI toolset (AI Video Maker, avatars, voice clone, dubbing); added agentic AI publishing to YouTube/TikTok (Lab 12).",C.TRAINER),
+  "Whole pipeline moved into Higgsfield (Supercomputer, AI Director, Elements, Cinema Studio, Seedance 2.5 and Draft mode), replacing the multi-tool v7 stack; 9 labs in 3 topics re-timed to the CP learning units; Higgsfield sign-up with the trainer's affiliate link; two demo films and 10 real-world use-case videos embedded; trainer changed to Mr Tay Hoo Wee; PP evidence by pasted screenshots plus a TMS video upload.","Tertiary Infotech Academy"),
 ])
 prodoc.add_toc(doc)
 
@@ -121,7 +131,7 @@ info=[("Course Title",C.TITLE),("WSQ Course Reference",C.COURSE_CODE),
       ("TSC",f"{C.TSC_TITLE} ({C.TSC_CODE})"),
       ("Duration","2 days · 8 hours per day (16 hours, including the 2-hour final assessment)"),
       ("Daily Timing","9:30 am – 6:30 pm (1-hour lunch; tea breaks within training time)"),
-      ("Mode","Instructor-led, hands-on GenAI video production labs on VEED and companion AI tools"),
+      ("Mode","Classroom, instructor-led; hands-on GenAI video production labs, all in Higgsfield (higgsfield.ai, paid plan)"),
       ("Trainer",C.TRAINER)]
 t=doc.add_table(rows=0,cols=2); t.style="Table Grid"
 for k,v in info:

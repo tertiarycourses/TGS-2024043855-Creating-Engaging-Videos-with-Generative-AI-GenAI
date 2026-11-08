@@ -1,0 +1,5 @@
+item,shots,drafts per shot,credits per draft (15 s),finals,credits per final (15 s),subtotal
+Scene A,1,3,45,1,240,=B2*C2*D2+E2*F2
+Scene B,1,3,45,1,240,=B3*C3*D3+E3*F3
+Elements (images),,,,,,20
+TOTAL,,,,,,=SUM(G2:G4)

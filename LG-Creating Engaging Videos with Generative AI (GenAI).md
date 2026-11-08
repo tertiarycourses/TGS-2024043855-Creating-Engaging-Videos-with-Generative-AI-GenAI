@@ -1,44 +1,41 @@
 # Creating Engaging Videos with Generative AI (GenAI) — Learner Guide
 
-**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v7 · 18 August 2026**
+**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v8 · 9 November 2026**
 
 ## Contents
 
 - [Introduction](#introduction)
 - [Course Learning Outcomes](#course-learning-outcomes)
-- [The GenAI Video Creation Pipeline](#the-genai-video-creation-pipeline)
+- [The Higgsfield Video Pipeline](#the-higgsfield-video-pipeline)
 - [Before You Start — Environment Setup](#before-you-start--environment-setup)
 - [Topic 01 — Create and Edit Video Script Using Generative AI (GenAI)](#topic-01--create-and-edit-video-script-using-generative-ai-genai)
-  - [Lab 1 — Generate a Video Script with the RICCE Framework](#lab-1--generate-a-video-script-with-the-ricce-framework)
-  - [Lab 2 — Build Story-Driven Scripts with Prompt Templates & Custom GPTs](#lab-2--build-story-driven-scripts-with-prompt-templates--custom-gpts)
-  - [Lab 3 — AI Text-to-Video with VEED](#lab-3--ai-text-to-video-with-veed)
-  - [Lab 4 — Develop Video Standards, Guidelines & a Production Work Plan](#lab-4--develop-video-standards-guidelines--a-production-work-plan)
+  - [Lab 1 — Sign Up and Make Your First 15-Second Video](#lab-1--sign-up-and-make-your-first-15-second-video)
+  - [Lab 2 — Write the Script and Shot List with Supercomputer and AI Director](#lab-2--write-the-script-and-shot-list-with-supercomputer-and-ai-director)
+  - [Lab 3 — Set the House Rules: Standards, Work Plan and Credit Budget](#lab-3--set-the-house-rules-standards-work-plan-and-credit-budget)
 - [Topic 02 — Improve Video Footage on GenAI-Powered Video Platforms](#topic-02--improve-video-footage-on-genai-powered-video-platforms)
-  - [Lab 5 — VEED Video Editing Essentials](#lab-5--veed-video-editing-essentials)
-  - [Lab 6 — Auto Subtitles, Captions, Transcripts & Translation](#lab-6--auto-subtitles-captions-transcripts--translation)
-  - [Lab 7 — AI Voiceover, Clean Audio & Background Removal](#lab-7--ai-voiceover-clean-audio--background-removal)
-  - [Lab 8 — Mini Project — Assess and Fix Video Quality](#lab-8--mini-project--assess-and-fix-video-quality)
+  - [Lab 4 — Build Your Elements: Characters, Locations and Props](#lab-4--build-your-elements-characters-locations-and-props)
+  - [Lab 5 — Direct Shots and Takes in Cinema Studio](#lab-5--direct-shots-and-takes-in-cinema-studio)
+  - [Lab 6 — Cut, Caption and Assess the Scene](#lab-6--cut-caption-and-assess-the-scene)
 - [Topic 03 — Apply New AI Technologies to Improve Video Production](#topic-03--apply-new-ai-technologies-to-improve-video-production)
-  - [Lab 9 — AI Avatars, AI Images & Eye Contact](#lab-9--ai-avatars-ai-images--eye-contact)
-  - [Lab 10 — AI Music Generation with Suno & Udio](#lab-10--ai-music-generation-with-suno--udio)
-  - [Lab 11 — Voice Cloning, AI Dubbing & Lip Sync](#lab-11--voice-cloning-ai-dubbing--lip-sync)
-  - [Lab 12 — Agentic AI Publishing to YouTube & TikTok](#lab-12--agentic-ai-publishing-to-youtube--tiktok)
+  - [Lab 7 — Fix What Fails: Remedial Actions in Higgsfield](#lab-7--fix-what-fails-remedial-actions-in-higgsfield)
+  - [Lab 8 — Add Voice, Music and Cinematic Effects](#lab-8--add-voice-music-and-cinematic-effects)
+  - [Lab 9 — Use-Case Sprint: One Product Photo to a Published 15-Second Ad](#lab-9--use-case-sprint-one-product-photo-to-a-published-15-second-ad)
 - [Assessment Preparation](#assessment-preparation)
 - [Glossary](#glossary)
 
 
 ## Introduction
 
-This Learner Guide accompanies the WSQ course Creating Engaging Videos with Generative AI (GenAI) (TGS-2024043855), conducted by Tertiary Infotech Academy Pte Ltd. It provides detailed step-by-step instructions and copy-and-adapt GenAI prompts for all 12 hands-on labs, organised by the three course topics. The slides give you the concepts and each lab's overview; THIS guide is where the full procedure lives.
+This Learner Guide accompanies the WSQ course Creating Engaging Videos with Generative AI (GenAI) (TGS-2024043855), conducted by Tertiary Infotech Academy Pte Ltd. It gives the full step-by-step instructions and copy-and-adapt prompts for all 9 hands-on labs, organised by the three course topics. The slides give you the concepts and each lab's overview; this guide is where the full procedure lives.
 
-The course is built around the five-stage GenAI video creation pipeline: (1) AI-generated script → (2) AI-generated video → (3) AI voiceover & music → (4) AI video editing → (5) agentic AI publishing to YouTube/TikTok. Every lab maps to a stage of this pipeline, and the final assessment (WA SAQ + Practical Performance) assesses exactly what the labs practise.
+Every lab runs in one studio: Higgsfield (higgsfield.ai). You brief Supercomputer, Higgsfield's agent, in plain English, or you direct each shot yourself in Cinema Studio. Two 15-second films made this way for the course (a SOLA product ad and the Ringfall sci-fi scene) are embedded in the slides, so you can see the finish line before you start.
 
 
 ## Course Learning Outcomes
 
-- LO1: Develop video editing strategies and work plans to achieve creative video.
-- LO2: Assess edited video footage to enhance storytelling and ensure technical compliance.
-- LO3: Develop remedial actions to ensure industry compliance and facilitate the adoption of new technologies in video editing.
+- LO1: Create video scripts using Generative AI (GAI) and work plans for video production.
+- LO2: Edit video footage to improve video quality and ensure technical compliance.
+- LO3: Apply new AI technologies to improve efficiency and quality in accordance to industry standards.
 
 **Skills Framework alignment**
 
@@ -52,624 +49,708 @@ TSC: Video Editing (MED-MPN-4005-1.1).
 - A1: Review scripts to conceptualize the types of edits required to achieve creative vision of production
 - A2: Develop editing standards and guidelines in accordance to legal requirements and broadcasting standards
 - A3: Develop work plans to outline the processes and timelines needed for the post production processes
-- A4: Review edited footage to determine areas of improvement to enhance storytelling
-- A5: Assess edited footage to ensure alignment with technical and legal requirements
-- A6: Develop remedial actions for edited footage that does not meet requirements
-- A7: Evaluate new technologies to improve efficiency and quality of video editing processes
+- A4: Review edited footage to propose changes that will enhance the story and emotions in each scene
+- A5: Assess edited footage against technical parameters to ensure alignment to requirements
+- A6: Develop remedial actions to resolve issues that do not comply with industry standards
+- A7: Facilitate the adoption of new technologies to improve the efficiency and quality of visual outputs
 
 
-## The GenAI Video Creation Pipeline
+## The Higgsfield Video Pipeline
 
-Keep this process flow in mind through every lab — it is the map of the whole course:
+Keep this process in mind through every lab; it is the map of the whole course:
 
-1. AI-Generated Script — ChatGPT · Gemini · Claude
-2. AI-Generated Video — VEED · Sora · Kling · Veo
-3. AI Voiceover & Music — TTS · clone · Suno · Udio
-4. AI Video Editing — captions · cleanup · resize
-5. Agentic AI Publishing — YouTube · TikTok
+1. Script & Shot List — Supercomputer · AI Director
+2. Elements — characters · locations · props
+3. Shots & Takes — Cinema Studio · Seedance 2.5
+4. Fix & Finish — replace · upscale · voice · music
+5. Publish — 9:16 + 16:9 · TikTok · YouTube
 
-Labs 1–2 cover stage 1 (AI-generated script). Lab 3 covers stage 2 (AI-generated video). Labs 7, 10 and 11 cover stage 3 (AI voiceover & music). Labs 5–8 cover stage 4 (AI video editing). Lab 12 covers stage 5 (agentic AI publishing). Labs 4 and 9 support the pipeline with standards, work plans and AI visuals.
+Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers stage 2 (Elements). Labs 5–6 cover stage 3 (shots, takes and assessing the cut). Labs 7–8 cover stage 4 (fix and finish). Lab 9 runs the whole pipeline on a real use case and covers stage 5 (publish).
 
 
 ## Before You Start — Environment Setup
 
 **What you need**
 
-- A laptop (Windows or Mac) with the Chrome browser and a working internet connection.
-- A free VEED account — sign up at veed.io with your email or Google account.
-- A free ChatGPT account (chatgpt.com) — Gemini, Claude or Copilot also work for every script lab.
-- A free Suno (suno.ai) and/or Udio (udio.com) account for the AI music lab.
-- Optional: an ElevenLabs free account for voice cloning; a Google/YouTube and TikTok account for the publishing lab.
-- A headset or earphones for reviewing audio in class.
+- A laptop (Windows or Mac) with Chrome and a working internet connection; a headset for reviewing audio.
+- A Higgsfield account. Sign up at https://higgsfield.ai?fpr=alfred-d0d32b (Trainer's affiliate link: the trainer may earn a commission; you pay the normal price.)
+- Labs run on higgsfield.ai (Supercomputer + Cinema Studio), which needs a paid plan. On 8 Nov 2026 Plus was US$49/month (US$39 billed yearly) for 1,000 credits. The free 3-day trial needs a card, renews to Plus unless cancelled within 3 days, and its credits worked only through the Higgsfield MCP, not on the website.
+- Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026). Labs 1–9 are designed around Draft takes, with one or two 1080p finals.
+- Optional for Lab 9: a TikTok account to connect in Higgsfield (post as private or only-me in class).
+- Watch before Lab 1: 'Higgsfield AI Tutorial for Beginners (2026) | Step-by-Step' by Metics Media — https://www.youtube.com/watch?v=Mt91SiQotOU
+- Reference: Higgsfield API docs — https://docs.higgsfield.ai/docs (authentication, requests, polling, webhooks, model endpoints); Supercomputer and Skills — https://higgsfield.ai/supercomputer-intro
 
 **Conventions used in every lab**
 
-- PROMPT blocks are copy-and-adapt — replace the bracketed parts with your own topic before submitting.
-- Free-tier limits (watermarks, generation credits) may apply; the labs are designed to work within them.
-- Save every artifact (scripts, videos, checklists) — several labs build on the previous lab's output, and they are your evidence for the Practical Performance assessment.
-- Only clone YOUR OWN voice, and only use footage, music and faces you have the rights and consent to use.
+- PROMPT blocks are copy-and-adapt: replace the bracketed parts with your own idea before submitting.
+- Draft first: test every idea on Seedance 2.5 Draft (480p) and finalise only the take you would show a client.
+- Approve every spend yourself in Supercomputer; leave 'Always allow' off in class.
+- Save every artefact (prompts, takes, checklists, exports): later labs build on them, and they are your Practical Performance evidence.
+- Only clone YOUR OWN voice, and only use faces, products, music and footage you have the rights and consent to use.
+- Each lab folder holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with the mock files.
 
 
 ## Topic 01 — Create and Edit Video Script Using Generative AI (GenAI)
 
-AI script generation · prompt engineering · text-to-video · standards, guidelines & work plans  (Covers K1 · A1 · A2 · A3.)
+The impact of AI on video · use cases · Supercomputer scripts · AI Director shot lists · standards & work plans  (Covers K1 · A1 · A2 · A3.)
 
 **Key concepts**
 
-- Script writing with GenAI — Generate ideas, storylines, dialogue and complete video scripts from a prompt.
-- The RICCE prompt framework — Role, Instructions, Context, Constraints, Example — engineer prompts that produce broadcast-ready scripts.
-- Story structure — Hero, desire, obstacle, action, outcome — the elements every engaging video script needs.
-- AI text-to-video — Turn a script into a complete video with VEED's AI Video Maker — scenes, voiceover, captions and music in one pass.
-- Standards & guidelines — Editing standards aligned to legal requirements (copyright, PDPA) and platform/broadcast specs.
-- Work plans & timelines — Plan the production and post-production pipeline with GenAI-drafted work plans.
+- AI's impact & use cases — A US$2,000 TV ad, a 14-day feature: AI movies, micro dramas, influencers, singers and marketing videos already earn audiences.
+- The lazy prompt — Format + vibe gets you a clip in one line, but the model then decides your character, world and camera.
+- Scripts with Supercomputer — Who / where / what happens, then a script and a numbered shot list, drafted and refined in one chat.
+- AI Director — Inside a project, AI Director writes the script and an 8-shot storyboard from your brief.
+- Standards & guidelines — A one-page sheet: platform specs, consent, licensing, AI disclosure and a Draft-first credit rule.
+- Work plans & credit budgets — Phases, owners, timelines and a credit budget: 45 credits for a 15 s Draft, 240 for the 1080p final.
 
 
-### Lab 1 — Generate a Video Script with the RICCE Framework
+### Lab 1 — Sign Up and Make Your First 15-Second Video
 
-Maps to: A1 — review scripts and conceptualise the edits needed to achieve the creative vision.
+Maps to: K1 — spot quality issues; A2 — generate a new video from scratch on a GenAI video platform.
 
-Goal: Use the RICCE prompt framework (Role, Instructions, Context, Constraints, Example) with a text GenAI tool — ChatGPT, Gemini, Claude or Copilot — to generate a complete, engaging video script, then review and refine it for the target platform.
+Goal: Sign up to Higgsfield through the course link, tour the two doors (Supercomputer and Cinema Studio), then make the same 15-second sci-fi clip twice: once from a one-line lazy prompt, once after Supercomputer interviews you. Compare what the model decided for you.
 
 **What you'll build**
 
-A polished 60–90 second video script with scene directions, dialogue and a hook, ready for production.   (Tools: ChatGPT, Gemini, Claude, Copilot.)
+Two 15-second Draft clips of the same idea, plus a log of what the model decided and three quality issues you spotted.   (Tools: Higgsfield: Cinema Studio (Video), Supercomputer, Seedance 2.5 Draft.)
 
 **Prompts for this lab**
 
-> **Prompt — RICCE — full script prompt:**
+> **Prompt — The lazy prompt (format + vibe):**
 >
 > ```
-> ROLE: You are an award-winning video scriptwriter for social media marketing.
-> INSTRUCTIONS: Write a 60-second promotional video script for an online learning platform.
-> CONTEXT: The audience is working adults in Singapore aged 25–45 considering upskilling; the video runs on YouTube and Instagram.
-> CONSTRAINTS: Max 150 words of voiceover. Hook in the first 3 seconds. Conversational tone. End with the call-to-action 'Start learning today'.
-> EXAMPLE: Format as a table with columns SCENE, VISUAL, VOICEOVER, ON-SCREEN TEXT.
+> Create a 15-second video of an epic sci-fi scene.
 > ```
 
-> **Prompt — Refine the hook:**
+> **Prompt — Make Supercomputer interview you first:**
 >
 > ```
-> Rewrite the first scene so the opening 3 seconds create curiosity — start with a surprising question or statistic about career growth.
-> ```
-
-> **Prompt — Platform re-cut:**
->
-> ```
-> Adapt this script into a 30-second vertical TikTok version: faster pacing, punchier lines, captions-first, keep the same call-to-action.
+> I want a 15-second epic sci-fi scene for a cinema-style trailer moment.
+> Before you write or generate anything, ask me up to five short questions about:
+> the main character, the world/location, what happens, the camera, and the sound.
+> Then write the full prompt with timed shots and wait for my approval.
+> Use Seedance 2.5 Draft, 16:9, 15 seconds, sound on.
 > ```
 
 **Step-by-step**
 
-1. Open a text GenAI tool — chatgpt.com, gemini.google.com, claude.ai or copilot.microsoft.com — and sign in.
-2. Draft your RICCE prompt: define the Role (expert scriptwriter), Instructions (write a 60-second promo script), Context (product, audience, platform), Constraints (length, tone, format) and an Example of the output structure.
-3. Submit the prompt and review the generated script against the story elements: identifiable hero, clear desire, obstacle, action, outcome.
-4. Iterate: ask the AI to strengthen the hook in the first 3 seconds, tighten the dialogue, and add a clear call-to-action.
-5. Ask the AI to reformat the script as a two-column table — VISUAL (what we see) and AUDIO (voiceover/dialogue) — the standard video script format.
-6. Tailor the same script for a second platform (e.g. a 30-second vertical TikTok cut) and compare how pacing and style change.
-7. Save the final script to a document — you will use it in Lab 3 to generate the video.
+1. Open the course sign-up link higgsfield.ai?fpr=alfred-d0d32b and create your account with Google or email. It is the trainer's affiliate link: the trainer may earn a commission and you pay the normal price. Use the plan your trainer gives you; the website labs need a paid plan (Plus).
+2. On the home page find the tiles you will use all course: Supercomputer (the agent), Cinema Studio 4.0, Seedance 2.5, Higgsfield Genjutsu and AI Influencer. Click your avatar to see your credit balance.
+3. Open Video. In the bottom bar pick the model Seedance 2.5 Draft (480p, 4–30 s). Set 16:9, 15 s, sound On and 1 video.
+4. Type the lazy prompt exactly as given in the prompts page and press Generate. A 15-second Draft costs about 45 credits (a 1080p final of the same clip is about 240).
+5. Watch the clip twice with sound. In the log (assets/first-video-log.pdf) write what the model decided for you: the character, the world or location, and the camera.
+6. Write three quality issues you can see or hear (K1): for example a face that changes, objects that melt, audio that does not match the action, unreadable text, or a shot that ends mid-movement.
+7. Open Supercomputer from the home page. Paste the interview prompt so it asks you questions before it generates. Answer each question in one line.
+8. Read the full prompt Supercomputer writes (scene, shots, camera, sound). Check the approval card shows Seedance 2.5 Draft, 16:9, 15 s, then press Approve. Never tick Always allow in class.
+9. Compare the two takes side by side. Note which decisions you now control and which issues disappeared.
+10. Create a project named 'Lab Studio – <your name>' and move both clips into it. Screenshot the project page with both takes visible for your evidence.
 
 **Check your work**
 
-The script has a hook in the first 3 seconds, a clear hero/desire/obstacle/resolution arc, fits the 60–90 s duration, and is formatted in the two-column VISUAL/AUDIO layout.
+Both clips are 15 s Drafts in one project; your log names the character, world and camera the model chose and three concrete quality issues, and says which ones the interviewed take fixed.
 
-> **Note:** This lab has its own folder: labs/lab-01-generate-a-video-script-with-the-ricce-framework/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
+
+- first-video-log.pdf — what the model decided + three quality issues
+- sample-scifi-take.jpg — a frame from the trainer's finished 15 s sci-fi clip
+- sample-lazy-prompt-draft.mp4 — the lazy prompt, run as a 480p Draft for this course (compare with yours)
+
+**Evidence to keep (screenshots for the PP)**
+
+- Higgsfield project page showing both Draft takes
+- Your completed first-video log (what the model decided, three quality issues)
+
+> **Note:** This lab has its own folder: labs/lab-01-sign-up-and-make-your-first-15-second-video/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
-### Lab 2 — Build Story-Driven Scripts with Prompt Templates & Custom GPTs
+### Lab 2 — Write the Script and Shot List with Supercomputer and AI Director
 
-Maps to: A1 — conceptualise script edits; K1 — recognise script-level quality issues.
+Maps to: A1 — review scripts to conceptualise the edits needed; A2 — edit video scripts with GenAI.
 
-Goal: Use the six-step story prompt template (genre → protagonist → antagonist → conflict → setting → plot beats) to co-write a story-driven script step by step, then compare the result with a purpose-built custom GPT script writer.
+Goal: Turn a three-line idea (who, where, what happens) into a 15-second script and a timed shot list. AI Director drafts it inside your project; you review it against the story elements and decide the edits: shot sizes, cuts, camera and sound. Then you refine it one change at a time.
 
 **What you'll build**
 
-A story-driven video script built beat-by-beat, plus a second version from a custom GPT for comparison.   (Tools: ChatGPT (custom GPTs), Gemini, Claude.)
+A reviewed 15-second script and a 6-shot shot list in the three-part prompt format, saved in your project brief.   (Tools: Higgsfield: Projects, AI Director, Supercomputer (/youtube-script skill).)
 
 **Prompts for this lab**
 
-> **Prompt — Six-step template (steps 1–5 combined):**
+> **Prompt — Brief AI Director — who / where / what happens:**
 >
 > ```
-> We are co-writing a video story script.
-> GENRE: heartwarming brand story.
-> PROTAGONIST: Sarah, 32, a nurse who dreams of switching into tech but has no time to study.
-> OBSTACLE: 12-hour shifts and self-doubt.
-> CONFLICT: every course she tries demands rigid schedules she cannot keep.
-> SETTING: present-day Singapore, hopeful and warm tone.
+> WHO: a bartender in her thirties, tired but proud of her bar.
+> WHERE: her empty neighbourhood bar after closing time.
+> WHAT HAPPENS: she switches the lights off one by one and walks to the window as the city lights come on.
+> Write a 15-second cinematic script, then a 6-shot storyboard with shot sizes and timings.
 > ```
 
-> **Prompt — Plot beats:**
+> **Prompt — Three-part prompt skeleton:**
 >
 > ```
-> Generate five plot points that escalate Sarah's conflict to a climax and resolve it when she discovers a flexible online academy. Then expand the five beats into a 90-second script in VISUAL/AUDIO table format.
+> Scene context: <the visible action in one or two sentences>.
+> References: <@element — role, 100% as shown in the reference image>.
+> Shots (cut between each):
+> 1. 0–3s: <shot size>, <action>, <camera>.
+> 2. 3–6s: ...
+> Sound: <ambience>, <footsteps/clothing>, <dialogue or none>.
 > ```
 
-> **Prompt — Critique prompt:**
+> **Prompt — Script critique:**
 >
 > ```
-> Act as a script editor. Critique this script for: weak hook, unclear protagonist desire, missing obstacle, flat resolution. List each issue and rewrite the weakest scene.
+> Act as a film editor. Check this script for: weak opening shot, unclear hero, no obstacle, no visual payoff, and shots that cannot be filmed in 15 seconds. List each issue, then rewrite only the weakest shot.
 > ```
 
 **Step-by-step**
 
-1. Start a new chat and set the genre: tell the AI what kind of story you are writing (sci-fi, comedy, thriller, brand story).
-2. Define the protagonist — name, age, occupation, personality and goal — in one prompt.
-3. Define the antagonist (or the obstacle) — who or what stands in the way, and their motivation.
-4. Define the conflict — how the protagonist and the obstacle collide.
-5. Define the setting — time, location and tone of the story.
-6. Ask the AI to generate five plot points that escalate the conflict to a climax, then expand them into a full script.
-7. Open a custom GPT script writer (e.g. 'Video Script Writer' in the GPT Store) and give it the same brief; compare structure, pacing and dialogue between the two versions.
-8. Pick the stronger version, note the script-level quality issues you fixed (weak hook, vague hero, no resolution), and save it.
+1. Open your Lab Studio project and click AI Director in the left panel (Tools → AI Director).
+2. Give the three-line brief from the prompts page: WHO (a bartender), WHERE (an empty bar), WHAT HAPPENS (lights off, she walks to the window). Ask AI Director to write a 15-second script.
+3. Ask for a 6-shot storyboard of the same script with shot sizes and timings.
+4. Review the script with assets/story-elements-checklist.pdf: is there an identifiable hero, a clear desire, an obstacle, an action and an outcome? Mark what is missing.
+5. Conceptualise the edits (A1): for every shot decide the size (wide, medium close-up, close-up), whether the camera moves, where the cut lands and what we hear. Write them into assets/shot-list-template.csv.
+6. Rewrite the result as a three-part prompt: SCENE CONTEXT (visible action in 1–2 sentences), REFERENCES (leave empty for now), SHOTS (numbered, timed, one camera instruction each), then a SOUND line.
+7. Refine and save: describe ONE change to AI Director, read the updated prompt, keep the version that works. Repeat twice.
+8. In Supercomputer open Skills in the left sidebar and browse the Marketplace. Install one script or storyboard skill that fits your brief (official skills such as Cinematic Director are listed with the community ones).
+9. Type / in the Supercomputer prompt, pick /youtube-script (or the skill you installed) and ask for a 30-second vertical re-cut of the same story. Compare pacing and hook with your 15-second version.
+10. Paste the final script and shot list into Project brief. Screenshot the brief for your evidence.
 
 **Check your work**
 
-You can show both script versions, name at least three script-level quality issues you identified, and explain which version you chose for production and why.
+The script fits 15 s, every shot has a size, a camera instruction and a time, the story-elements review names at least two edits you made, and the prompt is in the three-part format.
 
-> **Note:** This lab has its own folder: labs/lab-02-build-story-driven-scripts-with-prompt-templates/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
+
+- story-elements-checklist.pdf — hero, desire, obstacle, action, outcome
+- shot-list-template.csv — shot, time, size, camera, action, sound
+- client-brief-online-learning.pdf — the PP scenario brief to practise on
+
+**Evidence to keep (screenshots for the PP)**
+
+- Project brief showing your final script and 6-shot list
+- Your story-elements review with the edits you decided
+
+> **Note:** This lab has its own folder: labs/lab-02-write-the-script-and-shot-list-with-supercompute/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
-### Lab 3 — AI Text-to-Video with VEED
+### Lab 3 — Set the House Rules: Standards, Work Plan and Credit Budget
 
-Maps to: A1, A7 — turn a script into a video with an AI video generator.
+Maps to: K1 — quality issues to prevent; A2 — develop editing standards and guidelines; A3 — develop work plans and timelines.
 
-Goal: Turn your Lab 1 script into a complete video with VEED's AI Video Maker: describe the video, let AI generate the scenes, voiceover, captions and music, then customise it in the editor. VEED's generator taps models such as Veo, Sora, Kling and Hailuo for the visuals.
+Goal: Have Supercomputer draft the two documents every Higgsfield production needs: a one-page standards and guidelines sheet (platform specs, legal and AI-disclosure rules, quality gates) and a post-production work plan with timelines and a credit budget built on real Draft and 1080p costs.
 
 **What you'll build**
 
-A complete AI-generated 30–60 s video with scenes, AI voiceover, captions and background music.   (Tools: VEED AI Video Maker (veed.io/tools/ai-video), ChatGPT.)
+A one-page standards & guidelines sheet, a phased work plan with timelines and a credit budget, and your own /house-standards skill.   (Tools: Higgsfield: Supercomputer (Ask mode, Skills).)
 
 **Prompts for this lab**
 
-> **Prompt — Text-to-video description:**
+> **Prompt — Standards & guidelines sheet:**
 >
 > ```
-> Create a 45-second upbeat promotional video for an online learning platform. Modern, bright visuals of working adults learning on laptops and phones; energetic female voiceover; bold captions; end on the text 'Start learning today'.
+> Draft a one-page video standards & guidelines sheet for a Singapore agency making 15–30 second AI videos in Higgsfield.
+> Cover: resolution and frame rate; aspect ratio per platform (YouTube 16:9, TikTok/Reels/Shorts 9:16); audio level and captions;
+> branding; character and location consistency (saved Elements only); commercial-use rights on our plan;
+> PDPA consent for real faces and voices; AI-content disclosure labels on TikTok and YouTube; IMDA/ASAS advertising codes.
+> Format as a table.
 > ```
 
-> **Prompt — Scene swap:**
+> **Prompt — Work plan with timelines and credits:**
 >
 > ```
-> Generate a 5-second b-roll clip: close-up of hands typing on a laptop in a cosy café, warm morning light, shallow depth of field.
+> Create a post-production work plan for a 15-second promo due in 3 working days, made entirely in Higgsfield.
+> Phases: script lock, Elements (characters, locations, props), 480p Draft takes, 1080p finals, fix & finish
+> (replace, upscale, captions, music), client review, export 16:9 + 9:16, publish.
+> For each phase give owner, duration, dependency, deliverable and credits (45 per 15 s Draft, 240 per 15 s 1080p final,
+> max three Drafts per shot). Format as a timeline table with a credit total.
+> ```
+
+> **Prompt — Save the rules as a skill:**
+>
+> ```
+> Save these standards as a reusable skill named house-standards.
+> When to use: every video we make for clients.
+> Rules: saved Elements only; Draft at 480p before any 1080p final; 1080p finals; 16:9 and 9:16 exports;
+> AI-generated label on; no real person's face or voice without written consent; music cleared for commercial use.
+> Steps: brief -> three-part prompt -> Draft -> review -> finalise -> quality checklist -> export.
+> Output: the three-part prompt, a credit estimate and a pass/fail checklist.
 > ```
 
 **Step-by-step**
 
-1. Sign in at veed.io and open Tools → AI Video → AI Video Maker.
-2. DESCRIBE: choose the video type (promo/explainer/social clip), paste your Lab 1 script or a one-line description of the topic, and let AI draft the storyboard.
-3. CUSTOMIZE: set the aspect ratio (16:9 for YouTube, 9:16 for TikTok/Shorts), pick an AI voice for the narration, and toggle subtitles on.
-4. Generate the video and watch the AI assemble scenes, voiceover, captions and music.
-5. Open the result in the VEED editor: swap any scene you dislike with stock footage or an AI-generated clip, and adjust the music volume under the voiceover.
-6. Export the video in 1080p and share the link with the class on Google Classroom.
-7. Optional: repeat the generation on CapCut Web and compare output quality, control and speed with VEED.
+1. Open Supercomputer and switch to Ask mode so it answers without generating media (no credits spent on video).
+2. Paste the standards prompt. Check the draft covers resolution, frame rate, aspect ratio per platform, audio level, captions and branding.
+3. Add the legal layer: commercial-use rights on your Higgsfield plan, consent for any real face or voice (PDPA), music rights, platform AI-content labels on TikTok and YouTube, and IMDA/ASAS advertising codes.
+4. Add two quality gates: every shot is approved as a 480p Draft before a 1080p final, and every final is checked against the quality checklist before export.
+5. Paste the work-plan prompt. Each phase needs an owner, a duration, a dependency and a deliverable.
+6. Ask Supercomputer to add a credit column using 45 credits per 15 s Draft and 240 per 15 s 1080p final, with three Drafts allowed per shot. Compare the total with assets/credit-plan-template.csv.
+7. Review the drafts critically: delete anything that does not apply to your video and add your own brand rule.
+8. Save both documents in Project brief and download them. Screenshot both for your evidence.
+9. Turn the standards into your own skill: open Skills in the left sidebar and create a new skill named house-standards, using assets/skill-template.pdf (name, when to use, rules, steps, output format). Paste your rules into it. If your account offers no create button, give Supercomputer the 'save as a skill' prompt instead.
+10. Test it: type /house-standards with a one-line video idea and check the reply follows your rules (Elements only, Draft first, AI label, three-part prompt, credit estimate). Screenshot the skill and the test reply.
 
 **Check your work**
 
-The exported video plays end-to-end with synchronised voiceover, captions and music, in the correct aspect ratio for the chosen platform.
+The sheet names concrete specs per platform and at least three legal or disclosure rules; the plan covers every phase to publishing within 3 days and its credit total matches 45/240 rates; /house-standards answers a test idea with your rules applied.
 
-> **Note:** This lab has its own folder: labs/lab-03-ai-text-to-video-with-veed/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
 
----
+- credit-plan-template.csv — shots × Drafts × finals with the 45 / 240 credit rates
+- work-plan-template.csv — phase, owner, start, end, dependency, deliverable, credits
+- standards-checklist.pdf — the minimum items your sheet must cover
+- skill-template.pdf — the five parts of a Supercomputer skill, with a filled /house-standards example
 
+**Evidence to keep (screenshots for the PP)**
 
-### Lab 4 — Develop Video Standards, Guidelines & a Production Work Plan
+- Your standards & guidelines sheet (with legal and AI-disclosure rules)
+- Your work plan with timelines and the credit total
+- Your /house-standards skill and its test reply
 
-Maps to: A2, A3 — develop editing standards/guidelines and post-production work plans.
-
-Goal: Use GenAI to draft the two documents every production needs: (1) an editing standards & guidelines sheet aligned to legal requirements (copyright, PDPA, platform rules) and broadcast standards, and (2) a work plan with timelines for the post-production process.
-
-**What you'll build**
-
-A one-page editing standards & guidelines document and a phased post-production work plan with timelines.   (Tools: ChatGPT, Gemini, Claude.)
-
-**Prompts for this lab**
-
-> **Prompt — Editing standards:**
->
-> ```
-> Draft a one-page video editing standards & guidelines sheet for a Singapore digital media agency producing social videos. Cover: technical specs (resolution, frame rate, aspect ratio per platform), caption and subtitle style, audio loudness targets, brand usage, and legal compliance (music/footage licensing, PDPA consent, platform rules). Format as a table.
-> ```
-
-> **Prompt — Work plan:**
->
-> ```
-> Create a post-production work plan for a 60-second promo video due in 5 working days. Phases: script lock, AI asset generation, editing, internal review, client review, final export, publishing. For each phase give owner, duration, dependencies and deliverable. Format as a timeline table.
-> ```
-
-**Step-by-step**
-
-1. Prompt the AI to draft video editing standards covering: resolution & frame rate, aspect ratios per platform, caption style, audio loudness, branding, and music licensing.
-2. Extend the standards with legal compliance: copyright and licensing of footage/music, PDPA/consent for people appearing on camera, platform community guidelines, and IMDA advertising codes.
-3. Review the AI draft critically — remove anything irrelevant to your production and add your organisation's brand rules.
-4. Prompt the AI to build a post-production work plan: phases (script lock → asset generation → edit → review → export → publish), owner, duration and dependencies for each.
-5. Ask the AI to convert the work plan into a timeline table for a 5-day turnaround, with buffer for client review.
-6. Save both documents — they are your quality benchmark when you assess footage in Topic 2.
-
-**Check your work**
-
-The standards sheet names concrete technical specs and at least three legal/compliance rules; the work plan covers every phase to publishing with durations that sum to the 5-day deadline.
-
-> **Note:** This lab has its own folder: labs/lab-04-develop-video-standards-guidelines-a-production/ — open its README.md for the same steps plus tips and troubleshooting.
+> **Note:** This lab has its own folder: labs/lab-03-set-the-house-rules-standards-work-plan-and-cred/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
 ## Topic 02 — Improve Video Footage on GenAI-Powered Video Platforms
 
-VEED editing essentials · subtitles & captions · audio enhancement · quality assessment  (Covers K2 · K3 · A4 · A5.)
+Elements: characters, locations, props · references · Cinema Studio shots & takes · Draft mode · assess the cut  (Covers K2 · K3 · A4 · A5.)
 
 **Key concepts**
 
-- Video editing basics — Trim, split, crop, resize, merge and loop footage on the VEED timeline — no installs, all in the browser.
-- Transcripts & captions — Auto-transcribe speech, generate styled subtitles and closed captions, translate to 100+ languages.
-- Audio enhancement — AI voiceover (text-to-speech), clean audio, background-noise removal and music balancing.
-- Fixing quality issues — Remove cluttered backgrounds, fix framing with smart crop, correct resolution and aspect ratio per platform.
-- Assessing footage — Judge resolution, frame rate, audio levels, visual consistency and pacing against the brief.
-- Technical compliance — Verify the edit meets platform specs and the client's legal and brand requirements before export.
+- Elements — Save a character, location or prop once with an @handle and reuse it in every shot: the fix for drifting faces and sets.
+- References — Up to 50 per generation (30 images, 10 videos, 10 audio), each given a role: character, location, camera move or voice.
+- Shots & takes — One continuous shot or multishot with cuts; each run is a take you keep, compare or replace.
+- Cinematic controls — Camera body, lens, aperture, movement, lighting, colour palette, genre, era and tempo.
+- Draft mode — Seedance 2.5 Draft renders 480p for 45 credits; finalise only the take that works at 1080p.
+- Assessing footage — Resolution, continuity, motion, audio, pacing and compliance, judged take by take.
 
 
-### Lab 5 — VEED Video Editing Essentials
+### Lab 4 — Build Your Elements: Characters, Locations and Props
 
-Maps to: K2 — solutions that rectify quality issues; A4 — review footage for improvement.
+Maps to: K2 — solutions that rectify quality issues (consistency); A4 — review footage for improvement.
 
-Goal: Master the VEED browser editor: upload or record footage, then trim, split, crop, resize, merge and loop clips on the timeline, add photos, text overlays and music, and start from professional templates.
+Goal: Faces that change between shots are the commonest AI video defect. Fix it before you shoot: cast a character with Supercomputer, turn the pick into a reference sheet, build a location and a prop, and save each one as an Element with an @handle you can call in any prompt.
 
 **What you'll build**
 
-An edited multi-clip video with text overlays, images and background music, assembled on the VEED timeline.   (Tools: VEED Video Editor (veed.io/create/video-maker).)
+Five saved Elements, two characters, two locations and one prop, each with a reference image and an @handle.   (Tools: Higgsfield: Supercomputer (character-sheet skill), Soul 2.0, Seedream 5.0 Pro, Nano Banana Pro, Elements.)
 
 **Prompts for this lab**
 
-> **Prompt — Ask AI for an edit plan:**
+> **Prompt — Cast a character (Supercomputer):**
 >
 > ```
-> Here is my raw footage list: [describe your clips]. Propose an edit sequence for a 45-second video: which clip opens, where to cut, what text overlays to add, and where the music should swell.
+> Main character in a biker road movie, 25 years old, modern style clothing.
+> Use the character-sheet skill. Show me five photoreal casting options first; I will pick one before you build the reference sheet.
+> ```
+
+> **Prompt — Edit one detail, keep it consistent:**
+>
+> ```
+> Give him a silver wallet chain hanging off his jeans pocket. Replace the black t-shirt with a plain white ribbed cotton tank top, same tank top in all views.
+> ```
+
+> **Prompt — Location with spatial anchors:**
+>
+> ```
+> Wide interior of a dim neighbourhood bar at night: long wooden counter on the right with eight black stools, beer taps and backlit bottles, a pool table at the back, warm practical lamps, one large window on the left wall. Photoreal, 16:9, no people.
+> ```
+
+> **Prompt — Prop (run on two models):**
+>
+> ```
+> A slim orange hard-shell briefcase with a ribbed moulded lid, rounded corners, a black top handle and two metal latches, white background, soft studio light, no logos or text.
 > ```
 
 **Step-by-step**
 
-1. Open veed.io → Create → Video Maker and start a new project (or pick a template from veed.io/templates).
-2. Upload two or three short clips (or record with the built-in webcam/screen recorder).
-3. Trim each clip on the timeline: drag the clip edges to remove dead air at the start and end.
-4. Split a clip: place the playhead mid-clip and hit Split; delete the section you don't need, then reorder clips by dragging.
-5. Crop and resize: use Smart Crop to reframe the subject, and set the project size (16:9, 9:16, 1:1) from the canvas settings.
-6. Add media: drop in a photo/logo, add a text overlay title with an animation, and add background music from the stock library.
-7. Loop or merge: loop a short b-roll clip to cover the voiceover, and confirm the merged sequence flows without jump cuts.
-8. Preview the full timeline, then export at 1080p.
+1. In Supercomputer paste the casting prompt. It loads the character-sheet skill and offers five photoreal casting options (Soul 2.0). Pick the one that fits your brief.
+2. Ask for a 16:9 reference sheet of your pick: full body front, full body back, and a face portrait, plain white background.
+3. Make one targeted edit with the edit prompt (Image → Seedream 5.0 Pro, about 3 credits): change one garment and keep it the same in all views.
+4. Open the sheet, click Save as element. Set Category = Character, Name = Biker, Element ID = char_biker. Add a one-line description. Repeat for a second character (char_friend).
+5. Generate the bar interior with the location prompt (Nano Banana Pro, about 2 credits). Check the space has clear spatial anchors (the counter, the stools, the window) you can name in a shot. Save as loc_bar-interior; repeat for loc_bar-entrance.
+6. Generate the prop on two image models with the same prompt and compare shape, colour and credit cost. Save the better one as prop_suitcase.
+7. Open My elements and check all five Elements are listed with their @handles. Screenshot the list for your evidence.
+8. Review: which quality issue does each Element prevent (K2)? Write one line per Element in the naming sheet.
 
 **Check your work**
 
-The exported video contains at least three clips trimmed and ordered cleanly, a text overlay, an image, and music — with no black gaps or jump cuts on the timeline.
+Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same face and outfit in all three views; each Element has a line saying which quality issue it prevents.
 
-> **Note:** This lab has its own folder: labs/lab-05-veed-video-editing-essentials/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
+
+- character-brief.pdf — the biker road-movie brief and casting checklist
+- element-naming-sheet.csv — category, name, @handle, what it prevents
+- sample-product-sola.jpg — a product reference for Labs 8–9
+- sample-location-bar.jpg and sample-prop-suitcase.jpg — the Lab 4 prompts run for this course
+
+**Evidence to keep (screenshots for the PP)**
+
+- My elements page showing your saved characters, locations and prop with @handles
+- Your character reference sheet (front, back, face)
+
+> **Note:** This lab has its own folder: labs/lab-04-build-your-elements-characters-locations-and-pro/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
-### Lab 6 — Auto Subtitles, Captions, Transcripts & Translation
+### Lab 5 — Direct Shots and Takes in Cinema Studio
 
-Maps to: K2, A4 — fix accessibility/quality gaps with AI captioning.
+Maps to: A4 — review footage to improve storytelling; K2 — solutions to rectify quality issues.
 
-Goal: Make any video accessible and social-ready: auto-generate subtitles with AI speech recognition, style them as animated captions, download the transcript, and translate subtitles into other languages.
+Goal: Direct a 15-second bar scene the way a film crew would: attach your Elements as references with roles, set camera, lens, lighting and colour, write the shots and the sound, then render four 480p Draft takes. Finalise only the best take in 1080p.
 
 **What you'll build**
 
-A captioned video with styled, animated subtitles, a downloadable transcript, and a translated subtitle track.   (Tools: VEED Subtitles & Translation.)
+Four Draft takes of one scene and one 1080p final of the best take, made from your Elements.   (Tools: Higgsfield: Cinema Studio, Seedance 2.5 / Seedance 2.5 Draft, References, Elements.)
 
 **Prompts for this lab**
 
-> **Prompt — Polish the transcript:**
+> **Prompt — Bar scene — three-part prompt (Seedance 2.5):**
 >
 > ```
-> Clean up this auto-generated transcript: fix punctuation and casing, correct obvious mis-transcriptions, and split it into subtitle lines of max 42 characters without breaking phrases.
+> Scene context: Biker enters a bar with a suitcase, looking for his friend. They notice each other, and the biker walks over and sits next to him as he lays his case flat on the counter.
+> References:
+> @char_biker — biker, 100% as shown in the reference image.
+> @char_friend — friend, 100% as shown in the reference image. He is seated on a stool on the side of the bar counter.
+> @prop_suitcase — suitcase, 100% as shown in the reference image. It belongs to @char_biker. He carries it in his left hand.
+> @loc_bar-interior — the bar, 100% as shown in the location reference.
+> Shots (cut between each):
+> 1. 0–3s: wide, the biker pushes through the door, suitcase in his left hand.
+> 2. 3–6s: medium shot, the friend looks up from his beer. Static camera.
+> 3. 6–9s: close-up, the biker recognises him.
+> 4. 9–12s: medium close-up, the biker sits; dialogue: "Told you I'd make it."
+> 5. 12–15s: close-up, he lays the case flat on the counter.
+> Sound: bar ambience, footsteps, leather jacket movement, the line of dialogue.
+> ```
+
+> **Prompt — One continuous shot (compare):**
+>
+> ```
+> One continuous 15-second take. Follow a man along a busy New York sidewalk. Move from behind him to a frontal view as he reaches the corner. Keep the action uninterrupted, with no cuts.
 > ```
 
 **Step-by-step**
 
-1. Open your Lab 5 project (or upload any talking video) in VEED.
-2. Go to Subtitles → Auto Subtitles, pick the spoken language, and let the AI transcribe the audio.
-3. Proof-read the generated subtitles in the side panel and fix any misheard words — names and jargon are the usual suspects.
-4. Style the captions: choose a caption preset (word-by-word highlight for social), set font, size, colour and position safe for 9:16.
-5. Download the transcript (TXT/SRT/VTT) from the subtitles panel.
-6. Translate: duplicate the subtitle track and auto-translate it (e.g. to Chinese or Malay); review the translation quality.
-7. Export the captioned video and compare engagement value against the uncaptioned original.
+1. Open Video → Cinema Studio. Click References and attach @char_biker, @char_friend, @prop_suitcase and @loc_bar-interior. One generation accepts up to 50 references: 30 images, 10 videos, 10 audio.
+2. Give each reference a role: Character for the people, Location for the bar. Type @ in the prompt to insert a handle.
+3. Open Film setup: choose a camera body, a lens and an aperture (f/1.4 wide open for shallow focus). Open Lighting: pick Practicals. Open Colour palette: pick Film colors. Set Genre to Drama.
+4. Write the prompt in three parts (prompts page): scene context, references with '100% as shown in the reference image', then numbered shots with sizes and camera.
+5. Choose the shot structure: one continuous 15-second shot, or multishot with a cut between each. Use the multishot version for this lab.
+6. Add the Sound line: bar ambience, footsteps, clothing movement and the one line of dialogue.
+7. Select Seedance 2.5 Draft, 480p, 21:9 or 16:9, 15 s, sound On, 4 videos. Press Generate Draft (about 45 credits per take).
+8. Watch all four takes with sound. Note for each: character match, prop position, camera, audio. Pick one.
+9. Open the chosen Draft and finalise it in 1080p (Seedance 2.5 renders the same take at full resolution, about 240 credits for 15 s; drafts can be finalised within 7 days).
+10. Screenshot the Cinema Studio prompt panel with the references attached and the four-take grid for your evidence.
 
 **Check your work**
 
-Captions are accurate and synchronised, styled legibly for mobile, the transcript downloads cleanly, and a second-language subtitle track exists.
+All four Drafts use your Elements; your take log scores each take; the 1080p final is the take you scored best and keeps the same faces, prop and bar.
 
-> **Note:** This lab has its own folder: labs/lab-06-auto-subtitles-captions-transcripts-translation/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
+
+- cinema-studio-cheatsheet.pdf — camera, lens, aperture, lighting, colour, genre, era, tempo
+- shot-size-guide.pdf — wide, medium close-up, close-up and what each one is for
+- take-log.csv — take, character match, prop, camera, audio, keep?
+
+**Evidence to keep (screenshots for the PP)**
+
+- Cinema Studio prompt panel with your references attached
+- The four Draft takes and your 1080p final
+
+> **Note:** This lab has its own folder: labs/lab-05-direct-shots-and-takes-in-cinema-studio/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
-### Lab 7 — AI Voiceover, Clean Audio & Background Removal
+### Lab 6 — Cut, Caption and Assess the Scene
 
-Maps to: K2 — audio/visual fixes; A4, A5 — review and assess footage.
+Maps to: A4 — review edited footage to improve storytelling; A5 — assess footage against technical and legal requirements; K3 — quality parameters.
 
-Goal: Fix the two problems that sink most videos — bad audio and cluttered visuals. Generate an AI text-to-speech voiceover, clean background noise from recorded audio, and remove or replace a distracting video background without a green screen.
+Goal: Keep the useful first take, direct one more, then have Supercomputer assemble the takes into a captioned cut with a soundtrack. Score the cut against the quality parameters and your Lab 3 standards before anything is exported.
 
 **What you'll build**
 
-A video with a professional AI voiceover, denoised audio and a clean replaced background.   (Tools: VEED Text-to-Speech, Clean Audio, Background Remover.)
+A captioned 15–30 s cut in 16:9 and 9:16 with a scored quality checklist and a list of storytelling improvements.   (Tools: Higgsfield: Cinema Studio, Supercomputer (video montage: trims, soundtrack, burned captions).)
 
 **Prompts for this lab**
 
-> **Prompt — Voiceover script tone:**
+> **Prompt — Direct one change:**
 >
 > ```
-> Rewrite this script for text-to-speech narration: short sentences, natural spoken rhythm, no brackets or symbols the TTS would read aloud, warm confident tone.
+> Keep everything in this take the same. Change one thing only: in shot 3 make the camera push in slowly on the biker's face as he recognises his friend, and add a beat of silence before the dialogue.
 > ```
 
-> **Prompt — Background scene:**
+> **Prompt — Assemble, caption and score (Supercomputer):**
 >
 > ```
-> Generate an image: modern minimalist studio backdrop in soft teal gradient, subtle depth, no text, suitable as a video call background.
+> Assemble these two clips into one 20-second cut: take 2 first, then shots 4–5 of take 1. Trim dead frames at each cut.
+> Add a moody low-tempo soundtrack under the bar ambience, keep the dialogue clearly above the music.
+> Burn captions for the dialogue: white, bottom third, two lines max. Export 16:9 and 9:16.
+> Then score the cut against: resolution, motion, face/prop continuity, audio, captions, pacing, platform compliance. Table, pass/fail.
 > ```
 
 **Step-by-step**
 
-1. In your VEED project, open Audio → Text to Speech; paste your script, choose a voice (accent, gender, tone) and generate the voiceover track.
-2. Align the voiceover on the timeline and duck the music: lower music volume to ~20% under speech.
-3. Record (or upload) a webcam clip with room noise, then enable Clean Audio to strip background noise and compare before/after.
-4. Select the webcam clip and toggle Remove Background — the AI mattes you out without a green screen.
-5. Replace the background: drop in a brand-coloured background, an office image, or an AI-generated scene behind the cut-out.
-6. Check lighting/edge artefacts on the matte; if edges shimmer, try a simpler background or better-lit source clip.
-7. Export and note the quality issues you fixed (noise, clutter) and the solutions applied — this is exactly what the WA asks you to explain.
+1. Watch your Lab 5 final with sound. Choose ONE change (or one variation) and write it as a single instruction.
+2. Generate one new Draft take with that change. Keep both prompts and both clips: the comparison is your evidence.
+3. Run the continuity check on the prop: where is it, who holds it, does it stay the same from shot to shot? Log it in assets/continuity-log.csv.
+4. Open Supercomputer and paste the assembly prompt with your two best clips. It trims, orders, adds a soundtrack and burns captions, then exports 16:9 and 9:16.
+5. Score the cut with assets/quality-checklist.pdf: resolution and sharpness, frame rate and motion, continuity of faces and props, audio (dialogue above music, no clipping), captions (accurate, in sync, readable), pacing, compliance.
+6. Assess compliance against your Lab 3 sheet: correct ratio per platform, AI-content label planned, no real person's likeness without consent, music cleared for commercial use.
+7. List three areas of improvement that would make the story land better (A4), for example a stronger opening image, a cut that lands on the reaction, or a sound cue on the payoff.
+8. Screenshot the scored checklist and both exports for your evidence.
 
 **Check your work**
 
-The voiceover is clear and correctly timed, background noise is audibly reduced, and the replaced background has clean edges around the presenter.
+The checklist scores every parameter with a reason, the cut exports in both ratios with readable captions, and you name three storytelling improvements tied to specific shots.
 
-> **Note:** This lab has its own folder: labs/lab-07-ai-voiceover-clean-audio-background-removal/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
 
----
+- quality-checklist.pdf — the seven quality parameters with pass/fail criteria
+- continuity-log.csv — shot, prop position, who holds it, same as previous?
+- client-standards-example.pdf — a filled standards sheet to assess against
 
+**Evidence to keep (screenshots for the PP)**
 
-### Lab 8 — Mini Project — Assess and Fix Video Quality
+- Your scored quality checklist (before export)
+- Your 16:9 and 9:16 exports with captions
 
-Maps to: K1, K3, A4, A5, A6 — assess footage against parameters and remediate.
-
-Goal: Bring it together: assess a flawed video against objective quality parameters (resolution, frame rate, audio levels, consistency, pacing, captions), diagnose its issues, plan remedial actions, and fix it on VEED to meet the standards sheet you wrote in Lab 4.
-
-**What you'll build**
-
-A quality-assessment checklist with findings, plus the remediated video that passes your own standards.   (Tools: VEED, ChatGPT (assessment checklist).)
-
-**Prompts for this lab**
-
-> **Prompt — Generate the checklist:**
->
-> ```
-> Create a video quality-assessment checklist with pass/fail criteria for: resolution, aspect ratio, frame rate, audio loudness and noise, visual consistency, pacing, caption accuracy, branding, and legal compliance. Format as a table I can score a video against.
-> ```
-
-> **Prompt — Diagnose from description:**
->
-> ```
-> My video has: muffled voice under loud music, captions that lag the speech, and a washed-out opening shot. For each issue, state the likely cause and the fastest fix in an online editor.
-> ```
-
-**Step-by-step**
-
-1. Take a deliberately rough cut (your Lab 5 export, or the trainer's sample) and screen it end-to-end once without touching anything.
-2. Score it against the assessment parameters: resolution & sharpness, aspect ratio, frame-rate smoothness, audio levels & noise, colour/visual consistency, pacing, caption accuracy, brand & legal compliance.
-3. List every failed parameter as a quality issue, and match each issue to a remedial action (K1 → K2 mapping) — e.g. cluttered background → background removal; low voice → duck music + boost voice.
-4. Apply the fixes on VEED: re-crop, clean audio, restyle captions, replace the weak opening shot, tighten pacing by cutting dead sections.
-5. Re-screen the fixed video against the same checklist and against your Lab 4 standards sheet until every parameter passes.
-6. Export the final video and keep the before/after checklist — it is your evidence of A5/A6 competence.
-
-**Check your work**
-
-You can present the scored checklist (before and after), name each issue and its remedial action, and the fixed video passes every parameter including your Lab 4 standards.
-
-> **Note:** This lab has its own folder: labs/lab-08-mini-project-assess-and-fix-video-quality/ — open its README.md for the same steps plus tips and troubleshooting.
+> **Note:** This lab has its own folder: labs/lab-06-cut-caption-and-assess-the-scene/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
 ## Topic 03 — Apply New AI Technologies to Improve Video Production
 
-AI avatars & visuals · AI music · voice cloning & dubbing · agentic AI publishing  (Covers K4 · K5 · A6 · A7.)
+Remove & replace objects · cinematic effects · upscale · voice & music · models compared · publish  (Covers K4 · K5 · A6 · A7.)
 
 **Key concepts**
 
-- AI avatars — Photorealistic talking presenters from text — no camera, studio or actor needed.
-- AI image & VFX — Generate images, remove objects and backgrounds, and enhance shots with AI eye contact.
-- AI music generation — Compose custom, royalty-free soundtracks with Suno and Udio from a text prompt.
-- Voice cloning & dubbing — Clone a voice for narration and dub videos into other languages with lip sync.
-- Agentic AI publishing — Let an AI agent draft titles, descriptions and hashtags, then push the video to YouTube and TikTok.
-- Evaluating new tech — Compare AI tools on quality, cost, speed and rights to decide what enters your pipeline.
+- Remove & replace — Genjutsu Replace Object swaps a product, prop or garment in finished footage, keeping the motion.
+- Cinematic effects — Lighting presets, colour grades and viral effect presets add VFX without a compositor.
+- Enhance shots — Upscale to 1080p or 4K, reframe 16:9 to 9:16, regenerate only the broken shot.
+- Voice & music — Native Seedance audio, a cloned voice for narration and a generated soundtrack.
+- Models compared — Seedance 2.5, Kling 4.0, Cinema Studio 4.0 and Genjutsu: pick per shot on quality, cost and control.
+- Publish responsibly — Export per platform, label synthetic media, clear consent, then share to TikTok or YouTube.
 
 
-### Lab 9 — AI Avatars, AI Images & Eye Contact
+### Lab 7 — Fix What Fails: Remedial Actions in Higgsfield
 
-Maps to: K5, A7 — apply and evaluate new AI production technologies.
+Maps to: A6 — develop remedial actions for footage that does not meet requirements; K4 — industry quality standards.
 
-Goal: Produce presenter-led video without a camera: generate a talking AI avatar from your script, create supporting visuals with the AI image generator, and fix off-camera gaze on recorded clips with AI eye contact correction.
+Goal: Take every FAIL from your Lab 6 checklist and match it to a Higgsfield fix: replace the wrong object, upscale soft footage, reframe for vertical, or regenerate only the broken shot with the same Elements. Apply at least two fixes and re-score.
 
 **What you'll build**
 
-An avatar-presented video with AI-generated imagery, plus an eye-contact-corrected webcam clip.   (Tools: VEED AI Avatars, AI Image Generator, AI Eye Contact.)
+A remediated cut with a before/after checklist and a remedy table (issue, cause, Higgsfield fix, result).   (Tools: Higgsfield: Genjutsu Replace Object, Upscale, Reframe, Cinema Studio (regenerate a shot).)
 
 **Prompts for this lab**
 
-> **Prompt — Avatar script:**
+> **Prompt — Diagnose the cut (Supercomputer):**
 >
 > ```
-> Condense this script to a 30-second avatar narration: first person, friendly-expert tone, short sentences with natural pauses, no stage directions.
+> Here is my cut and my quality checklist. For every FAIL, give: the issue, the likely cause, the Higgsfield fix
+> (Replace Object, Upscale, Reframe, regenerate one shot with the same Elements, or a new Sound line) and the credit cost.
+> Order the fixes cheapest first. Table.
 > ```
 
-> **Prompt — B-roll images:**
+> **Prompt — Replace an object (Genjutsu):**
 >
 > ```
-> Generate an image: isometric illustration of a video production pipeline — script, camera, waveform, play button — clean flat style, teal and blue palette, no text.
+> Replace the orange briefcase in this clip with the black hard-shell case in the reference image. Keep the hand position, motion, lighting and timing exactly the same.
+> ```
+
+> **Prompt — Regenerate one shot only:**
+>
+> ```
+> Regenerate shot 3 only. Same Elements (@char_biker, @loc_bar-interior), same framing and timing. Fix: his face must match the reference sheet and the case stays in his left hand.
 > ```
 
 **Step-by-step**
 
-1. In VEED, open AI Avatars and browse the avatar library (or create a personal avatar from a short webcam recording).
-2. Paste a 30-second section of your script, choose the avatar's voice and language, and generate the talking-head clip.
-3. Use the AI Image Generator to create two supporting visuals for your topic, and cut them in as b-roll over the avatar's narration.
-4. Record a 15-second webcam clip while reading from notes (eyes off-camera), then apply AI Eye Contact and compare the corrected gaze.
-5. Assemble avatar + b-roll + captions into one sequence and export.
-6. Evaluate (A7): note where an avatar beats filming a human (speed, cost, consistency, translation) and where it falls short (authenticity, emotion).
+1. Copy every FAIL from your Lab 6 checklist into assets/remedy-table.csv with its likely cause.
+2. Match each issue to a fix using assets/remedy-map.pdf: wrong or drifting object → Genjutsu Replace Object; soft or 480p footage → Upscale; wrong ratio → Reframe 16:9 to 9:16; broken shot → regenerate that shot only with the same Elements; muddy audio → regenerate with a clearer Sound line.
+3. Replace an object: open Genjutsu, choose Replace Object, upload the clip and the new prop image, describe the swap. The motion, framing and timing stay; only the object changes.
+4. Apply at least one more fix from the map. Test it on a Draft before spending on a final.
+5. Re-score the cut with the same checklist and record before/after in the remedy table.
+6. Compliance pass (K4): platform specs met, AI-content label ready, consent and rights recorded.
+7. Screenshot the before/after frames and the completed remedy table for your evidence.
 
 **Check your work**
 
-The avatar's lip sync matches the narration, the AI images support the message, and the eye-contact clip looks naturally at camera.
+At least two FAILs are fixed with named Higgsfield tools, the re-score shows them as PASS, and the remedy table states the cause and credit cost of each fix.
 
-> **Note:** This lab has its own folder: labs/lab-09-ai-avatars-ai-images-eye-contact/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
+
+- remedy-map.pdf — issue → Higgsfield fix → typical credit cost
+- remedy-table.csv — issue, cause, fix, before, after
+- flawed-cut-notes.pdf — a worked example of a failing cut and its fixes
+
+**Evidence to keep (screenshots for the PP)**
+
+- Before/after frames of each fix
+- Your completed remedy table with the re-scored checklist
+
+> **Note:** This lab has its own folder: labs/lab-07-fix-what-fails-remedial-actions-in-higgsfield/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
-### Lab 10 — AI Music Generation with Suno & Udio
+### Lab 8 — Add Voice, Music and Cinematic Effects
 
-Maps to: K5, A7 — generate custom soundtracks and evaluate the tools.
+Maps to: K5 — technologies that improve efficiency and quality; A7 — evaluate new technologies.
 
-Goal: Compose custom, royalty-free music for your videos: write a music prompt (genre, mood, tempo, instrumentation), generate tracks on Suno and Udio, and pick and place the best track under your video with correct levels.
+Goal: Finish the scene with the three upgrades that used to need three vendors: a generated soundtrack, a voiceover in a cloned or stock voice, and a cinematic effect. Time each one and rate it on quality, cost and control.
 
 **What you'll build**
 
-Two AI-composed soundtrack candidates (Suno + Udio) and your video re-scored with the winner.   (Tools: Suno (suno.ai), Udio (udio.com), VEED.)
+Your scene with a generated soundtrack, a voiceover line and one cinematic effect, plus a rated technology evaluation.   (Tools: Higgsfield: Audio (music + voice), Create Voice, lighting and colour presets, effect presets.)
 
 **Prompts for this lab**
 
-> **Prompt — Music prompt:**
+> **Prompt — Soundtrack:**
 >
 > ```
-> Uplifting corporate pop instrumental, 100 BPM, warm piano and soft synths building to a bright chorus, optimistic and modern, no vocals, 60 seconds, clean ending.
+> Moody late-night bar soundtrack, 20 seconds, slow 80 BPM, warm Rhodes piano, soft brushed drums, upright bass, building slightly on the last 5 seconds. Instrumental, no vocals.
 > ```
 
-> **Prompt — Mood variation:**
+> **Prompt — Voiceover line:**
 >
 > ```
-> Same track but calmer: acoustic guitar led, gentle percussion, morning-light feel, suitable under a spoken voiceover.
+> Calm, low male voice, unhurried, Singapore English: "Some nights you don't need a plan. You just need to show up."
+> ```
+
+> **Prompt — Cinematic effect re-run:**
+>
+> ```
+> Same shot, same Elements. Lighting: silhouette against the window, city lights behind. Colour: Black gloss. Slow push-in. Keep timing and action identical.
 > ```
 
 **Step-by-step**
 
-1. Sign in at suno.ai, describe the track you need (genre, mood, tempo, instruments, no vocals) and generate two candidates.
-2. Repeat the same prompt on udio.com and generate two more candidates.
-3. Audition all four against your video's pacing: does the energy match the cut points and the call-to-action?
-4. Download the winner, import it into your VEED project, and place it under the voiceover at ~20% volume with a fade-out at the end.
-5. Check rights: confirm the plan you used grants commercial use of the generated track.
-6. Compare Suno vs Udio (A7): quality, control, speed, licensing — record which you would adopt and why.
+1. Open Audio and generate a 20-second soundtrack from the music prompt. Generate two variations and keep the one that fits the cut's pace.
+2. Voice: either pick a stock voice, or create your own voice from a clean 30-second recording of YOUR voice. Clone only a voice you have consent to use; sign assets/voice-consent-form.pdf for your own.
+3. Generate the voiceover line and place it over the opening shot.
+4. Apply one cinematic effect: re-run a shot with a different Lighting preset (Silhouette or Window) and Colour palette, or apply an effect preset from the effects gallery to one shot.
+5. Record minutes and credits for each step in assets/tech-evaluation.csv and estimate what the same job takes with a studio, a composer and a voice artist.
+6. Rate each technology 1–5 on quality, speed, cost, control and rights (A7), and decide whether it joins your pipeline.
+7. Screenshot the Audio page, the effect before/after and your rated evaluation for your evidence.
 
 **Check your work**
 
-The chosen track matches the video's mood and pacing, sits under the voiceover without masking speech, and you can state its usage rights.
+The scene carries a generated soundtrack and a consented voiceover, one shot shows a clear cinematic effect, and every technology has a 1–5 rating with a keep/drop verdict.
 
-> **Note:** This lab has its own folder: labs/lab-10-ai-music-generation-with-suno-udio/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
+
+- music-prompt-cards.pdf — genre, tempo, instrument and mood cards
+- voice-consent-form.pdf — consent to clone and use your own voice
+- tech-evaluation.csv — technology, minutes, credits, quality, speed, cost, control, rights, verdict
+
+**Evidence to keep (screenshots for the PP)**
+
+- Your generated soundtrack and voiceover in Higgsfield
+- Effect before/after and your rated technology evaluation
+
+> **Note:** This lab has its own folder: labs/lab-08-add-voice-music-and-cinematic-effects/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
-### Lab 11 — Voice Cloning, AI Dubbing & Lip Sync
+### Lab 9 — Use-Case Sprint: One Product Photo to a Published 15-Second Ad
 
-Maps to: K5, A7 — clone voices, dub languages and evaluate ethics/quality.
+Maps to: A7 — evaluate new technologies; K4 — industry standards before publishing.
 
-Goal: Give your videos a consistent voice at scale: clone your own voice from a short sample, narrate a script with the clone, then auto-dub a video into another language with translated audio and lip-synced delivery.
+Goal: Run the whole pipeline on a real use case. Start from one product photo, shoot a campaign with the product-photoshoot skill, make a 15-second ad in Cinema Studio, compare two video models on the same prompt, then export, label and publish.
 
 **What you'll build**
 
-A voiceover in your own cloned voice, and a dubbed version of your video in a second language.   (Tools: VEED Voice Clone & Dubbing, ElevenLabs, Sync Labs / D-ID (explore).)
+A 15-second ad (16:9 and 9:16) made from one product photo, a two-model comparison, and a publish-ready post.   (Tools: Higgsfield: Supercomputer (/product-photoshoot), Cinema Studio, Seedance 2.5, Kling 4.0, TikTok publishing.)
 
 **Prompts for this lab**
 
-> **Prompt — Dub-ready rewrite:**
+> **Prompt — Campaign stills (/product-photoshoot):**
 >
 > ```
-> Rewrite this narration for dubbing into Mandarin: avoid idioms and wordplay, keep sentences short, keep brand names in English, target the same 45-second duration.
+> /product-photoshoot Make a cool photoshoot for this bottle with our runner in the three Singapore locations we picked. Six photos: three with her and three of just the bottle. Make them vertical, 9:16.
+> ```
+
+> **Prompt — 15-second ad — five shots (Cinema Studio):**
+>
+> ```
+> Scene context: A 15-second premium commercial for SOLA, a matte-black insulated steel bottle, at sunrise on a Singapore rooftop running track.
+> References: @prop_sola — the bottle, 100% as shown. @char_runner — runner, 100% as shown.
+> Shots (hard cut between each):
+> 1. 0–3s: extreme close-up, first sun ray slides across the bottle. Slow push-in.
+> 2. 3–6s: medium, the runner grabs it mid-stride. Tracking.
+> 3. 6–9s: close-up, she drinks; ice clinks. Slow motion.
+> 4. 9–12s: wide, she runs along the rooftop edge, skyline glowing. Drone pulls back.
+> 5. 12–15s: hero packshot, clean space at top for the logo.
+> Sound: upbeat electronic beat building to a hit on the packshot, footsteps, ice, whoosh on each cut. No on-screen text.
+> ```
+
+> **Prompt — Pick a use case (variation):**
+>
+> ```
+> Rewrite this ad brief as a 15-second AI micro-drama cliffhanger: same product, two characters, one twist in the last 3 seconds, vertical 9:16, dialogue in one line.
 > ```
 
 **Step-by-step**
 
-1. Record a clean 30–60 s voice sample (quiet room, natural pace) — consent and disclosure rules apply to any voice you clone; clone ONLY your own voice in class.
-2. Create the clone (VEED voice cloning or elevenlabs.io) and generate your Lab 1 script in your cloned voice.
-3. Compare the cloned narration with the stock TTS voice from Lab 7 — naturalness, pacing, pronunciation of local terms.
-4. Auto-dub: take your finished video and use VEED's dubbing to translate the audio into Mandarin/Malay/Spanish, keeping your voice character.
-5. Check the lip sync on the dubbed clip; explore D-ID or Sync Labs to lip-sync a still portrait to your cloned audio.
-6. Evaluate (A7): where do cloning/dubbing add value (multilingual reach, consistency), and what are the ethical red lines (consent, deepfake misuse, disclosure)?
+1. Upload the product photo from assets/ (or your own product) to Supercomputer with a character sheet and a street location.
+2. Type /product-photoshoot and ask for six vertical 9:16 photos: three with your character, three of the product alone.
+3. Open Cinema Studio, attach the product, the character and the location as references, and write the 15-second ad with the five-shot structure on the prompts page. Generate a Draft first.
+4. Run the same prompt on a second model (Kling 4.0 or Cinema Studio 4.0) and compare with assets/model-comparison.csv: product accuracy, motion, audio, credits, render time.
+5. Finalise the winner in 1080p and reframe a 9:16 version.
+6. Pre-publish check: AI-generated label on, no unlicensed logos or music, consent recorded, caption and hashtags ready.
+7. Publish to TikTok from Higgsfield (connect your account, post as private or only-me in class), or download the MP4 for the TMS upload. Screenshot the comparison table and the post settings for your evidence.
 
 **Check your work**
 
-The cloned voice is recognisably yours and pronounces the script cleanly; the dubbed video plays in the second language with acceptable lip sync; you can state the consent rule for cloning.
+The ad runs 15 s in both ratios, keeps the product accurate in every shot, the comparison table justifies the chosen model on at least three criteria, and the post carries an AI-generated label.
 
-> **Note:** This lab has its own folder: labs/lab-11-voice-cloning-ai-dubbing-lip-sync/ — open its README.md for the same steps plus tips and troubleshooting.
+**Mock assets in the lab folder**
 
----
+- sample-product-sola.jpg — the product photo to start from
+- campaign-brief.pdf — SOLA brief, audience, platforms, mandatory label
+- model-comparison.csv — model, product accuracy, motion, audio, credits, time, verdict
+- publish-checklist.pdf — AI label, rights, consent, caption, hashtags
 
+**Evidence to keep (screenshots for the PP)**
 
-### Lab 12 — Agentic AI Publishing to YouTube & TikTok
+- Your two-model comparison table
+- The final 15 s ad (upload the MP4 to the TMS) and the publish settings
 
-Maps to: A7 — adopt agentic AI to close the pipeline from edit to publish.
-
-Goal: Close the GenAI video pipeline with an agentic step: export platform-ready cuts, then let an AI agent draft the title, description, hashtags and thumbnail concept, and push the video to YouTube and TikTok — scheduling included — while you stay in review control.
-
-**What you'll build**
-
-Your video live (unlisted) on YouTube and/or TikTok, published via an agent-assisted workflow with AI-drafted metadata.   (Tools: VEED export, ChatGPT/Claude (agent), YouTube Studio, TikTok, n8n/Zapier (optional).)
-
-**Prompts for this lab**
-
-> **Prompt — Publishing kit:**
->
-> ```
-> You are my publishing agent. For this 45-second video promoting an online learning platform, produce: 3 SEO YouTube title options under 60 characters, a 2-paragraph description with a call-to-action and link placeholder, 10 YouTube tags, a TikTok caption under 150 characters with 5 hashtags, a thumbnail concept (composition, text overlay, colours), and the best posting time for the Singapore audience. Present it as a checklist I can approve item by item.
-> ```
-
-> **Prompt — Agentic automation spec:**
->
-> ```
-> Design an n8n workflow that: watches a Google Drive folder for a new MP4, drafts YouTube metadata with an LLM node, waits for my approval via email, then uploads to YouTube with the approved metadata and posts the link to Slack. List the nodes and the data passed between them.
-> ```
-
-**Step-by-step**
-
-1. Export two cuts from VEED: 16:9 1080p for YouTube and 9:16 for TikTok/Shorts, captions burned in for the vertical cut.
-2. Ask an AI agent to draft the publishing kit: SEO title options, description with timestamps and links, 10 hashtags per platform, and a thumbnail concept.
-3. Generate the thumbnail with the AI image generator from the agent's concept, and review the full kit — you approve every word before it ships.
-4. Publish to YouTube: upload the 16:9 cut in YouTube Studio (set to Unlisted for class), paste the agent's title/description/tags, upload the thumbnail, and schedule the release time the agent recommends.
-5. Publish to TikTok: upload the 9:16 cut, apply the agent's caption and hashtags, and schedule at the recommended engagement window.
-6. Optional — automate: wire an n8n/Zapier flow (or a computer-use agent) that watches a Drive folder and performs the upload + metadata steps automatically, keeping a human-approval gate before anything goes live.
-7. Verify both posts, then reflect: which pipeline stages (script → video → audio → edit → publish) are now AI-assisted, and where must a human stay in the loop?
-
-**Check your work**
-
-The video is live (unlisted) on at least one platform with agent-drafted, human-approved metadata, and you can describe where the approval gate sits in the agentic flow.
-
-> **Note:** This lab has its own folder: labs/lab-12-agentic-ai-publishing-to-youtube-tiktok/ — open its README.md for the same steps plus tips and troubleshooting.
+> **Note:** This lab has its own folder: labs/lab-09-use-case-sprint-one-product-photo-to-a-published/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
 ## Assessment Preparation
 
-- Written Assessment (SAQ), 1 hour, open book — 5 questions covering K1–K5: quality issues, AI solutions, assessment parameters, industry standards and new editing technologies.
-- Practical Performance, 1 hour, open book — 3 tasks covering A1–A7: script + video creation, VEED editing with text/music/transitions, and text-to-video with quality remediation.
-- Revisit Lab 8's checklist — the WA questions on quality issues and fixes mirror it directly.
-- Keep your lab outputs open during the PP — the tasks repeat what Labs 1, 3, 5, 7 and 8 practised.
-- Sharpen your GenAI fundamentals with the free practice exams at https://exams.tertiaryinfotech.com (e.g. the Claude Certified Associate — Foundations exam).
+- Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.
+- Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–9. Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.
+- Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.
+- Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.
+- Practise with the free exams at https://exams.tertiaryinfotech.com.
 
 
 ## Glossary
 
-- **Generative AI (GenAI)** — AI models that create new content — text, images, audio, video — from a prompt.
-- **Prompt engineering** — Structuring the instruction you give an AI (e.g. with RICCE) to control output quality.
-- **RICCE** — Role, Instructions, Context, Constraints, Example — a prompt framework for production-ready output.
-- **Text-to-video** — Generating complete video footage from a written description (Sora, Veo, Kling, VEED).
-- **AI avatar** — A synthetic on-screen presenter that speaks your script with lip-synced delivery.
-- **Text-to-speech (TTS)** — Converting written text into natural spoken audio with an AI voice.
-- **Voice cloning** — Recreating a specific person's voice from a sample — requires that person's consent.
-- **AI dubbing** — Translating a video's speech into another language, re-voiced and lip-synced.
-- **Auto subtitles** — AI speech recognition that transcribes audio into synchronised captions.
-- **Background removal** — AI matting that separates the subject from the backdrop without a green screen.
-- **Aspect ratio** — Frame proportions — 16:9 (YouTube), 9:16 (TikTok/Shorts/Reels), 1:1 (feed).
-- **Agentic AI** — AI that plans and executes multi-step tasks (drafting metadata, uploading, scheduling) with human approval gates.
-- **SRT/VTT** — Subtitle file formats carrying timed caption text.
-- **Royalty-free** — Licensed for use without per-use payments — always verify commercial-use rights on AI output.
+- **Higgsfield** — An AI video studio (higgsfield.ai) holding many image and video models, an agent and cinematic controls in one place.
+- **Supercomputer** — Higgsfield's agent: you brief it in plain English, it writes prompts, calls tools and asks you to approve each spend.
+- **Cinema Studio** — Higgsfield's director panel: references, camera body, lens, aperture, lighting, colour palette, genre, model and settings.
+- **AI Director** — The director chat inside a Higgsfield project that writes scripts and storyboards.
+- **Seedance 2.5** — ByteDance's video model in Higgsfield: 4–30 s, up to 1080p, native audio, up to 50 references.
+- **Draft mode** — Seedance 2.5 Draft renders a cheap 480p take that can be finalised at 1080p within seven days.
+- **Element** — A saved character, location or prop with an @handle (e.g. @char_biker) reused as a reference in any prompt.
+- **Reference** — An image, video or audio file attached to a generation with a role: character, location, camera move or voice.
+- **Shot / take** — A shot is one camera set-up in the script; a take is one generated attempt at it.
+- **Multishot** — One generation containing several shots with cuts between them.
+- **Genjutsu** — Higgsfield's tool for replacing objects or copying motion in existing footage.
+- **Aspect ratio** — Frame proportions: 16:9 (YouTube), 9:16 (TikTok, Shorts, Reels), 21:9 (cinema).
+- **AI disclosure label** — The platform setting that marks realistic AI-generated content (TikTok's AI-generated label, YouTube's altered or synthetic content setting).
+- **Credits** — Higgsfield's usage currency; every generation shows its credit cost before you approve it.

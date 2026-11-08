@@ -1,83 +1,89 @@
 # Creating Engaging Videos with Generative AI (GenAI)
 
-Take a video from text prompt to published post, with generative AI at every stage of the production pipeline.
+Script, cast, shoot, fix and publish a 15-second film in one AI studio: Higgsfield.
 
 | Course detail | Information |
 |---|---|
 | Course code | `TGS-2024043855` |
 | Programme | WSQ |
-| Duration | 2 days / 16 hours |
+| Duration | 2 days / 16 hours (including a 2-hour assessment) |
 | Registration | [View course details and register](https://www.tertiarycourses.com.sg/wsq-creating-engaging-videos-with-generative-ai-genai.html) |
-| Funding | Up to 70% course-fee funding may be available. Eligibility, validity dates and other terms apply; check the registration page for current details. |
+| Funding | Up to 70% course-fee funding may be available (funding validity 2 Apr 2024 – 1 Apr 2027). Eligibility and terms apply; check the registration page for current details. |
+| Courseware version | v8 · 9 November 2026 |
 
 ## About the course
 
-This 2-day WSQ course walks learners through an AI-assisted video production pipeline: writing scripts with generative AI, producing text-to-video footage, adding AI voiceover and music, editing on VEED, and publishing with agentic AI to YouTube and TikTok.
+The whole GenAI video pipeline runs inside [Higgsfield](https://higgsfield.ai): you brief **Supercomputer**, Higgsfield's agent, in plain English, or direct every shot yourself in **Cinema Studio**. You write a script and shot list with AI Director, save your cast, sets and props as reusable **Elements**, direct takes with **Seedance 2.5** (testing on cheap 480p **Draft** takes before a 1080p final), fix what fails, add voice, music and cinematic effects, and publish a labelled 15-second ad.
 
 ```mermaid
 flowchart LR
-    A["1 · AI-Generated Script\nChatGPT · Gemini · Claude"] --> B["2 · AI-Generated Video\nVEED · Sora · Kling · Veo"]
-    B --> C["3 · AI Voiceover & Music\nTTS · Voice Clone · Suno · Udio"]
-    C --> D["4 · AI Video Editing\nCaptions · Clean Audio · Resize"]
-    D --> E["5 · Agentic AI Publishing\nYouTube · TikTok"]
+    A["1 · Script & Shot List\nSupercomputer · AI Director"] --> B["2 · Elements\ncharacters · locations · props"]
+    B --> C["3 · Shots & Takes\nCinema Studio · Seedance 2.5"]
+    C --> D["4 · Fix & Finish\nreplace · upscale · voice · music"]
+    D --> E["5 · Publish\n9:16 + 16:9 · TikTok · YouTube"]
 ```
 
-Every lab in this course maps to a stage of this pipeline.
+The deck opens with two 15-second films made in Higgsfield for this course and real-world use cases: AI movies, AI micro dramas, AI influencers, AI singers and AI marketing videos.
 
 ## Learning outcomes
 
-- **LO1** — Develop video editing strategies and work plans to achieve creative video.
-- **LO2** — Assess edited video footage to enhance storytelling and ensure technical compliance.
-- **LO3** — Develop remedial actions to ensure industry compliance and facilitate the adoption of new technologies in video editing.
+- **LO1** — Create video scripts using Generative AI (GAI) and work plans for video production.
+- **LO2** — Edit video footage to improve video quality and ensure technical compliance.
+- **LO3** — Apply new AI technologies to improve efficiency and quality in accordance to industry standards.
+
+Skills Framework: TSC *Video Editing* (`MED-MPN-4005-1.1`).
 
 ## Topics covered
 
-- **Topic 1 — Create and Edit Video Script Using GenAI**
-- **Topic 2 — Improve Video Footage on GenAI-Powered Video Platforms**
-- **Topic 3 — Apply New AI Technologies to Improve Video Production**
-
-Tools used: [VEED](https://www.veed.io/) (AI Video Maker, editor, subtitles, TTS, avatars, dubbing) · ChatGPT / Gemini / Claude / Copilot · Suno · Udio · ElevenLabs · YouTube Studio · TikTok
+- **Topic 1 — Create and Edit Video Script Using Generative AI (GenAI):** the impact of AI on video creation and its use cases, Supercomputer and AI Director scripts and shot lists, Skills, standards and guidelines, work plans and credit budgets.
+- **Topic 2 — Improve Video Footage on GenAI-Powered Video Platforms:** Elements (characters, locations, props), references, Cinema Studio controls, shot structure and sizes, sound, Draft mode and takes, assessing the cut.
+- **Topic 3 — Apply New AI Technologies to Improve Video Production:** remedial actions (replace objects, upscale, reframe, regenerate a shot), voice, music and cinematic effects, comparing models, industry standards and AI disclosure, publishing.
 
 ## Labs
 
-One folder per lab, each with prompts, step-by-step instructions and a success check. See the [labs index](labs/README.md).
+Nine labs, all in Higgsfield. Each folder holds `README.pdf` (step-by-step instructions), `prompts.html` (one-click copy prompts), `prompts.pdf` and `assets/` (mock briefs, templates, checklists and sample media). Start from the [labs home page](labs/index.html).
 
-**Topic 1 — Create and Edit Video Script Using GenAI**
+**Topic 1**
 
-1. [Generate a Video Script with the RICCE Framework](labs/lab-01-generate-a-video-script-with-the-ricce-framework/)
-2. [Build Story-Driven Scripts with Prompt Templates & Custom GPTs](labs/lab-02-build-story-driven-scripts-with-prompt-templates/)
-3. [AI Text-to-Video with VEED](labs/lab-03-ai-text-to-video-with-veed/)
-4. [Develop Video Standards, Guidelines & a Production Work Plan](labs/lab-04-develop-video-standards-guidelines-a-production/)
+1. [Sign Up and Make Your First 15-Second Video](labs/lab-01-sign-up-and-make-your-first-15-second-video/)
+2. [Write the Script and Shot List with Supercomputer and AI Director](labs/lab-02-write-the-script-and-shot-list-with-supercompute/)
+3. [Set the House Rules: Standards, Work Plan and Credit Budget](labs/lab-03-set-the-house-rules-standards-work-plan-and-cred/)
 
-**Topic 2 — Improve Video Footage on GenAI-Powered Video Platforms**
+**Topic 2**
 
-5. [VEED Video Editing Essentials](labs/lab-05-veed-video-editing-essentials/)
-6. [Auto Subtitles, Captions, Transcripts & Translation](labs/lab-06-auto-subtitles-captions-transcripts-translation/)
-7. [AI Voiceover, Clean Audio & Background Removal](labs/lab-07-ai-voiceover-clean-audio-background-removal/)
-8. [Mini Project — Assess and Fix Video Quality](labs/lab-08-mini-project-assess-and-fix-video-quality/)
+4. [Build Your Elements: Characters, Locations and Props](labs/lab-04-build-your-elements-characters-locations-and-pro/)
+5. [Direct Shots and Takes in Cinema Studio](labs/lab-05-direct-shots-and-takes-in-cinema-studio/)
+6. [Cut, Caption and Assess the Scene](labs/lab-06-cut-caption-and-assess-the-scene/)
 
-**Topic 3 — Apply New AI Technologies to Improve Video Production**
+**Topic 3**
 
-9. [AI Avatars, AI Images & Eye Contact](labs/lab-09-ai-avatars-ai-images-eye-contact/)
-10. [AI Music Generation with Suno & Udio](labs/lab-10-ai-music-generation-with-suno-udio/)
-11. [Voice Cloning, AI Dubbing & Lip Sync](labs/lab-11-voice-cloning-ai-dubbing-lip-sync/)
-12. [Agentic AI Publishing to YouTube & TikTok](labs/lab-12-agentic-ai-publishing-to-youtube-tiktok/)
+7. [Fix What Fails: Remedial Actions in Higgsfield](labs/lab-07-fix-what-fails-remedial-actions-in-higgsfield/)
+8. [Add Voice, Music and Cinematic Effects](labs/lab-08-add-voice-music-and-cinematic-effects/)
+9. [Use-Case Sprint: One Product Photo to a Published 15-Second Ad](labs/lab-09-use-case-sprint-one-product-photo-to-a-published/)
+
+## What you need
+
+- A laptop with Chrome and a headset.
+- A Higgsfield account on a paid plan. Sign up with the course link [higgsfield.ai?fpr=alfred-d0d32b](https://higgsfield.ai?fpr=alfred-d0d32b) — this is the trainer's affiliate link: the trainer may earn a commission and you pay the normal price. The labs run on higgsfield.ai, which needs a paid plan (Plus was US$49/month, or US$39 billed yearly, for 1,000 credits on 8 Nov 2026). The free 3-day trial needs a card, renews to Plus unless cancelled within 3 days, and its credits worked only through the Higgsfield MCP, not on the website.
+- Budget guide: a 15-second Seedance 2.5 Draft costs about 45 credits; the 1080p final about 240.
+- Watch first: [Higgsfield AI Tutorial for Beginners (2026)](https://www.youtube.com/watch?v=Mt91SiQotOU) · Reference: [Higgsfield API docs](https://docs.higgsfield.ai/docs).
 
 ## Public courseware package
 
 | Item | Files |
 |---|---|
-| Slide deck (v7) | [PPTX](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v7.pptx>) · [PDF](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v7.pdf>) |
+| Slide deck (v8) | [PPTX](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v8.pptx>) · [PDF](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v8.pdf>) |
 | Learner Guide | [DOCX](<courseware/LG-Creating Engaging Videos with Generative AI (GenAI).docx>) · [PDF](<courseware/LG-Creating Engaging Videos with Generative AI (GenAI).pdf>) · [Markdown](<LG-Creating Engaging Videos with Generative AI (GenAI).md>) |
 | Lesson Plan | [DOCX](<courseware/LP-Creating Engaging Videos with Generative AI (GenAI).docx>) · [PDF](<courseware/LP-Creating Engaging Videos with Generative AI (GenAI).pdf>) |
-| Labs | [`labs/`](labs/) — 12 hands-on labs |
+| Demo films | [SOLA product ad (15 s)](<courseware/assets/videos/marketing-sola-15s-h264.mp4>) · [Ringfall sci-fi scene (15 s)](<courseware/assets/videos/scifi-ring-15s-h264.mp4>) |
+| Labs | [`labs/`](labs/) — 9 hands-on labs |
+
+The deck embeds the two demo films (they play inside PowerPoint) and click-to-play YouTube examples, which need an internet connection and **Enable Content** in PowerPoint.
 
 ## Distribution boundary
 
-This public repository intentionally excludes assessments, answer keys, source references, credentials and `.env` files. Assessments are distributed only through the controlled courseware and TMS channels.
+This public repository intentionally excludes the assessments and answer keys, the Facilitator Guide and Assessment Plan, source references, credentials and `.env` files. Those are distributed only through the controlled courseware and TMS channels.
 
 ## Provider
 
-Conducted by Tertiary Infotech Academy Pte Ltd (UEN 201200696W) · [tertiarycourses.com.sg](https://www.tertiarycourses.com.sg) · enquiry@tertiaryinfotech.com · +65 6100 0613
-
-© 2026 Tertiary Infotech Academy Pte Ltd. All rights reserved.
+Developed and delivered by [Tertiary Infotech Academy Pte Ltd](https://www.tertiarycourses.com.sg) (UEN 201200696W) · enquiry@tertiaryinfotech.com · +65 6100 0613.

@@ -9,3 +9,15 @@ __pycache__/
 *.pyc
 # Assessment builder embeds model answers — confidential
 .claude/skills/wsq-assessment/
+
+# Facilitator Guide + Assessment Plan embed the answer keys and rubric:
+# trainer-only (Google Drive + TMS), never GitHub
+**/FG_*
+**/FG-*
+**/Assessment_Plan_*
+**/AP-*
+
+# FG/AP data holds the rubric (assessment content)
+.claude/skills/courseware-build/fgap/
+# superseded deck versions (large; kept locally and on Drive)
+courseware/archive/

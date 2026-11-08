@@ -1,111 +1,142 @@
-"""Topic 3 — Apply New AI Technologies to Improve Video Production. Labs 9–12."""
+"""Topic 3 — Apply New AI Technologies to Improve Video Production.  Labs 7–9.
+
+All in Higgsfield: remedial fixes (replace, upscale, reframe, regenerate),
+voice, music and cinematic effects, model comparison and the use-case sprint
+that ends in a published (or TMS-uploaded) 15-second video.
+"""
 
 DOMAIN3 = [
     dict(
+        num=7, topic=3,
+        title="Fix What Fails: Remedial Actions in Higgsfield",
+        objective="A6 — develop remedial actions for footage that does not meet requirements; K4 — industry quality standards",
+        desc="Take every FAIL from your Lab 6 checklist and match it to a Higgsfield fix: replace the wrong object, "
+             "upscale soft footage, reframe for vertical, or regenerate only the broken shot with the same Elements. "
+             "Apply at least two fixes and re-score.",
+        build="A remediated cut with a before/after checklist and a remedy table (issue, cause, Higgsfield fix, result).",
+        services="Higgsfield: Genjutsu Replace Object, Upscale, Reframe, Cinema Studio (regenerate a shot)",
+        flow=["List every FAIL", "Match issue to fix", "Apply two fixes (Draft first)", "Re-score the cut", "Compliance pass"],
+        steps=[
+            ("Copy every FAIL from your Lab 6 checklist into assets/remedy-table.csv with its likely cause.", ""),
+            ("Match each issue to a fix using assets/remedy-map.pdf: wrong or drifting object → Genjutsu Replace Object; "
+             "soft or 480p footage → Upscale; wrong ratio → Reframe 16:9 to 9:16; broken shot → regenerate that shot only "
+             "with the same Elements; muddy audio → regenerate with a clearer Sound line.", ""),
+            ("Replace an object: open Genjutsu, choose Replace Object, upload the clip and the new prop image, describe the swap. "
+             "The motion, framing and timing stay; only the object changes.", ""),
+            ("Apply at least one more fix from the map. Test it on a Draft before spending on a final.", ""),
+            ("Re-score the cut with the same checklist and record before/after in the remedy table.", ""),
+            ("Compliance pass (K4): platform specs met, AI-content label ready, consent and rights recorded.", ""),
+            ("Screenshot the before/after frames and the completed remedy table for your evidence.", ""),
+        ],
+        prompts=[
+            ("Diagnose the cut (Supercomputer)",
+             "Here is my cut and my quality checklist. For every FAIL, give: the issue, the likely cause, the Higgsfield fix\n"
+             "(Replace Object, Upscale, Reframe, regenerate one shot with the same Elements, or a new Sound line) and the credit cost.\n"
+             "Order the fixes cheapest first. Table."),
+            ("Replace an object (Genjutsu)",
+             "Replace the orange briefcase in this clip with the black hard-shell case in the reference image. Keep the hand position, "
+             "motion, lighting and timing exactly the same."),
+            ("Regenerate one shot only",
+             "Regenerate shot 3 only. Same Elements (@char_biker, @loc_bar-interior), same framing and timing. Fix: his face must match "
+             "the reference sheet and the case stays in his left hand."),
+        ],
+        assets=["remedy-map.pdf — issue → Higgsfield fix → typical credit cost",
+                "remedy-table.csv — issue, cause, fix, before, after",
+                "flawed-cut-notes.pdf — a worked example of a failing cut and its fixes"],
+        evidence=["Before/after frames of each fix",
+                  "Your completed remedy table with the re-scored checklist"],
+        test="At least two FAILs are fixed with named Higgsfield tools, the re-score shows them as PASS, and the remedy table "
+             "states the cause and credit cost of each fix.",
+    ),
+    dict(
+        num=8, topic=3,
+        title="Add Voice, Music and Cinematic Effects",
+        objective="K5 — technologies that improve efficiency and quality; A7 — evaluate new technologies",
+        desc="Finish the scene with the three upgrades that used to need three vendors: a generated soundtrack, a voiceover "
+             "in a cloned or stock voice, and a cinematic effect. Time each one and rate it on quality, cost and control.",
+        build="Your scene with a generated soundtrack, a voiceover line and one cinematic effect, plus a rated technology evaluation.",
+        services="Higgsfield: Audio (music + voice), Create Voice, lighting and colour presets, effect presets",
+        flow=["Generate the soundtrack", "Voiceover: clone or stock", "Apply a cinematic effect",
+              "Time and cost each step", "Rate each technology"],
+        steps=[
+            ("Open Audio and generate a 20-second soundtrack from the music prompt. Generate two variations and keep the one "
+             "that fits the cut's pace.", ""),
+            ("Voice: either pick a stock voice, or create your own voice from a clean 30-second recording of YOUR voice. "
+             "Clone only a voice you have consent to use; sign assets/voice-consent-form.pdf for your own.", ""),
+            ("Generate the voiceover line and place it over the opening shot.", ""),
+            ("Apply one cinematic effect: re-run a shot with a different Lighting preset (Silhouette or Window) and Colour "
+             "palette, or apply an effect preset from the effects gallery to one shot.", ""),
+            ("Record minutes and credits for each step in assets/tech-evaluation.csv and estimate what the same job takes "
+             "with a studio, a composer and a voice artist.", ""),
+            ("Rate each technology 1–5 on quality, speed, cost, control and rights (A7), and decide whether it joins your pipeline.", ""),
+            ("Screenshot the Audio page, the effect before/after and your rated evaluation for your evidence.", ""),
+        ],
+        prompts=[
+            ("Soundtrack",
+             "Moody late-night bar soundtrack, 20 seconds, slow 80 BPM, warm Rhodes piano, soft brushed drums, upright bass, building "
+             "slightly on the last 5 seconds. Instrumental, no vocals."),
+            ("Voiceover line",
+             "Calm, low male voice, unhurried, Singapore English: \"Some nights you don't need a plan. You just need to show up.\""),
+            ("Cinematic effect re-run",
+             "Same shot, same Elements. Lighting: silhouette against the window, city lights behind. Colour: Black gloss. "
+             "Slow push-in. Keep timing and action identical."),
+        ],
+        assets=["music-prompt-cards.pdf — genre, tempo, instrument and mood cards",
+                "voice-consent-form.pdf — consent to clone and use your own voice",
+                "tech-evaluation.csv — technology, minutes, credits, quality, speed, cost, control, rights, verdict"],
+        evidence=["Your generated soundtrack and voiceover in Higgsfield",
+                  "Effect before/after and your rated technology evaluation"],
+        test="The scene carries a generated soundtrack and a consented voiceover, one shot shows a clear cinematic effect, "
+             "and every technology has a 1–5 rating with a keep/drop verdict.",
+    ),
+    dict(
         num=9, topic=3,
-        title="AI Avatars, AI Images & Eye Contact",
-        objective="K5, A7 — apply and evaluate new AI production technologies",
-        desc="Produce presenter-led video without a camera: generate a talking AI avatar from your script, "
-             "create supporting visuals with the AI image generator, and fix off-camera gaze on recorded "
-             "clips with AI eye contact correction.",
-        build="An avatar-presented video with AI-generated imagery, plus an eye-contact-corrected webcam clip.",
-        services="VEED AI Avatars, AI Image Generator, AI Eye Contact",
-        flow=['Pick or create an avatar', 'Generate the talking clip', 'Create AI b-roll images', 'Fix gaze with AI Eye Contact', 'Assemble, caption, export'],
+        title="Use-Case Sprint: One Product Photo to a Published 15-Second Ad",
+        objective="A7 — evaluate new technologies; K4 — industry standards before publishing",
+        desc="Run the whole pipeline on a real use case. Start from one product photo, shoot a campaign with the "
+             "product-photoshoot skill, make a 15-second ad in Cinema Studio, compare two video models on the same prompt, "
+             "then export, label and publish.",
+        build="A 15-second ad (16:9 and 9:16) made from one product photo, a two-model comparison, and a publish-ready post.",
+        services="Higgsfield: Supercomputer (/product-photoshoot), Cinema Studio, Seedance 2.5, Kling 4.0, TikTok publishing",
+        flow=["One product photo in", "Campaign stills", "15 s ad, Draft first", "Compare two models", "Label, export, publish"],
         steps=[
-            ("In VEED, open AI Avatars and browse the avatar library (or create a personal avatar from a short webcam recording).", ""),
-            ("Paste a 30-second section of your script, choose the avatar's voice and language, and generate the talking-head clip.", ""),
-            ("Use the AI Image Generator to create two supporting visuals for your topic, and cut them in as b-roll over the avatar's narration.", ""),
-            ("Record a 15-second webcam clip while reading from notes (eyes off-camera), then apply AI Eye Contact and compare the corrected gaze.", ""),
-            ("Assemble avatar + b-roll + captions into one sequence and export.", ""),
-            ("Evaluate (A7): note where an avatar beats filming a human (speed, cost, consistency, translation) and where it falls short (authenticity, emotion).", ""),
+            ("Upload the product photo from assets/ (or your own product) to Supercomputer with a character sheet and a street location.", ""),
+            ("Type /product-photoshoot and ask for six vertical 9:16 photos: three with your character, three of the product alone.", ""),
+            ("Open Cinema Studio, attach the product, the character and the location as references, and write the 15-second ad "
+             "with the five-shot structure on the prompts page. Generate a Draft first.", ""),
+            ("Run the same prompt on a second model (Kling 4.0 or Cinema Studio 4.0) and compare with assets/model-comparison.csv: "
+             "product accuracy, motion, audio, credits, render time.", ""),
+            ("Finalise the winner in 1080p and reframe a 9:16 version.", ""),
+            ("Pre-publish check: AI-generated label on, no unlicensed logos or music, consent recorded, caption and hashtags ready.", ""),
+            ("Publish to TikTok from Higgsfield (connect your account, post as private or only-me in class), or download the MP4 "
+             "for the TMS upload. Screenshot the comparison table and the post settings for your evidence.", ""),
         ],
         prompts=[
-            ("Avatar script",
-             "Condense this script to a 30-second avatar narration: first person, friendly-expert tone, short sentences with natural pauses, no stage directions."),
-            ("B-roll images",
-             "Generate an image: isometric illustration of a video production pipeline — script, camera, waveform, play button — clean flat style, teal and blue palette, no text."),
+            ("Campaign stills (/product-photoshoot)",
+             "/product-photoshoot Make a cool photoshoot for this bottle with our runner in the three Singapore locations we picked. "
+             "Six photos: three with her and three of just the bottle. Make them vertical, 9:16."),
+            ("15-second ad — five shots (Cinema Studio)",
+             "Scene context: A 15-second premium commercial for SOLA, a matte-black insulated steel bottle, at sunrise on a Singapore "
+             "rooftop running track.\n"
+             "References: @prop_sola — the bottle, 100% as shown. @char_runner — runner, 100% as shown.\n"
+             "Shots (hard cut between each):\n"
+             "1. 0–3s: extreme close-up, first sun ray slides across the bottle. Slow push-in.\n"
+             "2. 3–6s: medium, the runner grabs it mid-stride. Tracking.\n"
+             "3. 6–9s: close-up, she drinks; ice clinks. Slow motion.\n"
+             "4. 9–12s: wide, she runs along the rooftop edge, skyline glowing. Drone pulls back.\n"
+             "5. 12–15s: hero packshot, clean space at top for the logo.\n"
+             "Sound: upbeat electronic beat building to a hit on the packshot, footsteps, ice, whoosh on each cut. No on-screen text."),
+            ("Pick a use case (variation)",
+             "Rewrite this ad brief as a 15-second AI micro-drama cliffhanger: same product, two characters, one twist in the last 3 seconds, "
+             "vertical 9:16, dialogue in one line."),
         ],
-        test="The avatar's lip sync matches the narration, the AI images support the message, and the "
-             "eye-contact clip looks naturally at camera.",
-    ),
-    dict(
-        num=10, topic=3,
-        title="AI Music Generation with Suno & Udio",
-        objective="K5, A7 — generate custom soundtracks and evaluate the tools",
-        desc="Compose custom, royalty-free music for your videos: write a music prompt (genre, mood, tempo, "
-             "instrumentation), generate tracks on Suno and Udio, and pick and place the best track under "
-             "your video with correct levels.",
-        build="Two AI-composed soundtrack candidates (Suno + Udio) and your video re-scored with the winner.",
-        services="Suno (suno.ai), Udio (udio.com), VEED",
-        flow=['Write the music prompt', 'Generate on Suno', 'Generate on Udio', 'Audition against the cut', 'Place, mix and check rights'],
-        steps=[
-            ("Sign in at suno.ai, describe the track you need (genre, mood, tempo, instruments, no vocals) and generate two candidates.", ""),
-            ("Repeat the same prompt on udio.com and generate two more candidates.", ""),
-            ("Audition all four against your video's pacing: does the energy match the cut points and the call-to-action?", ""),
-            ("Download the winner, import it into your VEED project, and place it under the voiceover at ~20% volume with a fade-out at the end.", ""),
-            ("Check rights: confirm the plan you used grants commercial use of the generated track.", ""),
-            ("Compare Suno vs Udio (A7): quality, control, speed, licensing — record which you would adopt and why.", ""),
-        ],
-        prompts=[
-            ("Music prompt",
-             "Uplifting corporate pop instrumental, 100 BPM, warm piano and soft synths building to a bright chorus, optimistic and modern, no vocals, 60 seconds, clean ending."),
-            ("Mood variation",
-             "Same track but calmer: acoustic guitar led, gentle percussion, morning-light feel, suitable under a spoken voiceover."),
-        ],
-        test="The chosen track matches the video's mood and pacing, sits under the voiceover without "
-             "masking speech, and you can state its usage rights.",
-    ),
-    dict(
-        num=11, topic=3,
-        title="Voice Cloning, AI Dubbing & Lip Sync",
-        objective="K5, A7 — clone voices, dub languages and evaluate ethics/quality",
-        desc="Give your videos a consistent voice at scale: clone your own voice from a short sample, "
-             "narrate a script with the clone, then auto-dub a video into another language with translated "
-             "audio and lip-synced delivery.",
-        build="A voiceover in your own cloned voice, and a dubbed version of your video in a second language.",
-        services="VEED Voice Clone & Dubbing, ElevenLabs, Sync Labs / D-ID (explore)",
-        flow=['Record a clean voice sample', 'Clone your voice', 'Narrate with the clone', 'Auto-dub a second language', 'Check lip sync and ethics'],
-        steps=[
-            ("Record a clean 30–60 s voice sample (quiet room, natural pace) — consent and disclosure rules apply to any voice you clone; clone ONLY your own voice in class.", ""),
-            ("Create the clone (VEED voice cloning or elevenlabs.io) and generate your Lab 1 script in your cloned voice.", ""),
-            ("Compare the cloned narration with the stock TTS voice from Lab 7 — naturalness, pacing, pronunciation of local terms.", ""),
-            ("Auto-dub: take your finished video and use VEED's dubbing to translate the audio into Mandarin/Malay/Spanish, keeping your voice character.", ""),
-            ("Check the lip sync on the dubbed clip; explore D-ID or Sync Labs to lip-sync a still portrait to your cloned audio.", ""),
-            ("Evaluate (A7): where do cloning/dubbing add value (multilingual reach, consistency), and what are the ethical red lines (consent, deepfake misuse, disclosure)?", ""),
-        ],
-        prompts=[
-            ("Dub-ready rewrite",
-             "Rewrite this narration for dubbing into Mandarin: avoid idioms and wordplay, keep sentences short, keep brand names in English, target the same 45-second duration."),
-        ],
-        test="The cloned voice is recognisably yours and pronounces the script cleanly; the dubbed video "
-             "plays in the second language with acceptable lip sync; you can state the consent rule for cloning.",
-    ),
-    dict(
-        num=12, topic=3,
-        title="Agentic AI Publishing to YouTube & TikTok",
-        objective="A7 — adopt agentic AI to close the pipeline from edit to publish",
-        desc="Close the GenAI video pipeline with an agentic step: export platform-ready cuts, then let an "
-             "AI agent draft the title, description, hashtags and thumbnail concept, and push the video to "
-             "YouTube and TikTok — scheduling included — while you stay in review control.",
-        build="Your video live (unlisted) on YouTube and/or TikTok, published via an agent-assisted workflow with AI-drafted metadata.",
-        services="VEED export, ChatGPT/Claude (agent), YouTube Studio, TikTok, n8n/Zapier (optional)",
-        flow=['Export 16:9 and 9:16 cuts', 'Agent drafts the publishing kit', 'You approve every item', 'Upload and schedule posts', 'Verify live and reflect'],
-        steps=[
-            ("Export two cuts from VEED: 16:9 1080p for YouTube and 9:16 for TikTok/Shorts, captions burned in for the vertical cut.", ""),
-            ("Ask an AI agent to draft the publishing kit: SEO title options, description with timestamps and links, 10 hashtags per platform, and a thumbnail concept.", ""),
-            ("Generate the thumbnail with the AI image generator from the agent's concept, and review the full kit — you approve every word before it ships.", ""),
-            ("Publish to YouTube: upload the 16:9 cut in YouTube Studio (set to Unlisted for class), paste the agent's title/description/tags, upload the thumbnail, and schedule the release time the agent recommends.", ""),
-            ("Publish to TikTok: upload the 9:16 cut, apply the agent's caption and hashtags, and schedule at the recommended engagement window.", ""),
-            ("Optional — automate: wire an n8n/Zapier flow (or a computer-use agent) that watches a Drive folder and performs the upload + metadata steps automatically, keeping a human-approval gate before anything goes live.", ""),
-            ("Verify both posts, then reflect: which pipeline stages (script → video → audio → edit → publish) are now AI-assisted, and where must a human stay in the loop?", ""),
-        ],
-        prompts=[
-            ("Publishing kit",
-             "You are my publishing agent. For this 45-second video promoting an online learning platform, produce: 3 SEO YouTube title options under 60 characters, a 2-paragraph description with a call-to-action and link placeholder, 10 YouTube tags, a TikTok caption under 150 characters with 5 hashtags, a thumbnail concept (composition, text overlay, colours), and the best posting time for the Singapore audience. Present it as a checklist I can approve item by item."),
-            ("Agentic automation spec",
-             "Design an n8n workflow that: watches a Google Drive folder for a new MP4, drafts YouTube metadata with an LLM node, waits for my approval via email, then uploads to YouTube with the approved metadata and posts the link to Slack. List the nodes and the data passed between them."),
-        ],
-        test="The video is live (unlisted) on at least one platform with agent-drafted, human-approved "
-             "metadata, and you can describe where the approval gate sits in the agentic flow.",
+        assets=["sample-product-sola.jpg — the product photo to start from",
+                "campaign-brief.pdf — SOLA brief, audience, platforms, mandatory label",
+                "model-comparison.csv — model, product accuracy, motion, audio, credits, time, verdict",
+                "publish-checklist.pdf — AI label, rights, consent, caption, hashtags"],
+        evidence=["Your two-model comparison table",
+                  "The final 15 s ad (upload the MP4 to the TMS) and the publish settings"],
+        test="The ad runs 15 s in both ratios, keeps the product accurate in every shot, the comparison table justifies the "
+             "chosen model on at least three criteria, and the post carries an AI-generated label.",
     ),
 ]

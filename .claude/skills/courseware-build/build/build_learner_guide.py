@@ -48,13 +48,12 @@ def rule(): B.append(("rule",))
 # ---------------- content ----------------
 h1("Introduction")
 p(f"This Learner Guide accompanies the WSQ course {C.TITLE} ({C.COURSE_CODE}), conducted by {C.ORG}. "
-  "It provides detailed step-by-step instructions and copy-and-adapt GenAI prompts for all 12 hands-on "
-  "labs, organised by the three course topics. The slides give you the concepts and each lab's overview; "
-  "THIS guide is where the full procedure lives.")
-p("The course is built around the five-stage GenAI video creation pipeline: "
-  "(1) AI-generated script → (2) AI-generated video → (3) AI voiceover & music → (4) AI video editing → "
-  "(5) agentic AI publishing to YouTube/TikTok. Every lab maps to a stage of this pipeline, and the "
-  "final assessment (WA SAQ + Practical Performance) assesses exactly what the labs practise.")
+  "It gives the full step-by-step instructions and copy-and-adapt prompts for all 9 hands-on labs, organised "
+  "by the three course topics. The slides give you the concepts and each lab's overview; this guide is where "
+  "the full procedure lives.")
+p("Every lab runs in one studio: Higgsfield (higgsfield.ai). You brief Supercomputer, Higgsfield's agent, in plain "
+  "English, or you direct each shot yourself in Cinema Studio. Two 15-second films made this way for the course "
+  "(a SOLA product ad and the Ringfall sci-fi scene) are embedded in the slides, so you can see the finish line before you start.")
 
 h1("Course Learning Outcomes")
 bullets(C.LEARNING_OUTCOMES)
@@ -62,30 +61,32 @@ h3("Skills Framework alignment")
 p(f"TSC: {C.TSC_TITLE} ({C.TSC_CODE}).")
 bullets(C.TSC_KNOWLEDGE + C.TSC_ABILITIES)
 
-h1("The GenAI Video Creation Pipeline")
-p("Keep this process flow in mind through every lab — it is the map of the whole course:")
+h1("The Higgsfield Video Pipeline")
+p("Keep this process in mind through every lab; it is the map of the whole course:")
 steps([(f"{lbl} — {det}", "") for lbl,det in C.PIPELINE])
-p("Labs 1–2 cover stage 1 (AI-generated script). Lab 3 covers stage 2 (AI-generated video). "
-  "Labs 7, 10 and 11 cover stage 3 (AI voiceover & music). Labs 5–8 cover stage 4 (AI video editing). "
-  "Lab 12 covers stage 5 (agentic AI publishing). Labs 4 and 9 support the pipeline with standards, "
-  "work plans and AI visuals.")
+p("Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers stage 2 (Elements). "
+  "Labs 5–6 cover stage 3 (shots, takes and assessing the cut). Labs 7–8 cover stage 4 (fix and finish). "
+  "Lab 9 runs the whole pipeline on a real use case and covers stage 5 (publish).")
 
 h1("Before You Start — Environment Setup")
 h3("What you need")
 bullets([
- "A laptop (Windows or Mac) with the Chrome browser and a working internet connection.",
- "A free VEED account — sign up at veed.io with your email or Google account.",
- "A free ChatGPT account (chatgpt.com) — Gemini, Claude or Copilot also work for every script lab.",
- "A free Suno (suno.ai) and/or Udio (udio.com) account for the AI music lab.",
- "Optional: an ElevenLabs free account for voice cloning; a Google/YouTube and TikTok account for the publishing lab.",
- "A headset or earphones for reviewing audio in class.",
+ "A laptop (Windows or Mac) with Chrome and a working internet connection; a headset for reviewing audio.",
+ f"A Higgsfield account. Sign up at {C.HF_SIGNUP} ({C.HF_DISCLOSURE})",
+ C.HF_PLAN_NOTE,
+ "Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026). Labs 1–9 are designed around Draft takes, with one or two 1080p finals.",
+ "Optional for Lab 9: a TikTok account to connect in Higgsfield (post as private or only-me in class).",
+ f"Watch before Lab 1: '{C.HF_TUTORIAL['title']}' by {C.HF_TUTORIAL['author']} — https://www.youtube.com/watch?v={C.HF_TUTORIAL['id']}",
+ f"Reference: Higgsfield API docs — {C.HF_DOCS} (authentication, requests, polling, webhooks, model endpoints); Supercomputer and Skills — https://higgsfield.ai/supercomputer-intro",
 ])
 h3("Conventions used in every lab")
 bullets([
- "PROMPT blocks are copy-and-adapt — replace the bracketed parts with your own topic before submitting.",
- "Free-tier limits (watermarks, generation credits) may apply; the labs are designed to work within them.",
- "Save every artifact (scripts, videos, checklists) — several labs build on the previous lab's output, and they are your evidence for the Practical Performance assessment.",
- "Only clone YOUR OWN voice, and only use footage, music and faces you have the rights and consent to use.",
+ "PROMPT blocks are copy-and-adapt: replace the bracketed parts with your own idea before submitting.",
+ "Draft first: test every idea on Seedance 2.5 Draft (480p) and finalise only the take you would show a client.",
+ "Approve every spend yourself in Supercomputer; leave 'Always allow' off in class.",
+ "Save every artefact (prompts, takes, checklists, exports): later labs build on them, and they are your Practical Performance evidence.",
+ "Only clone YOUR OWN voice, and only use faces, products, music and footage you have the rights and consent to use.",
+ "Each lab folder holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with the mock files.",
 ])
 
 # ---------------- per-topic, per-lab ----------------
@@ -108,35 +109,41 @@ for t in C.TOPICS:
         steps([(instr,cmd) for instr,cmd in a["steps"]])
         h3("Check your work")
         p(a["test"])
+        if a.get("assets"):
+            h3("Mock assets in the lab folder")
+            bullets(a["assets"])
+        if a.get("evidence"):
+            h3("Evidence to keep (screenshots for the PP)")
+            bullets(a["evidence"])
         note(f"This lab has its own folder: labs/lab-{a['num']:02d}-{_slug(a['title'])}/ — "
-             "open its README.md for the same steps plus tips and troubleshooting.")
+             "README.pdf holds these steps; prompts.html copies each prompt in one click.")
         rule()
 
 h1("Assessment Preparation")
 bullets([
- "Written Assessment (SAQ), 1 hour, open book — 5 questions covering K1–K5: quality issues, AI solutions, assessment parameters, industry standards and new editing technologies.",
- "Practical Performance, 1 hour, open book — 3 tasks covering A1–A7: script + video creation, VEED editing with text/music/transitions, and text-to-video with quality remediation.",
- "Revisit Lab 8's checklist — the WA questions on quality issues and fixes mirror it directly.",
- "Keep your lab outputs open during the PP — the tasks repeat what Labs 1, 3, 5, 7 and 8 practised.",
- "Sharpen your GenAI fundamentals with the free practice exams at https://exams.tertiaryinfotech.com (e.g. the Claude Certified Associate — Foundations exam).",
+ "Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.",
+ "Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–9. Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.",
+ "Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.",
+ "Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.",
+ "Practise with the free exams at https://exams.tertiaryinfotech.com.",
 ])
 
 h1("Glossary")
 gl=[
- ("Generative AI (GenAI)","AI models that create new content — text, images, audio, video — from a prompt."),
- ("Prompt engineering","Structuring the instruction you give an AI (e.g. with RICCE) to control output quality."),
- ("RICCE","Role, Instructions, Context, Constraints, Example — a prompt framework for production-ready output."),
- ("Text-to-video","Generating complete video footage from a written description (Sora, Veo, Kling, VEED)."),
- ("AI avatar","A synthetic on-screen presenter that speaks your script with lip-synced delivery."),
- ("Text-to-speech (TTS)","Converting written text into natural spoken audio with an AI voice."),
- ("Voice cloning","Recreating a specific person's voice from a sample — requires that person's consent."),
- ("AI dubbing","Translating a video's speech into another language, re-voiced and lip-synced."),
- ("Auto subtitles","AI speech recognition that transcribes audio into synchronised captions."),
- ("Background removal","AI matting that separates the subject from the backdrop without a green screen."),
- ("Aspect ratio","Frame proportions — 16:9 (YouTube), 9:16 (TikTok/Shorts/Reels), 1:1 (feed)."),
- ("Agentic AI","AI that plans and executes multi-step tasks (drafting metadata, uploading, scheduling) with human approval gates."),
- ("SRT/VTT","Subtitle file formats carrying timed caption text."),
- ("Royalty-free","Licensed for use without per-use payments — always verify commercial-use rights on AI output."),
+ ("Higgsfield","An AI video studio (higgsfield.ai) holding many image and video models, an agent and cinematic controls in one place."),
+ ("Supercomputer","Higgsfield's agent: you brief it in plain English, it writes prompts, calls tools and asks you to approve each spend."),
+ ("Cinema Studio","Higgsfield's director panel: references, camera body, lens, aperture, lighting, colour palette, genre, model and settings."),
+ ("AI Director","The director chat inside a Higgsfield project that writes scripts and storyboards."),
+ ("Seedance 2.5","ByteDance's video model in Higgsfield: 4–30 s, up to 1080p, native audio, up to 50 references."),
+ ("Draft mode","Seedance 2.5 Draft renders a cheap 480p take that can be finalised at 1080p within seven days."),
+ ("Element","A saved character, location or prop with an @handle (e.g. @char_biker) reused as a reference in any prompt."),
+ ("Reference","An image, video or audio file attached to a generation with a role: character, location, camera move or voice."),
+ ("Shot / take","A shot is one camera set-up in the script; a take is one generated attempt at it."),
+ ("Multishot","One generation containing several shots with cuts between them."),
+ ("Genjutsu","Higgsfield's tool for replacing objects or copying motion in existing footage."),
+ ("Aspect ratio","Frame proportions: 16:9 (YouTube), 9:16 (TikTok, Shorts, Reels), 21:9 (cinema)."),
+ ("AI disclosure label","The platform setting that marks realistic AI-generated content (TikTok's AI-generated label, YouTube's altered or synthetic content setting)."),
+ ("Credits","Higgsfield's usage currency; every generation shows its credit cost before you approve it."),
 ]
 B.append(("dl",gl))
 
@@ -188,11 +195,12 @@ prodoc.add_cover_page(doc,"LEARNER GUIDE",C.TITLE,C.VERSION.lstrip("v"),
                       org_logo=os.path.join(ASSETS,"tertiary-infotech-logo.png"),
                       course_logo=None, course_code=C.COURSE_CODE)
 prodoc.add_version_control(doc,[
- ("6.0","1 June 2025","Prior release — Creating Engaging Videos with GenAI Learner Guide.",C.TRAINER),
+ ("6.0","1 June 2025","Prior release — Creating Engaging Videos with GenAI Learner Guide.","Tertiary Infotech Academy"),
+ ("7","18 August 2026","12 hands-on labs on VEED and companion AI tools, restructured around a 5-stage GenAI video pipeline.","Tertiary Infotech Academy"),
  (C.VERSION.lstrip("v"),C.VERSION_DATE,
-  "Major revamp: 12 hands-on labs with detailed step-by-step instructions and copy-and-adapt GenAI prompts; "
-  "restructured around the 5-stage GenAI video pipeline; updated to the 2026 VEED AI toolset; "
-  "new Lab 12 — agentic AI publishing to YouTube/TikTok.",C.TRAINER),
+  "Whole pipeline moved into Higgsfield: 9 labs on Supercomputer, AI Director, Elements, references, Cinema Studio, "
+  "Seedance 2.5 Draft mode, remedial fixes, voice, music, effects and a published use-case ad; mock assets and one-click "
+  "prompt pages per lab; Higgsfield sign-up and plan terms; PP evidence by pasted screenshots and a TMS video upload.","Tertiary Infotech Academy"),
 ])
 prodoc.add_toc(doc)
 

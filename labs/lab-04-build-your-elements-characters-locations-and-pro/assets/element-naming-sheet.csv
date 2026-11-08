@@ -1,0 +1,6 @@
+category,name,element id (@handle),reference image,quality issue it prevents
+Character,Biker,char_biker,,identity drift
+Character,Friend,char_friend,,
+Location,Bar interior,loc_bar-interior,,
+Location,Bar entrance,loc_bar-entrance,,
+Prop,Suitcase,prop_suitcase,,

@@ -2,21 +2,51 @@
 SINGLE SOURCE OF TRUTH — course metadata for
 WSQ Creating Engaging Videos with Generative AI (GenAI), TGS-2024043855.
 
+v8 (9 Nov 2026): the whole GenAI video pipeline runs inside Higgsfield —
+Supercomputer (the agent) and Cinema Studio — replacing the v7 multi-tool
+stack (ChatGPT, VEED, Suno, ElevenLabs).
+
 Every artifact (PPT, LP, LG, LG.md, labs) is generated from this file plus
-data_domain1..3.py, so they stay 100% aligned with the assessment:
+data_domain1..3.py, so they stay aligned with the assessment:
 WA (SAQ) 5 questions cover K1–K5; PP 3 tasks cover A1–A7.
+Course Proposal (TPG-2024060315) governs LU titles, K/A, durations:
+LU1 2 h, LU2 2.5 h, LU3 2.5 h classroom + 7 h practical; WA 1 h + PP 1 h.
 """
 
 # ------------------------------------------------------------------ metadata
 TITLE        = "Creating Engaging Videos with Generative AI (GenAI)"
 SHORT_TITLE  = "Creating Engaging Videos with Generative AI (GenAI)"
 COURSE_CODE  = "TGS-2024043855"
-VERSION      = "v7"
-VERSION_DATE = "18 August 2026"
+VERSION      = "v8"
+VERSION_DATE = "9 November 2026"
 ORG          = "Tertiary Infotech Academy Pte Ltd"
 UEN          = "UEN: 201200696W"
-TRAINER      = "Dr Alfred Ang"
 DAYS         = 2
+
+# ------------------------------------------------------------------ trainer
+# Source: linkedin.com/in/hoowee (profile name "Hoo Wee Tay"), read 9 Nov 2026.
+TRAINER          = "Mr Tay Hoo Wee"
+TRAINER_INITIALS = "TH"
+TRAINER_ROLE     = "Producer, Asia Media Alliance\nDirector, Asia Media Academy"
+TRAINER_ROWS = [
+    ("Current roles", "Producer at Asia Media Alliance (2024–present); Director at Asia Media Academy (2020–present)."),
+    ("Film & TV track record", "Team Lead, Camokakis Content (Digital) and Senior Commissioning Editor at So Drama! Entertainment; Executive Producer at Stardust Pictures; VP Physical Productions at Infinite Frameworks Studios."),
+    ("Qualifications", "BA (Hons) Digital Film Making, Middlesex University; Diploma in Digital Film Production, SAE Institute Singapore."),
+    ("Contact", "linkedin.com/in/hoowee"),
+]
+
+# ------------------------------------------------------------------ Higgsfield (the one platform)
+HF_SIGNUP   = "https://higgsfield.ai?fpr=alfred-d0d32b"   # trainer's Higgsfield affiliate link
+HF_SIGNUP_SHORT = "higgsfield.ai?fpr=alfred-d0d32b"
+HF_DISCLOSURE = ("Trainer's affiliate link: the trainer may earn a commission; you pay the normal price.")
+HF_PLAN_NOTE = ("Labs run on higgsfield.ai (Supercomputer + Cinema Studio), which needs a paid plan. "
+                "On 8 Nov 2026 Plus was US$49/month (US$39 billed yearly) for 1,000 credits. "
+                "The free 3-day trial needs a card, renews to Plus unless cancelled within 3 days, "
+                "and its credits worked only through the Higgsfield MCP, not on the website.")
+HF_TUTORIAL = dict(id="Mt91SiQotOU", title="Higgsfield AI Tutorial for Beginners (2026) | Step-by-Step", author="Metics Media")
+HF_DOCS = "https://docs.higgsfield.ai/docs"   # Higgsfield API docs (auth, requests, polling, webhooks, model endpoints)
+# Credit facts read from Higgsfield (MCP get_cost / UI) on 8–9 Nov 2026.
+CREDITS = dict(draft15=45, hd15=240, sd720_15=105, cs4_5s=80)
 
 # ------------------------------------------------------------------ skills framework
 TSC_TITLE = "Video Editing"
@@ -32,77 +62,105 @@ TSC_ABILITIES = [
     "A1: Review scripts to conceptualize the types of edits required to achieve creative vision of production",
     "A2: Develop editing standards and guidelines in accordance to legal requirements and broadcasting standards",
     "A3: Develop work plans to outline the processes and timelines needed for the post production processes",
-    "A4: Review edited footage to determine areas of improvement to enhance storytelling",
-    "A5: Assess edited footage to ensure alignment with technical and legal requirements",
-    "A6: Develop remedial actions for edited footage that does not meet requirements",
-    "A7: Evaluate new technologies to improve efficiency and quality of video editing processes",
+    "A4: Review edited footage to propose changes that will enhance the story and emotions in each scene",
+    "A5: Assess edited footage against technical parameters to ensure alignment to requirements",
+    "A6: Develop remedial actions to resolve issues that do not comply with industry standards",
+    "A7: Facilitate the adoption of new technologies to improve the efficiency and quality of visual outputs",
 ]
 
 # ------------------------------------------------------------------ outcomes
 LEARNING_OUTCOMES = [
-    "LO1: Develop video editing strategies and work plans to achieve creative video.",
-    "LO2: Assess edited video footage to enhance storytelling and ensure technical compliance.",
-    "LO3: Develop remedial actions to ensure industry compliance and facilitate the adoption of new technologies in video editing.",
+    "LO1: Create video scripts using Generative AI (GAI) and work plans for video production.",
+    "LO2: Edit video footage to improve video quality and ensure technical compliance.",
+    "LO3: Apply new AI technologies to improve efficiency and quality in accordance to industry standards.",
 ]
 
-# ------------------------------------------------------------------ topics
+# ------------------------------------------------------------------ topics (CP learning units)
 TOPICS = [
     dict(num=1, code="01",
          title="Create and Edit Video Script Using Generative AI (GenAI)",
-         subtitle="AI script generation · prompt engineering · text-to-video · standards, guidelines & work plans",
+         subtitle="The impact of AI on video · use cases · Supercomputer scripts · AI Director shot lists · standards & work plans",
          weighting="K1 · A1 · A2 · A3",
          concepts=[
-            ("Script writing with GenAI", "Generate ideas, storylines, dialogue and complete video scripts from a prompt."),
-            ("The RICCE prompt framework", "Role, Instructions, Context, Constraints, Example — engineer prompts that produce broadcast-ready scripts."),
-            ("Story structure", "Hero, desire, obstacle, action, outcome — the elements every engaging video script needs."),
-            ("AI text-to-video", "Turn a script into a complete video with VEED's AI Video Maker — scenes, voiceover, captions and music in one pass."),
-            ("Standards & guidelines", "Editing standards aligned to legal requirements (copyright, PDPA) and platform/broadcast specs."),
-            ("Work plans & timelines", "Plan the production and post-production pipeline with GenAI-drafted work plans."),
+            ("AI's impact & use cases", "A US$2,000 TV ad, a 14-day feature: AI movies, micro dramas, influencers, singers and marketing videos already earn audiences."),
+            ("The lazy prompt", "Format + vibe gets you a clip in one line, but the model then decides your character, world and camera."),
+            ("Scripts with Supercomputer", "Who / where / what happens, then a script and a numbered shot list, drafted and refined in one chat."),
+            ("AI Director", "Inside a project, AI Director writes the script and an 8-shot storyboard from your brief."),
+            ("Standards & guidelines", "A one-page sheet: platform specs, consent, licensing, AI disclosure and a Draft-first credit rule."),
+            ("Work plans & credit budgets", "Phases, owners, timelines and a credit budget: 45 credits for a 15 s Draft, 240 for the 1080p final."),
          ]),
     dict(num=2, code="02",
          title="Improve Video Footage on GenAI-Powered Video Platforms",
-         subtitle="VEED editing essentials · subtitles & captions · audio enhancement · quality assessment",
+         subtitle="Elements: characters, locations, props · references · Cinema Studio shots & takes · Draft mode · assess the cut",
          weighting="K2 · K3 · A4 · A5",
          concepts=[
-            ("Video editing basics", "Trim, split, crop, resize, merge and loop footage on the VEED timeline — no installs, all in the browser."),
-            ("Transcripts & captions", "Auto-transcribe speech, generate styled subtitles and closed captions, translate to 100+ languages."),
-            ("Audio enhancement", "AI voiceover (text-to-speech), clean audio, background-noise removal and music balancing."),
-            ("Fixing quality issues", "Remove cluttered backgrounds, fix framing with smart crop, correct resolution and aspect ratio per platform."),
-            ("Assessing footage", "Judge resolution, frame rate, audio levels, visual consistency and pacing against the brief."),
-            ("Technical compliance", "Verify the edit meets platform specs and the client's legal and brand requirements before export."),
+            ("Elements", "Save a character, location or prop once with an @handle and reuse it in every shot: the fix for drifting faces and sets."),
+            ("References", "Up to 50 per generation (30 images, 10 videos, 10 audio), each given a role: character, location, camera move or voice."),
+            ("Shots & takes", "One continuous shot or multishot with cuts; each run is a take you keep, compare or replace."),
+            ("Cinematic controls", "Camera body, lens, aperture, movement, lighting, colour palette, genre, era and tempo."),
+            ("Draft mode", "Seedance 2.5 Draft renders 480p for 45 credits; finalise only the take that works at 1080p."),
+            ("Assessing footage", "Resolution, continuity, motion, audio, pacing and compliance, judged take by take."),
          ]),
     dict(num=3, code="03",
          title="Apply New AI Technologies to Improve Video Production",
-         subtitle="AI avatars & visuals · AI music · voice cloning & dubbing · agentic AI publishing",
+         subtitle="Remove & replace objects · cinematic effects · upscale · voice & music · models compared · publish",
          weighting="K4 · K5 · A6 · A7",
          concepts=[
-            ("AI avatars", "Photorealistic talking presenters from text — no camera, studio or actor needed."),
-            ("AI image & VFX", "Generate images, remove objects and backgrounds, and enhance shots with AI eye contact."),
-            ("AI music generation", "Compose custom, royalty-free soundtracks with Suno and Udio from a text prompt."),
-            ("Voice cloning & dubbing", "Clone a voice for narration and dub videos into other languages with lip sync."),
-            ("Agentic AI publishing", "Let an AI agent draft titles, descriptions and hashtags, then push the video to YouTube and TikTok."),
-            ("Evaluating new tech", "Compare AI tools on quality, cost, speed and rights to decide what enters your pipeline."),
+            ("Remove & replace", "Genjutsu Replace Object swaps a product, prop or garment in finished footage, keeping the motion."),
+            ("Cinematic effects", "Lighting presets, colour grades and viral effect presets add VFX without a compositor."),
+            ("Enhance shots", "Upscale to 1080p or 4K, reframe 16:9 to 9:16, regenerate only the broken shot."),
+            ("Voice & music", "Native Seedance audio, a cloned voice for narration and a generated soundtrack."),
+            ("Models compared", "Seedance 2.5, Kling 4.0, Cinema Studio 4.0 and Genjutsu: pick per shot on quality, cost and control."),
+            ("Publish responsibly", "Export per platform, label synthetic media, clear consent, then share to TikTok or YouTube."),
          ]),
 ]
 
-# ------------------------------------------------------------------ the GenAI video pipeline (visual process flow map)
+# ------------------------------------------------------------------ the pipeline (visual process flow map)
 PIPELINE = [
-    ("AI-Generated Script", "ChatGPT · Gemini · Claude"),
-    ("AI-Generated Video", "VEED · Sora · Kling · Veo"),
-    ("AI Voiceover & Music", "TTS · clone · Suno · Udio"),
-    ("AI Video Editing", "captions · cleanup · resize"),
-    ("Agentic AI Publishing", "YouTube · TikTok"),
+    ("Script & Shot List", "Supercomputer · AI Director"),
+    ("Elements", "characters · locations · props"),
+    ("Shots & Takes", "Cinema Studio · Seedance 2.5"),
+    ("Fix & Finish", "replace · upscale · voice · music"),
+    ("Publish", "9:16 + 16:9 · TikTok · YouTube"),
 ]
 
 # ------------------------------------------------------------------ day themes
 DAY_THEMES = {
-    1: "AI Scripts, Text-to-Video & Editing Essentials",
-    2: "Audio, Avatars, Music, Publishing & Assessment",
+    1: "Script, Plan, Build Elements, Direct the First Takes",
+    2: "Cut, Fix, Finish, Publish & Assessment",
 }
+
+# ------------------------------------------------------------------ demo videos (made in Higgsfield for this deck)
+DEMO_VIDEOS = [
+    dict(key="marketing", title="SOLA: a 15-second product ad",
+         file="marketing-sola-15s-h264.mp4", poster="marketing-poster.jpg",
+         model="Seedance 2.5 · 1080p · 16:9 · 15 s · native audio · 240 credits",
+         shots=["0–3 s  extreme close-up, sun slides across the bottle",
+                "3–6 s  runner grabs it mid-stride (tracking)",
+                "6–9 s  drink, ice clinks (slow motion)",
+                "9–12 s  wide rooftop run, drone pulls back",
+                "12–15 s  hero packshot with space for the logo"]),
+    dict(key="scifi", title="Ringfall: a 15-second epic sci-fi scene",
+         file="scifi-ring-15s-h264.mp4", poster="scifi-poster.jpg",
+         model="Seedance 2.5 · 1080p · 16:9 · 15 s · native audio · 240 credits",
+         shots=["0–4 s  wide: smoking starship wreck, twin suns",
+                "4–8 s  pilot steps out, handheld follow",
+                "8–11 s  close-up: awe, ground trembles",
+                "11–15 s  extreme wide: the ring rises, crane up"]),
+]
+
+LAZY_TEST = dict(key="lazy", title="We ran the lazy prompt: the model chose everything",
+    file="lab1-lazy-draft-480p.mp4", poster="lab1-lazy-poster.jpg",
+    model="Seedance 2.5 Draft · 480p · 16:9 · 15 s · 45 credits · run 9 Nov 2026",
+    shots=["Prompt  'Create a 15-second video of an epic sci-fi scene.'",
+           "Character  none: the model left people out",
+           "World  abstract space and crystal shards",
+           "Camera  a warp-speed fly-through, no story beats",
+           "Lesson  brief who / where / what happens (Lab 2)"])
 
 # ------------------------------------------------------------------ assessment
 ASSESSMENT = dict(
     written="Written Assessment (WA) — Short-Answer Questions (SAQ), 1 hour, open book.",
-    practical="Practical Performance (PP) — hands-on video-production tasks, 1 hour, open book.",
+    practical="Practical Performance (PP) — three Higgsfield production tasks, 1 hour, open book; paste screenshots under each task and upload your final video to the TMS.",
     note="A minimum of 75% attendance is required to be eligible for assessment and funding.",
 )

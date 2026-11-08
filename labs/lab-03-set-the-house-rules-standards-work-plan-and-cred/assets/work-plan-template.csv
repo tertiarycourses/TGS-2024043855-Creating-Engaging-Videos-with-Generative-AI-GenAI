@@ -1,0 +1,9 @@
+phase,owner,start,end,dependency,deliverable,credits
+Script lock,,Day 1 AM,,brief approved,script + shot list,0
+Elements,,,,script lock,@char / @loc / @prop,
+480p Draft takes,,,,Elements,4 takes per scene,
+1080p finals,,,,take approved,final clips,
+Fix & finish,,,,finals,"captions, music, fixes",
+Client review,,,,fix & finish,approval email,0
+Export 16:9 + 9:16,,,,approval,two MP4s,0
+Publish,,Day 3 PM,,export,live post with AI label,0
