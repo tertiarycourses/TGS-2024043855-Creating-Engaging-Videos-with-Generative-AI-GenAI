@@ -9,7 +9,7 @@ Script, cast, shoot, fix and publish a 15-second film in one AI studio: Higgsfie
 | Duration | 2 days / 16 hours (including a 2-hour assessment) |
 | Registration | [View course details and register](https://www.tertiarycourses.com.sg/wsq-creating-engaging-videos-with-generative-ai-genai.html) |
 | Funding | Up to 70% course-fee funding may be available (funding validity 2 Apr 2024 – 1 Apr 2027). Eligibility and terms apply; check the registration page for current details. |
-| Courseware version | v9 · 9 November 2026 |
+| Courseware version | v11 · 9 November 2026 |
 
 ## About the course
 
@@ -73,7 +73,7 @@ Ten labs, all in Higgsfield; Lab 10 is a mini capstone. Every prompt is on one c
 
 | Item | Files |
 |---|---|
-| Slide deck (v9) | [PPTX](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v9.pptx>) · [PDF](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v9.pdf>) |
+| Slide deck (v11) | [PPTX](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v11.pptx>) · [PDF](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v11.pdf>) |
 | Learner Guide | [DOCX](<courseware/LG-Creating Engaging Videos with Generative AI (GenAI).docx>) · [PDF](<courseware/LG-Creating Engaging Videos with Generative AI (GenAI).pdf>) · [Markdown](<LG-Creating Engaging Videos with Generative AI (GenAI).md>) |
 | Lesson Plan | [DOCX](<courseware/LP-Creating Engaging Videos with Generative AI (GenAI).docx>) · [PDF](<courseware/LP-Creating Engaging Videos with Generative AI (GenAI).pdf>) |
 | Demo films | [SOLA product ad (15 s)](<courseware/assets/videos/marketing-sola-15s-h264.mp4>) · [Ringfall sci-fi scene (15 s)](<courseware/assets/videos/scifi-ring-15s-h264.mp4>) |

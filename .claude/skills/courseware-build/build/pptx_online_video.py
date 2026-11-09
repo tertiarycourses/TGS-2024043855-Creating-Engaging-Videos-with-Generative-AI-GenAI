@@ -134,6 +134,29 @@ def set_video_timing(slide):
         anchor.addprevious(timing)
     else:
         sld.append(timing)
+    # A p:transition AFTER p:timing makes PowerPoint discard the timing (videos show only the poster).
+    for tr in sld.findall(f'{P}transition'):
+        sld.remove(tr)
+        timing.addprevious(tr)
+
+
+def check_deck(path):
+    """QA gate: every video slide has playFrom + togglePause and its transition BEFORE p:timing. -> list of faults."""
+    from pptx import Presentation
+    faults = []
+    for i, slide in enumerate(Presentation(path).slides, 1):
+        if not _video_spids(slide):
+            continue
+        sld = slide._element
+        kids = [k.tag for k in sld]
+        xml = etree.tostring(sld).decode()
+        if 'playFrom(0.0)' not in xml:
+            faults.append(f'slide {i}: no playFrom click trigger')
+        if 'togglePause' not in xml:
+            faults.append(f'slide {i}: no togglePause trigger')
+        if f'{P}timing' in kids and f'{P}transition' in kids and kids.index(f'{P}transition') > kids.index(f'{P}timing'):
+            faults.append(f'slide {i}: p:transition after p:timing (PowerPoint drops the timing)')
+    return faults
 
 
 def _clean_nvPr(nvPr):
@@ -208,6 +231,10 @@ def fix_deck(src, dst=None):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) >= 3 and sys.argv[1] == 'check':
+        f = check_deck(sys.argv[2])
+        print('\n'.join(f) if f else 'all video slides play on click (trigger + transition order OK)')
+        sys.exit(1 if f else 0)
     if len(sys.argv) >= 3 and sys.argv[1] == 'fix':
         print(f'{fix_deck(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)} YouTube video(s) made playable')
     else:

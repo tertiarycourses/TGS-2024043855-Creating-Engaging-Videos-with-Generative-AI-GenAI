@@ -90,11 +90,17 @@ def bullets(s,x,y,w,h,items,size=18,color=INK,gap=10,mcolor=BLUE):
 def _transition(s, kind="fade", speed="med"):
     sld=s._element
     for old in sld.findall(qn("p:transition")): sld.remove(old)
-    tr=etree.SubElement(sld,qn("p:transition")); tr.set("spd",speed); tr.set("advClick","1")
+    tr=etree.Element(qn("p:transition")); tr.set("spd",speed); tr.set("advClick","1")
     if kind=="fade": etree.SubElement(tr,qn("p:fade"))
     elif kind=="push":
         el=etree.SubElement(tr,qn("p:push")); el.set("dir","l")
-    sld.append(tr); return tr
+    # Schema order is cSld, clrMapOvr, transition, timing, extLst. A transition written AFTER
+    # p:timing makes PowerPoint drop the timing, so embedded videos show only their poster.
+    anchor=sld.find(qn("p:timing"))
+    if anchor is None: anchor=sld.find(qn("p:extLst"))
+    if anchor is not None: anchor.addprevious(tr)
+    else: sld.append(tr)
+    return tr
 
 _TIMING = """<p:timing xmlns:p="http://schemas.openxmlformats.org/presentationml/2006/main"
  xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
@@ -219,13 +225,13 @@ def section(kicker,title,n,sub="",items=None):
     footer(s,dark=True); return s
 def content(title,items,kicker=None,size=20):
     s=head(slide(),title,kicker); bullets(s,Inches(0.85),Inches(1.95),Inches(11.6),Inches(4.9),items,size=size); footer(s); return s
-def two_col(title,left,right,kicker=None,lhead="",rhead=""):
+def two_col(title,left,right,kicker=None,lhead="",rhead="",size=16):
     s=head(slide(),title,kicker)
     rect(s,Inches(0.85),Inches(1.95),Inches(5.7),Inches(4.7),LIGHT); rect(s,Inches(6.95),Inches(1.95),Inches(5.55),Inches(4.7),LIGHT)
     if lhead: txt(s,Inches(1.1),Inches(2.15),Inches(5.2),Inches(0.4),[[(lhead,16,BLUE,True)]])
     if rhead: txt(s,Inches(7.2),Inches(2.15),Inches(5.0),Inches(0.4),[[(rhead,16,TEAL,True)]])
-    bullets(s,Inches(1.1),Inches(2.7),Inches(5.2),Inches(3.8),left,size=16)
-    bullets(s,Inches(7.2),Inches(2.7),Inches(5.05),Inches(3.8),right,size=16,mcolor=TEAL); footer(s); return s
+    bullets(s,Inches(1.1),Inches(2.7),Inches(5.2),Inches(3.8),left,size=size)
+    bullets(s,Inches(7.2),Inches(2.7),Inches(5.05),Inches(3.8),right,size=size,mcolor=TEAL); footer(s); return s
 def cards3(title,cards,kicker):
     s=head(slide(),title,kicker); xs=[Inches(0.85),Inches(5.0),Inches(9.15)]
     for i,c in enumerate(cards[:3]):
@@ -234,12 +240,19 @@ def cards3(title,cards,kicker):
         txt(s,x+Inches(0.25),Inches(2.2),Inches(3.2),Inches(0.6),[[(c[1],19,col,True)]])
         bullets(s,x+Inches(0.25),Inches(2.95),Inches(3.2),Inches(3.4),c[2],size=14,mcolor=col,gap=9)
     footer(s); return s
-def big_statement(line1,line2,kicker,color=BLUE):
+GEN=os.path.join(ASSETS,"gen")
+def big_statement(line1,line2,kicker,color=BLUE,img=None,note=None):
+    """Dark statement slide; with img (assets/gen/<name>.jpg) the text takes the left half and the image the right."""
     s=slide(); dark_bg(s)
-    txt(s,Inches(0.9),Inches(2.1),Inches(9),Inches(0.4),[[(kicker.upper(),12,CORAL,True)]])
-    txt(s,Inches(0.9),Inches(2.6),Inches(9.6),Inches(2.3),[[(line1,38,WHITE,True)]])
+    tw=5.9 if img else 9.6
+    txt(s,Inches(0.9),Inches(2.1),Inches(tw),Inches(0.4),[[(kicker.upper(),12,CORAL,True)]])
+    txt(s,Inches(0.9),Inches(2.6),Inches(tw),Inches(2.3),[[(line1,34 if img else 38,WHITE,True)]])
     rect(s,Inches(0.92),Inches(4.95),Inches(1.6),Inches(0.05),CORAL)
-    if line2: txt(s,Inches(0.9),Inches(5.15),Inches(9.4),Inches(1.4),[[(line2,16,PALE,False)]])
+    if line2: txt(s,Inches(0.9),Inches(5.15),Inches(tw),Inches(1.6),[[(line2,14 if img else 16,PALE,False)]])
+    if img:
+        p=os.path.join(GEN,img)
+        if os.path.exists(p): fit_pic(s,p,Inches(7.15),Inches(1.35),Inches(5.7),Inches(4.9),frame=False)
+    if note: s.notes_slide.notes_text_frame.text=note
     footer(s,dark=True); return s
 
 PALETTE=[BLUE,TEAL,VIOLET,AMBER]
@@ -448,6 +461,16 @@ HF=os.path.join(ASSETS,"hf"); YT=os.path.join(ASSETS,"yt")
 VID=os.path.join(REPO,"courseware","assets","videos")
 def hf(n): return os.path.join(HF,f"hf_{n}.jpg")
 
+ENABLE_NOTE=("To play: in PowerPoint click Enable Content on the yellow security bar first (online video is blocked until you do), "
+             "be online, then in Slide Show click the video. If it still will not play, use the Open in YouTube link.")
+
+_ENABLED_ONCE=[False]
+def _enable_once(note):
+    """Enable Content reminder in the trainer notes of the FIRST YouTube slide only (owner: not on every slide)."""
+    if _ENABLED_ONCE[0]: return note
+    _ENABLED_ONCE[0]=True
+    return ENABLE_NOTE+(" "+note if note else "")
+
 def notes(s,text):
     if text: s.notes_slide.notes_text_frame.text=text
 
@@ -586,6 +609,7 @@ def video_slide(v,kicker,sub,note=None,prompt_hint=None):
 
 def yt_pair(title,items,kicker,sub=None,note=None,accent=VIOLET):
     """Two click-to-play YouTube examples; items = [(video_id, label, fact)]."""
+    note=_enable_once(note)
     s=head_sub(slide(),title,kicker,sub,accent)
     cw=5.66; h=cw*9/16
     for i,(vid,lab,fact) in enumerate(items):
@@ -696,33 +720,27 @@ tile_grid("Ground Rules",[
  kicker="HOUSEKEEPING",cols=2,size=15)
 lms_login_slide()
 lms_courseware_slide()
-two_col("Lesson Plan — 2 Days, 8 hours/day",[
- (f"Day 1 — {C.DAY_THEMES[1]}",0),
- ("9:30 · LU1 — attendance, introductions, Higgsfield sign-up",1),
- ("LU1 (to 14:30): impact & use cases, Labs 1–3",1),
- ("LU2 (14:30): Elements — Lab 4; Cinema Studio — Lab 5",1),
- ("PM attendance 14:00 · Day 1 recap 18:15",1)],
- [(f"Day 2 — {C.DAY_THEMES[2]}",0),
- ("9:30 · attendance · LU2: cut & assess — Lab 6",1),
- ("LU3 (10:30): fix, voice, music, effects — Labs 7–8",1),
- ("LU3: use-case sprint — Lab 9 · mini capstone — Lab 10",1),
- ("LU3: ethics in GenAI video · course summary",1),
- ("16:15 TRAQOM · briefing · assessment attendance",1),
- ("16:30 WA (1 h) · 17:30 PP (1 h)",1)],
- kicker="SCHEDULE · LU1 4 H · LU2 5 H · LU3 5 H",lhead="Day 1",rhead="Day 2")
+tile_grid("Lesson Plan — 2 Days, 8 hours/day",[
+ ("Day 1 · 9:30–14:30 · LU1 (4 h)","Attendance, introductions, Higgsfield sign-up; the impact of AI on video and its use cases; Labs 1–3. PM attendance at 14:00."),
+ ("Day 1 · 14:30–18:30 · LU2","Elements: characters, locations, props (Lab 4); shots and takes in Cinema Studio (Lab 5); Day 1 recap at 18:15."),
+ ("Day 2 · 9:30–10:30 · LU2 (5 h in total)","Attendance; cut, caption and assess the scene (Lab 6)."),
+ ("Day 2 · 10:30–16:30 · LU3 (5 h)","Tea break 10:30–10:45, then fix, voice, music and effects (Labs 7–8); use-case sprint (Lab 9); mini capstone (Lab 10); ethics of GenAI video and course summary."),
+ ("Day 2 · 16:15–16:30 · close of LU3","Revision, TRAQOM survey, Briefing for Assessment and assessment attendance."),
+ ("Day 2 · 16:30–18:30 · Assessment","Written Assessment (SAQ), 1 h, then Practical Performance (PP), 1 h.")],
+ kicker="SCHEDULE · LU1 4 H · LU2 5 H · LU3 5 H",cols=2,size=12)
 two_col("Skills Framework",[
  (f"TSC: {C.TSC_TITLE}  ·  {C.TSC_CODE}",0)]+[(k,1) for k in C.TSC_KNOWLEDGE],
- [("Abilities",0)]+[(a,1) for a in C.TSC_ABILITIES[:4]]+[("Plus A5–A7 (assessed in the PP)",1)],
- kicker="WSQ · SKILLS FRAMEWORK",lhead="Knowledge (assessed in the WA)",rhead="Abilities (assessed in the PP)")
+ [(a,1) for a in C.TSC_ABILITIES],
+ kicker="WSQ · SKILLS FRAMEWORK",lhead="Knowledge (assessed in the WA)",rhead="Abilities (assessed in the PP)",size=13)
 tile_grid("Learning Outcomes",[
  ("LO1 — Script & plan","Create video scripts using Generative AI (GAI) and work plans for video production."),
  ("LO2 — Edit & assess","Edit video footage to improve video quality and ensure technical compliance."),
  ("LO3 — Apply new AI","Apply new AI technologies to improve efficiency and quality in accordance to industry standards.")],
  kicker="WHAT YOU'LL ACHIEVE",cols=1,size=16)
 tile_grid("Course Outline",[
- ("Topic 1 — Script, Plan and Make Your First Video","Higgsfield sign-up, Supercomputer and AI Director scripts and shot lists, standards, work plan and credit budget.  (Labs 1–3)"),
- ("Topic 2 — Build, Shoot and Assess","Elements (characters, locations, props), references, Cinema Studio shots and takes, Draft mode, cut, captions and quality scoring.  (Labs 4–6)"),
- ("Topic 3 — Fix, Finish and Publish","Replace objects, upscale, reframe, voice, music, effects, model comparison, a published ad and your own mini capstone video.  (Labs 7–10)")],
+ (f"Topic 1 — {C.TOPICS[0]['title']}","Script, plan and make your first video: Higgsfield sign-up, Supercomputer and AI Director scripts and shot lists, standards, work plan and credit budget.  (Labs 1–3)"),
+ (f"Topic 2 — {C.TOPICS[1]['title']}","Build, shoot and assess: Elements (characters, locations, props), references, Cinema Studio shots and takes, Draft mode, cut, captions and quality scoring.  (Labs 4–6)"),
+ (f"Topic 3 — {C.TOPICS[2]['title']}","Fix, finish and publish: replace objects, upscale, reframe, voice, music, effects, model comparison, a published ad and your own mini capstone video.  (Labs 7–10)")],
  kicker="THREE TOPICS · TEN HANDS-ON LABS · ONE STUDIO: HIGGSFIELD",cols=1,size=15)
 tile_grid("Briefing for Assessment",[
  "Place phones and other materials under the table or on the floor.",
@@ -765,6 +783,7 @@ def yt_short_slide(title,lead,second,kicker,sub=None,band=None,note=None,lead_ve
         txt(s,Inches(x+0.25),Inches(y),Inches(w-0.4),Inches(h),[[(tag,9.5,col,True)],[(lab,13,INK,True)],[(fact,11.5,GREY,False)]],anchor=MSO_ANCHOR.MIDDLE,space=3)
     cx=0.85+lw+0.35; cw=12.48-cx
     tag="◀ CLICK TO PLAY · THE SHORT" if lead_vertical else "◀ CLICK TO PLAY · THE FILM"
+    note=_enable_once(note)
     if band:
         card(cx,2.35,cw,1.45,VIOLET,tag,llab,lfact)
         card(cx,3.95,cw,1.45,TEAL,"ALSO IN THE NEWS",slab,sfact)
@@ -835,7 +854,8 @@ def bp_intro():
     """Topic 1 opener: why AI video, two demo films, the pipeline."""
     big_statement("Two 15-second films. Two prompts. Zero cameras.",
      "Both clips on the next slides were made for this course in Higgsfield with Seedance 2.5, one prompt each, sound included. By the end of Day 2 you will direct your own.",
-     "WHY THIS COURSE",color=BLUE)
+     "WHY THIS COURSE",color=BLUE,img="creator-desk.jpg",
+     note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K, 0.5 credits). Prompt: modern video creator's desk at night, laptop with an editing timeline, storyboard notebook, terracotta lamp light, no text or logos.")
     video_slide(C.DEMO_VIDEOS[0],"MADE IN HIGGSFIELD · AI MARKETING",
      "A product ad with a hero packshot, written as five timed shots",
      note="Play it with sound. Point out: the bottle stays the same in every shot because the prompt names it in every shot; the beat hits on the packshot because the Sound line asked for it. Cost: 240 credits at 1080p; the same take as a 480p Draft costs 45.")
@@ -1003,12 +1023,13 @@ def lab_concepts(lab):
         shot_hero("One sheet, three views: the reference every shot obeys",hf("041"),[
          ("Full body, front","Clothes, shoes, proportions."),
          ("Full body, back","What the camera sees when he walks away."),
-         ("Face portrait","The identity the model locks onto.")],
+         ("Face portrait","The identity every shot copies. Next: make it the only face on the sheet.")],
          kicker="ELEMENTS · CHARACTER SHEET",sub="Plain background, consistent light: the model copies exactly what it sees",img_h=3.0)
-        shot_pair("Same face, every shot: identity is what a sheet protects",
-         (hf("042"),"Identity locked","The face box marks what the model must keep. The sheet carries the jacket, the jeans and the earring too."),
-         (hf("043"),"A second character, same rules","The friend gets his own sheet, so two people can share a shot without swapping faces."),
-         kicker="ELEMENTS · CONSISTENCY",sub="Identity drift is defect no. 1 (K1); a reference sheet is the fix (K2)")
+        shot_pair("Cover one face, keep one face: the trick that locks identity",
+         (hf("042"),"Blank the full-body face","The white oval is deliberate. The small, soft face in the full-body view is hidden, so the model copies the sharp close-up into every shot."),
+         (hf("043"),"Same trick for the friend","His full-body face is covered too. Each character has exactly one face to copy, so two people share a shot without swapping faces."),
+         kicker="ELEMENTS · CONSISTENCY",sub="Two faces on one sheet means two identities to blend; leave the model only one (K2)",
+         note="The covered face is not a defect. Higgsfield's character-sheet skill hides the face on the full-body view so the close-up portrait is the only face reference, which keeps the face identical from shot to shot. Outfit and body still come from the full-body views.")
         shot_pair("Edit one detail and keep it in every view",
          (hf("044"),"A targeted edit","'Give him a silver wallet chain… white ribbed tank top, same in all views.' Seedream 5.0 Pro, 3 credits."),
          (hf("045"),"Different models, different casts","Soul 2.0, Seedream 5.0 Pro and Nano Banana Pro each read the same brief their own way."),
@@ -1252,6 +1273,10 @@ for t in C.TOPICS:
                          part=f"({pi}/{len(pgs)})" if len(pgs)>1 else None)
         test_slide(a["title"],a["test"],kicker=f"LAB {a['num']} · VERIFY")
     if t["num"]==3:
+        big_statement("Just because you can generate it doesn't mean you should publish it.",
+            "Seven ethical issues, nine real cases and one rule for each: the last stop before anything you make goes live.",
+            "TOPIC 3 · ETHICS",img="ethics-face.jpg",
+            note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K). Prompt: fictional face, photographic on one side, dissolving into a digital wireframe on the other, charcoal background, terracotta rim light, no text. Not a real person.")
         tile_grid("Core ethical issues in GenAI video",[(h,d) for h,d,_ in C.ETHICS],
             kicker="TOPIC 3 · ETHICS BEFORE YOU PUBLISH",cols=2,size=12,accent=RUST,
             note="Owner-supplied list (9 Nov 2026). Facilitate: ask each table to pick the issue most relevant to the video they made in Lab 10.")
@@ -1294,6 +1319,7 @@ tile_grid("Support",[
  "Email: enquiry@tertiaryinfotech.com",
  "Tel: +65 6100 0613",
  "Web: www.tertiarycourses.com.sg"],kicker="WE'RE HERE TO HELP")
+lms_courseware_slide()   # end-of-deck "Courseware & Assessment on the LMS" (wsq-slides order item 15)
 tile_grid("Cert & TRAQOM Survey (Mandatory)",[
  "Complete the TRAQOM course feedback survey on the LMS — it is mandatory for WSQ funding.",
  "Your digital certificate is issued on the LMS after you are assessed Competent.",
@@ -1310,7 +1336,7 @@ tile_grid("Assessment",[
  C.ASSESSMENT["written"], C.ASSESSMENT["practical"],
  "Open book: slides, Learner Guide and approved materials only.",
  "Remember to take the Assessment digital attendance.",
- "Submit your completed answers to the assessor."],kicker="FINAL ASSESSMENT")
+ "Submit your completed answers and your MP4 on the LMS."],kicker="FINAL ASSESSMENT")
 flow_h("Assessment Flow",[
  "TRAQOM survey — scan the QR code on the LMS",
  "Assessment digital attendance — scan the SSG QR",
@@ -1322,7 +1348,8 @@ tile_grid("Digital Attendance (Mandatory)",[
  "The trainer/administrator displays the digital attendance QR code from the SSG portal.",
  "Scan the QR code with your mobile phone camera and submit your attendance.",
  "A minimum of 75% attendance is required to be eligible for assessment and funding."],kicker="TRAQOM · SSG DIGITAL ATTENDANCE")
-big_statement("Thank You!","You can now take an idea to a published 15-second film in one studio: Higgsfield, with you as the director.","HAPPY CREATING",color=TEAL)
+big_statement("Thank You!","You can now take an idea to a published 15-second film in one studio: Higgsfield, with you as the director.","HAPPY CREATING",color=TEAL,img="directors-chair.jpg",
+ note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K). Prompt: empty director's chair on a dark film stage under a warm spotlight, blank clapperboard, charcoal and terracotta, no text.")
 
 # ---------------- transitions (one pass) ----------------
 for i,s in enumerate(prs.slides):
@@ -1334,3 +1361,9 @@ OUT=os.path.join(REPO,"courseware",f"{C.SHORT_TITLE}-{C.VERSION}.pptx")
 prs.save(OUT)
 n=len(prs.slides._sldIdLst)
 print(f"Saved {OUT}  ({n} slides)")
+# Gates (user rule, 9 Nov 2026): every slide has a transition before p:timing; every video plays on click.
+import subprocess
+_here=os.path.dirname(os.path.abspath(__file__))
+subprocess.run([sys.executable,os.path.join(_here,"ensure_transitions.py"),OUT],check=True)
+subprocess.run([sys.executable,os.path.join(_here,"ensure_transitions.py"),OUT,"--check"],check=True)
+subprocess.run([sys.executable,os.path.join(_here,"pptx_online_video.py"),"check",OUT],check=True)

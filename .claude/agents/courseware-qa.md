@@ -24,7 +24,8 @@ with slide/page numbers and a concrete fix for every failure.
 
 **Versioning (every artifact)**
 - Version number bumped on any content change; version + date on the PPT cover; the old
-  versioned files are deleted (only ONE version present locally and in git).
+  versioned files are moved to the git-ignored `courseware/archive/` (owner rule, ~/.claude/CLAUDE.md): only ONE
+  version in `courseware/` and in git; an archive/ folder is NOT a failure.
 - LG/LP carry a Document Version Control Record row describing the change.
 - README references the current versioned filename.
 
@@ -91,3 +92,8 @@ Render the pages to images; never check these by text alone.
 Return a compact report: `PASS`/`FAIL` per section, a numbered list of failures
 (artifact, slide/page, what is wrong, the fix), and a one-line overall verdict. If
 everything passes, say so explicitly with the artifact versions checked.
+
+## Motion and video gates (FAIL if either fails; user rule, 9 Nov 2026)
+
+- Every slide has a transition placed before `p:timing`: `python3 ~/.claude/skills/tertiary-ppt-design/ensure_transitions.py <deck>.pptx --check` must print N/N.
+- Every embedded video plays on click: `python3 ~/.claude/skills/pptx-youtube-video/pptx_online_video.py check <deck>.pptx` must exit 0.

@@ -36,6 +36,10 @@ Arguments (optional): `$ARGUMENTS` — restrict the audit to one artifact (`ppt`
 
 Also check: **all admin pages are present**; no overlapping, clipped or off-slide text; the copyright line, course title and UEN appear.
 
+Motion and video gates (FAIL if either does not pass; user rule, 9 Nov 2026):
+- **Every slide has a transition**, placed before `p:timing`: `python3 ~/.claude/skills/tertiary-ppt-design/ensure_transitions.py <deck>.pptx --check` must print N/N.
+- **Every embedded video plays on click**: `python3 ~/.claude/skills/pptx-youtube-video/pptx_online_video.py check <deck>.pptx` must exit 0. A transition after the timing shows only the poster.
+
 ---
 
 ## B. Assessment Quality Audit — 5-point mandatory checklist

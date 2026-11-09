@@ -44,6 +44,27 @@ def steps(xs): B.append(("steps",xs))
 def prompt(label,text): B.append(("prompt",(label,text)))
 def note(t): B.append(("note",t))
 def rule(): B.append(("rule",))
+def img(path,caption): B.append(("img",(path,caption)))
+
+# One Higgsfield workflow screenshot per lab (QA: every lab shows its workflow), copied to a public path
+# for the Markdown mirror. These are the same privacy-cleaned screenshots the deck uses.
+LAB_SHOT={1:("009c","Cinema Studio's video panel: prompt box, model, resolution, duration and credit cost (shown at 720p; in Lab 1 you switch to a 480p Draft, about 45 credits)"),
+          2:("015","Who, where, what happens: the three answers every script needs"),
+          3:("023","Supercomputer's Skills list: type / to call a skill such as youtube-script"),
+          4:("041","A character reference sheet: full body front, full body back, face portrait (before step 3 covers the full-body face)"),
+          5:("036","Cinema Studio: the panel where references, camera and look come together"),
+          6:("066","Keep a useful first take: watch with sound, choose one change, save the prompt and take"),
+          7:("019","Fix one thing per instruction: remove or replace an object and keep the rest of the shot"),
+          8:("005","Camera setup in Cinema Studio: camera body, lens and aperture"),
+          9:("018","A usable product reference: the full object, clear light, visible edges"),
+          10:("016","The Supercomputer loop for your capstone: start a scene, talk it through, make your Draft")}
+LG_IMG=os.path.join(REPO,"courseware","assets","lg"); os.makedirs(LG_IMG,exist_ok=True)
+def lab_img(n):
+    if n not in LAB_SHOT: return
+    hid,cap=LAB_SHOT[n]; src=os.path.join(ASSETS,"hf",f"hf_{hid}.jpg")
+    if not os.path.exists(src): return
+    import shutil; dst=os.path.join(LG_IMG,f"lab-{n:02d}.jpg"); shutil.copyfile(src,dst)
+    img(dst,f"Figure {n}. Lab {n}: {cap}.")
 
 # ---------------- content ----------------
 h1("Introduction")
@@ -99,6 +120,7 @@ for t in C.TOPICS:
         h2(f"Lab {a['num']} — {a['title']}")
         p(f"Maps to: {a['objective']}.")
         p(f"Goal: {a['desc']}")
+        lab_img(a["num"])
         h3("What you'll build")
         p(a["build"]+f"   (Tools: {a['services']}.)")
         if a.get("prompts"):
@@ -130,7 +152,7 @@ rule()
 h1("Assessment Preparation")
 bullets([
  "Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.",
- "Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–9. Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.",
+ "Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–10 (Task 3 is rehearsed by the Lab 10 mini capstone). Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.",
  "Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.",
  "Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.",
 ])
@@ -158,9 +180,25 @@ B.append(("dl",gl))
 def _anchor(txt):
     return "".join(ch.lower() if ch.isalnum() else ("-" if ch in " -" else "") for ch in txt)
 
+VROWS=[
+ ("6.0","1 June 2025","Prior release — Creating Engaging Videos with GenAI Learner Guide.","Tertiary Infotech Academy"),
+ ("7","18 August 2026","12 hands-on labs on VEED and companion AI tools, restructured around a 5-stage GenAI video pipeline.","Tertiary Infotech Academy"),
+ ("8","9 November 2026",
+  "Whole pipeline moved into Higgsfield: 9 labs on Supercomputer, AI Director, Elements, references, Cinema Studio, "
+  "Seedance 2.5 Draft mode, remedial fixes, voice, music, effects and a published use-case ad; mock assets and one-click "
+  "prompt pages per lab; Higgsfield sign-up and plan terms; PP evidence by pasted screenshots and a TMS video upload.","Tertiary Infotech Academy"),
+ ("9","9 November 2026","deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers.","Tertiary Infotech Academy"),
+ ("10","9 November 2026","Embedded videos fixed: each slide's transition now precedes its click-to-play timing (PowerPoint dropped the timing when the order was reversed), so all YouTube Shorts and MP4 demo films play in Slide Show; three GPT Image 2.6 images added (Topic 1 opener, ethics opener, Thank You); LP, LG, FG and AP realigned to the v10 slide numbers.","Tertiary Infotech Academy"),
+ (C.VERSION.lstrip("v"),C.VERSION_DATE,"Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order).","Tertiary Infotech Academy"),
+]
+
 def render_md():
     out=[f"# {C.TITLE} — Learner Guide",""]
     out.append(f"**WSQ Course Code:** {C.COURSE_CODE}  |  **Conducted by:** {C.ORG} ({C.UEN.replace('UEN: ','UEN ')})  |  **Version {C.VERSION} · {C.VERSION_DATE}**")
+    out.append("")
+    out.append("## Document Version Control Record"); out.append("")
+    out.append("| Version | Date | Changes | Author |"); out.append("|---|---|---|---|")
+    for v,d,ch,a in VROWS: out.append(f"| {v} | {d} | {ch.replace('|','/')} | {a} |")
     out.append("")
     out.append("## Contents"); out.append("")
     for kind,*rest in B:
@@ -182,6 +220,9 @@ def render_md():
             lbl,ptext=rest[0]
             out+=[f"> **Prompt — {lbl}:**",">","> ```"]+["> "+ln for ln in ptext.split("\n")]+["> ```",""]
         elif kind=="note": out+=[f"> **Note:** {rest[0]}",""]
+        elif kind=="img":
+            path,cap=rest[0]; rel=os.path.relpath(path,REPO).replace(os.sep,"/")
+            out+=[f"![{cap}](<{rel}>)","",f"*{cap}*",""]
         elif kind=="rule": out+=["---",""]
         elif kind=="dl":
             for term,defn in rest[0]: out.append(f"- **{term}** — {defn}")
@@ -201,15 +242,7 @@ prodoc.style_headings(doc)
 prodoc.add_cover_page(doc,"LEARNER GUIDE",C.TITLE,C.VERSION.lstrip("v"),
                       org_logo=os.path.join(ASSETS,"tertiary-infotech-logo.png"),
                       course_logo=None, course_code=C.COURSE_CODE)
-prodoc.add_version_control(doc,[
- ("6.0","1 June 2025","Prior release — Creating Engaging Videos with GenAI Learner Guide.","Tertiary Infotech Academy"),
- ("7","18 August 2026","12 hands-on labs on VEED and companion AI tools, restructured around a 5-stage GenAI video pipeline.","Tertiary Infotech Academy"),
- ("8","9 November 2026",
-  "Whole pipeline moved into Higgsfield: 9 labs on Supercomputer, AI Director, Elements, references, Cinema Studio, "
-  "Seedance 2.5 Draft mode, remedial fixes, voice, music, effects and a published use-case ad; mock assets and one-click "
-  "prompt pages per lab; Higgsfield sign-up and plan terms; PP evidence by pasted screenshots and a TMS video upload.","Tertiary Infotech Academy"),
- (C.VERSION.lstrip("v"),C.VERSION_DATE,"deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers.","Tertiary Infotech Academy"),
-])
+prodoc.add_version_control(doc,VROWS)
 prodoc.add_toc(doc)
 
 def code_para(text,mono=True):
@@ -246,6 +279,14 @@ for kind,*rest in B:
         para=doc.add_paragraph(); r=para.add_run("Note: "); r.bold=True; r.font.color.rgb=BRAND
         para.add_run(rest[0]).font.size=Pt(10)
     elif kind=="rule": doc.add_paragraph("")
+    elif kind=="img":
+        from docx.shared import Inches as _In
+        from docx.enum.text import WD_ALIGN_PARAGRAPH as _AL
+        path,cap=rest[0]
+        doc.add_picture(path,width=_In(6.0)); doc.paragraphs[-1].alignment=_AL.CENTER
+        doc.paragraphs[-1].paragraph_format.keep_with_next=True
+        cp=doc.add_paragraph(); cp.alignment=_AL.CENTER
+        r=cp.add_run(cap); r.italic=True; r.font.size=Pt(9); r.font.color.rgb=INKCODE
     elif kind=="dl":
         for term,defn in rest[0]:
             para=doc.add_paragraph(style="List Bullet")

@@ -1,4 +1,4 @@
-"""Topic 2 — Improve Video Footage on GenAI-Powered Video Platforms.  Labs 4–6.
+"""Topic 2 — Improve Video Footage on GAI Powered Video Platforms.  Labs 4–6.
 
 All in Higgsfield: Elements (characters, locations, props), references,
 Cinema Studio shots and takes, Seedance 2.5 Draft, and assessing the cut.
@@ -19,6 +19,9 @@ DOMAIN2 = [
             ("In Supercomputer paste the casting prompt. It loads the character-sheet skill and offers five photoreal casting "
              "options (Soul 2.0). Pick the one that fits your brief.", ""),
             ("Ask for a 16:9 reference sheet of your pick: full body front, full body back, and a face portrait, plain white background.", ""),
+            ("Check that the face on the full-body front view is covered by a white oval. That is deliberate: with only the close-up "
+             "portrait left as a face, the model copies one identity into every shot. If your sheet shows both faces, ask Supercomputer "
+             "to cover the face in the full-body view and keep the portrait.", ""),
             ("Make one targeted edit with the edit prompt (Image → Seedream 5.0 Pro, about 3 credits): change one garment and keep "
              "it the same in all views.", ""),
             ("Open the sheet, click Save as element. Set Category = Character, Name = Biker, Element ID = char_biker. "
@@ -51,8 +54,9 @@ DOMAIN2 = [
                 "sample-location-bar.jpg and sample-prop-suitcase.jpg — the Lab 4 prompts run for this course"],
         evidence=["My elements page showing your saved characters, locations and prop with @handles",
                   "Your character reference sheet (front, back, face)"],
-        test="Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same face and outfit "
-             "in all three views; each Element has a line saying which quality issue it prevents.",
+        test="Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same outfit in all three "
+             "views, the full-body face is covered and the portrait is the one clear face; each Element has a line saying which "
+             "quality issue it prevents.",
     ),
     dict(
         num=5, topic=2,

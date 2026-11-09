@@ -307,25 +307,43 @@ House rule:
 - **Animation is reserved for process maps**: an appear-on-click *fade* build so the trainer
   reveals one stage at a time. Never animate body text, bullets or whole slides.
 
-python-pptx cannot write transitions natively — inject the OOXML. `p:transition` must be the
-**last** child of `p:sld`, and the PowerPoint-2010 set is what LibreOffice/PowerPoint both honour:
+**HARD RULE (user, 9 Nov 2026): EVERY slide of EVERY deck has a slide transition**, with no
+exceptions for the cover, admin, video or closing slides. Every build ends with the gate:
+
+```bash
+python3 ~/.claude/skills/tertiary-ppt-design/ensure_transitions.py "<deck>.pptx"          # add missing, fix order
+python3 ~/.claude/skills/tertiary-ppt-design/ensure_transitions.py "<deck>.pptx" --check  # must print N/N pass
+```
+
+It also repairs decks edited by hand or by another tool, and `/courseware-qa` fails a deck whose
+`--check` does not pass.
+
+python-pptx cannot write transitions natively, so inject the OOXML. **Schema order is `cSld`,
+`clrMapOvr`, `transition`, `timing`, `extLst`.** `p:transition` goes **before** `p:timing`, not
+last. A transition appended after `p:timing` makes PowerPoint discard the timing, so every
+click-to-play video shows only its poster and click builds stop working. That happened on
+TGS-2024043855 v9: 11 video slides were affected. The PowerPoint-2010 set is what LibreOffice and
+PowerPoint both honour:
 
 ```python
 from pptx.oxml.ns import qn
 from lxml import etree
 
-def _transition(s, kind="fade", speed="med"):
+def _transition(s, kind="fade", speed="fast"):
     sld = s._element
     for old in sld.findall(qn("p:transition")): sld.remove(old)
-    tr = etree.SubElement(sld, qn("p:transition"))
+    tr = etree.Element(qn("p:transition"))
     tr.set("spd", speed); tr.set("advClick", "1")
     if kind == "fade":  etree.SubElement(tr, qn("p:fade"))
     elif kind == "push": etree.SubElement(tr, qn("p:push")).set("dir", "l")
-    sld.append(tr)          # schema order: transition goes last
+    anchor = sld.find(qn("p:timing"))
+    if anchor is None: anchor = sld.find(qn("p:extLst"))
+    if anchor is not None: anchor.addprevious(tr)   # BEFORE timing/extLst
+    else: sld.append(tr)
 ```
 
 Apply it in **one pass at the very end of the build**, so every slide is covered exactly once
-and no later helper can overwrite it.
+and no later helper can overwrite it. Then run `ensure_transitions.py --check` on the saved file.
 
 Appear-on-click builds use a `p:timing` tree targeting shape ids (`p:spTgt spid=`). Use
 `presetID="1" presetClass="entr"` (Appear) plus a 400 ms `animEffect filter="fade"`; the first
@@ -417,3 +435,22 @@ geometry check and were caught only by rendering pages to images:
 
 **Rule: after any layout change, render the affected slides to PNG and look at them.** The
 geometry check is a floor, not a substitute for looking.
+
+## Generating slide images in Claude Code (Higgsfield GPT Image 2.6 / Nano Banana)
+
+Owner rule (9 Nov 2026): when a deck needs a generated image and Claude Code has the **Higgsfield MCP** (image/video
+features), generate it there with **GPT Image 2.6** or **Google Nano Banana**, whichever is cheaper for the job — never
+another provider. Default: **GPT Image 2.6**.
+
+- **Preflight the price every time** with `generate_image(..., get_cost=true)` and pick the cheaper model at the quality
+  you need. Prices read on 9 Nov 2026 for one 16:9 image at 1K: `gpt_image_2_6` low 0.25 · **medium 0.5** · high 1.5 credits;
+  `nano_banana` 1 · `nano_banana_2_lite` 1 · `nano_banana_2` 1.5 · `nano_banana_pro` 2 credits. So GPT Image 2.6 medium is
+  the default; use Nano Banana only if a fresh check shows it cheaper for the same quality.
+- **Settings:** `model="gpt_image_2_6", quality="medium", resolution="1k", aspect_ratio="16:9"` (use 4:3 or 1:1 for a card or
+  side panel). Generate 2–3 images per deck at most, as a batch (`generate_image_batch`), then `jobs_wait`.
+- **Prompt rules:** match the deck palette (Claude theme: charcoal background, terracotta/amber light); say "no text, no
+  logos, no brand names"; never a real or famous person ("fictional", "not a real person"); describe one clear subject.
+- **Where they go:** dark big-statement and section slides (`big_statement(..., img=…)` puts the image in the right half),
+  topic openers and the Thank You slide — not behind body text, and never instead of a real product screenshot.
+- **Save** to the build `assets/gen/` folder with a descriptive name, credit the model in the slide notes
+  ("Image: generated with Higgsfield GPT Image 2.6"), and keep the prompt in the notes so it can be regenerated.

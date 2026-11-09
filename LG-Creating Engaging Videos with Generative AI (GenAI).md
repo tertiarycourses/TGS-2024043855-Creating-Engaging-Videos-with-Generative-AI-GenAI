@@ -1,6 +1,17 @@
 # Creating Engaging Videos with Generative AI (GenAI) — Learner Guide
 
-**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v9 · 9 November 2026**
+**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v11 · 9 November 2026**
+
+## Document Version Control Record
+
+| Version | Date | Changes | Author |
+|---|---|---|---|
+| 6.0 | 1 June 2025 | Prior release — Creating Engaging Videos with GenAI Learner Guide. | Tertiary Infotech Academy |
+| 7 | 18 August 2026 | 12 hands-on labs on VEED and companion AI tools, restructured around a 5-stage GenAI video pipeline. | Tertiary Infotech Academy |
+| 8 | 9 November 2026 | Whole pipeline moved into Higgsfield: 9 labs on Supercomputer, AI Director, Elements, references, Cinema Studio, Seedance 2.5 Draft mode, remedial fixes, voice, music, effects and a published use-case ad; mock assets and one-click prompt pages per lab; Higgsfield sign-up and plan terms; PP evidence by pasted screenshots and a TMS video upload. | Tertiary Infotech Academy |
+| 9 | 9 November 2026 | deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers. | Tertiary Infotech Academy |
+| 10 | 9 November 2026 | Embedded videos fixed: each slide's transition now precedes its click-to-play timing (PowerPoint dropped the timing when the order was reversed), so all YouTube Shorts and MP4 demo films play in Slide Show; three GPT Image 2.6 images added (Topic 1 opener, ethics opener, Thank You); LP, LG, FG and AP realigned to the v10 slide numbers. | Tertiary Infotech Academy |
+| 11 | 9 November 2026 | Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order). | Tertiary Infotech Academy |
 
 ## Contents
 
@@ -8,15 +19,15 @@
 - [Course Learning Outcomes](#course-learning-outcomes)
 - [The Higgsfield Video Pipeline](#the-higgsfield-video-pipeline)
 - [Before You Start — Environment Setup](#before-you-start--environment-setup)
-- [Topic 01 — Create and Edit Video Script Using Generative AI (GenAI)](#topic-01--create-and-edit-video-script-using-generative-ai-genai)
+- [Topic 01 — Create and Edit Video Script Using Generative AI (GAI)](#topic-01--create-and-edit-video-script-using-generative-ai-gai)
   - [Lab 1 — Sign Up and Make Your First 15-Second Video](#lab-1--sign-up-and-make-your-first-15-second-video)
   - [Lab 2 — Write the Script and Shot List with Supercomputer and AI Director](#lab-2--write-the-script-and-shot-list-with-supercomputer-and-ai-director)
   - [Lab 3 — Set the House Rules: Standards, Work Plan and Credit Budget](#lab-3--set-the-house-rules-standards-work-plan-and-credit-budget)
-- [Topic 02 — Improve Video Footage on GenAI-Powered Video Platforms](#topic-02--improve-video-footage-on-genai-powered-video-platforms)
+- [Topic 02 — Improve Video Footage on GAI Powered Video Platforms](#topic-02--improve-video-footage-on-gai-powered-video-platforms)
   - [Lab 4 — Build Your Elements: Characters, Locations and Props](#lab-4--build-your-elements-characters-locations-and-props)
   - [Lab 5 — Direct Shots and Takes in Cinema Studio](#lab-5--direct-shots-and-takes-in-cinema-studio)
   - [Lab 6 — Cut, Caption and Assess the Scene](#lab-6--cut-caption-and-assess-the-scene)
-- [Topic 03 — Apply New AI Technologies to Improve Video Production](#topic-03--apply-new-ai-technologies-to-improve-video-production)
+- [Topic 03 — Apply new AI technologies to Improve Video Production](#topic-03--apply-new-ai-technologies-to-improve-video-production)
   - [Lab 7 — Fix What Fails: Remedial Actions in Higgsfield](#lab-7--fix-what-fails-remedial-actions-in-higgsfield)
   - [Lab 8 — Add Voice, Music and Cinematic Effects](#lab-8--add-voice-music-and-cinematic-effects)
   - [Lab 9 — Use-Case Sprint: One Product Photo to a Published 15-Second Ad](#lab-9--use-case-sprint-one-product-photo-to-a-published-15-second-ad)
@@ -92,7 +103,7 @@ Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers
 - All prompts in one place: open labs/prompts.html — every lab's prompts with a search box and a Copy button on each.
 
 
-## Topic 01 — Create and Edit Video Script Using Generative AI (GenAI)
+## Topic 01 — Create and Edit Video Script Using Generative AI (GAI)
 
 The impact of AI on video · use cases · Supercomputer scripts · AI Director shot lists · standards & work plans  (Covers K1 · A1 · A2 · A3.)
 
@@ -101,7 +112,7 @@ The impact of AI on video · use cases · Supercomputer scripts · AI Director s
 - AI's impact & use cases — A US$2,000 TV ad, a 14-day feature: AI movies, micro dramas, influencers, singers and marketing videos already earn audiences.
 - The lazy prompt — Format + vibe gets you a clip in one line, but the model then decides your character, world and camera.
 - Scripts with Supercomputer — Who / where / what happens, then a script and a numbered shot list, drafted and refined in one chat.
-- AI Director — Inside a project, AI Director writes the script and an 8-shot storyboard from your brief.
+- AI Director — Inside a project, AI Director writes the script and a shot-by-shot storyboard from your brief (Lab 2 asks for six shots).
 - Standards & guidelines — A one-page sheet: platform specs, consent, licensing, AI disclosure and a Draft-first credit rule.
 - Work plans & credit budgets — Phases, owners, timelines and a credit budget: 45 credits for a 15 s Draft, 240 for the 1080p final.
 
@@ -111,6 +122,10 @@ The impact of AI on video · use cases · Supercomputer scripts · AI Director s
 Maps to: K1 — spot quality issues; A2 — generate a new video from scratch on a GenAI video platform.
 
 Goal: Sign up to Higgsfield through the course link, tour the two doors (Supercomputer and Cinema Studio), then make the same 15-second sci-fi clip twice: once from a one-line lazy prompt, once after Supercomputer interviews you. Compare what the model decided for you.
+
+![Figure 1. Lab 1: Cinema Studio's video panel: prompt box, model, resolution, duration and credit cost (shown at 720p; in Lab 1 you switch to a 480p Draft, about 45 credits).](<courseware/assets/lg/lab-01.jpg>)
+
+*Figure 1. Lab 1: Cinema Studio's video panel: prompt box, model, resolution, duration and credit cost (shown at 720p; in Lab 1 you switch to a 480p Draft, about 45 credits).*
 
 **What you'll build**
 
@@ -172,6 +187,10 @@ Both clips are 15 s Drafts in one project; your log names the character, world a
 Maps to: A1 — review scripts to conceptualise the edits needed; A2 — edit video scripts with GenAI.
 
 Goal: Turn a three-line idea (who, where, what happens) into a 15-second script and a timed shot list. AI Director drafts it inside your project; you review it against the story elements and decide the edits: shot sizes, cuts, camera and sound. Then you refine it one change at a time.
+
+![Figure 2. Lab 2: Who, where, what happens: the three answers every script needs.](<courseware/assets/lg/lab-02.jpg>)
+
+*Figure 2. Lab 2: Who, where, what happens: the three answers every script needs.*
 
 **What you'll build**
 
@@ -243,6 +262,10 @@ The script fits 15 s, every shot has a size, a camera instruction and a time, th
 Maps to: K1 — quality issues to prevent; A2 — develop editing standards and guidelines; A3 — develop work plans and timelines.
 
 Goal: Have Supercomputer draft the two documents every Higgsfield production needs: a one-page standards and guidelines sheet (platform specs, legal and AI-disclosure rules, quality gates) and a post-production work plan with timelines and a credit budget built on real Draft and 1080p costs.
+
+![Figure 3. Lab 3: Supercomputer's Skills list: type / to call a skill such as youtube-script.](<courseware/assets/lg/lab-03.jpg>)
+
+*Figure 3. Lab 3: Supercomputer's Skills list: type / to call a skill such as youtube-script.*
 
 **What you'll build**
 
@@ -316,7 +339,7 @@ The sheet names concrete specs per platform and at least three legal or disclosu
 ---
 
 
-## Topic 02 — Improve Video Footage on GenAI-Powered Video Platforms
+## Topic 02 — Improve Video Footage on GAI Powered Video Platforms
 
 Elements: characters, locations, props · references · Cinema Studio shots & takes · Draft mode · assess the cut  (Covers K2 · K3 · A4 · A5.)
 
@@ -335,6 +358,10 @@ Elements: characters, locations, props · references · Cinema Studio shots & ta
 Maps to: K2 — solutions that rectify quality issues (consistency); A4 — review footage for improvement.
 
 Goal: Faces that change between shots are the commonest AI video defect. Fix it before you shoot: cast a character with Supercomputer, turn the pick into a reference sheet, build a location and a prop, and save each one as an Element with an @handle you can call in any prompt.
+
+![Figure 4. Lab 4: A character reference sheet: full body front, full body back, face portrait (before step 3 covers the full-body face).](<courseware/assets/lg/lab-04.jpg>)
+
+*Figure 4. Lab 4: A character reference sheet: full body front, full body back, face portrait (before step 3 covers the full-body face).*
 
 **What you'll build**
 
@@ -371,16 +398,17 @@ Five saved Elements, two characters, two locations and one prop, each with a ref
 
 1. In Supercomputer paste the casting prompt. It loads the character-sheet skill and offers five photoreal casting options (Soul 2.0). Pick the one that fits your brief.
 2. Ask for a 16:9 reference sheet of your pick: full body front, full body back, and a face portrait, plain white background.
-3. Make one targeted edit with the edit prompt (Image → Seedream 5.0 Pro, about 3 credits): change one garment and keep it the same in all views.
-4. Open the sheet, click Save as element. Set Category = Character, Name = Biker, Element ID = char_biker. Add a one-line description. Repeat for a second character (char_friend).
-5. Generate the bar interior with the location prompt (Nano Banana Pro, about 2 credits). Check the space has clear spatial anchors (the counter, the stools, the window) you can name in a shot. Save as loc_bar-interior; repeat for loc_bar-entrance.
-6. Generate the prop on two image models with the same prompt and compare shape, colour and credit cost. Save the better one as prop_suitcase.
-7. Open My elements and check all five Elements are listed with their @handles. Screenshot the list for your evidence.
-8. Review: which quality issue does each Element prevent (K2)? Write one line per Element in the naming sheet.
+3. Check that the face on the full-body front view is covered by a white oval. That is deliberate: with only the close-up portrait left as a face, the model copies one identity into every shot. If your sheet shows both faces, ask Supercomputer to cover the face in the full-body view and keep the portrait.
+4. Make one targeted edit with the edit prompt (Image → Seedream 5.0 Pro, about 3 credits): change one garment and keep it the same in all views.
+5. Open the sheet, click Save as element. Set Category = Character, Name = Biker, Element ID = char_biker. Add a one-line description. Repeat for a second character (char_friend).
+6. Generate the bar interior with the location prompt (Nano Banana Pro, about 2 credits). Check the space has clear spatial anchors (the counter, the stools, the window) you can name in a shot. Save as loc_bar-interior; repeat for loc_bar-entrance.
+7. Generate the prop on two image models with the same prompt and compare shape, colour and credit cost. Save the better one as prop_suitcase.
+8. Open My elements and check all five Elements are listed with their @handles. Screenshot the list for your evidence.
+9. Review: which quality issue does each Element prevent (K2)? Write one line per Element in the naming sheet.
 
 **Check your work**
 
-Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same face and outfit in all three views; each Element has a line saying which quality issue it prevents.
+Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same outfit in all three views, the full-body face is covered and the portrait is the one clear face; each Element has a line saying which quality issue it prevents.
 
 **Mock assets in the lab folder**
 
@@ -404,6 +432,10 @@ Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows
 Maps to: A4 — review footage to improve storytelling; K2 — solutions to rectify quality issues.
 
 Goal: Direct a 15-second bar scene the way a film crew would: attach your Elements as references with roles, set camera, lens, lighting and colour, write the shots and the sound, then render four 480p Draft takes. Finalise only the best take in 1080p.
+
+![Figure 5. Lab 5: Cinema Studio: the panel where references, camera and look come together.](<courseware/assets/lg/lab-05.jpg>)
+
+*Figure 5. Lab 5: Cinema Studio: the panel where references, camera and look come together.*
 
 **What you'll build**
 
@@ -474,6 +506,10 @@ Maps to: A4 — review edited footage to improve storytelling; A5 — assess foo
 
 Goal: Keep the useful first take, direct one more, then have Supercomputer assemble the takes into a captioned cut with a soundtrack. Score the cut against the quality parameters and your Lab 3 standards before anything is exported.
 
+![Figure 6. Lab 6: Keep a useful first take: watch with sound, choose one change, save the prompt and take.](<courseware/assets/lg/lab-06.jpg>)
+
+*Figure 6. Lab 6: Keep a useful first take: watch with sound, choose one change, save the prompt and take.*
+
 **What you'll build**
 
 A captioned 15–30 s cut in 16:9 and 9:16 with a scored quality checklist and a list of storytelling improvements.   (Tools: Higgsfield: Cinema Studio, Supercomputer (video montage: trims, soundtrack, burned captions).)
@@ -526,7 +562,7 @@ The checklist scores every parameter with a reason, the cut exports in both rati
 ---
 
 
-## Topic 03 — Apply New AI Technologies to Improve Video Production
+## Topic 03 — Apply new AI technologies to Improve Video Production
 
 Remove & replace objects · cinematic effects · upscale · voice & music · models compared · publish  (Covers K4 · K5 · A6 · A7.)
 
@@ -545,6 +581,10 @@ Remove & replace objects · cinematic effects · upscale · voice & music · mod
 Maps to: A6 — develop remedial actions for footage that does not meet requirements; K4 — industry quality standards.
 
 Goal: Take every FAIL from your Lab 6 checklist and match it to a Higgsfield fix: replace the wrong object, upscale soft footage, reframe for vertical, or regenerate only the broken shot with the same Elements. Apply at least two fixes and re-score.
+
+![Figure 7. Lab 7: Fix one thing per instruction: remove or replace an object and keep the rest of the shot.](<courseware/assets/lg/lab-07.jpg>)
+
+*Figure 7. Lab 7: Fix one thing per instruction: remove or replace an object and keep the rest of the shot.*
 
 **What you'll build**
 
@@ -608,6 +648,10 @@ Maps to: K5 — technologies that improve efficiency and quality; A7 — evaluat
 
 Goal: Finish the scene with the three upgrades that used to need three vendors: a generated soundtrack, a voiceover in a cloned or stock voice, and a cinematic effect. Time each one and rate it on quality, cost and control.
 
+![Figure 8. Lab 8: Camera setup in Cinema Studio: camera body, lens and aperture.](<courseware/assets/lg/lab-08.jpg>)
+
+*Figure 8. Lab 8: Camera setup in Cinema Studio: camera body, lens and aperture.*
+
 **What you'll build**
 
 Your scene with a generated soundtrack, a voiceover line and one cinematic effect, plus a rated technology evaluation.   (Tools: Higgsfield: Audio (music + voice), Create Voice, lighting and colour presets, effect presets.)
@@ -667,6 +711,10 @@ The scene carries a generated soundtrack and a consented voiceover, one shot sho
 Maps to: A7 — evaluate new technologies; K4 — industry standards before publishing.
 
 Goal: Run the whole pipeline on a real use case. Start from one product photo, shoot a campaign with the product-photoshoot skill, make a 15-second ad in Cinema Studio, compare two video models on the same prompt, then export, label and publish.
+
+![Figure 9. Lab 9: A usable product reference: the full object, clear light, visible edges.](<courseware/assets/lg/lab-09.jpg>)
+
+*Figure 9. Lab 9: A usable product reference: the full object, clear light, visible edges.*
 
 **What you'll build**
 
@@ -736,6 +784,10 @@ The ad runs 15 s in both ratios, keeps the product accurate in every shot, the c
 Maps to: A1–A7 together — script, standards, Elements, takes, assessment, remedies and tool evaluation on one video of your own (rehearses PP Task 3).
 
 Goal: Pick your own use case — an AI ad, a micro-drama episode, an AI influencer post or a sci-fi moment — and take it from brief to a finished 15-second video in Higgsfield on your own: three-line brief, saved Elements, Draft takes, one 1080p final, a quality score, two fixes and a short evaluation. This is the same evidence PP Task 3 asks for.
+
+![Figure 10. Lab 10: The Supercomputer loop for your capstone: start a scene, talk it through, make your Draft.](<courseware/assets/lg/lab-10.jpg>)
+
+*Figure 10. Lab 10: The Supercomputer loop for your capstone: start a scene, talk it through, make your Draft.*
 
 **What you'll build**
 
@@ -858,7 +910,7 @@ Your rule: Turn on the platform's AI-generated label; say 'made with AI' in capt
 ## Assessment Preparation
 
 - Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.
-- Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–9. Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.
+- Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–10 (Task 3 is rehearsed by the Lab 10 mini capstone). Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.
 - Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.
 - Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.
 

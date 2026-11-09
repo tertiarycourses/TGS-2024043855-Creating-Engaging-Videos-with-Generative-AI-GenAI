@@ -101,8 +101,12 @@ not meet the WSQ house standard.
    - **Animation only where it aids teaching** — an appear-on-click *fade* build on
      **process maps only**, so the trainer reveals one stage at a time. No spins, flies,
      bounces or zooms; never animate body text or whole slides.
-   - Transitions are applied in one pass at the end of the build so every slide is covered
-     exactly once.
+   - **Every slide has a transition (user rule, 9 Nov 2026).** Apply transitions in one pass at
+     the end of the build, then run
+     `python3 ~/.claude/skills/tertiary-ppt-design/ensure_transitions.py <deck> --check`; it
+     must report N/N. Insert `p:transition` **before** `p:timing`: written after it, PowerPoint
+     drops the timing and embedded videos only show their poster.
+
 
 7d. **Process maps must be REAL shapes and REAL connectors** — staged rounded-rectangles
    joined by actual PowerPoint connectors with arrowheads (`MSO_CONNECTOR.STRAIGHT` +

@@ -1,4 +1,4 @@
-"""Topic 1 — Create and Edit Video Script Using Generative AI (GenAI).  Labs 1–3.
+"""Topic 1 — Create and Edit Video Script Using Generative AI (GAI).  Labs 1–3.
 
 Every lab runs inside Higgsfield (higgsfield.ai): Supercomputer, the agent you
 brief in plain English, and Cinema Studio, where you set every control.

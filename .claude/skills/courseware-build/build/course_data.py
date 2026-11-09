@@ -17,7 +17,7 @@ LU1 2 h, LU2 2.5 h, LU3 2.5 h classroom + 7 h practical; WA 1 h + PP 1 h.
 TITLE        = "Creating Engaging Videos with Generative AI (GenAI)"
 SHORT_TITLE  = "Creating Engaging Videos with Generative AI (GenAI)"
 COURSE_CODE  = "TGS-2024043855"
-VERSION      = "v9"
+VERSION      = "v11"
 VERSION_DATE = "9 November 2026"
 ORG          = "Tertiary Infotech Academy Pte Ltd"
 UEN          = "UEN: 201200696W"
@@ -78,19 +78,19 @@ LEARNING_OUTCOMES = [
 # ------------------------------------------------------------------ topics (CP learning units)
 TOPICS = [
     dict(num=1, code="01",
-         title="Create and Edit Video Script Using Generative AI (GenAI)",
+         title="Create and Edit Video Script Using Generative AI (GAI)",
          subtitle="The impact of AI on video · use cases · Supercomputer scripts · AI Director shot lists · standards & work plans",
          weighting="K1 · A1 · A2 · A3",
          concepts=[
             ("AI's impact & use cases", "A US$2,000 TV ad, a 14-day feature: AI movies, micro dramas, influencers, singers and marketing videos already earn audiences."),
             ("The lazy prompt", "Format + vibe gets you a clip in one line, but the model then decides your character, world and camera."),
             ("Scripts with Supercomputer", "Who / where / what happens, then a script and a numbered shot list, drafted and refined in one chat."),
-            ("AI Director", "Inside a project, AI Director writes the script and an 8-shot storyboard from your brief."),
+            ("AI Director", "Inside a project, AI Director writes the script and a shot-by-shot storyboard from your brief (Lab 2 asks for six shots)."),
             ("Standards & guidelines", "A one-page sheet: platform specs, consent, licensing, AI disclosure and a Draft-first credit rule."),
             ("Work plans & credit budgets", "Phases, owners, timelines and a credit budget: 45 credits for a 15 s Draft, 240 for the 1080p final."),
          ]),
     dict(num=2, code="02",
-         title="Improve Video Footage on GenAI-Powered Video Platforms",
+         title="Improve Video Footage on GAI Powered Video Platforms",
          subtitle="Elements: characters, locations, props · references · Cinema Studio shots & takes · Draft mode · assess the cut",
          weighting="K2 · K3 · A4 · A5",
          concepts=[
@@ -102,7 +102,7 @@ TOPICS = [
             ("Assessing footage", "Resolution, continuity, motion, audio, pacing and compliance, judged take by take."),
          ]),
     dict(num=3, code="03",
-         title="Apply New AI Technologies to Improve Video Production",
+         title="Apply new AI technologies to Improve Video Production",
          subtitle="Remove & replace objects · cinematic effects · upscale · voice & music · models compared · publish",
          weighting="K4 · K5 · A6 · A7",
          concepts=[

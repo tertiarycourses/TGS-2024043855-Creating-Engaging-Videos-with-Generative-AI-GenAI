@@ -1,4 +1,4 @@
-"""Topic 3 — Apply New AI Technologies to Improve Video Production.  Labs 7–10 (Lab 10 = mini capstone).
+"""Topic 3 — Apply new AI technologies to Improve Video Production.  Labs 7–10 (Lab 10 = mini capstone).
 
 All in Higgsfield: remedial fixes (replace, upscale, reframe, regenerate),
 voice, music and cinematic effects, model comparison and the use-case sprint
