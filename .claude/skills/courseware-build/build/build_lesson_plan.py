@@ -96,10 +96,11 @@ SCHEDULE = {   # each LU block sums to the CP hours: LU1 4 h (9:30-14:30), LU2 5
     ("12:00","12:20",20,"topic","LU3 · Concepts for Lab 8: voice, music and cinematic effects (K5); evaluating new technologies (A7)"),
     ("12:20","13:00",40,"lab","LU3 · Hands-on: "+lab_titles([8])),
     ("13:00","14:00",60,"lunch","Lunch break"),
-    ("14:00","14:30",30,"topic","LU3 · Digital attendance (PM). Concepts for Lab 9: product references, campaign stills, from stills to video"),
-    ("14:30","15:30",60,"lab","LU3 · Hands-on: "+lab_titles([9])),
-    ("15:30","15:45",15,"break","Tea break"),
-    ("15:45","16:15",30,"recap","LU3 · Course summary, the pipeline recap and mini-project preparation for the PP"),
+    ("14:00","14:20",20,"topic","LU3 · Digital attendance (PM). Concepts for Lab 9: product references, campaign stills, from stills to video"),
+    ("14:20","15:00",40,"lab","LU3 · Hands-on: "+lab_titles([9])),
+    ("15:00","15:15",15,"break","Tea break"),
+    ("15:15","16:00",45,"lab","LU3 · Mini capstone (concepts + hands-on): "+lab_titles([10])),
+    ("16:00","16:15",15,"topic","LU3 · Core ethical issues in GenAI video (consent, IP, deepfakes, jobs, bias, environment, transparency) and course summary"),
     ("16:15","16:30",15,"recap","LU3 · Revision, TRAQOM survey, Briefing for Assessment, Assessment digital attendance"),
     ("16:30","17:30",60,"assess","Written Assessment (WA) — Short-Answer Questions (SAQ), 1 hour, open book"),
     ("17:30","18:30",60,"assess","Practical Performance (PP) — three Higgsfield tasks, 1 hour, open book; Task 3 is the learner's own 15-second mini-project video; screenshots pasted under each task and videos uploaded to the TMS"),
@@ -117,8 +118,9 @@ prodoc.add_cover_page(doc,"LESSON PLAN",C.TITLE,C.VERSION.lstrip("v"),
 prodoc.add_version_control(doc,[
  ("6","1 June 2025","Prior release — Creating Engaging Videos with GenAI 2-day lesson plan.","Tertiary Infotech Academy"),
  ("7","18 August 2026","Restructured around a 5-stage GenAI video pipeline with 12 labs on VEED and companion AI tools.","Tertiary Infotech Academy"),
- (C.VERSION.lstrip("v"),C.VERSION_DATE,
+ ("8","9 November 2026",
   "Whole pipeline moved into Higgsfield (Supercomputer, AI Director, Elements, Cinema Studio, Seedance 2.5 and Draft mode), replacing the multi-tool v7 stack; 9 labs in 3 topics re-timed to the CP learning units; Higgsfield sign-up with the trainer's affiliate link; two demo films and 10 real-world use-case videos embedded; trainer changed to Mr Tay Hoo Wee; PP evidence by pasted screenshots plus a TMS video upload.","Tertiary Infotech Academy"),
+ (C.VERSION.lstrip("v"),C.VERSION_DATE,"deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers.","Tertiary Infotech Academy"),
 ])
 prodoc.add_toc(doc)
 

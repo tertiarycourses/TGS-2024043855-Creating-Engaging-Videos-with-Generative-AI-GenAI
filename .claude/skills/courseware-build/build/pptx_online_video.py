@@ -167,7 +167,7 @@ def add_online_video(slide, url, x, y, w, h, poster=None, name='Online video', l
     part = slide.part
     v_rId = part.relate_to(embed, RT.VIDEO, is_external=True)
     _, p_rId = part.get_or_add_image_part(poster if poster is not None else io.BytesIO(thumbnail(url)))
-    from xml.sax.saxutils import escape as _esc
+    from xml.sax.saxutils import escape as _esc   # titles with & or quotes break the XML otherwise
     pic = CT_Picture.new_video_pic(slide.shapes._next_shape_id, _esc(name, {'"': '&quot;'}), v_rId, 'rIdUnused', p_rId,
                                    Inches(x), Inches(y), Inches(w), Inches(h))
     cNvPr = pic.find(f'{P}nvPicPr/{P}cNvPr')

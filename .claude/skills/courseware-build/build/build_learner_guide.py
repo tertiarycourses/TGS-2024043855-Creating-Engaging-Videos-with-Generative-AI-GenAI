@@ -48,7 +48,7 @@ def rule(): B.append(("rule",))
 # ---------------- content ----------------
 h1("Introduction")
 p(f"This Learner Guide accompanies the WSQ course {C.TITLE} ({C.COURSE_CODE}), conducted by {C.ORG}. "
-  "It gives the full step-by-step instructions and copy-and-adapt prompts for all 9 hands-on labs, organised "
+  "It gives the full step-by-step instructions and copy-and-adapt prompts for all 10 hands-on labs (Lab 10 is a mini capstone), organised "
   "by the three course topics. The slides give you the concepts and each lab's overview; this guide is where "
   "the full procedure lives.")
 p("Every lab runs in one studio: Higgsfield (higgsfield.ai). You brief Supercomputer, Higgsfield's agent, in plain "
@@ -76,7 +76,6 @@ bullets([
  C.HF_PLAN_NOTE,
  "Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026). Labs 1–9 are designed around Draft takes, with one or two 1080p finals.",
  "Optional for Lab 9: a TikTok account to connect in Higgsfield (post as private or only-me in class).",
- f"Watch before Lab 1: '{C.HF_TUTORIAL['title']}' by {C.HF_TUTORIAL['author']} — https://www.youtube.com/watch?v={C.HF_TUTORIAL['id']}",
  f"Reference: Higgsfield API docs — {C.HF_DOCS} (authentication, requests, polling, webhooks, model endpoints); Supercomputer and Skills — https://higgsfield.ai/supercomputer-intro",
 ])
 h3("Conventions used in every lab")
@@ -87,6 +86,7 @@ bullets([
  "Save every artefact (prompts, takes, checklists, exports): later labs build on them, and they are your Practical Performance evidence.",
  "Only clone YOUR OWN voice, and only use faces, products, music and footage you have the rights and consent to use.",
  "Each lab folder holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with the mock files.",
+ "All prompts in one place: open labs/prompts.html — every lab's prompts with a search box and a Copy button on each.",
 ])
 
 # ---------------- per-topic, per-lab ----------------
@@ -119,13 +119,20 @@ for t in C.TOPICS:
              "README.pdf holds these steps; prompts.html copies each prompt in one click.")
         rule()
 
+h2("Core Ethical Issues in GenAI Video")
+p("Topic 3 ends with the ethical issues every AI video raises. Each comes with the rule you apply in your own Higgsfield projects.")
+for h_,d_,r_ in C.ETHICS:
+    h3(h_); p(d_); p("Your rule: "+r_)
+h3("Real cases: lawsuits, disputes and rulings")
+bullets([f"{c} — {w} ({src})" for _,c,w,src in C.ETHICS_CASES])
+rule()
+
 h1("Assessment Preparation")
 bullets([
  "Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.",
  "Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–9. Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.",
  "Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.",
  "Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.",
- "Practise with the free exams at https://exams.tertiaryinfotech.com.",
 ])
 
 h1("Glossary")
@@ -197,10 +204,11 @@ prodoc.add_cover_page(doc,"LEARNER GUIDE",C.TITLE,C.VERSION.lstrip("v"),
 prodoc.add_version_control(doc,[
  ("6.0","1 June 2025","Prior release — Creating Engaging Videos with GenAI Learner Guide.","Tertiary Infotech Academy"),
  ("7","18 August 2026","12 hands-on labs on VEED and companion AI tools, restructured around a 5-stage GenAI video pipeline.","Tertiary Infotech Academy"),
- (C.VERSION.lstrip("v"),C.VERSION_DATE,
+ ("8","9 November 2026",
   "Whole pipeline moved into Higgsfield: 9 labs on Supercomputer, AI Director, Elements, references, Cinema Studio, "
   "Seedance 2.5 Draft mode, remedial fixes, voice, music, effects and a published use-case ad; mock assets and one-click "
   "prompt pages per lab; Higgsfield sign-up and plan terms; PP evidence by pasted screenshots and a TMS video upload.","Tertiary Infotech Academy"),
+ (C.VERSION.lstrip("v"),C.VERSION_DATE,"deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers.","Tertiary Infotech Academy"),
 ])
 prodoc.add_toc(doc)
 

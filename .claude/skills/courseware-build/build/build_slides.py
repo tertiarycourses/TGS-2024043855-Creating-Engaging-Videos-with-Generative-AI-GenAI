@@ -190,7 +190,7 @@ def _logo(name):
 # ---------------- slide templates ----------------
 def cover():
     s=slide(); dark_bg(s)
-    txt(s,Inches(0.6),Inches(0.55),Inches(8),Inches(0.35),[[(f"WSQ COURSE  ·  {C.COURSE_CODE}",12,CORAL,True)]])
+    txt(s,Inches(0.6),Inches(0.55),Inches(8),Inches(0.35),[[(f"WSQ COURSE CODE: {C.COURSE_CODE}",12,CORAL,True)]])
     txt(s,Inches(8.2),Inches(0.55),Inches(4.6),Inches(0.35),[[(f"Version {C.VERSION}  ·  {C.VERSION_DATE}",11,PALE,False)]],align=PP_ALIGN.RIGHT)
     txt(s,Inches(0.6),Inches(1.75),Inches(9.6),Inches(2.3),[[(C.TITLE,40,WHITE,True)]],anchor=MSO_ANCHOR.BOTTOM)
     rect(s,Inches(0.62),Inches(4.2),Inches(1.6),Inches(0.05),CORAL)
@@ -199,7 +199,7 @@ def cover():
     txt(s,Inches(0.6),Inches(5.45),Inches(7),Inches(0.8),
         [[("Tertiary Infotech Academy Pte Ltd",13,WHITE,True)],[("UEN 201200696W",10,PALE,False)]],space=2)
     txt(s,Inches(0.6),Inches(6.75),Inches(10),Inches(0.3),
-        [[("www.tertiarycourses.com.sg   |   enquiry@tertiaryinfotech.com   |   +65 6100 0613",9,MUTE,False)]])
+        [[("© 2026 Tertiary Infotech Academy Pte Ltd. All rights reserved.   |   www.tertiarycourses.com.sg   |   enquiry@tertiaryinfotech.com   |   +65 6100 0613",9,MUTE,False)]])
     rect(s,Inches(9.45),Inches(5.25),Inches(3.3),Inches(1.25),WHITE)
     org=_logo("tertiary-infotech-logo.png"); wsq=_logo("wsq-logo.png")
     if org: s.shapes.add_picture(org,Inches(9.65),Inches(5.42),height=Inches(0.9))
@@ -572,6 +572,7 @@ def video_slide(v,kicker,sub,note=None,prompt_hint=None):
     rect(s,x-Inches(0.06),y-Inches(0.06),w+Inches(0.12),h+Inches(0.12),INK)
     if os.path.exists(mp4):
         s.shapes.add_movie(mp4,x,y,w,h,poster_frame_image=poster,mime_type="video/mp4")
+        set_video_timing(s)   # click plays / pauses, as PowerPoint writes for Insert > Video
     txt(s,x,int(y+h+Inches(0.12)),w,Inches(0.35),[[("▶ Click to play  ·  ",11,TEAL,True),(v["model"],11,GREY,False)]])
     rx=Inches(8.75); rw=Inches(3.73); n=len(v["shots"]); gy=Inches(0.12)
     txt(s,rx,y,rw,Inches(0.35),[[("THE SHOTS WE PROMPTED",11,TEAL,True)]])
@@ -631,6 +632,43 @@ def resource_slide(title,vid,vlabel,vfact,cards,kicker,sub=None,note=None):
     notes(s,note); footer(s); return s
 
 
+
+def _dark_head(s,kicker,title):
+    txt(s,Inches(0.6),Inches(0.62),Inches(11),Inches(0.32),[[(kicker.upper(),12,CORAL,True)]])
+    txt(s,Inches(0.6),Inches(0.95),Inches(12),Inches(0.85),[[(title,30,WHITE,True)]],anchor=MSO_ANCHOR.MIDDLE)
+
+def lms_login_slide():
+    """Same as the Claude Code deck: dark slide, large TMS login screenshot, one-line caption."""
+    s=slide(); rect(s,0,0,SW,SH,DARKBG)
+    _dark_head(s,"COURSE PORTAL","Login to LMS and Download Course Material")
+    img=_logo("lms-tms-login-2026.png")
+    if img: fit_pic(s,img,Inches(2.23),Inches(2.08),Inches(8.87),Inches(4.42),frame=False)
+    txt(s,Inches(0.67),Inches(6.58),Inches(12),Inches(0.45),
+        [[("Log in at lms-tms.tertiaryinfotech.com with your registered email and the OTP sent to your inbox, then open this course to download the slides and Learner Guide.",12,PALE,False)]],align=PP_ALIGN.CENTER)
+    footer(s,dark=True); return s
+
+def lms_courseware_slide():
+    """Same as the Claude Code deck: three icon rows, a thumbnail of the TMS, and the LMS link band."""
+    s=slide(); rect(s,0,0,SW,SH,DARKBG)
+    oval(s,Inches(10.6),Inches(-1.4),Inches(4.6),Inches(4.6),BROWN)
+    _dark_head(s,"LEARNING MANAGEMENT SYSTEM","Courseware & Assessment on the LMS")
+    rows=[("icon-download.png","Download the courseware","Get the slides and Learner Guide from the LMS for the open-book assessment."),
+          ("icon-assessment.png","Take the assessment","Complete the Written Assessment and Practical Performance on the LMS; upload your PP screenshots and videos there."),
+          ("icon-login.png","Log in","Use your enrolled account to access the course materials and assessment.")]
+    for i,(ic,h,t) in enumerate(rows):
+        y=2.25+1.15*i
+        oval(s,Inches(0.7),Inches(y+0.05),Inches(0.6),Inches(0.6),CORAL)
+        p=_logo(ic)
+        if p: s.shapes.add_picture(p,Inches(0.85),Inches(y+0.2),Inches(0.3),Inches(0.3))
+        txt(s,Inches(1.5),Inches(y),Inches(6.8),Inches(0.42),[[(h,16,WHITE,True)]])
+        txt(s,Inches(1.5),Inches(y+0.45),Inches(6.8),Inches(0.5),[[(t,12,PALE,False)]])
+    img=_logo("lms-tms-login-2026.png")
+    if img: fit_pic(s,img,Inches(8.9),Inches(2.7),Inches(3.4),Inches(1.7),frame=False)
+    rect(s,Inches(0.7),Inches(5.95),Inches(11.9),Inches(0.7),INK2)
+    tb=txt(s,Inches(1.0),Inches(5.95),Inches(11.3),Inches(0.7),[[("LMS:  ",14,CORAL,True),("https://lms-tms.tertiaryinfotech.com/",14,WHITE,False)]],anchor=MSO_ANCHOR.MIDDLE)
+
+    footer(s,dark=True); return s
+
 # ============================================================ BUILD
 cover()
 
@@ -656,13 +694,8 @@ tile_grid("Ground Rules",[
  "Respect each other's views.","One conversation at a time.",
  "Exit quietly for calls or breaks.","Be punctual; 75% attendance is required."],
  kicker="HOUSEKEEPING",cols=2,size=15)
-screenshot_slide("Download Course Material",
- _logo("lms-tms-screenshot.png"),
- ["Go to lms-tms.tertiaryinfotech.com and sign in with your registered email.",
-  "Open My Courses and select this course.",
-  "Download the Trainer Slides, Learner Guide and Lesson Plan PDFs.",
-  "Keep them handy — the final assessment is open book."],
- kicker="LMS / TMS COURSE PORTAL", url="https://lms-tms.tertiaryinfotech.com")
+lms_login_slide()
+lms_courseware_slide()
 two_col("Lesson Plan — 2 Days, 8 hours/day",[
  (f"Day 1 — {C.DAY_THEMES[1]}",0),
  ("9:30 · LU1 — attendance, introductions, Higgsfield sign-up",1),
@@ -672,7 +705,8 @@ two_col("Lesson Plan — 2 Days, 8 hours/day",[
  [(f"Day 2 — {C.DAY_THEMES[2]}",0),
  ("9:30 · attendance · LU2: cut & assess — Lab 6",1),
  ("LU3 (10:30): fix, voice, music, effects — Labs 7–8",1),
- ("LU3: use-case sprint — Lab 9 · course summary",1),
+ ("LU3: use-case sprint — Lab 9 · mini capstone — Lab 10",1),
+ ("LU3: ethics in GenAI video · course summary",1),
  ("16:15 TRAQOM · briefing · assessment attendance",1),
  ("16:30 WA (1 h) · 17:30 PP (1 h)",1)],
  kicker="SCHEDULE · LU1 4 H · LU2 5 H · LU3 5 H",lhead="Day 1",rhead="Day 2")
@@ -688,8 +722,8 @@ tile_grid("Learning Outcomes",[
 tile_grid("Course Outline",[
  ("Topic 1 — Script, Plan and Make Your First Video","Higgsfield sign-up, Supercomputer and AI Director scripts and shot lists, standards, work plan and credit budget.  (Labs 1–3)"),
  ("Topic 2 — Build, Shoot and Assess","Elements (characters, locations, props), references, Cinema Studio shots and takes, Draft mode, cut, captions and quality scoring.  (Labs 4–6)"),
- ("Topic 3 — Fix, Finish and Publish","Replace objects, upscale, reframe, voice, music, cinematic effects, model comparison and a published 15 s ad.  (Labs 7–9)")],
- kicker="THREE TOPICS · NINE HANDS-ON LABS · ONE STUDIO: HIGGSFIELD",cols=1,size=15)
+ ("Topic 3 — Fix, Finish and Publish","Replace objects, upscale, reframe, voice, music, effects, model comparison, a published ad and your own mini capstone video.  (Labs 7–10)")],
+ kicker="THREE TOPICS · TEN HANDS-ON LABS · ONE STUDIO: HIGGSFIELD",cols=1,size=15)
 tile_grid("Briefing for Assessment",[
  "Place phones and other materials under the table or on the floor.",
  "No photos or recording of assessment scripts.",
@@ -713,79 +747,32 @@ tile_grid("Criteria for Funding",[
  ("Assessed Competent","Complete the assessment and be assessed as 'Competent'.")],
  kicker="WSQ FUNDING",cols=1,size=15)
 
-# ---------------- THE BIG PICTURE ----------------
-section("THE BIG PICTURE","One Studio Makes the Whole Video","","Script, cast, shoot, fix and publish without leaving Higgsfield")
-big_statement("Two 15-second films. Two prompts. Zero cameras.",
- "Both clips on the next slides were made for this course in Higgsfield with Seedance 2.5, one prompt each, sound included. By the end of Day 2 you will direct your own.",
- "WHY THIS COURSE",color=BLUE)
-video_slide(C.DEMO_VIDEOS[0],"MADE IN HIGGSFIELD · AI MARKETING",
- "A product ad with a hero packshot, written as five timed shots",
- note="Play it with sound. Point out: the bottle stays the same in every shot because the prompt names it in every shot; the beat hits on the packshot because the Sound line asked for it. Cost: 240 credits at 1080p; the same take as a 480p Draft costs 45.")
-video_slide(C.DEMO_VIDEOS[1],"MADE IN HIGGSFIELD · AI SCI-FI",
- "An epic scene with an establishing shot, a reveal and a payoff",
- note="Ask learners which shot sells the scale (the extreme wide at 11–15 s) and why the close-up comes before it (we see her awe before we see what she sees).")
-process_map("The Higgsfield Video Pipeline",C.PIPELINE,
- kicker="THE PROCESS YOU'LL RUN — EVERY LAB MAPS TO A STAGE",
- synthesis=("One platform, five stages",
-  "You script and plan in Supercomputer (Topic 1), build Elements and direct takes in Cinema Studio (Topic 2), then fix, finish and publish (Topic 3)."))
-shot_steps("Every tool you need sits on one home page",hf("002"),[
- ("Supercomputer","The agent: brief it in plain English, it plans, prompts and asks before it spends."),
- ("Seedance 2.5","ByteDance's video model: 4–30 s, up to 1080p, native sound, 50 references."),
- ("Cinema Studio 4.0","The director's chair: camera, lens, light, colour, genre."),
- ("Genjutsu","One upload, many versions: swap objects, copy motion."),
- ("Higgsfield in Claude & ChatGPT","The same studio through an MCP connector.")],
- kicker="HIGGSFIELD.AI · THE HOME PAGE",sub="Learn five tiles today and you can find everything else from them",
- marks=[(0.80,0.735),(0.59,0.735),(0.40,0.93),(0.43,0.735),(0.59,0.93)],
- note="Live demo: open higgsfield.ai, hover each tile. The top nav (Image, Video, Audio, Genjutsu, Shorts Studio, AI Influencer) holds the single-purpose tools; Supercomputer can call all of them.")
-link_slide("Sign up with the course link",C.HF_SIGNUP,C.HF_SIGNUP_SHORT,[
- ("Sign up",f"Open {C.HF_SIGNUP_SHORT} and create your account with Google or email."),
- ("Disclosure",C.HF_DISCLOSURE),
- ("Plan for the labs","Labs run on the website, which needs a paid plan. Plus: US$49/month or US$39 billed yearly for 1,000 credits (8 Nov 2026)."),
- ("Free trial terms","3 days, needs a card, renews to Plus unless cancelled within 3 days; trial credits worked only through the Higgsfield MCP, not the website (8 Nov 2026).")],
- kicker="SIGN-UP · BEFORE YOU START",sub="One link, one account: everything in this course happens inside it",
- note="Check every learner can see a credit balance before Lab 1. If the class uses trainer-provided accounts, hand them out here and skip sign-up.")
-resource_slide("Learn the studio in one sitting",C.HF_TUTORIAL["id"],C.HF_TUTORIAL["title"],
- C.HF_TUTORIAL['author'].upper(),
- [("Higgsfield API docs","For automation: authentication, requests, polling, webhooks and model-specific endpoints.",C.HF_DOCS),
-  ("Supercomputer","The agent, its Skills Marketplace and skill import from Claude, Claude Code, Codex and ChatGPT.","https://higgsfield.ai/supercomputer-intro"),
-  ("Course labs","Prompt pages with one-click copy, instruction PDFs and mock assets for Labs 1–9.","labs/index.html in the course repo")],
- kicker="HIGGSFIELD · REFERENCES",sub="Two sources to keep open beside the labs: the beginner tutorial and the official docs",
- note="Video verified embeddable on 9 Nov 2026 (YouTube oEmbed). docs.higgsfield.ai is the API reference, useful for learners who want to automate generation later.")
-
-
 # ---- use cases (shown in Topic 1)
 def yt_short_slide(title,lead,second,kicker,sub=None,band=None,note=None,lead_vertical=True):
-    """Lead example (the trainer's pick: a vertical Short, or a landscape film) plus a verified second example.
-    lead / second = (video_id, label, fact)."""
+    """Embed the owner-named YouTube video (a Short, or one named long film) and show a second, sourced example
+    as a fact card with no embed or link (house rule: learners only get Shorts, plus videos the owner names).
+    lead = (video_id, label, fact); second = (label, fact)."""
     s=head_sub(slide(),title,kicker,sub,VIOLET)
-    lid,llab,lfact=lead; sid,slab,sfact=second
+    lid,llab,lfact=lead; slab,sfact=second
     if lead_vertical:
         lw,lh=2.42,4.3; url=f"https://www.youtube.com/shorts/{lid}"
     else:
-        lw,lh=5.2,2.925; url=f"https://www.youtube.com/watch?v={lid}"
+        lw,lh=7.0,7.0*9/16; url=f"https://www.youtube.com/watch?v={lid}"
     th=os.path.join(YT,f"{lid}.jpg")
     add_online_video(s,url,0.85,2.35,lw,lh,poster=th if os.path.exists(th) else None,name=llab)
-    x2=0.85+lw+0.35
-    sw=12.48-x2-3.25; sh=sw*9/16
-    if not lead_vertical:   # two landscape videos side by side, facts underneath
-        sw=12.48-x2; sw=min(sw,5.2); sh=sw*9/16
-    th2=os.path.join(YT,f"{sid}.jpg")
-    add_online_video(s,f"https://www.youtube.com/watch?v={sid}",x2,2.35,sw,sh,poster=th2 if os.path.exists(th2) else None,name=slab)
-    def card(x,y,w,h,col,lab,fact,tag):
+    def card(x,y,w,h,col,tag,lab,fact):
         rect(s,Inches(x),Inches(y),Inches(w),Inches(h),LIGHT); rect(s,Inches(x),Inches(y),Inches(0.08),Inches(h),col)
-        txt(s,Inches(x+0.22),Inches(y),Inches(w-0.32),Inches(h),[[(tag,9.5,col,True)],[(lab,12.5,INK,True)],[(fact,11,GREY,False)]],anchor=MSO_ANCHOR.MIDDLE,space=2)
-    if lead_vertical:
-        cx=x2+sw+0.25; cw=12.48-cx
-        card(cx,2.35,cw,2.05,VIOLET,llab,lfact,"◀ THE SHORT")
-        card(cx,4.55,cw,2.3,TEAL,slab,sfact,"ALSO WATCH")
-        if band:
-            y=2.35+sh+0.5
-            rect(s,Inches(x2),Inches(y),Inches(sw),Inches(6.85-y),LIGHT); rect(s,Inches(x2),Inches(y),Inches(sw),Inches(0.07),AMBER)
-            txt(s,Inches(x2+0.2),Inches(y+0.1),Inches(sw-0.4),Inches(6.85-y-0.15),[[("WHAT IT MEANS FOR YOU",10,AMBER,True)],[(band,12,INK,False)]],anchor=MSO_ANCHOR.MIDDLE,space=3)
+        txt(s,Inches(x+0.25),Inches(y),Inches(w-0.4),Inches(h),[[(tag,9.5,col,True)],[(lab,13,INK,True)],[(fact,11.5,GREY,False)]],anchor=MSO_ANCHOR.MIDDLE,space=3)
+    cx=0.85+lw+0.35; cw=12.48-cx
+    tag="◀ CLICK TO PLAY · THE SHORT" if lead_vertical else "◀ CLICK TO PLAY · THE FILM"
+    if band:
+        card(cx,2.35,cw,1.45,VIOLET,tag,llab,lfact)
+        card(cx,3.95,cw,1.45,TEAL,"ALSO IN THE NEWS",slab,sfact)
+        y=5.55; rect(s,Inches(cx),Inches(y),Inches(cw),Inches(6.85-y),LIGHT); rect(s,Inches(cx),Inches(y),Inches(cw),Inches(0.07),AMBER)
+        txt(s,Inches(cx+0.25),Inches(y+0.08),Inches(cw-0.4),Inches(6.85-y-0.1),[[("WHAT IT MEANS FOR YOU",9.5,AMBER,True)],[(band,12,INK,False)]],anchor=MSO_ANCHOR.MIDDLE,space=3)
     else:
-        y=2.35+max(lh,sh)+0.45; h=6.85-y
-        card(0.85,y,lw,h,VIOLET,llab,lfact,"THE FILM")
-        card(x2,y,sw,h,TEAL,slab,sfact,"ALSO WATCH")
+        card(cx,2.35,cw,2.0,VIOLET,tag,llab,lfact)
+        card(cx,4.5,cw,2.35,TEAL,"ALSO IN THE NEWS",slab,sfact)
     notes(s,note); footer(s); return s
 
 def use_case_slides():
@@ -815,48 +802,88 @@ def use_case_slides():
      ("Your turn","Lab 9 ends with your own 15-second ad, published or uploaded to the TMS.")],
      kicker="TOPIC 1 · USE CASES",cols=2,size=13,accent=VIOLET)
     yt_short_slide("AI movies: cinema-grade scenes from a prompt",
-     ("1yLAbK5F3E8","The Most Insane AI Film You'll See Today (Seedance 2.5)","A short film made with Seedance 2.5, the model you will use in Labs 1–9 (Theoretically Media)."),
-     ("t33k2tn4GpA","Hell Grind — Higgsfield Originals (2026)","95 minutes, under US$500K, 15 people, 14 days (CineD). Billed by Higgsfield as the first AI feature film."),
+     ("1yLAbK5F3E8","The Most Insane AI Film You'll See Today (Seedance 2.5)","Video: Theoretically Media. A short film made with Seedance 2.5, the model you will use in Labs 1–9."),
+     ("Hell Grind — Higgsfield Originals (2026)","95 minutes, under US$500K, 15 people, 14 days (CineD). Billed by Higgsfield as the first AI feature film."),
      kicker="USE CASE 1 · AI MOVIE",sub="Long-form stories need what Topic 2 teaches: Elements that keep every face and set consistent",
      lead_vertical=False,
-     note="Click a video to play it (PowerPoint needs internet; click Enable Content if the yellow bar appears). Hell Grind did not screen in the official Cannes programme; say so if asked.")
+     note="Slide Show: click the video to play (internet needed; click Enable Content on the yellow bar first). Hell Grind did not screen in the official Cannes programme; say so if asked.")
     yt_short_slide("AI micro dramas: one-minute episodes, no film set",
      ("opCFOkfX6YE","The Healer's Refusal — an AI-generated Chinese micro drama","A vertical, cliff-hanger episode made entirely with AI: the format built for TikTok and YouTube Shorts."),
-     ("NfN6lGse7QM","Mountains & Seas: Breaking Waves — Kling AI","Kuaishou's AI micro drama premiered 13 Jul 2024 and passed 52M views (Caixin)."),
+     ("Mountains & Seas: Breaking Waves — Kling AI","Kuaishou's AI micro drama premiered 13 Jul 2024 and passed 52M views (Caixin)."),
      kicker="USE CASE 2 · AI MICRO DRAMA",sub="Short, serial, vertical stories: the format Lab 9's variation prompt practises",
      band="Two characters, one twist, 9:16. Save the cast as Elements so episode 2 looks like episode 1.")
     yt_short_slide("AI influencers: one face, posting every day",
      ("jZZJHrrlg04","Creating an AI influencer with Higgsfield AI Influencer Studio","A creator builds a consistent virtual influencer inside Higgsfield (Shafin Tech)."),
-     ("x2-G4422tYA","Aitana López — BBC World Service","An AI model earning up to €10,000 a month, about €3,000 on average (Euronews)."),
+     ("Aitana López — BBC World Service report","An AI model earning up to €10,000 a month, about €3,000 on average (Euronews)."),
      kicker="USE CASE 3 · AI INFLUENCER",sub="Higgsfield's AI Influencer tool and a saved @char Element make the same face repeatable",
      band="Consistency is the product: a character sheet plus an @char Element. Disclose that the person is synthetic (K4).",
      note="Link to K4: TikTok and YouTube both ask creators to label realistic AI content.")
     yt_short_slide("AI singers: a voice, a song, a music video",
      ("Y7i1z6UGOnQ","Pretty Little Baby — an AI cover (Ai Music Sunny)","An AI singer covering Connie Francis's song: a fast-growing Shorts genre, and a live rights question."),
-     ("mUQCcfcpTek","Xania Monet — How Was I Supposed to Know?","First AI act on a Billboard radio chart: No. 30 on Adult R&B Airplay (Billboard, Nov 2025). Music made with Suno."),
+     ("Xania Monet — How Was I Supposed to Know?","First AI act on a Billboard radio chart: No. 30 on Adult R&B Airplay (Billboard, Nov 2025). Music made with Suno."),
      kicker="USE CASE 4 · AI SINGER",sub="Music video, voice and soundtrack: Lab 8 gives you all three inside Higgsfield",
      band="Covering someone else's song or voice needs the rights holder's permission. Original music and your own voice are safe ground.",
      note="Discussion (K4): is an AI cover of a real artist's song publishable? Who owns the voice? Tie to the Lab 8 consent form.")
     yt_short_slide("AI marketing: studio-quality ads in minutes",
      ("THplxezacD8","Higgsfield Marketing Studio — UGC ads in seconds","A creator makes UGC-style product ads in Higgsfield's Marketing Studio (AI Tech Pro)."),
-     ("-QMftwmyW-A","Kalshi NBA Finals ad — PJ Ace (2025)","About US$2,000; 300–400 generations cut to 15 clips with Google Veo 3; aired in Game 3 of the NBA Finals (The Keyword)."),
+     ("Kalshi NBA Finals ad — PJ Ace (2025)","About US$2,000; 300–400 generations cut to 15 clips with Google Veo 3; aired in Game 3 of the NBA Finals (The Keyword)."),
      kicker="USE CASE 5 · AI MARKETING",sub="The use case you will run end to end in Lab 9: one product photo to a published ad",
      band="Start from a clean product photo, keep the product identical in every shot, label the ad as AI-generated.",
      note="The SOLA ad in the Big Picture section was made the same way: one prompt, five shots, 240 credits at 1080p.")
 
-compare_table("The models inside Higgsfield",
- ["Model","Made by","Best for","Length · quality"],
- [["Seedance 2.5","ByteDance","General video, native sound, 50 references","4–30 s · up to 1080p"],
-  ["Seedance 2.5 Draft","ByteDance","Cheap test takes you finalise later","4–30 s · 480p"],
-  ["Cinema Studio 4.0","Higgsfield","Camera, lens, light and genre control","next-gen cinematic"],
-  ["Kling 4.0 / Flash","Kuaishou","Motion quality, multi-shot","3–30 s · 1080p"],
-  ["Higgsfield Genjutsu","Higgsfield","Replace objects, copy motion, many versions","4–30 s · 1080p"]],
- kicker="WHAT THE PICKER SHOWS · NOV 2026",accent=BLUE,
- note="Pick per shot, not per project: Draft to explore, Seedance 2.5 to finish, Genjutsu to fix.")
-shot_pair("Two menus, one decision: which engine shoots this take?",
- (hf("007"),"Cinema Studio versions","4.0 is the next-gen cinematic model; 3.5 added camera selection, style presets and AI Director; 3.0 added speed ramps; 2.5 moves the camera from a start frame."),
- (hf("008"),"The video model list","Seedance 2.5 (TOP) and its 480p Draft, Genjutsu and Genjutsu Lite, Kling 4.0 and the new 4.0 Flash, each with its resolution and 3–30 s range."),
- kicker="MODELS · WHERE TO CHOOSE",sub="You will compare two of these on the same prompt in Lab 9")
+def bp_intro():
+    """Topic 1 opener: why AI video, two demo films, the pipeline."""
+    big_statement("Two 15-second films. Two prompts. Zero cameras.",
+     "Both clips on the next slides were made for this course in Higgsfield with Seedance 2.5, one prompt each, sound included. By the end of Day 2 you will direct your own.",
+     "WHY THIS COURSE",color=BLUE)
+    video_slide(C.DEMO_VIDEOS[0],"MADE IN HIGGSFIELD · AI MARKETING",
+     "A product ad with a hero packshot, written as five timed shots",
+     note="Play it with sound. Point out: the bottle stays the same in every shot because the prompt names it in every shot; the beat hits on the packshot because the Sound line asked for it. Cost: 240 credits at 1080p; the same take as a 480p Draft costs 45.")
+    video_slide(C.DEMO_VIDEOS[1],"MADE IN HIGGSFIELD · AI SCI-FI",
+     "An epic scene with an establishing shot, a reveal and a payoff",
+     note="Ask learners which shot sells the scale (the extreme wide at 11–15 s) and why the close-up comes before it (we see her awe before we see what she sees).")
+    process_map("The Higgsfield Video Pipeline",C.PIPELINE,
+     kicker="THE PROCESS YOU'LL RUN — EVERY LAB MAPS TO A STAGE",
+     synthesis=("One platform, five stages",
+      "You script and plan in Supercomputer (Topic 1), build Elements and direct takes in Cinema Studio (Topic 2), then fix, finish and publish (Topic 3)."))
+
+def bp_studio():
+    """Topic 1: the Higgsfield studio, sign-up, references and models (before Lab 1)."""
+    shot_steps("Every tool you need sits on one home page",hf("002"),[
+     ("Supercomputer","The agent: brief it in plain English, it plans, prompts and asks before it spends."),
+     ("Seedance 2.5","ByteDance's video model: 4–30 s, up to 1080p, native sound, 50 references."),
+     ("Cinema Studio 4.0","The director's chair: camera, lens, light, colour, genre."),
+     ("Genjutsu","One upload, many versions: swap objects, copy motion."),
+     ("Higgsfield in Claude & ChatGPT","The same studio through an MCP connector.")],
+     kicker="HIGGSFIELD.AI · THE HOME PAGE",sub="Learn five tiles today and you can find everything else from them",
+     marks=[(0.80,0.735),(0.59,0.735),(0.40,0.93),(0.43,0.735),(0.59,0.93)],
+     note="Live demo: open higgsfield.ai, hover each tile. The top nav (Image, Video, Audio, Genjutsu, Shorts Studio, AI Influencer) holds the single-purpose tools; Supercomputer can call all of them.")
+    link_slide("Sign up with the course link",C.HF_SIGNUP,C.HF_SIGNUP_SHORT,[
+     ("Sign up",f"Open {C.HF_SIGNUP_SHORT} and create your account with Google or email."),
+     ("Disclosure",C.HF_DISCLOSURE),
+     ("Plan for the labs","Labs run on the website, which needs a paid plan. Plus: US$49/month or US$39 billed yearly for 1,000 credits (8 Nov 2026)."),
+     ("Free trial terms","3 days, needs a card, renews to Plus unless cancelled within 3 days; trial credits worked only through the Higgsfield MCP, not the website (8 Nov 2026).")],
+     kicker="SIGN-UP · BEFORE YOU START",sub="One link, one account: everything in this course happens inside it",
+     note="Check every learner can see a credit balance before Lab 1. If the class uses trainer-provided accounts, hand them out here and skip sign-up.")
+    tile_grid("Keep these three open beside the labs",[
+     ("Higgsfield API docs","For automation: authentication, requests, polling, webhooks and model endpoints — docs.higgsfield.ai/docs"),
+     ("Supercomputer and Skills","The agent, its Skills Marketplace and skill import from Claude, Claude Code, Codex and ChatGPT — higgsfield.ai/supercomputer-intro"),
+     ("Course labs","Every prompt on one copy page (labs/prompts.html), plus instruction PDFs and mock assets for Labs 1–10 — labs/index.html")],
+     kicker="HIGGSFIELD · REFERENCES",cols=1,size=14,
+     note="Trainer prep (not for learners, house rule: Shorts only): 'Higgsfield AI Tutorial for Beginners (2026) | Step-by-Step' by Metics Media, youtube.com/watch?v=Mt91SiQotOU — a good walkthrough of the UI to rehearse before class.")
+    compare_table("The models inside Higgsfield",
+     ["Model","Made by","Best for","Length · quality"],
+     [["Seedance 2.5","ByteDance","General video, native sound, 50 references","4–30 s · up to 1080p"],
+      ["Seedance 2.5 Draft","ByteDance","Cheap test takes you finalise later","4–30 s · 480p"],
+      ["Cinema Studio 4.0","Higgsfield","Camera, lens, light and genre control","next-gen cinematic"],
+      ["Kling 4.0 / Flash","Kuaishou","Motion quality, multi-shot","3–30 s · 1080p"],
+      ["Higgsfield Genjutsu","Higgsfield","Replace objects, copy motion, many versions","4–30 s · 1080p"]],
+     kicker="WHAT THE PICKER SHOWS · NOV 2026",accent=BLUE,
+     note="Pick per shot, not per project: Draft to explore, Seedance 2.5 to finish, Genjutsu to fix.")
+    shot_pair("Two menus, one decision: which engine shoots this take?",
+     (hf("007"),"Cinema Studio versions","4.0 is the next-gen cinematic model; 3.5 added camera selection, style presets and AI Director; 3.0 added speed ramps; 2.5 moves the camera from a start frame."),
+     (hf("008"),"The video model list","Seedance 2.5 (TOP) and its 480p Draft, Genjutsu and Genjutsu Lite, Kling 4.0 and the new 4.0 Flash, each with its resolution and 3–30 s range."),
+     kicker="MODELS · WHERE TO CHOOSE",sub="You will compare two of these on the same prompt in Lab 9")
 
 # ---------------- TOPICS + ACTIVITIES ----------------
 TOPIC_ACTS={t["num"]:[a for a in ACTIVITIES if a["topic"]==t["num"]] for t in C.TOPICS}
@@ -865,7 +892,9 @@ CARD_COLORS=[BLUE,TEAL,VIOLET]
 def lab_concepts(lab):
     """Knowledge → lab: the concept slides each lab applies, shown directly before that lab."""
     if lab==1:
+        bp_intro()
         use_case_slides()
+        bp_studio()
         shot_steps("Type one line, get fifteen seconds of film",hf("009c"),[
          ("Describe the scene","Plain English in the prompt box; @ adds a saved character or location."),
          ("Pick the model","Seedance 2.5 here; switch to Draft for cheap tests."),
@@ -1167,6 +1196,24 @@ def lab_concepts(lab):
          (hf("033"),"Character sheet + product photo + street image","The three references every shot of the reel inherits."),
          (hf("035"),"One instruction to Supercomputer","'Generate a video in Cinema Studio using these images. Create a viral cinematic reels sunglasses commercial.'"),
          kicker="AI MARKETING · FROM STILLS TO VIDEO",sub="Supercomputer writes the shots; you approve the spend")
+    if lab==10:
+        process_map("Mini capstone: your video, start to finish",[
+         ("Brief","use case + who/where/what"),
+         ("Elements","cast, set, product"),
+         ("Draft takes","2+ at 480p"),
+         ("Final + score","1080p, 7 parameters"),
+         ("Fix + publish","2 fixes, AI label")],
+         kicker="LAB 10 · PREVIEW · MINI CAPSTONE",color=TEAL,
+         synthesis=("The rehearsal for PP Task 3","Same evidence as the assessment: screenshots of your prompt, takes and fixes, a scorecard, and the MP4 you upload to the TMS. Budget: 500 credits."))
+        compare_table("What a strong capstone looks like",
+         ["Check","Competent looks like","Watch out for"],
+         [["Story","One clear who / where / what happens in 15 s","Three ideas crammed into one clip"],
+          ["Consistency","Saved Elements in every shot","Faces or products that change"],
+          ["Process","Draft takes before one 1080p final","Spending 240 credits per experiment"],
+          ["Quality","Scorecard before and after, two named fixes","'Looks fine' with no evidence"],
+          ["Compliance","Ratio per platform, AI label, no real likeness","Unlicensed logos or music"]],
+         kicker="LAB 10 · SCORECARD",accent=TEAL,
+         note="Walk the room during the capstone: check every learner has two Draft takes before they finalise, and that the checklist matches PP Task 3.")
 
 def lab_flow(a):
     """The lab's 5-stage process map from its explicit `flow` labels (no step-by-step)."""
@@ -1204,6 +1251,19 @@ for t in C.TOPICS:
             prompt_slide(f"Lab {a['num']}",pg,kicker=f"LAB {a['num']} · COPY-AND-ADAPT PROMPTS",
                          part=f"({pi}/{len(pgs)})" if len(pgs)>1 else None)
         test_slide(a["title"],a["test"],kicker=f"LAB {a['num']} · VERIFY")
+    if t["num"]==3:
+        tile_grid("Core ethical issues in GenAI video",[(h,d) for h,d,_ in C.ETHICS],
+            kicker="TOPIC 3 · ETHICS BEFORE YOU PUBLISH",cols=2,size=12,accent=RUST,
+            note="Owner-supplied list (9 Nov 2026). Facilitate: ask each table to pick the issue most relevant to the video they made in Lab 10.")
+        for part,rows in (("1/2",C.ETHICS_CASES[:5]),("2/2",C.ETHICS_CASES[5:])):
+            compare_table(f"When it went wrong: real cases ({part})",
+                ["Issue","Case","What happened"],
+                [[i,c,w] for i,c,w,_ in rows],kicker="TOPIC 3 · LAWSUITS, DISPUTES AND RULINGS",accent=RUST,
+                note="Sources (verified 9 Nov 2026): "+"; ".join(f"{c} — {src}" for _,c,_,src in rows))
+        compare_table("Seven issues, seven rules for your own videos",
+            ["Issue","Your rule in every Higgsfield project"],
+            [[h,r] for h,_,r in C.ETHICS],kicker="TOPIC 3 · FROM ETHICS TO PRACTICE",accent=RUST,
+            note="These rules sit on top of the K4 compliance checks: label AI content, clear consent and rights, follow platform and IMDA/ASAS codes.")
     tile_grid(f"Recap — {t['title']}",
             [(f"Lab {a['num']} — {a['title']}", "You built: "+a["build"]) for a in acts],
             kicker="TOPIC RECAP · WHAT YOU CAN NOW DO",cols=1,size=13,icons=[str(a["num"]) for a in acts])
@@ -1212,8 +1272,8 @@ for t in C.TOPICS:
 section("WRAP-UP","Course Summary & Next Steps","")
 process_map("The Pipeline You Now Own",C.PIPELINE,
  kicker="FROM PROMPT TO PUBLISHED — RECAP",
- synthesis=("Nine labs, one studio",
-  "Script and plan (Labs 1–3) → Elements (Lab 4) → shots and takes (Lab 5) → cut and assess (Lab 6) → fix (Lab 7) → voice, music, effects (Lab 8) → a published ad (Lab 9)."),
+ synthesis=("Ten labs, one studio",
+  "Script and plan (Labs 1–3) → Elements (Lab 4) → shots and takes (Lab 5) → cut and assess (Lab 6) → fix (Lab 7) → voice, music, effects (Lab 8) → a published ad (Lab 9) → your own video, start to finish (Lab 10)."),
  animate=False)
 tile_grid("What You Achieved",[
  ("Scripts & shot lists","Supercomputer and AI Director turn three lines into a timed, reviewable shot list."),
@@ -1223,13 +1283,6 @@ tile_grid("What You Achieved",[
  ("Fix & finish","Replace, upscale, reframe, voice, music and cinematic effects."),
  ("Evaluate & publish","A rubric for every new model, and an ad that is labelled and live.")],
  kicker="LEARNING OUTCOMES DELIVERED",cols=2,size=13)
-screenshot_slide("Practice Exam — Test Yourself",
- _logo("exams-screenshot.png"),
- ["Go to exams.tertiaryinfotech.com.",
-  "Free practice exams sharpen your GenAI knowledge before and after the course.",
-  "Attempt questions under timed conditions and review every explanation.",
-  "Revisit any lab whose topic you miss."],
- kicker="EXAMS.TERTIARYINFOTECH.COM",url="https://exams.tertiaryinfotech.com")
 tile_grid("Recommended Next Courses",[
  "WSQ - Mastering Prompt Engineering for Generative AI Content Creation",
  "WSQ - Practical Image Generation Using GAN, VAE, and Diffusion Models",

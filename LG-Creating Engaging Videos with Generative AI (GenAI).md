@@ -1,6 +1,6 @@
 # Creating Engaging Videos with Generative AI (GenAI) — Learner Guide
 
-**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v8 · 9 November 2026**
+**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v9 · 9 November 2026**
 
 ## Contents
 
@@ -20,13 +20,15 @@
   - [Lab 7 — Fix What Fails: Remedial Actions in Higgsfield](#lab-7--fix-what-fails-remedial-actions-in-higgsfield)
   - [Lab 8 — Add Voice, Music and Cinematic Effects](#lab-8--add-voice-music-and-cinematic-effects)
   - [Lab 9 — Use-Case Sprint: One Product Photo to a Published 15-Second Ad](#lab-9--use-case-sprint-one-product-photo-to-a-published-15-second-ad)
+  - [Lab 10 — Mini Capstone: Direct Your Own 15-Second Video in Higgsfield](#lab-10--mini-capstone-direct-your-own-15-second-video-in-higgsfield)
+  - [Core Ethical Issues in GenAI Video](#core-ethical-issues-in-genai-video)
 - [Assessment Preparation](#assessment-preparation)
 - [Glossary](#glossary)
 
 
 ## Introduction
 
-This Learner Guide accompanies the WSQ course Creating Engaging Videos with Generative AI (GenAI) (TGS-2024043855), conducted by Tertiary Infotech Academy Pte Ltd. It gives the full step-by-step instructions and copy-and-adapt prompts for all 9 hands-on labs, organised by the three course topics. The slides give you the concepts and each lab's overview; this guide is where the full procedure lives.
+This Learner Guide accompanies the WSQ course Creating Engaging Videos with Generative AI (GenAI) (TGS-2024043855), conducted by Tertiary Infotech Academy Pte Ltd. It gives the full step-by-step instructions and copy-and-adapt prompts for all 10 hands-on labs (Lab 10 is a mini capstone), organised by the three course topics. The slides give you the concepts and each lab's overview; this guide is where the full procedure lives.
 
 Every lab runs in one studio: Higgsfield (higgsfield.ai). You brief Supercomputer, Higgsfield's agent, in plain English, or you direct each shot yourself in Cinema Studio. Two 15-second films made this way for the course (a SOLA product ad and the Ringfall sci-fi scene) are embedded in the slides, so you can see the finish line before you start.
 
@@ -77,7 +79,6 @@ Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers
 - Labs run on higgsfield.ai (Supercomputer + Cinema Studio), which needs a paid plan. On 8 Nov 2026 Plus was US$49/month (US$39 billed yearly) for 1,000 credits. The free 3-day trial needs a card, renews to Plus unless cancelled within 3 days, and its credits worked only through the Higgsfield MCP, not on the website.
 - Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026). Labs 1–9 are designed around Draft takes, with one or two 1080p finals.
 - Optional for Lab 9: a TikTok account to connect in Higgsfield (post as private or only-me in class).
-- Watch before Lab 1: 'Higgsfield AI Tutorial for Beginners (2026) | Step-by-Step' by Metics Media — https://www.youtube.com/watch?v=Mt91SiQotOU
 - Reference: Higgsfield API docs — https://docs.higgsfield.ai/docs (authentication, requests, polling, webhooks, model endpoints); Supercomputer and Skills — https://higgsfield.ai/supercomputer-intro
 
 **Conventions used in every lab**
@@ -88,6 +89,7 @@ Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers
 - Save every artefact (prompts, takes, checklists, exports): later labs build on them, and they are your Practical Performance evidence.
 - Only clone YOUR OWN voice, and only use faces, products, music and footage you have the rights and consent to use.
 - Each lab folder holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with the mock files.
+- All prompts in one place: open labs/prompts.html — every lab's prompts with a search box and a Copy button on each.
 
 
 ## Topic 01 — Create and Edit Video Script Using Generative AI (GenAI)
@@ -729,13 +731,136 @@ The ad runs 15 s in both ratios, keeps the product accurate in every shot, the c
 ---
 
 
+### Lab 10 — Mini Capstone: Direct Your Own 15-Second Video in Higgsfield
+
+Maps to: A1–A7 together — script, standards, Elements, takes, assessment, remedies and tool evaluation on one video of your own (rehearses PP Task 3).
+
+Goal: Pick your own use case — an AI ad, a micro-drama episode, an AI influencer post or a sci-fi moment — and take it from brief to a finished 15-second video in Higgsfield on your own: three-line brief, saved Elements, Draft takes, one 1080p final, a quality score, two fixes and a short evaluation. This is the same evidence PP Task 3 asks for.
+
+**What you'll build**
+
+Your own 15-second video (MP4, 1080p) with a capstone scorecard, a remedy table and screenshots of your prompt, takes and fixes.   (Tools: Higgsfield: Supercomputer, Elements, Cinema Studio, Seedance 2.5 Draft, Genjutsu / Upscale / Reframe.)
+
+**Prompts for this lab**
+
+> **Prompt — Capstone planning (Supercomputer):**
+>
+> ```
+> Here is my three-line brief:
+> WHO: <character or product>
+> WHERE: <one location>
+> WHAT HAPPENS: <one visible action with an ending>
+> Platform: <TikTok 9:16 / YouTube 16:9>. Use case: <ad / micro drama / influencer / other>.
+> Ask me up to three questions, then write a 15-second plan in three parts — scene context, references (my @elements and their roles), 4–6 timed shots with size, camera and sound — and a credit estimate using Seedance 2.5 Draft first. Wait for my approval before generating.
+> ```
+
+> **Prompt — Self-review before you fix:**
+>
+> ```
+> Score my 15-second video against: resolution, motion and physics, face/prop/set continuity, audio, captions, pacing, platform compliance.
+> For each FAIL give the cause and the cheapest Higgsfield fix (Replace Object, regenerate one shot, Upscale, Reframe or a new Sound line) with its credit cost. Table.
+> ```
+
+**Step-by-step**
+
+1. Choose your use case and write the three-line brief in assets/capstone-brief.pdf: WHO, WHERE, WHAT HAPPENS, plus platform and ratio.
+2. Ask Supercomputer to turn the brief into a 15-second, 4–6 shot plan in the three-part prompt format (capstone planning prompt). Edit it until every shot has a size, a camera instruction and a sound.
+3. Build at least one character or product Element and one location Element and save them with @handles.
+4. In Cinema Studio attach the Elements as references with roles, set the look (camera, lighting, colour) and render at least two Seedance 2.5 Draft takes (about 45 credits each).
+5. Pick the best take and finalise it at 1080p (about 240 credits). Stay inside a 500-credit budget: log every spend in the scorecard.
+6. Score the final with assets/capstone-scorecard.pdf (the seven quality parameters). Apply at least two remedial actions in Higgsfield — Replace Object, regenerate one shot, Upscale, Reframe or a new Sound line — and re-score.
+7. Add the finish: captions or a soundtrack if the brief needs them, an AI-generated label for publishing, and a 9:16 version if the platform needs it.
+8. Write three lines evaluating two technologies you used (e.g. Draft mode, Elements, Genjutsu) on quality, cost and control.
+9. Screenshot your prompt, your Draft takes, your final, and each fix (before/after). Download the final MP4: these are exactly the items PP Task 3 asks you to paste and upload to the TMS.
+
+**Check your work**
+
+The video runs 15 s at 1080p, uses at least one saved Element, has a scorecard with before/after scores, shows two named Higgsfield fixes, carries an AI-generated label plan, and every PP Task 3 evidence item is ticked in the checklist.
+
+**Mock assets in the lab folder**
+
+- capstone-brief.pdf — use-case menu and the three-line brief template
+- capstone-scorecard.pdf — the seven quality parameters, before/after, credit log
+- capstone-checklist.csv — every PP Task 3 evidence item with a tick box
+
+**Evidence to keep (screenshots for the PP)**
+
+- Screenshots of your prompt, your Draft takes and your 1080p final
+- Before/after screenshots of two fixes and your scored scorecard
+- Your final 15-second MP4 (upload to the TMS)
+
+> **Note:** This lab has its own folder: labs/lab-10-mini-capstone-direct-your-own-15-second-video-in/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
+
+---
+
+
+### Core Ethical Issues in GenAI Video
+
+Topic 3 ends with the ethical issues every AI video raises. Each comes with the rule you apply in your own Higgsfield projects.
+
+**Consent and likeness**
+
+Putting real people's faces, voices or movements into training data or digital replicas without permission violates their autonomy and privacy.
+
+Your rule: Only your own face/voice or people who signed consent; no look-alikes of real people.
+
+**Intellectual property and creator rights**
+
+Models trained on copyrighted film, art and styles without permission or payment face lawsuits from studios and independent creators.
+
+Your rule: No real brands, songs or characters without a licence; credit owners; check your plan's commercial rights.
+
+**Deepfakes and misinformation**
+
+Hyper-realistic synthetic video enables political manipulation, fake news and non-consensual media, eroding trust in visual evidence.
+
+Your rule: Never depict real people saying or doing things they did not; never make 'news' footage.
+
+**Economic displacement**
+
+Automation in video production, storyboarding and VFX threatens jobs across the creative industries.
+
+Your rule: Use AI to extend a crew, not to pass off AI work as a person's; credit the humans who direct and edit.
+
+**Algorithmic bias and representation**
+
+Training data encodes historical, racial and gender stereotypes that generators can reproduce.
+
+Your rule: Review every cast for stereotypes; specify diverse, respectful characters in the prompt.
+
+**Environmental impact**
+
+Training and running large video models consumes large amounts of electricity and water in data centres.
+
+Your rule: Draft at 480p first; finalise only the take you will use; delete failed batches, not just hide them.
+
+**Transparency and authenticity**
+
+Presenting synthetic video as genuine, or not labelling it, deceives viewers and blurs reality.
+
+Your rule: Turn on the platform's AI-generated label; say 'made with AI' in captions or credits.
+
+**Real cases: lawsuits, disputes and rulings**
+
+- Scarlett Johansson v. OpenAI 'Sky' (May 2024) — She declined to voice ChatGPT; OpenAI shipped a voice that sounded like her, then paused it after her lawyers wrote. (CNBC, Variety, 20 May 2024)
+- Bryan Cranston, SAG-AFTRA and Sora 2 (Oct 2025) — Unauthorised clips of his voice and likeness appeared after Sora 2 launched; OpenAI agreed opt-in protections with the union. (CNBC, 20 Oct 2025)
+- Disney and Universal v. Midjourney (June 2025) — Hollywood's first AI copyright suit: the studios call the image generator 'a bottomless pit of plagiarism' for copying Darth Vader, Elsa and the Minions. (CNBC, Reuters, 11 Jun 2025)
+- Arup deepfake video call, Hong Kong (Jan 2024) — A finance worker joined a video call with a deepfaked CFO and colleagues and paid out HK$200 million (about US$25.6 million) in 15 transfers. (CNN, 17 May 2024)
+- Singapore bans election deepfakes (Oct 2024) — The Elections (Integrity of Online Advertising) (Amendment) Act bans realistic fakes of candidates during elections; first applied at GE2025. (CNA, 15 Oct 2024)
+- SAG-AFTRA strike (2023, 118 days) — Actors struck partly over AI; the deal requires consent and pay for digital replicas. A video-game strike over AI followed in July 2024. (Authors Guild; LA Times)
+- Google pauses Gemini images of people (Feb 2024) — Gemini produced historically inaccurate depictions of people; Google paused people images and apologised. (TechCrunch; Google blog, 22–23 Feb 2024)
+- Google 2024 Environmental Report (Jul 2024) — Emissions 48% higher in 2023 than 2019, driven by data-centre energy for AI. (BBC, Bloomberg, 2 Jul 2024)
+- TikTok auto-labels AI content (May 2024) — First video platform to read C2PA Content Credentials and label AI-made videos, including those made elsewhere. (CNBC, NBC News, 9 May 2024)
+
+---
+
+
 ## Assessment Preparation
 
 - Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.
 - Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–9. Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.
 - Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.
 - Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.
-- Practise with the free exams at https://exams.tertiaryinfotech.com.
 
 
 ## Glossary

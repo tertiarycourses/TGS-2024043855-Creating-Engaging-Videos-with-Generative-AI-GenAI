@@ -199,4 +199,25 @@ ASSETS = {
             ["No unlicensed logos or music", ""], ["Consent recorded for any real face or voice", ""], ["Caption written, 3–5 hashtags", ""],
             ["Posted as private / only-me in class, or MP4 uploaded to the TMS", ""]])]),
  },
+ 10: {
+  "capstone-brief.pdf": ("pdf", "Lab 10 — Mini capstone brief", [
+     "<p>Pick ONE use case, then fill in the brief. Keep it to what 15 seconds can show.</p>",
+     table(["Use case", "Idea starter"],
+           [["AI marketing ad", "One product, one person, one hero packshot"],
+            ["AI micro drama", "Two characters, one twist in the last 3 seconds, 9:16"],
+            ["AI influencer post", "One consistent creator, one product or tip, talking to camera"],
+            ["Sci-fi / cinematic moment", "One world, one reveal, an establishing shot and a payoff"]]),
+     table(["Brief", "Your answer"],
+           [["WHO", ""], ["WHERE", ""], ["WHAT HAPPENS", ""], ["Platform and ratio", ""], ["Credit budget", "500 credits"]])]),
+  "capstone-scorecard.pdf": ("pdf", "Lab 10 — Capstone scorecard", [
+     table(["Parameter", "Before (PASS/FAIL)", "Fix applied", "After (PASS/FAIL)"],
+           [["Resolution & sharpness", "", "", ""], ["Motion & physics", "", "", ""], ["Continuity (face / prop / set)", "", "", ""],
+            ["Audio", "", "", ""], ["Captions", "", "", ""], ["Pacing", "", "", ""], ["Compliance (ratio, AI label, consent, rights)", "", "", ""]]),
+     "<h3>Credit log</h3>", table(["Step", "Model / setting", "Credits"], [["", "", ""], ["", "", ""], ["", "", ""], ["", "", ""], ["Total", "", ""]]),
+     "<h3>Two technologies evaluated (quality · cost · control)</h3>", blanks(2)]),
+  "capstone-checklist.csv": ("csv", [["PP Task 3 evidence item", "done (Y/N)"],
+                                     ["Screenshot: your planning prompt", ""], ["Screenshot: at least two Draft takes", ""],
+                                     ["Screenshot: the 1080p final", ""], ["Screenshot: fix 1 before/after", ""], ["Screenshot: fix 2 before/after", ""],
+                                     ["Scored scorecard", ""], ["Evaluation of two technologies", ""], ["Final MP4 downloaded for the TMS upload", ""]]),
+ },
 }

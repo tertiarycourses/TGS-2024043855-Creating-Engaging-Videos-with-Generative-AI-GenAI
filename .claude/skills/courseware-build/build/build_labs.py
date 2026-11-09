@@ -148,12 +148,30 @@ def main():
             cards.append(f"<div class='card'><b>Lab {a['num']} — {E(a['title'])}</b><br><span class='meta'>{E(a['build'])}</span><br>"
                          f"<a href='{f}/prompts.html'>Prompts (one-click copy)</a> · <a href='{f}/README.pdf'>Instructions PDF</a> · "
                          f"<a href='{f}/prompts.pdf'>Prompts PDF</a> · <a href='{f}/assets/'>Mock assets</a></div>")
-    body=(f"<h1>Labs — {E(C.TITLE)}</h1><p>Nine hands-on labs, all inside Higgsfield.</p>"
+    body=(f"<h1>Labs — {E(C.TITLE)}</h1><p>Ten hands-on labs, all inside Higgsfield — Lab 10 is your mini capstone. Every prompt is also on <a href='prompts.html'>one copy page</a>.</p>"
           f"<div class='warn'><b>Step 0 — sign up:</b> <a href='{C.HF_SIGNUP}'>{E(C.HF_SIGNUP_SHORT)}</a>. {E(C.HF_DISCLOSURE)}<br>{E(C.HF_PLAN_NOTE)}</div>"
           +"".join(cards)
-          +f"<h2>References</h2><div class='card'><a href='https://www.youtube.com/watch?v={C.HF_TUTORIAL['id']}'>{E(C.HF_TUTORIAL['title'])}</a> — {E(C.HF_TUTORIAL['author'])} (watch before Lab 1)<br>"
+          +f"<h2>References</h2><div class='card'>"
            f"<a href='{C.HF_DOCS}'>Higgsfield API docs</a> · <a href='https://higgsfield.ai/supercomputer-intro'>Supercomputer and Skills</a></div>")
     open(os.path.join(LABS,"index.html"),"w").write(page("Labs","LAB HOME",body,"logo.png"))
+    # one page with every prompt: search + one-click copy
+    parts=["<h1>All prompts — copy and paste into Higgsfield</h1>",
+           "<p class='meta'>Type in the box to filter. Click <b>Copy</b>, paste into Higgsfield (Supercomputer or Cinema Studio), "
+           "replace anything in &lt;angle brackets&gt;. Test on Seedance 2.5 Draft first.</p>",
+           "<input id='q' placeholder='Search prompts, e.g. Elements, bar scene, soundtrack' "
+           "style='width:100%;padding:10px 12px;font-size:12pt;border:1px solid #E8E5DE;border-radius:8px;margin:6px 0 10px'>"]
+    k=0
+    for t in C.TOPICS:
+        parts.append(f"<h2>Topic {t['code']} — {E(t['title'])}</h2>")
+        for a in [x for x in ACT if x["topic"]==t["num"]]:
+            parts.append(f"<h3 class='labh'>Lab {a['num']} — {E(a['title'])} · <a href='{folder(a)}/README.pdf'>instructions</a></h3>")
+            for lab,tx in a.get("prompts",[]):
+                parts.append(f"<div class='prompt' data-s='{E((a['title']+' '+lab+' '+tx).lower())}'><div class='ph'><b>Lab {a['num']} · {E(lab)}</b>"
+                             f"<button class='copy' data-t='a{k}'>Copy</button></div><pre id='a{k}'>{E(tx)}</pre></div>"); k+=1
+    filt="""<script>document.getElementById('q').addEventListener('input',e=>{const v=e.target.value.toLowerCase();
+document.querySelectorAll('.prompt').forEach(p=>{p.style.display=p.dataset.s.includes(v)?'':'none'});});</script>"""
+    open(os.path.join(LABS,"prompts.html"),"w").write(page("All prompts","ALL PROMPTS · ONE-CLICK COPY","".join(parts),"logo.png",js=True).replace("</body>",filt+"</body>"))
+    print(f"labs/prompts.html written ({k} prompts)")
     shutil.rmtree(tmp)
     print("labs/index.html written")
 

@@ -1,4 +1,4 @@
-"""Topic 3 — Apply New AI Technologies to Improve Video Production.  Labs 7–9.
+"""Topic 3 — Apply New AI Technologies to Improve Video Production.  Labs 7–10 (Lab 10 = mini capstone).
 
 All in Higgsfield: remedial fixes (replace, upscale, reframe, regenerate),
 voice, music and cinematic effects, model comparison and the use-case sprint
@@ -138,5 +138,48 @@ DOMAIN3 = [
                   "The final 15 s ad (upload the MP4 to the TMS) and the publish settings"],
         test="The ad runs 15 s in both ratios, keeps the product accurate in every shot, the comparison table justifies the "
              "chosen model on at least three criteria, and the post carries an AI-generated label.",
+    ),
+    dict(
+        num=10, topic=3,
+        title="Mini Capstone: Direct Your Own 15-Second Video in Higgsfield",
+        objective="A1–A7 together — script, standards, Elements, takes, assessment, remedies and tool evaluation on one video of your own (rehearses PP Task 3)",
+        desc="Pick your own use case — an AI ad, a micro-drama episode, an AI influencer post or a sci-fi moment — and take it "
+             "from brief to a finished 15-second video in Higgsfield on your own: three-line brief, saved Elements, Draft takes, "
+             "one 1080p final, a quality score, two fixes and a short evaluation. This is the same evidence PP Task 3 asks for.",
+        build="Your own 15-second video (MP4, 1080p) with a capstone scorecard, a remedy table and screenshots of your prompt, takes and fixes.",
+        services="Higgsfield: Supercomputer, Elements, Cinema Studio, Seedance 2.5 Draft, Genjutsu / Upscale / Reframe",
+        flow=["Pick a use case + brief", "Save your Elements", "Draft takes, one final", "Score and fix twice", "Export, label, upload"],
+        steps=[
+            ("Choose your use case and write the three-line brief in assets/capstone-brief.pdf: WHO, WHERE, WHAT HAPPENS, plus platform and ratio.", ""),
+            ("Ask Supercomputer to turn the brief into a 15-second, 4–6 shot plan in the three-part prompt format (capstone planning prompt). Edit it until every shot has a size, a camera instruction and a sound.", ""),
+            ("Build at least one character or product Element and one location Element and save them with @handles.", ""),
+            ("In Cinema Studio attach the Elements as references with roles, set the look (camera, lighting, colour) and render at least two Seedance 2.5 Draft takes (about 45 credits each).", ""),
+            ("Pick the best take and finalise it at 1080p (about 240 credits). Stay inside a 500-credit budget: log every spend in the scorecard.", ""),
+            ("Score the final with assets/capstone-scorecard.pdf (the seven quality parameters). Apply at least two remedial actions in Higgsfield — Replace Object, regenerate one shot, Upscale, Reframe or a new Sound line — and re-score.", ""),
+            ("Add the finish: captions or a soundtrack if the brief needs them, an AI-generated label for publishing, and a 9:16 version if the platform needs it.", ""),
+            ("Write three lines evaluating two technologies you used (e.g. Draft mode, Elements, Genjutsu) on quality, cost and control.", ""),
+            ("Screenshot your prompt, your Draft takes, your final, and each fix (before/after). Download the final MP4: these are exactly the items PP Task 3 asks you to paste and upload to the TMS.", ""),
+        ],
+        prompts=[
+            ("Capstone planning (Supercomputer)",
+             "Here is my three-line brief:\n"
+             "WHO: <character or product>\n"
+             "WHERE: <one location>\n"
+             "WHAT HAPPENS: <one visible action with an ending>\n"
+             "Platform: <TikTok 9:16 / YouTube 16:9>. Use case: <ad / micro drama / influencer / other>.\n"
+             "Ask me up to three questions, then write a 15-second plan in three parts — scene context, references (my @elements and their roles), "
+             "4–6 timed shots with size, camera and sound — and a credit estimate using Seedance 2.5 Draft first. Wait for my approval before generating."),
+            ("Self-review before you fix",
+             "Score my 15-second video against: resolution, motion and physics, face/prop/set continuity, audio, captions, pacing, platform compliance.\n"
+             "For each FAIL give the cause and the cheapest Higgsfield fix (Replace Object, regenerate one shot, Upscale, Reframe or a new Sound line) with its credit cost. Table."),
+        ],
+        assets=["capstone-brief.pdf — use-case menu and the three-line brief template",
+                "capstone-scorecard.pdf — the seven quality parameters, before/after, credit log",
+                "capstone-checklist.csv — every PP Task 3 evidence item with a tick box"],
+        evidence=["Screenshots of your prompt, your Draft takes and your 1080p final",
+                  "Before/after screenshots of two fixes and your scored scorecard",
+                  "Your final 15-second MP4 (upload to the TMS)"],
+        test="The video runs 15 s at 1080p, uses at least one saved Element, has a scorecard with before/after scores, shows two "
+             "named Higgsfield fixes, carries an AI-generated label plan, and every PP Task 3 evidence item is ticked in the checklist.",
     ),
 ]

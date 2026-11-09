@@ -17,7 +17,7 @@ LU1 2 h, LU2 2.5 h, LU3 2.5 h classroom + 7 h practical; WA 1 h + PP 1 h.
 TITLE        = "Creating Engaging Videos with Generative AI (GenAI)"
 SHORT_TITLE  = "Creating Engaging Videos with Generative AI (GenAI)"
 COURSE_CODE  = "TGS-2024043855"
-VERSION      = "v8"
+VERSION      = "v9"
 VERSION_DATE = "9 November 2026"
 ORG          = "Tertiary Infotech Academy Pte Ltd"
 UEN          = "UEN: 201200696W"
@@ -157,6 +157,46 @@ LAZY_TEST = dict(key="lazy", title="We ran the lazy prompt: the model chose ever
            "World  abstract space and crystal shards",
            "Camera  a warp-speed fly-through, no story beats",
            "Lesson  brief who / where / what happens (Lab 2)"])
+
+# ------------------------------------------------------------------ core ethical issues (end of Topic 3; owner-supplied list, 9 Nov 2026)
+ETHICS = [
+    ("Consent and likeness", "Putting real people's faces, voices or movements into training data or digital replicas without permission violates their autonomy and privacy.",
+     "Only your own face/voice or people who signed consent; no look-alikes of real people."),
+    ("Intellectual property and creator rights", "Models trained on copyrighted film, art and styles without permission or payment face lawsuits from studios and independent creators.",
+     "No real brands, songs or characters without a licence; credit owners; check your plan's commercial rights."),
+    ("Deepfakes and misinformation", "Hyper-realistic synthetic video enables political manipulation, fake news and non-consensual media, eroding trust in visual evidence.",
+     "Never depict real people saying or doing things they did not; never make 'news' footage."),
+    ("Economic displacement", "Automation in video production, storyboarding and VFX threatens jobs across the creative industries.",
+     "Use AI to extend a crew, not to pass off AI work as a person's; credit the humans who direct and edit."),
+    ("Algorithmic bias and representation", "Training data encodes historical, racial and gender stereotypes that generators can reproduce.",
+     "Review every cast for stereotypes; specify diverse, respectful characters in the prompt."),
+    ("Environmental impact", "Training and running large video models consumes large amounts of electricity and water in data centres.",
+     "Draft at 480p first; finalise only the take you will use; delete failed batches, not just hide them."),
+    ("Transparency and authenticity", "Presenting synthetic video as genuine, or not labelling it, deceives viewers and blurs reality.",
+     "Turn on the platform's AI-generated label; say 'made with AI' in captions or credits."),
+]
+
+# Real cases for each issue — verified 9 Nov 2026 (source in the last field).
+ETHICS_CASES = [
+    ("Consent and likeness", "Scarlett Johansson v. OpenAI 'Sky' (May 2024)",
+     "She declined to voice ChatGPT; OpenAI shipped a voice that sounded like her, then paused it after her lawyers wrote.", "CNBC, Variety, 20 May 2024"),
+    ("Consent and likeness", "Bryan Cranston, SAG-AFTRA and Sora 2 (Oct 2025)",
+     "Unauthorised clips of his voice and likeness appeared after Sora 2 launched; OpenAI agreed opt-in protections with the union.", "CNBC, 20 Oct 2025"),
+    ("Intellectual property", "Disney and Universal v. Midjourney (June 2025)",
+     "Hollywood's first AI copyright suit: the studios call the image generator 'a bottomless pit of plagiarism' for copying Darth Vader, Elsa and the Minions.", "CNBC, Reuters, 11 Jun 2025"),
+    ("Deepfakes and fraud", "Arup deepfake video call, Hong Kong (Jan 2024)",
+     "A finance worker joined a video call with a deepfaked CFO and colleagues and paid out HK$200 million (about US$25.6 million) in 15 transfers.", "CNN, 17 May 2024"),
+    ("Deepfakes and elections", "Singapore bans election deepfakes (Oct 2024)",
+     "The Elections (Integrity of Online Advertising) (Amendment) Act bans realistic fakes of candidates during elections; first applied at GE2025.", "CNA, 15 Oct 2024"),
+    ("Economic displacement", "SAG-AFTRA strike (2023, 118 days)",
+     "Actors struck partly over AI; the deal requires consent and pay for digital replicas. A video-game strike over AI followed in July 2024.", "Authors Guild; LA Times"),
+    ("Bias and representation", "Google pauses Gemini images of people (Feb 2024)",
+     "Gemini produced historically inaccurate depictions of people; Google paused people images and apologised.", "TechCrunch; Google blog, 22–23 Feb 2024"),
+    ("Environmental impact", "Google 2024 Environmental Report (Jul 2024)",
+     "Emissions 48% higher in 2023 than 2019, driven by data-centre energy for AI.", "BBC, Bloomberg, 2 Jul 2024"),
+    ("Transparency", "TikTok auto-labels AI content (May 2024)",
+     "First video platform to read C2PA Content Credentials and label AI-made videos, including those made elsewhere.", "CNBC, NBC News, 9 May 2024"),
+]
 
 # ------------------------------------------------------------------ assessment
 ASSESSMENT = dict(
