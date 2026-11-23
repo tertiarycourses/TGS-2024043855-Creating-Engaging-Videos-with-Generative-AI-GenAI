@@ -1,6 +1,6 @@
 # Creating Engaging Videos with Generative AI (GenAI) — Learner Guide
 
-**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v11 · 9 November 2026**
+**WSQ Course Code:** TGS-2024043855  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v12 · 23 November 2026**
 
 ## Document Version Control Record
 
@@ -12,26 +12,20 @@
 | 9 | 9 November 2026 | deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers. | Tertiary Infotech Academy |
 | 10 | 9 November 2026 | Embedded videos fixed: each slide's transition now precedes its click-to-play timing (PowerPoint dropped the timing when the order was reversed), so all YouTube Shorts and MP4 demo films play in Slide Show; three GPT Image 2.6 images added (Topic 1 opener, ethics opener, Thank You); LP, LG, FG and AP realigned to the v10 slide numbers. | Tertiary Infotech Academy |
 | 11 | 9 November 2026 | Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order). | Tertiary Infotech Academy |
+| 12 | 23 November 2026 | Restructured to story, shoot, edit with one activity per topic: Activity 1 hook, story and storyboard (with house rules and work plan); Activity 2 characters, cinematic shots and takes in Higgsfield (VidoGrid as a free option); Activity 3 cut, polish and export in CapCut. New sections on hooks, one message, characters, storytelling, shot sizes, camera angles and movement, cinematic effects, what to cut when a video runs long, and copyright and IP. PP evidence: one screenshot per activity. | Tertiary Infotech Academy |
 
 ## Contents
 
 - [Introduction](#introduction)
 - [Course Learning Outcomes](#course-learning-outcomes)
-- [The Higgsfield Video Pipeline](#the-higgsfield-video-pipeline)
+- [The Video Pipeline](#the-video-pipeline)
 - [Before You Start — Environment Setup](#before-you-start--environment-setup)
 - [Topic 01 — Create and Edit Video Script Using Generative AI (GAI)](#topic-01--create-and-edit-video-script-using-generative-ai-gai)
-  - [Lab 1 — Sign Up and Make Your First 15-Second Video](#lab-1--sign-up-and-make-your-first-15-second-video)
-  - [Lab 2 — Write the Script and Shot List with Supercomputer and AI Director](#lab-2--write-the-script-and-shot-list-with-supercomputer-and-ai-director)
-  - [Lab 3 — Set the House Rules: Standards, Work Plan and Credit Budget](#lab-3--set-the-house-rules-standards-work-plan-and-credit-budget)
+  - [Activity 1 — Hook, Story and Storyboard: Plan Your 15-Second Video](#activity-1--hook-story-and-storyboard-plan-your-15-second-video)
 - [Topic 02 — Improve Video Footage on GAI Powered Video Platforms](#topic-02--improve-video-footage-on-gai-powered-video-platforms)
-  - [Lab 4 — Build Your Elements: Characters, Locations and Props](#lab-4--build-your-elements-characters-locations-and-props)
-  - [Lab 5 — Direct Shots and Takes in Cinema Studio](#lab-5--direct-shots-and-takes-in-cinema-studio)
-  - [Lab 6 — Cut, Caption and Assess the Scene](#lab-6--cut-caption-and-assess-the-scene)
+  - [Activity 2 — Shoot It in Higgsfield: Characters, Cinematic Shots and Takes](#activity-2--shoot-it-in-higgsfield-characters-cinematic-shots-and-takes)
 - [Topic 03 — Apply new AI technologies to Improve Video Production](#topic-03--apply-new-ai-technologies-to-improve-video-production)
-  - [Lab 7 — Fix What Fails: Remedial Actions in Higgsfield](#lab-7--fix-what-fails-remedial-actions-in-higgsfield)
-  - [Lab 8 — Add Voice, Music and Cinematic Effects](#lab-8--add-voice-music-and-cinematic-effects)
-  - [Lab 9 — Use-Case Sprint: One Product Photo to a Published 15-Second Ad](#lab-9--use-case-sprint-one-product-photo-to-a-published-15-second-ad)
-  - [Lab 10 — Mini Capstone: Direct Your Own 15-Second Video in Higgsfield](#lab-10--mini-capstone-direct-your-own-15-second-video-in-higgsfield)
+  - [Activity 3 — Finish It in CapCut: Cut, Polish and Export the Final Video](#activity-3--finish-it-in-capcut-cut-polish-and-export-the-final-video)
   - [Core Ethical Issues in GenAI Video](#core-ethical-issues-in-genai-video)
 - [Assessment Preparation](#assessment-preparation)
 - [Glossary](#glossary)
@@ -39,9 +33,9 @@
 
 ## Introduction
 
-This Learner Guide accompanies the WSQ course Creating Engaging Videos with Generative AI (GenAI) (TGS-2024043855), conducted by Tertiary Infotech Academy Pte Ltd. It gives the full step-by-step instructions and copy-and-adapt prompts for all 10 hands-on labs (Lab 10 is a mini capstone), organised by the three course topics. The slides give you the concepts and each lab's overview; this guide is where the full procedure lives.
+This Learner Guide accompanies the WSQ course Creating Engaging Videos with Generative AI (GenAI) (TGS-2024043855), conducted by Tertiary Infotech Academy Pte Ltd. It gives the full step-by-step instructions and copy-and-adapt prompts for the three hands-on activities, one per topic. Together they take one video from idea to export: you plan it (Activity 1), shoot it (Activity 2) and edit it (Activity 3).
 
-Every lab runs in one studio: Higgsfield (higgsfield.ai). You brief Supercomputer, Higgsfield's agent, in plain English, or you direct each shot yourself in Cinema Studio. Two 15-second films made this way for the course (a SOLA product ad and the Ringfall sci-fi scene) are embedded in the slides, so you can see the finish line before you start.
+Topic 1 opens with two videos made from the same footage: one you stop watching, one you watch to the end. The difference is the four ingredients this course teaches first: hooks, one message, characters and storytelling. You then plan your own video on a storyboard, shoot it in Higgsfield (higgsfield.ai) with cinematic technique, and finish it in CapCut.
 
 
 ## Course Learning Outcomes
@@ -68,17 +62,17 @@ TSC: Video Editing (MED-MPN-4005-1.1).
 - A7: Facilitate the adoption of new technologies to improve the efficiency and quality of visual outputs
 
 
-## The Higgsfield Video Pipeline
+## The Video Pipeline
 
-Keep this process in mind through every lab; it is the map of the whole course:
+Keep this process in mind through every activity; it is the map of the whole course:
 
-1. Script & Shot List — Supercomputer · AI Director
-2. Elements — characters · locations · props
-3. Shots & Takes — Cinema Studio · Seedance 2.5
-4. Fix & Finish — replace · upscale · voice · music
-5. Publish — 9:16 + 16:9 · TikTok · YouTube
+1. Story & Storyboard — hook · message · character
+2. Characters — Higgsfield Elements
+3. Shots & Takes — Cinema Studio · angles · light
+4. Edit in CapCut — cut · captions · music · colour
+5. Export & Publish — 1080p · 9:16 / 16:9 · AI label
 
-Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers stage 2 (Elements). Labs 5–6 cover stage 3 (shots, takes and assessing the cut). Labs 7–8 cover stage 4 (fix and finish). Lab 9 runs the whole pipeline on a real use case and covers stage 5 (publish).
+Activity 1 covers stage 1 (story and storyboard). Activity 2 covers stages 2 and 3 (characters, shots and takes in Higgsfield). Activity 3 covers stages 4 and 5 (the edit in CapCut, export and publish).
 
 
 ## Before You Start — Environment Setup
@@ -86,769 +80,346 @@ Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers
 **What you need**
 
 - A laptop (Windows or Mac) with Chrome and a working internet connection; a headset for reviewing audio.
-- A Higgsfield account. Sign up at https://higgsfield.ai?fpr=alfred-d0d32b (Trainer's affiliate link: the trainer may earn a commission; you pay the normal price.)
+- A Higgsfield account for Activity 2. Sign up at https://higgsfield.ai?fpr=alfred-d0d32b (Trainer's affiliate link: the trainer may earn a commission; you pay the normal price.)
 - Labs run on higgsfield.ai (Supercomputer + Cinema Studio), which needs a paid plan. On 8 Nov 2026 Plus was US$49/month (US$39 billed yearly) for 1,000 credits. The free 3-day trial needs a card, renews to Plus unless cancelled within 3 days, and its credits worked only through the Higgsfield MCP, not on the website.
-- Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026). Labs 1–9 are designed around Draft takes, with one or two 1080p finals.
-- Optional for Lab 9: a TikTok account to connect in Higgsfield (post as private or only-me in class).
-- Reference: Higgsfield API docs — https://docs.higgsfield.ai/docs (authentication, requests, polling, webhooks, model endpoints); Supercomputer and Skills — https://higgsfield.ai/supercomputer-intro
+- No paid plan? vidogrid.ai is free to start: make 480p test takes with the same storyboard prompt. Check the cost on the Generate button (observed 23 Nov 2026).
+- Free 6-month AI subscription (SkillsFuture): Google AI Pro (Gemini Pro): Gemini, Nano Banana Pro images and Omni for video and creative assets; 4x higher limits than free. Singtel AI Pass: Hailuo AI and AKOOL for video, MiniMax Audio for voice and music, Canva, Otter.ai, Manus: all for 3 months, then one tool for 3 more. Also on the list: ChatGPT Plus, Manus AI (8,000 credits a month) and Microsoft 365 Personal with Copilot. Who qualifies: Singapore Citizens aged 18+, after an eligible course labelled 'Free AI sub' on MySkillsFuture (ending 16 Sep 2026 or later). One per person; redeem within 60 days of the email. Details: myskillsfuture.gov.sg → Redeem AI Subscription.
+- CapCut desktop for Activity 3: CapCut desktop (free download from capcut.com; read on CapCut 9.7.1 for Mac, 23 Nov 2026). The editor's tabs: Media, Audio, Text, Stickers, Effects, Transitions, Captions, Filters, Adjustment; some tools and effects are marked Pro (paid).
+- Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026).
 
-**Conventions used in every lab**
+**Conventions used in every activity**
 
-- PROMPT blocks are copy-and-adapt: replace the bracketed parts with your own idea before submitting.
+- PROMPT blocks are copy-and-adapt: replace the parts in <angle brackets> with your own idea before submitting.
 - Draft first: test every idea on Seedance 2.5 Draft (480p) and finalise only the take you would show a client.
-- Approve every spend yourself in Supercomputer; leave 'Always allow' off in class.
-- Save every artefact (prompts, takes, checklists, exports): later labs build on them, and they are your Practical Performance evidence.
-- Only clone YOUR OWN voice, and only use faces, products, music and footage you have the rights and consent to use.
-- Each lab folder holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with the mock files.
-- All prompts in one place: open labs/prompts.html — every lab's prompts with a search box and a Copy button on each.
+- The AI drafts; you decide. Edit what it gives you: your edits and judgements are your assessment evidence.
+- Only use faces, voices, products, music and footage you have the rights and consent to use.
+- Each activity folder (labs/lab-0N-…) holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with templates.
+- One screenshot per activity: each activity ends with the ONE screenshot the Practical Performance asks for.
 
 
 ## Topic 01 — Create and Edit Video Script Using Generative AI (GAI)
 
-The impact of AI on video · use cases · Supercomputer scripts · AI Director shot lists · standards & work plans  (Covers K1 · A1 · A2 · A3.)
+What makes a video engaging · hooks · one message · characters · storytelling · script and storyboard with GenAI  (Covers K1 · A1 · A2 · A3.)
 
 **Key concepts**
 
-- AI's impact & use cases — A US$2,000 TV ad, a 14-day feature: AI movies, micro dramas, influencers, singers and marketing videos already earn audiences.
-- The lazy prompt — Format + vibe gets you a clip in one line, but the model then decides your character, world and camera.
-- Scripts with Supercomputer — Who / where / what happens, then a script and a numbered shot list, drafted and refined in one chat.
-- AI Director — Inside a project, AI Director writes the script and a shot-by-shot storyboard from your brief (Lab 2 asks for six shots).
-- Standards & guidelines — A one-page sheet: platform specs, consent, licensing, AI disclosure and a Draft-first credit rule.
-- Work plans & credit budgets — Phases, owners, timelines and a credit budget: 45 credits for a 15 s Draft, 240 for the 1080p final.
+- The hook — Up to 47% of a video ad's value lands in the first 3 seconds (Meta with Nielsen, 2016). Earn the next second.
+- One message — One sentence the viewer must remember: who it is for, what changes, why now.
+- A character — A face with a want and a problem. Viewers follow people, not product features.
+- A 15-second story — Hook, problem, turn, payoff, call to action: five beats, three seconds each.
+- Show, don't say — Shot size, sound, on-screen text and pace carry the message without a voice-over.
+- The storyboard — Panel by panel: time, shot, angle, action, sound, on-screen text. Plan it before you spend a credit.
 
 
-### Lab 1 — Sign Up and Make Your First 15-Second Video
+### Activity 1 — Hook, Story and Storyboard: Plan Your 15-Second Video
 
-Maps to: K1 — spot quality issues; A2 — generate a new video from scratch on a GenAI video platform.
+Maps to: K1 · A1 · A2 · A3 — plan out defects, edit the script, house rules, work plan.
 
-Goal: Sign up to Higgsfield through the course link, tour the two doors (Supercomputer and Cinema Studio), then make the same 15-second sci-fi clip twice: once from a one-line lazy prompt, once after Supercomputer interviews you. Compare what the model decided for you.
+Goal: Pick a product or cause, write the one message, choose a hook and a character, then let Higgsfield Supercomputer draft the script and a six-panel storyboard. You review it as an editor, fix what is weak, and finish one storyboard sheet that also carries your house rules and a work plan with a credit budget.
 
-![Figure 1. Lab 1: Cinema Studio's video panel: prompt box, model, resolution, duration and credit cost (shown at 720p; in Lab 1 you switch to a 480p Draft, about 45 credits).](<courseware/assets/lg/lab-01.jpg>)
+![Figure 1. Activity 1: A finished storyboard: five timed panels with size, angle, movement, action and sound (the SOLA ad).](<courseware/assets/lg/activity-01.jpg>)
 
-*Figure 1. Lab 1: Cinema Studio's video panel: prompt box, model, resolution, duration and credit cost (shown at 720p; in Lab 1 you switch to a 480p Draft, about 45 credits).*
+*Figure 1. Activity 1: A finished storyboard: five timed panels with size, angle, movement, action and sound (the SOLA ad).*
 
 **What you'll build**
 
-Two 15-second Draft clips of the same idea, plus a log of what the model decided and three quality issues you spotted.   (Tools: Higgsfield: Cinema Studio (Video), Supercomputer, Seedance 2.5 Draft.)
+One storyboard sheet: brief, one message, hook, character, six timed panels (size, angle, move, action, sound, on-screen text), house rules and a work plan with a credit budget.   (Tools: Higgsfield: Supercomputer (Ask mode), AI Director, image models for storyboard frames · storyboard-sheet template.)
 
-**Prompts for this lab**
+**Prompts for this activity**
 
-> **Prompt — The lazy prompt (format + vibe):**
+> **Prompt — Script and storyboard (Supercomputer):**
 >
 > ```
-> Create a 15-second video of an epic sci-fi scene.
+> I am making a 15-20 second vertical (9:16) video for <platform>.
+> Product: <product or cause>. Audience: <who>.
+> One message: <audience> should <feel/do> because <reason>.
+> Hook (0-3 s): <your hook line>. Character: <who, what they want, what is in the way>.
+> Write a timed script in five beats: hook, problem, turn, payoff, call to action.
+> Then give me a 6-panel storyboard table with: time, shot size, camera angle, camera movement,
+> action, sound, on-screen text. Do not generate any video yet.
 > ```
 
-> **Prompt — Make Supercomputer interview you first:**
+> **Prompt — Edit the script like an editor:**
 >
 > ```
-> I want a 15-second epic sci-fi scene for a cinema-style trailer moment.
-> Before you write or generate anything, ask me up to five short questions about:
-> the main character, the world/location, what happens, the camera, and the sound.
-> Then write the full prompt with timed shots and wait for my approval.
-> Use Seedance 2.5 Draft, 16:9, 15 seconds, sound on.
+> Act as a commercial film editor. Review this script and storyboard for: a hook that lands in 3 seconds,
+> ONE clear message, a character with a want and a problem, a visual payoff, a call to action, and
+> panels that cannot be shot in their time slot. List each problem and the edit you recommend,
+> then rewrite only the weakest two panels.
+> ```
+
+> **Prompt — A storyboard frame (Higgsfield Image):**
+>
+> ```
+> Storyboard frame, 9:16, simple cinematic still: <shot size> <camera angle> of <character> <action>
+> in <location>, <lighting>. Plain composition, no text, no logos.
+> ```
+
+> **Prompt — House rules: standards and guidelines (Supercomputer, Ask mode):**
+>
+> ```
+> Draft a one-page video standards and guidelines checklist for a Singapore agency making 15-30 second
+> AI videos in Higgsfield and CapCut. Cover: resolution and frame rate; aspect ratio per platform (YouTube 16:9,
+> TikTok and Reels 9:16); captions and audio level; saved character and location Elements only; commercial-use
+> rights for footage and music; PDPA consent for real faces and voices; AI-content labels on TikTok and YouTube;
+> IMDA and ASAS advertising codes. Plain checklist, five to eight lines.
+> ```
+
+> **Prompt — Work plan with timelines and credits (Supercomputer, Ask mode):**
+>
+> ```
+> Create a post-production work plan for my 15-20 second video, due in 3 working days. Phases: storyboard lock,
+> Elements, 480p Draft takes, 1080p finals, CapCut edit (cut, captions, music, colour), fixes, client review,
+> export 9:16 and 16:9, publish. For each phase give owner, duration, dependency and credits (45 per 15 s Draft,
+> 240 per 15 s 1080p final, max three Drafts per shot). End with the credit total. Plain list.
 > ```
 
 **Step-by-step**
 
-1. Open the course sign-up link higgsfield.ai?fpr=alfred-d0d32b and create your account with Google or email. It is the trainer's affiliate link: the trainer may earn a commission and you pay the normal price. Use the plan your trainer gives you; the website labs need a paid plan (Plus).
-2. On the home page find the tiles you will use all course: Supercomputer (the agent), Cinema Studio 4.0, Seedance 2.5, Higgsfield Genjutsu and AI Influencer. Click your avatar to see your credit balance.
-3. Open Video. In the bottom bar pick the model Seedance 2.5 Draft (480p, 4–30 s). Set 16:9, 15 s, sound On and 1 video.
-4. Type the lazy prompt exactly as given in the prompts page and press Generate. A 15-second Draft costs about 45 credits (a 1080p final of the same clip is about 240).
-5. Watch the clip twice with sound. In the log (assets/first-video-log.pdf) write what the model decided for you: the character, the world or location, and the camera.
-6. Write three quality issues you can see or hear (K1): for example a face that changes, objects that melt, audio that does not match the action, unreadable text, or a shot that ends mid-movement.
-7. Open Supercomputer from the home page. Paste the interview prompt so it asks you questions before it generates. Answer each question in one line.
-8. Read the full prompt Supercomputer writes (scene, shots, camera, sound). Check the approval card shows Seedance 2.5 Draft, 16:9, 15 s, then press Approve. Never tick Always allow in class.
-9. Compare the two takes side by side. Note which decisions you now control and which issues disappeared.
-10. Create a project named 'Lab Studio – <your name>' and move both clips into it. Screenshot the project page with both takes visible for your evidence.
+1. Choose what you will advertise: your own product, service or cause, or the default brief in assets/brief-kopi-kaki.pdf (a fictional neighbourhood coffee bar launching an iced kopi). You will shoot it in Activity 2 and edit it in Activity 3.
+2. Write the one message in one sentence on the storyboard sheet: '[Audience] should [feel or do] because [reason].' If you need 'and' twice, you have two messages: cut one.
+3. Pick your hook from assets/hook-cards.pdf (question, bold number, pattern interrupt, start mid-action, before/after, curiosity gap). Write three hook lines for the first 3 seconds and circle the strongest.
+4. Define your character in three lines: who they are (age, job, look), what they want, and what is in the way. This is the face the viewer follows; you will build it as an Element in Activity 2.
+5. Lay out the five beats for 15–20 seconds: HOOK (0–3 s), PROBLEM (3–6 s), TURN (6–10 s), PAYOFF (10–13 s), CALL TO ACTION (13–15 s+).
+6. Open Higgsfield Supercomputer and paste the script-and-storyboard prompt with your brief, message, hook and character. It returns a timed script and a six-panel storyboard table. (Or open your project and ask AI Director.)
+7. Review the script as an editor (A1) with the critique prompt and assets/story-review-checklist.pdf: does the hook land in 3 s, is there one message, does the character want something, is there a payoff, can each panel be shot in its time? Write down every edit you decide.
+8. Make the storyboard visual: for each panel either sketch a stick-figure frame on assets/storyboard-sheet.pdf or generate a frame in Higgsfield Image (about 2 credits each) with the frame prompt, then place it on the sheet.
+9. In Supercomputer Ask mode run the house-rules prompt and copy the five rules that apply onto the sheet (A2): platform spec, captions, music rights, consent, AI-disclosure label.
+10. Run the work-plan prompt and copy the phases onto the sheet (A3): storyboard lock, Elements, Draft takes, 1080p finals, CapCut edit, review, export, publish, each with a time and its credits (45 per 15 s Draft, 240 per 15 s 1080p final).
+11. Take ONE screenshot of the completed storyboard sheet. It is your Activity 1 evidence and the screenshot PP Task 1 asks for.
 
 **Check your work**
 
-Both clips are 15 s Drafts in one project; your log names the character, world and camera the model chose and three concrete quality issues, and says which ones the interviewed take fixed.
+The sheet states one message in one sentence and a hook for 0–3 s; it has six timed panels with size, angle, movement, action, sound and on-screen text; you listed at least two script edits; the house rules cover spec, captions, rights, consent and AI label; the work plan has phases, times and a credit total.
 
-**Mock assets in the lab folder**
+**Templates and samples in the activity folder**
 
-- first-video-log.pdf — what the model decided + three quality issues
-- sample-scifi-take.jpg — a frame from the trainer's finished 15 s sci-fi clip
-- sample-lazy-prompt-draft.mp4 — the lazy prompt, run as a 480p Draft for this course (compare with yours)
+- brief-kopi-kaki.pdf — the default client brief (fictional coffee bar, iced kopi launch)
+- hook-cards.pdf — six hook types with an example line for each
+- story-review-checklist.pdf — hook, one message, character, payoff, CTA, shootable panels
+- storyboard-sheet.pdf — the one-page sheet: brief, six panels, house rules, work plan
+- storyboard-example-sola.jpg — a finished storyboard and the film it became (SOLA)
 
-**Evidence to keep (screenshots for the PP)**
+**Your PP evidence: one screenshot**
 
-- Higgsfield project page showing both Draft takes
-- Your completed first-video log (what the model decided, three quality issues)
+- ONE screenshot: your completed storyboard sheet (brief, message, hook, six panels, house rules, work plan)
 
-> **Note:** This lab has its own folder: labs/lab-01-sign-up-and-make-your-first-15-second-video/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 2 — Write the Script and Shot List with Supercomputer and AI Director
-
-Maps to: A1 — review scripts to conceptualise the edits needed; A2 — edit video scripts with GenAI.
-
-Goal: Turn a three-line idea (who, where, what happens) into a 15-second script and a timed shot list. AI Director drafts it inside your project; you review it against the story elements and decide the edits: shot sizes, cuts, camera and sound. Then you refine it one change at a time.
-
-![Figure 2. Lab 2: Who, where, what happens: the three answers every script needs.](<courseware/assets/lg/lab-02.jpg>)
-
-*Figure 2. Lab 2: Who, where, what happens: the three answers every script needs.*
-
-**What you'll build**
-
-A reviewed 15-second script and a 6-shot shot list in the three-part prompt format, saved in your project brief.   (Tools: Higgsfield: Projects, AI Director, Supercomputer (/youtube-script skill).)
-
-**Prompts for this lab**
-
-> **Prompt — Brief AI Director — who / where / what happens:**
->
-> ```
-> WHO: a bartender in her thirties, tired but proud of her bar.
-> WHERE: her empty neighbourhood bar after closing time.
-> WHAT HAPPENS: she switches the lights off one by one and walks to the window as the city lights come on.
-> Write a 15-second cinematic script, then a 6-shot storyboard with shot sizes and timings.
-> ```
-
-> **Prompt — Three-part prompt skeleton:**
->
-> ```
-> Scene context: <the visible action in one or two sentences>.
-> References: <@element — role, 100% as shown in the reference image>.
-> Shots (cut between each):
-> 1. 0–3s: <shot size>, <action>, <camera>.
-> 2. 3–6s: ...
-> Sound: <ambience>, <footsteps/clothing>, <dialogue or none>.
-> ```
-
-> **Prompt — Script critique:**
->
-> ```
-> Act as a film editor. Check this script for: weak opening shot, unclear hero, no obstacle, no visual payoff, and shots that cannot be filmed in 15 seconds. List each issue, then rewrite only the weakest shot.
-> ```
-
-**Step-by-step**
-
-1. Open your Lab Studio project and click AI Director in the left panel (Tools → AI Director).
-2. Give the three-line brief from the prompts page: WHO (a bartender), WHERE (an empty bar), WHAT HAPPENS (lights off, she walks to the window). Ask AI Director to write a 15-second script.
-3. Ask for a 6-shot storyboard of the same script with shot sizes and timings.
-4. Review the script with assets/story-elements-checklist.pdf: is there an identifiable hero, a clear desire, an obstacle, an action and an outcome? Mark what is missing.
-5. Conceptualise the edits (A1): for every shot decide the size (wide, medium close-up, close-up), whether the camera moves, where the cut lands and what we hear. Write them into assets/shot-list-template.csv.
-6. Rewrite the result as a three-part prompt: SCENE CONTEXT (visible action in 1–2 sentences), REFERENCES (leave empty for now), SHOTS (numbered, timed, one camera instruction each), then a SOUND line.
-7. Refine and save: describe ONE change to AI Director, read the updated prompt, keep the version that works. Repeat twice.
-8. In Supercomputer open Skills in the left sidebar and browse the Marketplace. Install one script or storyboard skill that fits your brief (official skills such as Cinematic Director are listed with the community ones).
-9. Type / in the Supercomputer prompt, pick /youtube-script (or the skill you installed) and ask for a 30-second vertical re-cut of the same story. Compare pacing and hook with your 15-second version.
-10. Paste the final script and shot list into Project brief. Screenshot the brief for your evidence.
-
-**Check your work**
-
-The script fits 15 s, every shot has a size, a camera instruction and a time, the story-elements review names at least two edits you made, and the prompt is in the three-part format.
-
-**Mock assets in the lab folder**
-
-- story-elements-checklist.pdf — hero, desire, obstacle, action, outcome
-- shot-list-template.csv — shot, time, size, camera, action, sound
-- client-brief-online-learning.pdf — the PP scenario brief to practise on
-
-**Evidence to keep (screenshots for the PP)**
-
-- Project brief showing your final script and 6-shot list
-- Your story-elements review with the edits you decided
-
-> **Note:** This lab has its own folder: labs/lab-02-write-the-script-and-shot-list-with-supercompute/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 3 — Set the House Rules: Standards, Work Plan and Credit Budget
-
-Maps to: K1 — quality issues to prevent; A2 — develop editing standards and guidelines; A3 — develop work plans and timelines.
-
-Goal: Have Supercomputer draft the two documents every Higgsfield production needs: a one-page standards and guidelines sheet (platform specs, legal and AI-disclosure rules, quality gates) and a post-production work plan with timelines and a credit budget built on real Draft and 1080p costs.
-
-![Figure 3. Lab 3: Supercomputer's Skills list: type / to call a skill such as youtube-script.](<courseware/assets/lg/lab-03.jpg>)
-
-*Figure 3. Lab 3: Supercomputer's Skills list: type / to call a skill such as youtube-script.*
-
-**What you'll build**
-
-A one-page standards & guidelines sheet, a phased work plan with timelines and a credit budget, and your own /house-standards skill.   (Tools: Higgsfield: Supercomputer (Ask mode, Skills).)
-
-**Prompts for this lab**
-
-> **Prompt — Standards & guidelines sheet:**
->
-> ```
-> Draft a one-page video standards & guidelines sheet for a Singapore agency making 15–30 second AI videos in Higgsfield.
-> Cover: resolution and frame rate; aspect ratio per platform (YouTube 16:9, TikTok/Reels/Shorts 9:16); audio level and captions;
-> branding; character and location consistency (saved Elements only); commercial-use rights on our plan;
-> PDPA consent for real faces and voices; AI-content disclosure labels on TikTok and YouTube; IMDA/ASAS advertising codes.
-> Format as a table.
-> ```
-
-> **Prompt — Work plan with timelines and credits:**
->
-> ```
-> Create a post-production work plan for a 15-second promo due in 3 working days, made entirely in Higgsfield.
-> Phases: script lock, Elements (characters, locations, props), 480p Draft takes, 1080p finals, fix & finish
-> (replace, upscale, captions, music), client review, export 16:9 + 9:16, publish.
-> For each phase give owner, duration, dependency, deliverable and credits (45 per 15 s Draft, 240 per 15 s 1080p final,
-> max three Drafts per shot). Format as a timeline table with a credit total.
-> ```
-
-> **Prompt — Save the rules as a skill:**
->
-> ```
-> Save these standards as a reusable skill named house-standards.
-> When to use: every video we make for clients.
-> Rules: saved Elements only; Draft at 480p before any 1080p final; 1080p finals; 16:9 and 9:16 exports;
-> AI-generated label on; no real person's face or voice without written consent; music cleared for commercial use.
-> Steps: brief -> three-part prompt -> Draft -> review -> finalise -> quality checklist -> export.
-> Output: the three-part prompt, a credit estimate and a pass/fail checklist.
-> ```
-
-**Step-by-step**
-
-1. Open Supercomputer and switch to Ask mode so it answers without generating media (no credits spent on video).
-2. Paste the standards prompt. Check the draft covers resolution, frame rate, aspect ratio per platform, audio level, captions and branding.
-3. Add the legal layer: commercial-use rights on your Higgsfield plan, consent for any real face or voice (PDPA), music rights, platform AI-content labels on TikTok and YouTube, and IMDA/ASAS advertising codes.
-4. Add two quality gates: every shot is approved as a 480p Draft before a 1080p final, and every final is checked against the quality checklist before export.
-5. Paste the work-plan prompt. Each phase needs an owner, a duration, a dependency and a deliverable.
-6. Ask Supercomputer to add a credit column using 45 credits per 15 s Draft and 240 per 15 s 1080p final, with three Drafts allowed per shot. Compare the total with assets/credit-plan-template.csv.
-7. Review the drafts critically: delete anything that does not apply to your video and add your own brand rule.
-8. Save both documents in Project brief and download them. Screenshot both for your evidence.
-9. Turn the standards into your own skill: open Skills in the left sidebar and create a new skill named house-standards, using assets/skill-template.pdf (name, when to use, rules, steps, output format). Paste your rules into it. If your account offers no create button, give Supercomputer the 'save as a skill' prompt instead.
-10. Test it: type /house-standards with a one-line video idea and check the reply follows your rules (Elements only, Draft first, AI label, three-part prompt, credit estimate). Screenshot the skill and the test reply.
-
-**Check your work**
-
-The sheet names concrete specs per platform and at least three legal or disclosure rules; the plan covers every phase to publishing within 3 days and its credit total matches 45/240 rates; /house-standards answers a test idea with your rules applied.
-
-**Mock assets in the lab folder**
-
-- credit-plan-template.csv — shots × Drafts × finals with the 45 / 240 credit rates
-- work-plan-template.csv — phase, owner, start, end, dependency, deliverable, credits
-- standards-checklist.pdf — the minimum items your sheet must cover
-- skill-template.pdf — the five parts of a Supercomputer skill, with a filled /house-standards example
-
-**Evidence to keep (screenshots for the PP)**
-
-- Your standards & guidelines sheet (with legal and AI-disclosure rules)
-- Your work plan with timelines and the credit total
-- Your /house-standards skill and its test reply
-
-> **Note:** This lab has its own folder: labs/lab-03-set-the-house-rules-standards-work-plan-and-cred/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
+> **Note:** This activity has its own folder: labs/lab-01-hook-story-and-storyboard-plan-your-15-second-vi/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
 ## Topic 02 — Improve Video Footage on GAI Powered Video Platforms
 
-Elements: characters, locations, props · references · Cinema Studio shots & takes · Draft mode · assess the cut  (Covers K2 · K3 · A4 · A5.)
+Shot sizes · camera angles · camera movement · light, colour and lens · cinematic effects · Higgsfield characters and storyboard prompts  (Covers K2 · K3 · A4 · A5.)
 
 **Key concepts**
 
-- Elements — Save a character, location or prop once with an @handle and reuse it in every shot: the fix for drifting faces and sets.
-- References — Up to 50 per generation (30 images, 10 videos, 10 audio), each given a role: character, location, camera move or voice.
-- Shots & takes — One continuous shot or multishot with cuts; each run is a take you keep, compare or replace.
-- Cinematic controls — Camera body, lens, aperture, movement, lighting, colour palette, genre, era and tempo.
-- Draft mode — Seedance 2.5 Draft renders 480p for 45 credits; finalise only the take that works at 1080p.
-- Assessing footage — Resolution, continuity, motion, audio, pacing and compliance, judged take by take.
+- Shot sizes — Extreme wide to extreme close-up: each size tells the viewer what to read.
+- Camera angles — Low makes a hero, high makes a victim, Dutch makes trouble, POV puts us inside.
+- Camera movement — Push-in for emotion, tracking for energy, crane for scale, handheld for urgency.
+- Light, colour, lens — Golden hour, silhouette, shallow focus and a colour grade set the mood in one line of prompt.
+- Characters as Elements — Build the cast once in Higgsfield, save it with an @handle, reuse it in every shot.
+- Prompt the storyboard — One storyboard panel becomes one prompt line: time, size, angle, move, action, sound.
 
 
-### Lab 4 — Build Your Elements: Characters, Locations and Props
+### Activity 2 — Shoot It in Higgsfield: Characters, Cinematic Shots and Takes
 
-Maps to: K2 — solutions that rectify quality issues (consistency); A4 — review footage for improvement.
+Maps to: K2 · K3 · A4 · A5 — fix defects, assess quality, improve story and emotion, check the spec.
 
-Goal: Faces that change between shots are the commonest AI video defect. Fix it before you shoot: cast a character with Supercomputer, turn the pick into a reference sheet, build a location and a prop, and save each one as an Element with an @handle you can call in any prompt.
+Goal: Turn your storyboard into footage. Build your character (and location) as Elements so the face never drifts, translate every storyboard panel into a prompt line with size, angle, movement and light, shoot cheap 480p Draft takes, review them against the storyboard, and finalise only the takes that tell the story.
 
-![Figure 4. Lab 4: A character reference sheet: full body front, full body back, face portrait (before step 3 covers the full-body face).](<courseware/assets/lg/lab-04.jpg>)
+![Figure 2. Activity 2: Cinema Studio: attach your Elements, set camera, lens, light and colour, then paste your storyboard prompt.](<courseware/assets/lg/activity-02.jpg>)
 
-*Figure 4. Lab 4: A character reference sheet: full body front, full body back, face portrait (before step 3 covers the full-body face).*
-
-**What you'll build**
-
-Five saved Elements, two characters, two locations and one prop, each with a reference image and an @handle.   (Tools: Higgsfield: Supercomputer (character-sheet skill), Soul 2.0, Seedream 5.0 Pro, Nano Banana Pro, Elements.)
-
-**Prompts for this lab**
-
-> **Prompt — Cast a character (Supercomputer):**
->
-> ```
-> Main character in a biker road movie, 25 years old, modern style clothing.
-> Use the character-sheet skill. Show me five photoreal casting options first; I will pick one before you build the reference sheet.
-> ```
-
-> **Prompt — Edit one detail, keep it consistent:**
->
-> ```
-> Give him a silver wallet chain hanging off his jeans pocket. Replace the black t-shirt with a plain white ribbed cotton tank top, same tank top in all views.
-> ```
-
-> **Prompt — Location with spatial anchors:**
->
-> ```
-> Wide interior of a dim neighbourhood bar at night: long wooden counter on the right with eight black stools, beer taps and backlit bottles, a pool table at the back, warm practical lamps, one large window on the left wall. Photoreal, 16:9, no people.
-> ```
-
-> **Prompt — Prop (run on two models):**
->
-> ```
-> A slim orange hard-shell briefcase with a ribbed moulded lid, rounded corners, a black top handle and two metal latches, white background, soft studio light, no logos or text.
-> ```
-
-**Step-by-step**
-
-1. In Supercomputer paste the casting prompt. It loads the character-sheet skill and offers five photoreal casting options (Soul 2.0). Pick the one that fits your brief.
-2. Ask for a 16:9 reference sheet of your pick: full body front, full body back, and a face portrait, plain white background.
-3. Check that the face on the full-body front view is covered by a white oval. That is deliberate: with only the close-up portrait left as a face, the model copies one identity into every shot. If your sheet shows both faces, ask Supercomputer to cover the face in the full-body view and keep the portrait.
-4. Make one targeted edit with the edit prompt (Image → Seedream 5.0 Pro, about 3 credits): change one garment and keep it the same in all views.
-5. Open the sheet, click Save as element. Set Category = Character, Name = Biker, Element ID = char_biker. Add a one-line description. Repeat for a second character (char_friend).
-6. Generate the bar interior with the location prompt (Nano Banana Pro, about 2 credits). Check the space has clear spatial anchors (the counter, the stools, the window) you can name in a shot. Save as loc_bar-interior; repeat for loc_bar-entrance.
-7. Generate the prop on two image models with the same prompt and compare shape, colour and credit cost. Save the better one as prop_suitcase.
-8. Open My elements and check all five Elements are listed with their @handles. Screenshot the list for your evidence.
-9. Review: which quality issue does each Element prevent (K2)? Write one line per Element in the naming sheet.
-
-**Check your work**
-
-Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same outfit in all three views, the full-body face is covered and the portrait is the one clear face; each Element has a line saying which quality issue it prevents.
-
-**Mock assets in the lab folder**
-
-- character-brief.pdf — the biker road-movie brief and casting checklist
-- element-naming-sheet.csv — category, name, @handle, what it prevents
-- sample-product-sola.jpg — a product reference for Labs 8–9
-- sample-location-bar.jpg and sample-prop-suitcase.jpg — the Lab 4 prompts run for this course
-
-**Evidence to keep (screenshots for the PP)**
-
-- My elements page showing your saved characters, locations and prop with @handles
-- Your character reference sheet (front, back, face)
-
-> **Note:** This lab has its own folder: labs/lab-04-build-your-elements-characters-locations-and-pro/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 5 — Direct Shots and Takes in Cinema Studio
-
-Maps to: A4 — review footage to improve storytelling; K2 — solutions to rectify quality issues.
-
-Goal: Direct a 15-second bar scene the way a film crew would: attach your Elements as references with roles, set camera, lens, lighting and colour, write the shots and the sound, then render four 480p Draft takes. Finalise only the best take in 1080p.
-
-![Figure 5. Lab 5: Cinema Studio: the panel where references, camera and look come together.](<courseware/assets/lg/lab-05.jpg>)
-
-*Figure 5. Lab 5: Cinema Studio: the panel where references, camera and look come together.*
+*Figure 2. Activity 2: Cinema Studio: attach your Elements, set camera, lens, light and colour, then paste your storyboard prompt.*
 
 **What you'll build**
 
-Four Draft takes of one scene and one 1080p final of the best take, made from your Elements.   (Tools: Higgsfield: Cinema Studio, Seedance 2.5 / Seedance 2.5 Draft, References, Elements.)
+Your storyboard shot in Higgsfield: one character Element, one location, Draft takes for every panel and 1080p finals of the keepers, reviewed and scored.   (Tools: Higgsfield: Supercomputer (character-sheet skill), Image (Soul 2.0 / Nano Banana Pro), Elements, Cinema Studio, Seedance 2.5 Draft.)
 
-**Prompts for this lab**
+**Prompts for this activity**
 
-> **Prompt — Bar scene — three-part prompt (Seedance 2.5):**
+> **Prompt — Cast the character (Supercomputer):**
 >
 > ```
-> Scene context: Biker enters a bar with a suitcase, looking for his friend. They notice each other, and the biker walks over and sits next to him as he lays his case flat on the counter.
-> References:
-> @char_biker — biker, 100% as shown in the reference image.
-> @char_friend — friend, 100% as shown in the reference image. He is seated on a stool on the side of the bar counter.
-> @prop_suitcase — suitcase, 100% as shown in the reference image. It belongs to @char_biker. He carries it in his left hand.
-> @loc_bar-interior — the bar, 100% as shown in the location reference.
+> Main character for a 15-second ad: <age>, <job>, <look and clothing>, <mood>.
+> Use the character-sheet skill. Show me casting options first; after I pick one, build a 16:9
+> reference sheet: full body front, full body back, face portrait, plain white background.
+> Same outfit in every view.
+> ```
+
+> **Prompt — Build the location (Image):**
+>
+> ```
+> Wide <location>, <time of day>, cinematic still, 16:9. Clear spatial anchors: <three things a shot can point at>,
+> e.g. seats along both sides, silver handrails, a window with city lights passing. No people, no text, no logos.
+> ```
+
+> **Prompt — Storyboard to prompt (Cinema Studio):**
+>
+> ```
+> Scene: @char_<name> in @loc_<place>, <one-line story>.
 > Shots (cut between each):
-> 1. 0–3s: wide, the biker pushes through the door, suitcase in his left hand.
-> 2. 3–6s: medium shot, the friend looks up from his beer. Static camera.
-> 3. 6–9s: close-up, the biker recognises him.
-> 4. 9–12s: medium close-up, the biker sits; dialogue: "Told you I'd make it."
-> 5. 12–15s: close-up, he lays the case flat on the counter.
-> Sound: bar ambience, footsteps, leather jacket movement, the line of dialogue.
+> 1. 0-3s: extreme close-up, low angle, slow push-in: <hook action>, golden-hour backlight.
+> 2. 3-6s: medium shot, eye level, handheld: <problem>.
+> 3. 6-10s: close-up, eye level, static: <turn - the emotion on her face>.
+> 4. 10-13s: wide shot, high angle, drone pull-back: <payoff>.
+> 5. 13-15s: medium shot, eye level, locked off: <product hero frame, space for the logo>.
+> Sound: <ambience>, <one key sound effect on the payoff>, no dialogue.
 > ```
 
-> **Prompt — One continuous shot (compare):**
+> **Prompt — Review the take (Supercomputer):**
 >
 > ```
-> One continuous 15-second take. Follow a man along a busy New York sidewalk. Move from behind him to a frontal view as he reaches the corner. Keep the action uninterrupted, with no cuts.
+> Here is my storyboard and my Draft take. As a director, list where the take loses the story or the emotion
+> (hook timing, character expression, payoff, pacing) and as an editor, score resolution, continuity,
+> motion, audio and ratio PASS/FAIL. For each FAIL give the cheapest fix and its credit cost.
+> Tie every story change to a numbered shot, e.g. 'Shot 3: hold the smile one more second'.
 > ```
 
 **Step-by-step**
 
-1. Open Video → Cinema Studio. Click References and attach @char_biker, @char_friend, @prop_suitcase and @loc_bar-interior. One generation accepts up to 50 references: 30 images, 10 videos, 10 audio.
-2. Give each reference a role: Character for the people, Location for the bar. Type @ in the prompt to insert a handle.
-3. Open Film setup: choose a camera body, a lens and an aperture (f/1.4 wide open for shallow focus). Open Lighting: pick Practicals. Open Colour palette: pick Film colors. Set Genre to Drama.
-4. Write the prompt in three parts (prompts page): scene context, references with '100% as shown in the reference image', then numbered shots with sizes and camera.
-5. Choose the shot structure: one continuous 15-second shot, or multishot with a cut between each. Use the multishot version for this lab.
-6. Add the Sound line: bar ambience, footsteps, clothing movement and the one line of dialogue.
-7. Select Seedance 2.5 Draft, 480p, 21:9 or 16:9, 15 s, sound On, 4 videos. Press Generate Draft (about 45 credits per take).
-8. Watch all four takes with sound. Note for each: character match, prop position, camera, audio. Pick one.
-9. Open the chosen Draft and finalise it in 1080p (Seedance 2.5 renders the same take at full resolution, about 240 credits for 15 s; drafts can be finalised within 7 days).
-10. Screenshot the Cinema Studio prompt panel with the references attached and the four-take grid for your evidence.
+1. Open higgsfield.ai, sign in and open your project. Keep your Activity 1 storyboard sheet beside you. No paid Higgsfield plan? Use vidogrid.ai, free to start: generate the character and location on its Image page, attach them as reference images, and make 480p test takes with the same storyboard prompt (check the cost on the Generate button).
+2. Cast your character: paste the character prompt into Supercomputer. It offers casting options; pick the one that matches your storyboard and ask for a reference sheet (full body front, full body back, face portrait).
+3. Open the sheet and click Save as element: Category Character, Element ID char_<name>. Generate your location with the location prompt and save it as loc_<place>. Check both appear in My elements.
+4. Open Cinema Studio (Video). Attach @char_<name> with the Character role and @loc_<place> with the Location role.
+5. Translate the storyboard: for each panel write one prompt line in the order time, shot size, camera angle, camera movement, action, light. Add one Sound line for the whole clip. Use the storyboard-to-prompt prompt if you want Supercomputer to draft the lines from your sheet.
+6. Set the look once: camera body and lens, aperture (f/1.4 for shallow focus), lighting preset, colour palette. Choose Seedance 2.5 Draft, 9:16 (or 16:9), 15 s, sound on.
+7. Generate two or three Draft takes (never more than three per shot; about 45 credits each for 15 s). Watch each with sound.
+8. Review against your storyboard (A4): does the hook land in 3 s, does the character's emotion read in the close-up, does the payoff feel like a payoff? Write two changes that would strengthen the story or emotion and apply ONE per new take.
+9. Assess the takes with assets/footage-scorecard.pdf (A5): resolution, face and prop continuity, motion and physics, audio, ratio and safe area, length. Mark PASS or FAIL and the fix (K2).
+10. Finalise only the best take at 1080p (about 240 credits for 15 s) and download the MP4s you will edit in Activity 3.
+11. Take ONE screenshot of your Higgsfield project or Cinema Studio showing your prompt and your generated takes. It is the screenshot PP Task 2 asks for.
 
 **Check your work**
 
-All four Drafts use your Elements; your take log scores each take; the 1080p final is the take you scored best and keeps the same faces, prop and bar.
+Your character is a saved Element used in every take; every storyboard panel has a prompt line with size, angle and movement; you shot up to three Draft takes per shot before one 1080p final; you wrote two story/emotion changes and scored the takes PASS/FAIL on the quality parameters.
 
-**Mock assets in the lab folder**
+**Templates and samples in the activity folder**
 
-- cinema-studio-cheatsheet.pdf — camera, lens, aperture, lighting, colour, genre, era, tempo
-- shot-size-guide.pdf — wide, medium close-up, close-up and what each one is for
-- take-log.csv — take, character match, prop, camera, audio, keep?
+- shot-angle-move-cards.pdf — shot sizes, camera angles and movements with what each makes the viewer feel
+- storyboard-to-prompt.csv — one row per panel: time, size, angle, move, action, light, sound
+- footage-scorecard.pdf — the quality parameters, PASS/FAIL, fix and credits
+- sample-character-frame.jpg — a frame from the SOLA film: what a locked character looks like
 
-**Evidence to keep (screenshots for the PP)**
+**Your PP evidence: one screenshot**
 
-- Cinema Studio prompt panel with your references attached
-- The four Draft takes and your 1080p final
+- ONE screenshot: your Higgsfield project or Cinema Studio showing your prompt and your generated takes
 
-> **Note:** This lab has its own folder: labs/lab-05-direct-shots-and-takes-in-cinema-studio/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 6 — Cut, Caption and Assess the Scene
-
-Maps to: A4 — review edited footage to improve storytelling; A5 — assess footage against technical and legal requirements; K3 — quality parameters.
-
-Goal: Keep the useful first take, direct one more, then have Supercomputer assemble the takes into a captioned cut with a soundtrack. Score the cut against the quality parameters and your Lab 3 standards before anything is exported.
-
-![Figure 6. Lab 6: Keep a useful first take: watch with sound, choose one change, save the prompt and take.](<courseware/assets/lg/lab-06.jpg>)
-
-*Figure 6. Lab 6: Keep a useful first take: watch with sound, choose one change, save the prompt and take.*
-
-**What you'll build**
-
-A captioned 15–30 s cut in 16:9 and 9:16 with a scored quality checklist and a list of storytelling improvements.   (Tools: Higgsfield: Cinema Studio, Supercomputer (video montage: trims, soundtrack, burned captions).)
-
-**Prompts for this lab**
-
-> **Prompt — Direct one change:**
->
-> ```
-> Keep everything in this take the same. Change one thing only: in shot 3 make the camera push in slowly on the biker's face as he recognises his friend, and add a beat of silence before the dialogue.
-> ```
-
-> **Prompt — Assemble, caption and score (Supercomputer):**
->
-> ```
-> Assemble these two clips into one 20-second cut: take 2 first, then shots 4–5 of take 1. Trim dead frames at each cut.
-> Add a moody low-tempo soundtrack under the bar ambience, keep the dialogue clearly above the music.
-> Burn captions for the dialogue: white, bottom third, two lines max. Export 16:9 and 9:16.
-> Then score the cut against: resolution, motion, face/prop continuity, audio, captions, pacing, platform compliance. Table, pass/fail.
-> ```
-
-**Step-by-step**
-
-1. Watch your Lab 5 final with sound. Choose ONE change (or one variation) and write it as a single instruction.
-2. Generate one new Draft take with that change. Keep both prompts and both clips: the comparison is your evidence.
-3. Run the continuity check on the prop: where is it, who holds it, does it stay the same from shot to shot? Log it in assets/continuity-log.csv.
-4. Open Supercomputer and paste the assembly prompt with your two best clips. It trims, orders, adds a soundtrack and burns captions, then exports 16:9 and 9:16.
-5. Score the cut with assets/quality-checklist.pdf: resolution and sharpness, frame rate and motion, continuity of faces and props, audio (dialogue above music, no clipping), captions (accurate, in sync, readable), pacing, compliance.
-6. Assess compliance against your Lab 3 sheet: correct ratio per platform, AI-content label planned, no real person's likeness without consent, music cleared for commercial use.
-7. List three areas of improvement that would make the story land better (A4), for example a stronger opening image, a cut that lands on the reaction, or a sound cue on the payoff.
-8. Screenshot the scored checklist and both exports for your evidence.
-
-**Check your work**
-
-The checklist scores every parameter with a reason, the cut exports in both ratios with readable captions, and you name three storytelling improvements tied to specific shots.
-
-**Mock assets in the lab folder**
-
-- quality-checklist.pdf — the seven quality parameters with pass/fail criteria
-- continuity-log.csv — shot, prop position, who holds it, same as previous?
-- client-standards-example.pdf — a filled standards sheet to assess against
-
-**Evidence to keep (screenshots for the PP)**
-
-- Your scored quality checklist (before export)
-- Your 16:9 and 9:16 exports with captions
-
-> **Note:** This lab has its own folder: labs/lab-06-cut-caption-and-assess-the-scene/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
+> **Note:** This activity has its own folder: labs/lab-02-shoot-it-in-higgsfield-characters-cinematic-shot/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
 ## Topic 03 — Apply new AI technologies to Improve Video Production
 
-Remove & replace objects · cinematic effects · upscale · voice & music · models compared · publish  (Covers K4 · K5 · A6 · A7.)
+Post-production in CapCut · what to cut when it runs long · captions, music, colour · quality checks · export · ethics  (Covers K4 · K5 · A6 · A7.)
 
 **Key concepts**
 
-- Remove & replace — Genjutsu Replace Object swaps a product, prop or garment in finished footage, keeping the motion.
-- Cinematic effects — Lighting presets, colour grades and viral effect presets add VFX without a compositor.
-- Enhance shots — Upscale to 1080p or 4K, reframe 16:9 to 9:16, regenerate only the broken shot.
-- Voice & music — Native Seedance audio, a cloned voice for narration and a generated soundtrack.
-- Models compared — Seedance 2.5, Kling 4.0, Cinema Studio 4.0 and Genjutsu: pick per shot on quality, cost and control.
-- Publish responsibly — Export per platform, label synthetic media, clear consent, then share to TikTok or YouTube.
+- The edit — Generated clips are raw footage. The story is written a second time on the CapCut timeline.
+- Too long? Cut it — Cut logo intros, warm-ups, repeats and dead air first; keep hook, message, payoff and CTA.
+- Polish — Auto captions, a hook line in 0–3 s, music under the action, one colour look, few transitions.
+- Fix and finish with AI — Remove objects, add VFX, clone a voice with consent, generate music and voice-over, enhance audio; regenerate one shot when CapCut cannot fix it.
+- Export to standard — 1080p, 30 fps, MP4; 9:16 for TikTok, Reels and Shorts; 16:9 for YouTube; AI label on.
+- Ethics — Copyright and IP, consent, bias, deepfakes, transparency: the last check before you publish.
 
 
-### Lab 7 — Fix What Fails: Remedial Actions in Higgsfield
+### Activity 3 — Finish It in CapCut: Cut, Polish and Export the Final Video
 
-Maps to: A6 — develop remedial actions for footage that does not meet requirements; K4 — industry quality standards.
+Maps to: K4 · K5 · A6 · A7 — industry standards, new AI tools, remedial actions, evaluate the tools.
 
-Goal: Take every FAIL from your Lab 6 checklist and match it to a Higgsfield fix: replace the wrong object, upscale soft footage, reframe for vertical, or regenerate only the broken shot with the same Elements. Apply at least two fixes and re-score.
+Goal: Bring your Higgsfield takes into CapCut and write the story a second time on the timeline. Cut it to 15–20 seconds, put the hook line in the first 3 seconds, add captions, music and a call to action, match the colour, check it against your house rules, fix what fails, and export a 1080p video ready to publish with an AI label.
 
-![Figure 7. Lab 7: Fix one thing per instruction: remove or replace an object and keep the rest of the shot.](<courseware/assets/lg/lab-07.jpg>)
+![Figure 3. Activity 3: The CapCut editor: import and tool tabs (left), player and Ratio (centre), timeline (bottom), Export (top right).](<courseware/assets/lg/activity-03.jpg>)
 
-*Figure 7. Lab 7: Fix one thing per instruction: remove or replace an object and keep the rest of the shot.*
+*Figure 3. Activity 3: The CapCut editor: import and tool tabs (left), player and Ratio (centre), timeline (bottom), Export (top right).*
 
 **What you'll build**
 
-A remediated cut with a before/after checklist and a remedy table (issue, cause, Higgsfield fix, result).   (Tools: Higgsfield: Genjutsu Replace Object, Upscale, Reframe, Cinema Studio (regenerate a shot).)
+Your final 15–20 second video, exported from CapCut at 1080p for your platform, with a quality check, two fixes and a short tool evaluation.   (Tools: CapCut desktop: Media, Text, Captions (auto captions), Audio, Filters, Adjustment, Transitions, Ratio, Export · Higgsfield to regenerate one shot if needed.)
 
-**Prompts for this lab**
+**Prompts for this activity**
 
-> **Prompt — Diagnose the cut (Supercomputer):**
+> **Prompt — Plan the cut (Supercomputer or any chat assistant):**
 >
 > ```
-> Here is my cut and my quality checklist. For every FAIL, give: the issue, the likely cause, the Higgsfield fix
-> (Replace Object, Upscale, Reframe, regenerate one shot with the same Elements, or a new Sound line) and the credit cost.
-> Order the fixes cheapest first. Table.
+> My raw footage runs <xx> seconds. Here is my storyboard and the list of clips with their lengths: <list>.
+> I need a 15-20 second cut for <platform> with the hook in the first 3 seconds and one message: <message>.
+> Tell me which clips or seconds to cut, which to keep, the order, and where the hook text,
+> captions and call to action go. Give me a cut list as a table: clip, in, out, keep/cut, reason.
 > ```
 
-> **Prompt — Replace an object (Genjutsu):**
+> **Prompt — Caption and CTA copy:**
 >
 > ```
-> Replace the orange briefcase in this clip with the black hard-shell case in the reference image. Keep the hand position, motion, lighting and timing exactly the same.
+> Write the on-screen text for my 15-second video: a hook line of at most 6 words for 0-3 s,
+> two short captions for the middle beats, and a call to action of at most 4 words.
+> One message: <message>. Tone: <tone>. No claims we cannot prove.
 > ```
 
-> **Prompt — Regenerate one shot only:**
+> **Prompt — Score the cut before export:**
 >
 > ```
-> Regenerate shot 3 only. Same Elements (@char_biker, @loc_bar-interior), same framing and timing. Fix: his face must match the reference sheet and the case stays in his left hand.
+> Score my cut against my house rules: 15-20 s; 9:16 at 1080p, 30 fps; hook in 0-3 s; captions accurate and
+> inside the safe area; music under the key sounds, no clipping; same face in every shot; music cleared for
+> commercial use; AI-generated label planned. PASS or FAIL with one reason each. For each FAIL give the cheapest
+> fix: in CapCut (trim, re-caption, re-level, re-colour, reframe) or regenerate one shot in Higgsfield. Plain list.
+> ```
+
+> **Prompt — Evaluate two technologies:**
+>
+> ```
+> I used these two technologies: <first, e.g. CapCut auto captions> and <second, e.g. Higgsfield Draft mode>.
+> For each, give one efficiency gain and one quality gain, one limit, then rate it on quality, speed and cost,
+> control, rights and fit.
 > ```
 
 **Step-by-step**
 
-1. Copy every FAIL from your Lab 6 checklist into assets/remedy-table.csv with its likely cause.
-2. Match each issue to a fix using assets/remedy-map.pdf: wrong or drifting object → Genjutsu Replace Object; soft or 480p footage → Upscale; wrong ratio → Reframe 16:9 to 9:16; broken shot → regenerate that shot only with the same Elements; muddy audio → regenerate with a clearer Sound line.
-3. Replace an object: open Genjutsu, choose Replace Object, upload the clip and the new prop image, describe the swap. The motion, framing and timing stay; only the object changes.
-4. Apply at least one more fix from the map. Test it on a Draft before spending on a final.
-5. Re-score the cut with the same checklist and record before/after in the remedy table.
-6. Compliance pass (K4): platform specs met, AI-content label ready, consent and rights recorded.
-7. Screenshot the before/after frames and the completed remedy table for your evidence.
+1. Open CapCut desktop (free at capcut.com) and click Create project. Click Import and add your Higgsfield MP4s from Activity 2.
+2. Set the canvas ratio in the player (Ratio → 9:16 for TikTok, Reels and Shorts, or 16:9 for YouTube). Drag the clips onto the timeline in storyboard order.
+3. Cut to time. Move the playhead and split with Cmd+B (Mac) or Ctrl+B (Windows). Delete in this order until the video is 15–20 s: logo intros and warm-ups, dead air, repeated beats, anything that does not serve the one message. Keep the hook, the payoff and the call to action. Use assets/cut-list.pdf to log each cut.
+4. Tighten the rhythm: start each shot on the action, cut on movement, hold the emotional close-up a beat longer, and end on the payoff, not after it.
+5. Text tab: put your hook line on screen in the first 3 seconds and a call-to-action card at the end. Keep text inside the safe area (away from the bottom fifth and the right edge on 9:16).
+6. Captions tab: generate auto captions, then read every line and fix wrong words, names and timing. Most viewers on social start muted.
+7. Audio tab: add music that is cleared for commercial use, lower it under the key sound (ice clink, footsteps) and fade it out at the end.
+8. Filters or Adjustment: give every clip the same colour look so Draft and final shots match. Use at most one or two transitions.
+9. Check the cut with assets/final-check.pdf against your Activity 1 house rules (K4): length, ratio, 1080p, captions correct, audio level, character continuity, rights, AI label planned. For each FAIL apply a remedial action (A6): fix it in CapCut, or regenerate just that shot in Higgsfield, then re-check.
+10. Export: 1080p, 30 fps, MP4. Watch the exported file once on your phone.
+11. Evaluate two technologies you used (A7), e.g. Higgsfield Draft mode or Elements, CapCut auto captions or AI tools: what each saved (time, credits) and what it improved (quality, consistency), and one limit.
+12. Take ONE screenshot of your finished CapCut timeline (video, text, caption and audio tracks visible). It is the screenshot PP Task 3 asks for. Upload the exported MP4 to the TMS.
 
 **Check your work**
 
-At least two FAILs are fixed with named Higgsfield tools, the re-score shows them as PASS, and the remedy table states the cause and credit cost of each fix.
+The export runs 15–20 s at 1080p in the right ratio; the hook text lands in 0–3 s; captions are corrected; music sits under the key sounds; your check names at least two FAILs and the remedial action for each; you evaluated two technologies on what they saved and improved.
 
-**Mock assets in the lab folder**
+**Templates and samples in the activity folder**
 
-- remedy-map.pdf — issue → Higgsfield fix → typical credit cost
-- remedy-table.csv — issue, cause, fix, before, after
-- flawed-cut-notes.pdf — a worked example of a failing cut and its fixes
+- cut-list.pdf — clip, in, out, keep/cut, reason (the 'too long' log)
+- final-check.pdf — the pre-export check: length, ratio, resolution, captions, audio, continuity, rights, AI label
+- export-settings.pdf — 1080p / 30 fps / MP4 and the ratio per platform
+- sample-cut-timeline.jpg — a 32 s raw assembly cut down to 16 s, and why each piece went
 
-**Evidence to keep (screenshots for the PP)**
+**Your PP evidence: one screenshot**
 
-- Before/after frames of each fix
-- Your completed remedy table with the re-scored checklist
+- ONE screenshot: your finished CapCut timeline with video, text, caption and audio tracks visible (plus the MP4 uploaded to the TMS)
 
-> **Note:** This lab has its own folder: labs/lab-07-fix-what-fails-remedial-actions-in-higgsfield/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 8 — Add Voice, Music and Cinematic Effects
-
-Maps to: K5 — technologies that improve efficiency and quality; A7 — evaluate new technologies.
-
-Goal: Finish the scene with the three upgrades that used to need three vendors: a generated soundtrack, a voiceover in a cloned or stock voice, and a cinematic effect. Time each one and rate it on quality, cost and control.
-
-![Figure 8. Lab 8: Camera setup in Cinema Studio: camera body, lens and aperture.](<courseware/assets/lg/lab-08.jpg>)
-
-*Figure 8. Lab 8: Camera setup in Cinema Studio: camera body, lens and aperture.*
-
-**What you'll build**
-
-Your scene with a generated soundtrack, a voiceover line and one cinematic effect, plus a rated technology evaluation.   (Tools: Higgsfield: Audio (music + voice), Create Voice, lighting and colour presets, effect presets.)
-
-**Prompts for this lab**
-
-> **Prompt — Soundtrack:**
->
-> ```
-> Moody late-night bar soundtrack, 20 seconds, slow 80 BPM, warm Rhodes piano, soft brushed drums, upright bass, building slightly on the last 5 seconds. Instrumental, no vocals.
-> ```
-
-> **Prompt — Voiceover line:**
->
-> ```
-> Calm, low male voice, unhurried, Singapore English: "Some nights you don't need a plan. You just need to show up."
-> ```
-
-> **Prompt — Cinematic effect re-run:**
->
-> ```
-> Same shot, same Elements. Lighting: silhouette against the window, city lights behind. Colour: Black gloss. Slow push-in. Keep timing and action identical.
-> ```
-
-**Step-by-step**
-
-1. Open Audio and generate a 20-second soundtrack from the music prompt. Generate two variations and keep the one that fits the cut's pace.
-2. Voice: either pick a stock voice, or create your own voice from a clean 30-second recording of YOUR voice. Clone only a voice you have consent to use; sign assets/voice-consent-form.pdf for your own.
-3. Generate the voiceover line and place it over the opening shot.
-4. Apply one cinematic effect: re-run a shot with a different Lighting preset (Silhouette or Window) and Colour palette, or apply an effect preset from the effects gallery to one shot.
-5. Record minutes and credits for each step in assets/tech-evaluation.csv and estimate what the same job takes with a studio, a composer and a voice artist.
-6. Rate each technology 1–5 on quality, speed, cost, control and rights (A7), and decide whether it joins your pipeline.
-7. Screenshot the Audio page, the effect before/after and your rated evaluation for your evidence.
-
-**Check your work**
-
-The scene carries a generated soundtrack and a consented voiceover, one shot shows a clear cinematic effect, and every technology has a 1–5 rating with a keep/drop verdict.
-
-**Mock assets in the lab folder**
-
-- music-prompt-cards.pdf — genre, tempo, instrument and mood cards
-- voice-consent-form.pdf — consent to clone and use your own voice
-- tech-evaluation.csv — technology, minutes, credits, quality, speed, cost, control, rights, verdict
-
-**Evidence to keep (screenshots for the PP)**
-
-- Your generated soundtrack and voiceover in Higgsfield
-- Effect before/after and your rated technology evaluation
-
-> **Note:** This lab has its own folder: labs/lab-08-add-voice-music-and-cinematic-effects/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 9 — Use-Case Sprint: One Product Photo to a Published 15-Second Ad
-
-Maps to: A7 — evaluate new technologies; K4 — industry standards before publishing.
-
-Goal: Run the whole pipeline on a real use case. Start from one product photo, shoot a campaign with the product-photoshoot skill, make a 15-second ad in Cinema Studio, compare two video models on the same prompt, then export, label and publish.
-
-![Figure 9. Lab 9: A usable product reference: the full object, clear light, visible edges.](<courseware/assets/lg/lab-09.jpg>)
-
-*Figure 9. Lab 9: A usable product reference: the full object, clear light, visible edges.*
-
-**What you'll build**
-
-A 15-second ad (16:9 and 9:16) made from one product photo, a two-model comparison, and a publish-ready post.   (Tools: Higgsfield: Supercomputer (/product-photoshoot), Cinema Studio, Seedance 2.5, Kling 4.0, TikTok publishing.)
-
-**Prompts for this lab**
-
-> **Prompt — Campaign stills (/product-photoshoot):**
->
-> ```
-> /product-photoshoot Make a cool photoshoot for this bottle with our runner in the three Singapore locations we picked. Six photos: three with her and three of just the bottle. Make them vertical, 9:16.
-> ```
-
-> **Prompt — 15-second ad — five shots (Cinema Studio):**
->
-> ```
-> Scene context: A 15-second premium commercial for SOLA, a matte-black insulated steel bottle, at sunrise on a Singapore rooftop running track.
-> References: @prop_sola — the bottle, 100% as shown. @char_runner — runner, 100% as shown.
-> Shots (hard cut between each):
-> 1. 0–3s: extreme close-up, first sun ray slides across the bottle. Slow push-in.
-> 2. 3–6s: medium, the runner grabs it mid-stride. Tracking.
-> 3. 6–9s: close-up, she drinks; ice clinks. Slow motion.
-> 4. 9–12s: wide, she runs along the rooftop edge, skyline glowing. Drone pulls back.
-> 5. 12–15s: hero packshot, clean space at top for the logo.
-> Sound: upbeat electronic beat building to a hit on the packshot, footsteps, ice, whoosh on each cut. No on-screen text.
-> ```
-
-> **Prompt — Pick a use case (variation):**
->
-> ```
-> Rewrite this ad brief as a 15-second AI micro-drama cliffhanger: same product, two characters, one twist in the last 3 seconds, vertical 9:16, dialogue in one line.
-> ```
-
-**Step-by-step**
-
-1. Upload the product photo from assets/ (or your own product) to Supercomputer with a character sheet and a street location.
-2. Type /product-photoshoot and ask for six vertical 9:16 photos: three with your character, three of the product alone.
-3. Open Cinema Studio, attach the product, the character and the location as references, and write the 15-second ad with the five-shot structure on the prompts page. Generate a Draft first.
-4. Run the same prompt on a second model (Kling 4.0 or Cinema Studio 4.0) and compare with assets/model-comparison.csv: product accuracy, motion, audio, credits, render time.
-5. Finalise the winner in 1080p and reframe a 9:16 version.
-6. Pre-publish check: AI-generated label on, no unlicensed logos or music, consent recorded, caption and hashtags ready.
-7. Publish to TikTok from Higgsfield (connect your account, post as private or only-me in class), or download the MP4 for the TMS upload. Screenshot the comparison table and the post settings for your evidence.
-
-**Check your work**
-
-The ad runs 15 s in both ratios, keeps the product accurate in every shot, the comparison table justifies the chosen model on at least three criteria, and the post carries an AI-generated label.
-
-**Mock assets in the lab folder**
-
-- sample-product-sola.jpg — the product photo to start from
-- campaign-brief.pdf — SOLA brief, audience, platforms, mandatory label
-- model-comparison.csv — model, product accuracy, motion, audio, credits, time, verdict
-- publish-checklist.pdf — AI label, rights, consent, caption, hashtags
-
-**Evidence to keep (screenshots for the PP)**
-
-- Your two-model comparison table
-- The final 15 s ad (upload the MP4 to the TMS) and the publish settings
-
-> **Note:** This lab has its own folder: labs/lab-09-use-case-sprint-one-product-photo-to-a-published/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
-
----
-
-
-### Lab 10 — Mini Capstone: Direct Your Own 15-Second Video in Higgsfield
-
-Maps to: A1–A7 together — script, standards, Elements, takes, assessment, remedies and tool evaluation on one video of your own (rehearses PP Task 3).
-
-Goal: Pick your own use case — an AI ad, a micro-drama episode, an AI influencer post or a sci-fi moment — and take it from brief to a finished 15-second video in Higgsfield on your own: three-line brief, saved Elements, Draft takes, one 1080p final, a quality score, two fixes and a short evaluation. This is the same evidence PP Task 3 asks for.
-
-![Figure 10. Lab 10: The Supercomputer loop for your capstone: start a scene, talk it through, make your Draft.](<courseware/assets/lg/lab-10.jpg>)
-
-*Figure 10. Lab 10: The Supercomputer loop for your capstone: start a scene, talk it through, make your Draft.*
-
-**What you'll build**
-
-Your own 15-second video (MP4, 1080p) with a capstone scorecard, a remedy table and screenshots of your prompt, takes and fixes.   (Tools: Higgsfield: Supercomputer, Elements, Cinema Studio, Seedance 2.5 Draft, Genjutsu / Upscale / Reframe.)
-
-**Prompts for this lab**
-
-> **Prompt — Capstone planning (Supercomputer):**
->
-> ```
-> Here is my three-line brief:
-> WHO: <character or product>
-> WHERE: <one location>
-> WHAT HAPPENS: <one visible action with an ending>
-> Platform: <TikTok 9:16 / YouTube 16:9>. Use case: <ad / micro drama / influencer / other>.
-> Ask me up to three questions, then write a 15-second plan in three parts — scene context, references (my @elements and their roles), 4–6 timed shots with size, camera and sound — and a credit estimate using Seedance 2.5 Draft first. Wait for my approval before generating.
-> ```
-
-> **Prompt — Self-review before you fix:**
->
-> ```
-> Score my 15-second video against: resolution, motion and physics, face/prop/set continuity, audio, captions, pacing, platform compliance.
-> For each FAIL give the cause and the cheapest Higgsfield fix (Replace Object, regenerate one shot, Upscale, Reframe or a new Sound line) with its credit cost. Table.
-> ```
-
-**Step-by-step**
-
-1. Choose your use case and write the three-line brief in assets/capstone-brief.pdf: WHO, WHERE, WHAT HAPPENS, plus platform and ratio.
-2. Ask Supercomputer to turn the brief into a 15-second, 4–6 shot plan in the three-part prompt format (capstone planning prompt). Edit it until every shot has a size, a camera instruction and a sound.
-3. Build at least one character or product Element and one location Element and save them with @handles.
-4. In Cinema Studio attach the Elements as references with roles, set the look (camera, lighting, colour) and render at least two Seedance 2.5 Draft takes (about 45 credits each).
-5. Pick the best take and finalise it at 1080p (about 240 credits). Stay inside a 500-credit budget: log every spend in the scorecard.
-6. Score the final with assets/capstone-scorecard.pdf (the seven quality parameters). Apply at least two remedial actions in Higgsfield — Replace Object, regenerate one shot, Upscale, Reframe or a new Sound line — and re-score.
-7. Add the finish: captions or a soundtrack if the brief needs them, an AI-generated label for publishing, and a 9:16 version if the platform needs it.
-8. Write three lines evaluating two technologies you used (e.g. Draft mode, Elements, Genjutsu) on quality, cost and control.
-9. Screenshot your prompt, your Draft takes, your final, and each fix (before/after). Download the final MP4: these are exactly the items PP Task 3 asks you to paste and upload to the TMS.
-
-**Check your work**
-
-The video runs 15 s at 1080p, uses at least one saved Element, has a scorecard with before/after scores, shows two named Higgsfield fixes, carries an AI-generated label plan, and every PP Task 3 evidence item is ticked in the checklist.
-
-**Mock assets in the lab folder**
-
-- capstone-brief.pdf — use-case menu and the three-line brief template
-- capstone-scorecard.pdf — the seven quality parameters, before/after, credit log
-- capstone-checklist.csv — every PP Task 3 evidence item with a tick box
-
-**Evidence to keep (screenshots for the PP)**
-
-- Screenshots of your prompt, your Draft takes and your 1080p final
-- Before/after screenshots of two fixes and your scored scorecard
-- Your final 15-second MP4 (upload to the TMS)
-
-> **Note:** This lab has its own folder: labs/lab-10-mini-capstone-direct-your-own-15-second-video-in/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
+> **Note:** This activity has its own folder: labs/lab-03-finish-it-in-capcut-cut-polish-and-export-the-fi/ — README.pdf holds these steps; prompts.html copies each prompt in one click.
 
 ---
 
 
 ### Core Ethical Issues in GenAI Video
 
-Topic 3 ends with the ethical issues every AI video raises. Each comes with the rule you apply in your own Higgsfield projects.
+Topic 3 ends with the ethical issues every AI video raises. Each comes with the rule you apply in your own projects.
+
+**Copyright and IP: four questions before you publish**
+
+- Who owns the output? Read your Higgsfield plan: commercial use is a plan feature, not a given.
+- Is the music licensed? Use generated music or a track cleared for commercial use; a trending song is not.
+- Did you copy a brand, a character or a style on purpose? Disney and Universal sued Midjourney in June 2025 over Darth Vader, Elsa and the Minions (CNBC, Reuters, 11 Jun 2025).
+- What does your editor's licence say? In June 2025 creators protested CapCut's updated terms over the licence they grant to uploaded content. Read the terms before you upload client work.
 
 **Consent and likeness**
 
@@ -909,10 +480,10 @@ Your rule: Turn on the platform's AI-generated label; say 'made with AI' in capt
 
 ## Assessment Preparation
 
-- Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.
-- Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–10 (Task 3 is rehearsed by the Lab 10 mini capstone). Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.
-- Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.
-- Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.
+- Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions to rectify them, quality parameters, industry standards and new technologies.
+- Practical Performance (PP), 1 hour, open book: 3 tasks covering A1–A7, one per activity. Task 1 = your storyboard sheet (Activity 1), Task 2 = your Higgsfield takes (Activity 2), Task 3 = your CapCut timeline and final video (Activity 3). Paste ONE screenshot per task, type the short answers asked for, and upload your final MP4 to the TMS.
+- Revisit the slides 'Quality issues → the Higgsfield fix' and 'Remedial actions: fix it in CapCut, or reshoot one shot': the WA questions on issues and fixes mirror them.
+- Keep your storyboard sheet, Higgsfield project and CapCut project open during the PP.
 
 
 ## Glossary
@@ -931,3 +502,10 @@ Your rule: Turn on the platform's AI-generated label; say 'made with AI' in capt
 - **Aspect ratio** — Frame proportions: 16:9 (YouTube), 9:16 (TikTok, Shorts, Reels), 21:9 (cinema).
 - **AI disclosure label** — The platform setting that marks realistic AI-generated content (TikTok's AI-generated label, YouTube's altered or synthetic content setting).
 - **Credits** — Higgsfield's usage currency; every generation shows its credit cost before you approve it.
+- **Hook** — The first 1–3 seconds of a video, built to stop the scroll: a question, a number, a surprise or the action already under way.
+- **Storyboard** — The video planned panel by panel: time, shot size, angle, movement, action, sound and on-screen text.
+- **Camera angle** — Where the camera looks from: eye level, low, high, bird's-eye, Dutch tilt, over-the-shoulder, POV.
+- **CapCut** — A video editor (desktop, web and mobile) with a timeline, auto captions, text, music, filters and export settings.
+- **Cut on action** — Cutting while something moves, so the edit feels invisible.
+- **J-cut / L-cut** — An edit where the sound of the next shot starts early (J) or the last shot's sound runs on (L).
+- **Safe area** — The part of a 9:16 frame not covered by platform buttons and captions; keep text inside it.

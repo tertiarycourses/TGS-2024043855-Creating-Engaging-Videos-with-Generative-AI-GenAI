@@ -76,7 +76,7 @@ def to_pdf(html_path,pdf_path):
                    stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 
 def prompts_body(a):
-    out=[f"<h1>Lab {a['num']} — {E(a['title'])}</h1><p class='meta'>Copy-and-adapt prompts. Click <b>Copy</b>, paste into Higgsfield, replace anything in &lt;angle brackets&gt;.</p>"]
+    out=[f"<h1>Activity {a['num']} — {E(a['title'])}</h1><p class='meta'>Copy-and-adapt prompts. Click <b>Copy</b>, paste into Higgsfield (or your AI assistant), replace anything in &lt;angle brackets&gt;.</p>"]
     for i,(lab,t) in enumerate(a.get("prompts",[])):
         out.append(f"<div class='prompt'><div class='ph'><b>Prompt {i+1} — {E(lab)}</b>"
                    f"<button class='copy' data-t='p{i}'>Copy</button></div><pre id='p{i}'>{E(t)}</pre></div>")
@@ -86,20 +86,22 @@ def prompts_body(a):
 
 def readme_body(a):
     t=next(x for x in C.TOPICS if x["num"]==a["topic"])
-    b=[f"<h1>Lab {a['num']} — {E(a['title'])}</h1>",
+    b=[f"<h1>Activity {a['num']} — {E(a['title'])}</h1>",
        f"<p class='meta'>Topic {t['code']} · {E(t['title'])} · Maps to: {E(a['objective'])}</p>",
        f"<p>{E(a['desc'])}</p>",
        f"<div class='box'><b>You'll build:</b> {E(a['build'])}<br><b>Tools:</b> {E(a['services'])}</div>"]
-    if a["num"]==1:
-        b.append(f"<div class='warn'><b>Sign up:</b> {E(C.HF_SIGNUP)} — {E(C.HF_DISCLOSURE)}<br>{E(C.HF_PLAN_NOTE)}</div>")
+    if a["num"]==2:
+        b.append(f"<div class='warn'><b>Sign up:</b> {E(C.HF_SIGNUP)} — {E(C.HF_DISCLOSURE)}<br>{E(C.HF_PLAN_NOTE)}<br><b>Free option:</b> {E(C.VIDOGRID_NOTE)}</div>")
+    if a["num"]==3:
+        b.append(f"<div class='warn'><b>CapCut:</b> {E(C.CAPCUT_NOTE)}</div>")
     b.append("<h2>Steps</h2><ol class='steps'>"+"".join(f"<li>{E(s)}</li>" for s,_ in a["steps"])+"</ol>")
     b.append("<h2>Prompts</h2><p>Open <b>prompts.html</b> in this folder for one-click copy (or prompts.pdf to print).</p>")
     for lab,tx in a.get("prompts",[]):
         b.append(f"<div class='prompt'><div class='ph'><b>{E(lab)}</b></div><pre>{E(tx)}</pre></div>")
     if a.get("assets"):
-        b.append("<h2>Mock assets (assets/)</h2><ul>"+"".join(f"<li>{E(x)}</li>" for x in a["assets"])+"</ul>")
+        b.append("<h2>Templates and samples (assets/)</h2><ul>"+"".join(f"<li>{E(x)}</li>" for x in a["assets"])+"</ul>")
     if a.get("evidence"):
-        b.append("<h2>Evidence to keep</h2><p>Screenshot these. The Practical Performance asks you to paste screenshots like them under each task.</p><ul>"+
+        b.append("<h2>Your PP evidence: one screenshot</h2><p>The Practical Performance asks you to paste exactly this ONE screenshot under the matching task.</p><ul>"+
                  "".join(f"<li>{E(x)}</li>" for x in a["evidence"])+"</ul>")
     b.append(f"<h2>Check your work</h2><div class='box'>{E(a['test'])}</div>")
     return "".join(b)
@@ -114,6 +116,8 @@ def make_asset(path,spec,tmp):
                         "-vf","scale=1280:-2","-q:v","2",path],check=True)
     elif kind=="copy":
         shutil.copy(os.path.join(VID,spec[1]),path)
+    elif kind=="img":
+        shutil.copy(os.path.join(os.path.dirname(HERE),"assets",spec[1]),path)
     elif kind=="pdf":
         _,title,blocks=spec
         h=os.path.join(tmp,os.path.basename(path)+".html")
@@ -131,10 +135,10 @@ def main():
     for a in ACT:
         d=os.path.join(LABS,folder(a)); os.makedirs(os.path.join(d,"assets"),exist_ok=True)
         ph=os.path.join(d,"prompts.html")
-        open(ph,"w").write(page(f"Lab {a['num']} prompts",f"LAB {a['num']} · PROMPT PAGE",prompts_body(a),"../logo.png",js=True))
+        open(ph,"w").write(page(f"Activity {a['num']} prompts",f"ACTIVITY {a['num']} · PROMPT PAGE",prompts_body(a),"../logo.png",js=True))
         to_pdf(ph,os.path.join(d,"prompts.pdf"))
         rh=os.path.join(tmp,f"readme{a['num']}.html")
-        open(rh,"w").write(page(f"Lab {a['num']}",f"LAB {a['num']} · INSTRUCTIONS",readme_body(a),"file://"+LOGO))
+        open(rh,"w").write(page(f"Activity {a['num']}",f"ACTIVITY {a['num']} · INSTRUCTIONS",readme_body(a),"file://"+LOGO))
         to_pdf(rh,os.path.join(d,"README.pdf"))
         for fn,spec in ASSETS.get(a["num"],{}).items():
             make_asset(os.path.join(d,"assets",fn),spec,tmp)
@@ -145,28 +149,28 @@ def main():
         cards.append(f"<h2>Topic {t['code']} — {E(t['title'])}</h2>")
         for a in [x for x in ACT if x["topic"]==t["num"]]:
             f=folder(a)
-            cards.append(f"<div class='card'><b>Lab {a['num']} — {E(a['title'])}</b><br><span class='meta'>{E(a['build'])}</span><br>"
+            cards.append(f"<div class='card'><b>Activity {a['num']} — {E(a['title'])}</b><br><span class='meta'>{E(a['build'])}</span><br>"
                          f"<a href='{f}/prompts.html'>Prompts (one-click copy)</a> · <a href='{f}/README.pdf'>Instructions PDF</a> · "
                          f"<a href='{f}/prompts.pdf'>Prompts PDF</a> · <a href='{f}/assets/'>Mock assets</a></div>")
-    body=(f"<h1>Labs — {E(C.TITLE)}</h1><p>Ten hands-on labs, all inside Higgsfield — Lab 10 is your mini capstone. Every prompt is also on <a href='prompts.html'>one copy page</a>.</p>"
-          f"<div class='warn'><b>Step 0 — sign up:</b> <a href='{C.HF_SIGNUP}'>{E(C.HF_SIGNUP_SHORT)}</a>. {E(C.HF_DISCLOSURE)}<br>{E(C.HF_PLAN_NOTE)}</div>"
+    body=(f"<h1>Activities — {E(C.TITLE)}</h1><p>Three hands-on activities, one video: plan it (Activity 1), shoot it in Higgsfield (Activity 2), finish it in CapCut (Activity 3). Every prompt is also on <a href='prompts.html'>one copy page</a>.</p>"
+          f"<div class='warn'><b>Sign up for Activity 2:</b> <a href='{C.HF_SIGNUP}'>{E(C.HF_SIGNUP_SHORT)}</a>. {E(C.HF_DISCLOSURE)}<br>{E(C.HF_PLAN_NOTE)}<br><b>Free option:</b> {E(C.VIDOGRID_NOTE)}<br><b>Activity 3:</b> {E(C.CAPCUT_NOTE)}</div>"
           +"".join(cards)
           +f"<h2>References</h2><div class='card'>"
-           f"<a href='{C.HF_DOCS}'>Higgsfield API docs</a> · <a href='https://higgsfield.ai/supercomputer-intro'>Supercomputer and Skills</a></div>")
+           f"<a href='{C.HF_DOCS}'>Higgsfield API docs</a> · <a href='https://higgsfield.ai/supercomputer-intro'>Supercomputer and Skills</a> · <a href='{C.CAPCUT_URL}'>CapCut</a> · <a href='{C.VIDOGRID_URL}'>VidoGrid</a></div>")
     open(os.path.join(LABS,"index.html"),"w").write(page("Labs","LAB HOME",body,"logo.png"))
     # one page with every prompt: search + one-click copy
-    parts=["<h1>All prompts — copy and paste into Higgsfield</h1>",
+    parts=["<h1>All prompts — copy and paste into Higgsfield or your AI assistant</h1>",
            "<p class='meta'>Type in the box to filter. Click <b>Copy</b>, paste into Higgsfield (Supercomputer or Cinema Studio), "
            "replace anything in &lt;angle brackets&gt;. Test on Seedance 2.5 Draft first.</p>",
-           "<input id='q' placeholder='Search prompts, e.g. Elements, bar scene, soundtrack' "
+           "<input id='q' placeholder='Search prompts, e.g. hook, storyboard, character, captions' "
            "style='width:100%;padding:10px 12px;font-size:12pt;border:1px solid #E8E5DE;border-radius:8px;margin:6px 0 10px'>"]
     k=0
     for t in C.TOPICS:
         parts.append(f"<h2>Topic {t['code']} — {E(t['title'])}</h2>")
         for a in [x for x in ACT if x["topic"]==t["num"]]:
-            parts.append(f"<h3 class='labh'>Lab {a['num']} — {E(a['title'])} · <a href='{folder(a)}/README.pdf'>instructions</a></h3>")
+            parts.append(f"<h3 class='labh'>Activity {a['num']} — {E(a['title'])} · <a href='{folder(a)}/README.pdf'>instructions</a></h3>")
             for lab,tx in a.get("prompts",[]):
-                parts.append(f"<div class='prompt' data-s='{E((a['title']+' '+lab+' '+tx).lower())}'><div class='ph'><b>Lab {a['num']} · {E(lab)}</b>"
+                parts.append(f"<div class='prompt' data-s='{E((a['title']+' '+lab+' '+tx).lower())}'><div class='ph'><b>Activity {a['num']} · {E(lab)}</b>"
                              f"<button class='copy' data-t='a{k}'>Copy</button></div><pre id='a{k}'>{E(tx)}</pre></div>"); k+=1
     filt="""<script>document.getElementById('q').addEventListener('input',e=>{const v=e.target.value.toLowerCase();
 document.querySelectorAll('.prompt').forEach(p=>{p.style.display=p.dataset.s.includes(v)?'':'none'});});</script>"""

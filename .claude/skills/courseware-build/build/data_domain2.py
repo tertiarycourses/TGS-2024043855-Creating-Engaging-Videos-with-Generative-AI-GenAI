@@ -1,161 +1,75 @@
-"""Topic 2 — Improve Video Footage on GAI Powered Video Platforms.  Labs 4–6.
+"""Topic 2 — Improve Video Footage on GAI Powered Video Platforms.  Activity 2.
 
-All in Higgsfield: Elements (characters, locations, props), references,
-Cinema Studio shots and takes, Seedance 2.5 Draft, and assessing the cut.
+v12 (23 Nov 2026): generate the storyboard from Activity 1 in Higgsfield, using cinematic technique
+(shot size, camera angle, movement, light, lens, colour). Characters first, as Elements; then one
+prompt line per storyboard panel; Draft takes before 1080p finals; review and assess the footage.
 """
 
 DOMAIN2 = [
     dict(
-        num=4, topic=2,
-        title="Build Your Elements: Characters, Locations and Props",
-        objective="K2 — solutions that rectify quality issues (consistency); A4 — review footage for improvement",
-        desc="Faces that change between shots are the commonest AI video defect. Fix it before you shoot: cast a "
-             "character with Supercomputer, turn the pick into a reference sheet, build a location and a prop, and "
-             "save each one as an Element with an @handle you can call in any prompt.",
-        build="Five saved Elements, two characters, two locations and one prop, each with a reference image and an @handle.",
-        services="Higgsfield: Supercomputer (character-sheet skill), Soul 2.0, Seedream 5.0 Pro, Nano Banana Pro, Elements",
-        flow=["Cast five options", "Pick and build a sheet", "Edit one detail", "Build location + prop", "Save as @Elements"],
+        num=2, topic=2,
+        title="Shoot It in Higgsfield: Characters, Cinematic Shots and Takes",
+        objective="K2 · K3 · A4 · A5 — fix defects, assess quality, improve story and emotion, check the spec",
+        desc="Turn your storyboard into footage. Build your character (and location) as Elements so the face never drifts, "
+             "translate every storyboard panel into a prompt line with size, angle, movement and light, shoot cheap 480p "
+             "Draft takes, review them against the storyboard, and finalise only the takes that tell the story.",
+        build="Your storyboard shot in Higgsfield: one character Element, one location, Draft takes for every panel and 1080p finals of the keepers, reviewed and scored.",
+        services="Higgsfield: Supercomputer (character-sheet skill), Image (Soul 2.0 / Nano Banana Pro), Elements, Cinema Studio, Seedance 2.5 Draft",
+        flow=["Cast the character", "Save Elements", "Panel → prompt line", "Draft takes", "Review, score, finalise"],
         steps=[
-            ("In Supercomputer paste the casting prompt. It loads the character-sheet skill and offers five photoreal casting "
-             "options (Soul 2.0). Pick the one that fits your brief.", ""),
-            ("Ask for a 16:9 reference sheet of your pick: full body front, full body back, and a face portrait, plain white background.", ""),
-            ("Check that the face on the full-body front view is covered by a white oval. That is deliberate: with only the close-up "
-             "portrait left as a face, the model copies one identity into every shot. If your sheet shows both faces, ask Supercomputer "
-             "to cover the face in the full-body view and keep the portrait.", ""),
-            ("Make one targeted edit with the edit prompt (Image → Seedream 5.0 Pro, about 3 credits): change one garment and keep "
-             "it the same in all views.", ""),
-            ("Open the sheet, click Save as element. Set Category = Character, Name = Biker, Element ID = char_biker. "
-             "Add a one-line description. Repeat for a second character (char_friend).", ""),
-            ("Generate the bar interior with the location prompt (Nano Banana Pro, about 2 credits). Check the space has clear "
-             "spatial anchors (the counter, the stools, the window) you can name in a shot. Save as loc_bar-interior; "
-             "repeat for loc_bar-entrance.", ""),
-            ("Generate the prop on two image models with the same prompt and compare shape, colour and credit cost. "
-             "Save the better one as prop_suitcase.", ""),
-            ("Open My elements and check all five Elements are listed with their @handles. Screenshot the list for your evidence.", ""),
-            ("Review: which quality issue does each Element prevent (K2)? Write one line per Element in the naming sheet.", ""),
+            ("Open higgsfield.ai, sign in and open your project. Keep your Activity 1 storyboard sheet beside you. "
+             "No paid Higgsfield plan? Use vidogrid.ai, free to start: generate the character and location on its Image page, attach them "
+             "as reference images, and make 480p test takes with the same storyboard prompt (check the cost on the Generate button).", ""),
+            ("Cast your character: paste the character prompt into Supercomputer. It offers casting options; pick the one that "
+             "matches your storyboard and ask for a reference sheet (full body front, full body back, face portrait).", ""),
+            ("Open the sheet and click Save as element: Category Character, Element ID char_<name>. Generate your location with the "
+             "location prompt and save it as loc_<place>. Check both appear in My elements.", ""),
+            ("Open Cinema Studio (Video). Attach @char_<name> with the Character role and @loc_<place> with the Location role.", ""),
+            ("Translate the storyboard: for each panel write one prompt line in the order time, shot size, camera angle, camera "
+             "movement, action, light. Add one Sound line for the whole clip. Use the storyboard-to-prompt prompt if you want "
+             "Supercomputer to draft the lines from your sheet.", ""),
+            ("Set the look once: camera body and lens, aperture (f/1.4 for shallow focus), lighting preset, colour palette. "
+             "Choose Seedance 2.5 Draft, 9:16 (or 16:9), 15 s, sound on.", ""),
+            ("Generate two or three Draft takes (never more than three per shot; about 45 credits each for 15 s). Watch each with sound.", ""),
+            ("Review against your storyboard (A4): does the hook land in 3 s, does the character's emotion read in the close-up, "
+             "does the payoff feel like a payoff? Write two changes that would strengthen the story or emotion and apply ONE per new take.", ""),
+            ("Assess the takes with assets/footage-scorecard.pdf (A5): resolution, face and prop continuity, motion and physics, audio, "
+             "ratio and safe area, length. Mark PASS or FAIL and the fix (K2).", ""),
+            ("Finalise only the best take at 1080p (about 240 credits for 15 s) and download the MP4s you will edit in Activity 3.", ""),
+            ("Take ONE screenshot of your Higgsfield project or Cinema Studio showing your prompt and your generated takes. "
+             "It is the screenshot PP Task 2 asks for.", ""),
         ],
         prompts=[
-            ("Cast a character (Supercomputer)",
-             "Main character in a biker road movie, 25 years old, modern style clothing.\n"
-             "Use the character-sheet skill. Show me five photoreal casting options first; I will pick one before you build the reference sheet."),
-            ("Edit one detail, keep it consistent",
-             "Give him a silver wallet chain hanging off his jeans pocket. Replace the black t-shirt with a plain white ribbed cotton tank top, "
-             "same tank top in all views."),
-            ("Location with spatial anchors",
-             "Wide interior of a dim neighbourhood bar at night: long wooden counter on the right with eight black stools, beer taps and backlit "
-             "bottles, a pool table at the back, warm practical lamps, one large window on the left wall. Photoreal, 16:9, no people."),
-            ("Prop (run on two models)",
-             "A slim orange hard-shell briefcase with a ribbed moulded lid, rounded corners, a black top handle and two metal latches, "
-             "white background, soft studio light, no logos or text."),
-        ],
-        assets=["character-brief.pdf — the biker road-movie brief and casting checklist",
-                "element-naming-sheet.csv — category, name, @handle, what it prevents",
-                "sample-product-sola.jpg — a product reference for Labs 8–9",
-                "sample-location-bar.jpg and sample-prop-suitcase.jpg — the Lab 4 prompts run for this course"],
-        evidence=["My elements page showing your saved characters, locations and prop with @handles",
-                  "Your character reference sheet (front, back, face)"],
-        test="Five Elements are saved with char_/loc_/prop_ handles; the character sheet shows the same outfit in all three "
-             "views, the full-body face is covered and the portrait is the one clear face; each Element has a line saying which "
-             "quality issue it prevents.",
-    ),
-    dict(
-        num=5, topic=2,
-        title="Direct Shots and Takes in Cinema Studio",
-        objective="A4 — review footage to improve storytelling; K2 — solutions to rectify quality issues",
-        desc="Direct a 15-second bar scene the way a film crew would: attach your Elements as references with roles, "
-             "set camera, lens, lighting and colour, write the shots and the sound, then render four 480p Draft takes. "
-             "Finalise only the best take in 1080p.",
-        build="Four Draft takes of one scene and one 1080p final of the best take, made from your Elements.",
-        services="Higgsfield: Cinema Studio, Seedance 2.5 / Seedance 2.5 Draft, References, Elements",
-        flow=["Attach references with roles", "Set camera, light, colour", "Write context, shots, sound",
-              "Render 4 Draft takes", "Finalise the best in 1080p"],
-        steps=[
-            ("Open Video → Cinema Studio. Click References and attach @char_biker, @char_friend, @prop_suitcase and "
-             "@loc_bar-interior. One generation accepts up to 50 references: 30 images, 10 videos, 10 audio.", ""),
-            ("Give each reference a role: Character for the people, Location for the bar. Type @ in the prompt to insert a handle.", ""),
-            ("Open Film setup: choose a camera body, a lens and an aperture (f/1.4 wide open for shallow focus). "
-             "Open Lighting: pick Practicals. Open Colour palette: pick Film colors. Set Genre to Drama.", ""),
-            ("Write the prompt in three parts (prompts page): scene context, references with '100% as shown in the "
-             "reference image', then numbered shots with sizes and camera.", ""),
-            ("Choose the shot structure: one continuous 15-second shot, or multishot with a cut between each. Use the "
-             "multishot version for this lab.", ""),
-            ("Add the Sound line: bar ambience, footsteps, clothing movement and the one line of dialogue.", ""),
-            ("Select Seedance 2.5 Draft, 480p, 21:9 or 16:9, 15 s, sound On, 4 videos. Press Generate Draft "
-             "(about 45 credits per take).", ""),
-            ("Watch all four takes with sound. Note for each: character match, prop position, camera, audio. Pick one.", ""),
-            ("Open the chosen Draft and finalise it in 1080p (Seedance 2.5 renders the same take at full resolution, "
-             "about 240 credits for 15 s; drafts can be finalised within 7 days).", ""),
-            ("Screenshot the Cinema Studio prompt panel with the references attached and the four-take grid for your evidence.", ""),
-        ],
-        prompts=[
-            ("Bar scene — three-part prompt (Seedance 2.5)",
-             "Scene context: Biker enters a bar with a suitcase, looking for his friend. They notice each other, and the biker walks over and "
-             "sits next to him as he lays his case flat on the counter.\n"
-             "References:\n"
-             "@char_biker — biker, 100% as shown in the reference image.\n"
-             "@char_friend — friend, 100% as shown in the reference image. He is seated on a stool on the side of the bar counter.\n"
-             "@prop_suitcase — suitcase, 100% as shown in the reference image. It belongs to @char_biker. He carries it in his left hand.\n"
-             "@loc_bar-interior — the bar, 100% as shown in the location reference.\n"
+            ("Cast the character (Supercomputer)",
+             "Main character for a 15-second ad: <age>, <job>, <look and clothing>, <mood>.\n"
+             "Use the character-sheet skill. Show me casting options first; after I pick one, build a 16:9\n"
+             "reference sheet: full body front, full body back, face portrait, plain white background.\n"
+             "Same outfit in every view."),
+            ("Build the location (Image)",
+             "Wide <location>, <time of day>, cinematic still, 16:9. Clear spatial anchors: <three things a shot can point at>,\n"
+             "e.g. seats along both sides, silver handrails, a window with city lights passing. No people, no text, no logos."),
+            ("Storyboard to prompt (Cinema Studio)",
+             "Scene: @char_<name> in @loc_<place>, <one-line story>.\n"
              "Shots (cut between each):\n"
-             "1. 0–3s: wide, the biker pushes through the door, suitcase in his left hand.\n"
-             "2. 3–6s: medium shot, the friend looks up from his beer. Static camera.\n"
-             "3. 6–9s: close-up, the biker recognises him.\n"
-             "4. 9–12s: medium close-up, the biker sits; dialogue: \"Told you I'd make it.\"\n"
-             "5. 12–15s: close-up, he lays the case flat on the counter.\n"
-             "Sound: bar ambience, footsteps, leather jacket movement, the line of dialogue."),
-            ("One continuous shot (compare)",
-             "One continuous 15-second take. Follow a man along a busy New York sidewalk. Move from behind him to a frontal view as he "
-             "reaches the corner. Keep the action uninterrupted, with no cuts."),
+             "1. 0-3s: extreme close-up, low angle, slow push-in: <hook action>, golden-hour backlight.\n"
+             "2. 3-6s: medium shot, eye level, handheld: <problem>.\n"
+             "3. 6-10s: close-up, eye level, static: <turn - the emotion on her face>.\n"
+             "4. 10-13s: wide shot, high angle, drone pull-back: <payoff>.\n"
+             "5. 13-15s: medium shot, eye level, locked off: <product hero frame, space for the logo>.\n"
+             "Sound: <ambience>, <one key sound effect on the payoff>, no dialogue."),
+            ("Review the take (Supercomputer)",
+             "Here is my storyboard and my Draft take. As a director, list where the take loses the story or the emotion\n"
+             "(hook timing, character expression, payoff, pacing) and as an editor, score resolution, continuity,\n"
+             "motion, audio and ratio PASS/FAIL. For each FAIL give the cheapest fix and its credit cost.\n"
+             "Tie every story change to a numbered shot, e.g. 'Shot 3: hold the smile one more second'."),
         ],
-        assets=["cinema-studio-cheatsheet.pdf — camera, lens, aperture, lighting, colour, genre, era, tempo",
-                "shot-size-guide.pdf — wide, medium close-up, close-up and what each one is for",
-                "take-log.csv — take, character match, prop, camera, audio, keep?"],
-        evidence=["Cinema Studio prompt panel with your references attached",
-                  "The four Draft takes and your 1080p final"],
-        test="All four Drafts use your Elements; your take log scores each take; the 1080p final is the take you scored best "
-             "and keeps the same faces, prop and bar.",
-    ),
-    dict(
-        num=6, topic=2,
-        title="Cut, Caption and Assess the Scene",
-        objective="A4 — review edited footage to improve storytelling; A5 — assess footage against technical and legal requirements; K3 — quality parameters",
-        desc="Keep the useful first take, direct one more, then have Supercomputer assemble the takes into a captioned "
-             "cut with a soundtrack. Score the cut against the quality parameters and your Lab 3 standards before anything is exported.",
-        build="A captioned 15–30 s cut in 16:9 and 9:16 with a scored quality checklist and a list of storytelling improvements.",
-        services="Higgsfield: Cinema Studio, Supercomputer (video montage: trims, soundtrack, burned captions)",
-        flow=["Keep a useful first take", "Direct one change", "Continuity check",
-              "Assemble, caption, soundtrack", "Score against the checklist"],
-        steps=[
-            ("Watch your Lab 5 final with sound. Choose ONE change (or one variation) and write it as a single instruction.", ""),
-            ("Generate one new Draft take with that change. Keep both prompts and both clips: the comparison is your evidence.", ""),
-            ("Run the continuity check on the prop: where is it, who holds it, does it stay the same from shot to shot? "
-             "Log it in assets/continuity-log.csv.", ""),
-            ("Open Supercomputer and paste the assembly prompt with your two best clips. It trims, orders, adds a soundtrack "
-             "and burns captions, then exports 16:9 and 9:16.", ""),
-            ("Score the cut with assets/quality-checklist.pdf: resolution and sharpness, frame rate and motion, continuity of "
-             "faces and props, audio (dialogue above music, no clipping), captions (accurate, in sync, readable), pacing, compliance.", ""),
-            ("Assess compliance against your Lab 3 sheet: correct ratio per platform, AI-content label planned, no real "
-             "person's likeness without consent, music cleared for commercial use.", ""),
-            ("List three areas of improvement that would make the story land better (A4), for example a stronger opening "
-             "image, a cut that lands on the reaction, or a sound cue on the payoff.", ""),
-            ("Screenshot the scored checklist and both exports for your evidence.", ""),
-        ],
-        prompts=[
-            ("Direct one change",
-             "Keep everything in this take the same. Change one thing only: in shot 3 make the camera push in slowly on the biker's face "
-             "as he recognises his friend, and add a beat of silence before the dialogue."),
-            ("Assemble, caption and score (Supercomputer)",
-             "Assemble these two clips into one 20-second cut: take 2 first, then shots 4–5 of take 1. Trim dead frames at each cut.\n"
-             "Add a moody low-tempo soundtrack under the bar ambience, keep the dialogue clearly above the music.\n"
-             "Burn captions for the dialogue: white, bottom third, two lines max. Export 16:9 and 9:16.\n"
-             "Then score the cut against: resolution, motion, face/prop continuity, audio, captions, pacing, platform compliance. Table, pass/fail."),
-        ],
-        assets=["quality-checklist.pdf — the seven quality parameters with pass/fail criteria",
-                "continuity-log.csv — shot, prop position, who holds it, same as previous?",
-                "client-standards-example.pdf — a filled standards sheet to assess against"],
-        evidence=["Your scored quality checklist (before export)",
-                  "Your 16:9 and 9:16 exports with captions"],
-        test="The checklist scores every parameter with a reason, the cut exports in both ratios with readable captions, "
-             "and you name three storytelling improvements tied to specific shots.",
+        assets=["shot-angle-move-cards.pdf — shot sizes, camera angles and movements with what each makes the viewer feel",
+                "storyboard-to-prompt.csv — one row per panel: time, size, angle, move, action, light, sound",
+                "footage-scorecard.pdf — the quality parameters, PASS/FAIL, fix and credits",
+                "sample-character-frame.jpg — a frame from the SOLA film: what a locked character looks like"],
+        evidence=["ONE screenshot: your Higgsfield project or Cinema Studio showing your prompt and your generated takes"],
+        test="Your character is a saved Element used in every take; every storyboard panel has a prompt line with size, angle and "
+             "movement; you shot up to three Draft takes per shot before one 1080p final; you wrote two story/emotion changes and scored the takes "
+             "PASS/FAIL on the quality parameters.",
     ),
 ]

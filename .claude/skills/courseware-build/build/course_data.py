@@ -1,4 +1,8 @@
 """
+v12 (23 Nov 2026): restructured to story -> shoot -> edit. Topic 1 story, hooks and storyboard
+(Activity 1); Topic 2 cinematic technique in Higgsfield (Activity 2); Topic 3 post-production
+in CapCut and ethics (Activity 3). PP = one screenshot per activity.
+
 SINGLE SOURCE OF TRUTH — course metadata for
 WSQ Creating Engaging Videos with Generative AI (GenAI), TGS-2024043855.
 
@@ -17,8 +21,8 @@ LU1 2 h, LU2 2.5 h, LU3 2.5 h classroom + 7 h practical; WA 1 h + PP 1 h.
 TITLE        = "Creating Engaging Videos with Generative AI (GenAI)"
 SHORT_TITLE  = "Creating Engaging Videos with Generative AI (GenAI)"
 COURSE_CODE  = "TGS-2024043855"
-VERSION      = "v11"
-VERSION_DATE = "9 November 2026"
+VERSION      = "v12"
+VERSION_DATE = "23 November 2026"
 ORG          = "Tertiary Infotech Academy Pte Ltd"
 UEN          = "UEN: 201200696W"
 DAYS         = 2
@@ -75,64 +79,105 @@ LEARNING_OUTCOMES = [
     "LO3: Apply new AI technologies to improve efficiency and quality in accordance to industry standards.",
 ]
 
+# Free-to-start alternative (owner request, 23 Nov 2026; observation from the reference deck courseware/reference/Roger.pptx).
+VIDOGRID_URL = "https://vidogrid.ai"
+VIDOGRID_NOTE = ("vidogrid.ai is free to start: make 480p test takes with the same storyboard prompt. "
+                 "Check the cost on the Generate button (observed 23 Nov 2026).")
+
+# SkillsFuture free AI subscription (owner request, 23 Nov 2026). Source: MySkillsFuture 'Redeem AI Subscription',
+# last updated 21 Oct 2026. Eligibility depends on the course carrying the 'Free AI sub' label: confirm before claiming it.
+FREE_AI_SUB = [
+    ("Google AI Pro (Gemini Pro)", "Gemini, Nano Banana Pro images and Omni for video and creative assets; 4x higher limits than free."),
+    ("Singtel AI Pass", "Hailuo AI and AKOOL for video, MiniMax Audio for voice and music, Canva, Otter.ai, Manus: all for 3 months, then one tool for 3 more."),
+    ("Also on the list", "ChatGPT Plus, Manus AI (8,000 credits a month) and Microsoft 365 Personal with Copilot."),
+    ("Who qualifies", "Singapore Citizens aged 18+, after an eligible course labelled 'Free AI sub' on MySkillsFuture (ending 16 Sep 2026 or later). One per person; redeem within 60 days of the email."),
+]
+FREE_AI_SUB_URL = "myskillsfuture.gov.sg → Redeem AI Subscription"
+
+# ------------------------------------------------------------------ CapCut (post-production, Topic 3)
+CAPCUT_URL = "https://www.capcut.com"
+CAPCUT_NOTE = ("CapCut desktop (free download from capcut.com; read on CapCut 9.7.1 for Mac, 23 Nov 2026). "
+               "The editor's tabs: Media, Audio, Text, Stickers, Effects, Transitions, Captions, Filters, Adjustment; "
+               "some tools and effects are marked Pro (paid).")
+
 # ------------------------------------------------------------------ topics (CP learning units)
 TOPICS = [
     dict(num=1, code="01",
          title="Create and Edit Video Script Using Generative AI (GAI)",
-         subtitle="The impact of AI on video · use cases · Supercomputer scripts · AI Director shot lists · standards & work plans",
+         subtitle="What makes a video engaging · hooks · one message · characters · storytelling · script and storyboard with GenAI",
          weighting="K1 · A1 · A2 · A3",
          concepts=[
-            ("AI's impact & use cases", "A US$2,000 TV ad, a 14-day feature: AI movies, micro dramas, influencers, singers and marketing videos already earn audiences."),
-            ("The lazy prompt", "Format + vibe gets you a clip in one line, but the model then decides your character, world and camera."),
-            ("Scripts with Supercomputer", "Who / where / what happens, then a script and a numbered shot list, drafted and refined in one chat."),
-            ("AI Director", "Inside a project, AI Director writes the script and a shot-by-shot storyboard from your brief (Lab 2 asks for six shots)."),
-            ("Standards & guidelines", "A one-page sheet: platform specs, consent, licensing, AI disclosure and a Draft-first credit rule."),
-            ("Work plans & credit budgets", "Phases, owners, timelines and a credit budget: 45 credits for a 15 s Draft, 240 for the 1080p final."),
+            ("The hook", "Up to 47% of a video ad's value lands in the first 3 seconds (Meta with Nielsen, 2016). Earn the next second."),
+            ("One message", "One sentence the viewer must remember: who it is for, what changes, why now."),
+            ("A character", "A face with a want and a problem. Viewers follow people, not product features."),
+            ("A 15-second story", "Hook, problem, turn, payoff, call to action: five beats, three seconds each."),
+            ("Show, don't say", "Shot size, sound, on-screen text and pace carry the message without a voice-over."),
+            ("The storyboard", "Panel by panel: time, shot, angle, action, sound, on-screen text. Plan it before you spend a credit."),
          ]),
     dict(num=2, code="02",
          title="Improve Video Footage on GAI Powered Video Platforms",
-         subtitle="Elements: characters, locations, props · references · Cinema Studio shots & takes · Draft mode · assess the cut",
+         subtitle="Shot sizes · camera angles · camera movement · light, colour and lens · cinematic effects · Higgsfield characters and storyboard prompts",
          weighting="K2 · K3 · A4 · A5",
          concepts=[
-            ("Elements", "Save a character, location or prop once with an @handle and reuse it in every shot: the fix for drifting faces and sets."),
-            ("References", "Up to 50 per generation (30 images, 10 videos, 10 audio), each given a role: character, location, camera move or voice."),
-            ("Shots & takes", "One continuous shot or multishot with cuts; each run is a take you keep, compare or replace."),
-            ("Cinematic controls", "Camera body, lens, aperture, movement, lighting, colour palette, genre, era and tempo."),
-            ("Draft mode", "Seedance 2.5 Draft renders 480p for 45 credits; finalise only the take that works at 1080p."),
-            ("Assessing footage", "Resolution, continuity, motion, audio, pacing and compliance, judged take by take."),
+            ("Shot sizes", "Extreme wide to extreme close-up: each size tells the viewer what to read."),
+            ("Camera angles", "Low makes a hero, high makes a victim, Dutch makes trouble, POV puts us inside."),
+            ("Camera movement", "Push-in for emotion, tracking for energy, crane for scale, handheld for urgency."),
+            ("Light, colour, lens", "Golden hour, silhouette, shallow focus and a colour grade set the mood in one line of prompt."),
+            ("Characters as Elements", "Build the cast once in Higgsfield, save it with an @handle, reuse it in every shot."),
+            ("Prompt the storyboard", "One storyboard panel becomes one prompt line: time, size, angle, move, action, sound."),
          ]),
     dict(num=3, code="03",
          title="Apply new AI technologies to Improve Video Production",
-         subtitle="Remove & replace objects · cinematic effects · upscale · voice & music · models compared · publish",
+         subtitle="Post-production in CapCut · what to cut when it runs long · captions, music, colour · quality checks · export · ethics",
          weighting="K4 · K5 · A6 · A7",
          concepts=[
-            ("Remove & replace", "Genjutsu Replace Object swaps a product, prop or garment in finished footage, keeping the motion."),
-            ("Cinematic effects", "Lighting presets, colour grades and viral effect presets add VFX without a compositor."),
-            ("Enhance shots", "Upscale to 1080p or 4K, reframe 16:9 to 9:16, regenerate only the broken shot."),
-            ("Voice & music", "Native Seedance audio, a cloned voice for narration and a generated soundtrack."),
-            ("Models compared", "Seedance 2.5, Kling 4.0, Cinema Studio 4.0 and Genjutsu: pick per shot on quality, cost and control."),
-            ("Publish responsibly", "Export per platform, label synthetic media, clear consent, then share to TikTok or YouTube."),
+            ("The edit", "Generated clips are raw footage. The story is written a second time on the CapCut timeline."),
+            ("Too long? Cut it", "Cut logo intros, warm-ups, repeats and dead air first; keep hook, message, payoff and CTA."),
+            ("Polish", "Auto captions, a hook line in 0–3 s, music under the action, one colour look, few transitions."),
+            ("Fix and finish with AI", "Remove objects, add VFX, clone a voice with consent, generate music and voice-over, enhance audio; regenerate one shot when CapCut cannot fix it."),
+            ("Export to standard", "1080p, 30 fps, MP4; 9:16 for TikTok, Reels and Shorts; 16:9 for YouTube; AI label on."),
+            ("Ethics", "Copyright and IP, consent, bias, deepfakes, transparency: the last check before you publish."),
          ]),
 ]
 
 # ------------------------------------------------------------------ the pipeline (visual process flow map)
 PIPELINE = [
-    ("Script & Shot List", "Supercomputer · AI Director"),
-    ("Elements", "characters · locations · props"),
-    ("Shots & Takes", "Cinema Studio · Seedance 2.5"),
-    ("Fix & Finish", "replace · upscale · voice · music"),
-    ("Publish", "9:16 + 16:9 · TikTok · YouTube"),
+    ("Story & Storyboard", "hook · message · character"),
+    ("Characters", "Higgsfield Elements"),
+    ("Shots & Takes", "Cinema Studio · angles · light"),
+    ("Edit in CapCut", "cut · captions · music · colour"),
+    ("Export & Publish", "1080p · 9:16 / 16:9 · AI label"),
 ]
 
 # ------------------------------------------------------------------ day themes
 DAY_THEMES = {
-    1: "Script, Plan, Build Elements, Direct the First Takes",
-    2: "Cut, Fix, Finish, Publish & Assessment",
+    1: "Story and Storyboard, then Shoot It in Higgsfield",
+    2: "Finish the Shoot, Edit in CapCut, Ethics & Assessment",
 }
+
+# ------------------------------------------------------------------ Topic 1 opener: the same footage cut two ways (built with ffmpeg, 23 Nov 2026)
+OPENER_VIDEOS = [
+    dict(key="boring", title="Video A: 20 seconds, nothing to hold on to",
+         file="t1-boring-20s.mp4", poster="t1-boring-poster.jpg",
+         model="20 s · 16:9 · stills from the SOLA footage, no sound",
+         shots=["0–4 s  logo card: 'Introduction to the SOLA Water Bottle'",
+                "4–8 s  still packshot: 'SOLA is a water bottle.'",
+                "8–12 s  still wide: 'It can be used for exercise…'",
+                "12–16 s  still close-up: 'It is available in black.'",
+                "16–20 s  'Thank you for watching.'"]),
+    dict(key="engaging", title="Video B: 18 seconds you watch to the end",
+         file="t1-engaging-18s.mp4", poster="t1-engaging-poster.jpg",
+         model="18 s · 16:9 · the same SOLA footage, cut with a hook and a story",
+         shots=["0–3 s  hook: 'Warm water by your first kilometre?'",
+                "3–6 s  a runner grabs it: 'Not this one.'",
+                "6–9 s  she drinks, ice clinks: 'Still ice-cold after the run.'",
+                "9–15 s  sunrise run, packshot: 'SOLA. Stay cold.'",
+                "15–18 s  call to action: 'Pre-order today'"]),
+]
 
 # ------------------------------------------------------------------ demo videos (made in Higgsfield for this deck)
 DEMO_VIDEOS = [
-    dict(key="marketing", title="SOLA: a 15-second product ad",
+    dict(key="marketing", title="SOLA: the storyboard on film",
          file="marketing-sola-15s-h264.mp4", poster="marketing-poster.jpg",
          model="Seedance 2.5 · 1080p · 16:9 · 15 s · native audio · 240 credits",
          shots=["0–3 s  extreme close-up, sun slides across the bottle",
@@ -140,7 +185,7 @@ DEMO_VIDEOS = [
                 "6–9 s  drink, ice clinks (slow motion)",
                 "9–12 s  wide rooftop run, drone pulls back",
                 "12–15 s  hero packshot with space for the logo"]),
-    dict(key="scifi", title="Ringfall: a 15-second epic sci-fi scene",
+    dict(key="scifi", title="Ringfall: the storyboard on film",
          file="scifi-ring-15s-h264.mp4", poster="scifi-poster.jpg",
          model="Seedance 2.5 · 1080p · 16:9 · 15 s · native audio · 240 credits",
          shots=["0–4 s  wide: smoking starship wreck, twin suns",
@@ -148,15 +193,6 @@ DEMO_VIDEOS = [
                 "8–11 s  close-up: awe, ground trembles",
                 "11–15 s  extreme wide: the ring rises, crane up"]),
 ]
-
-LAZY_TEST = dict(key="lazy", title="We ran the lazy prompt: the model chose everything",
-    file="lab1-lazy-draft-480p.mp4", poster="lab1-lazy-poster.jpg",
-    model="Seedance 2.5 Draft · 480p · 16:9 · 15 s · 45 credits · run 9 Nov 2026",
-    shots=["Prompt  'Create a 15-second video of an epic sci-fi scene.'",
-           "Character  none: the model left people out",
-           "World  abstract space and crystal shards",
-           "Camera  a warp-speed fly-through, no story beats",
-           "Lesson  brief who / where / what happens (Lab 2)"])
 
 # ------------------------------------------------------------------ core ethical issues (end of Topic 3; owner-supplied list, 9 Nov 2026)
 ETHICS = [
@@ -201,6 +237,6 @@ ETHICS_CASES = [
 # ------------------------------------------------------------------ assessment
 ASSESSMENT = dict(
     written="Written Assessment (WA) — Short-Answer Questions (SAQ), 1 hour, open book.",
-    practical="Practical Performance (PP) — three Higgsfield production tasks, 1 hour, open book; paste screenshots under each task and upload your final video to the TMS.",
+    practical="Practical Performance (PP) — three tasks, one per activity (storyboard, Higgsfield footage, CapCut final cut), 1 hour, open book; paste ONE screenshot per task and upload your final video to the TMS.",
     note="A minimum of 75% attendance is required to be eligible for assessment and funding.",
 )

@@ -1,6 +1,6 @@
 # Creating Engaging Videos with Generative AI (GenAI)
 
-Script, cast, shoot, fix and publish a 15-second film in one AI studio: Higgsfield.
+Hook, story and storyboard first, shoot it in Higgsfield, finish it in CapCut: one engaging video from idea to export.
 
 | Course detail | Information |
 |---|---|
@@ -9,21 +9,19 @@ Script, cast, shoot, fix and publish a 15-second film in one AI studio: Higgsfie
 | Duration | 2 days / 16 hours (including a 2-hour assessment) |
 | Registration | [View course details and register](https://www.tertiarycourses.com.sg/wsq-creating-engaging-videos-with-generative-ai-genai.html) |
 | Funding | Up to 70% course-fee funding may be available (funding validity 2 Apr 2024 – 1 Apr 2027). Eligibility and terms apply; check the registration page for current details. |
-| Courseware version | v11 · 9 November 2026 |
+| Courseware version | v12 · 23 November 2026 |
 
 ## About the course
 
-The whole GenAI video pipeline runs inside [Higgsfield](https://higgsfield.ai): you brief **Supercomputer**, Higgsfield's agent, in plain English, or direct every shot yourself in **Cinema Studio**. You write a script and shot list with AI Director, save your cast, sets and props as reusable **Elements**, direct takes with **Seedance 2.5** (testing on cheap 480p **Draft** takes before a 1080p final), fix what fails, add voice, music and cinematic effects, and publish a labelled 15-second ad.
+Topic 1 opens with two videos cut from the same footage, one you stop watching and one you watch to the end, and asks what makes a video engaging: **hooks, one message, characters and storytelling**. You then plan your own video on a storyboard, shoot it in [Higgsfield](https://higgsfield.ai) with cinematic technique (shot sizes, camera angles and movement, light, lens, colour), and finish it in [CapCut](https://www.capcut.com): cut it to time, add captions, music and a call to action, fix what fails and export to platform spec. Topic 3 ends with the ethics of GenAI video: copyright and IP, consent, bias, deepfakes and disclosure.
 
 ```mermaid
 flowchart LR
-    A["1 · Script & Shot List\nSupercomputer · AI Director"] --> B["2 · Elements\ncharacters · locations · props"]
-    B --> C["3 · Shots & Takes\nCinema Studio · Seedance 2.5"]
-    C --> D["4 · Fix & Finish\nreplace · upscale · voice · music"]
-    D --> E["5 · Publish\n9:16 + 16:9 · TikTok · YouTube"]
+    A["1 · Story & Storyboard\nhook · message · character"] --> B["2 · Characters\nHiggsfield Elements"]
+    B --> C["3 · Shots & Takes\nCinema Studio · angles · light"]
+    C --> D["4 · Edit in CapCut\ncut · captions · music · colour"]
+    D --> E["5 · Export & Publish\n1080p · 9:16 / 16:9 · AI label"]
 ```
-
-Topic 1 opens with two 15-second films made in Higgsfield for this course and real-world use cases: AI movies, AI micro dramas, AI influencers, AI singers and AI marketing videos. Topic 3 ends with a mini capstone, where you direct your own 15-second video, and the core ethical issues of GenAI video with real lawsuits and rulings.
 
 ## Learning outcomes
 
@@ -35,51 +33,36 @@ Skills Framework: TSC *Video Editing* (`MED-MPN-4005-1.1`).
 
 ## Topics covered
 
-- **Topic 1 — Create and Edit Video Script Using Generative AI (GenAI):** the impact of AI on video creation and its use cases, Supercomputer and AI Director scripts and shot lists, Skills, standards and guidelines, work plans and credit budgets.
-- **Topic 2 — Improve Video Footage on GenAI-Powered Video Platforms:** Elements (characters, locations, props), references, Cinema Studio controls, shot structure and sizes, sound, Draft mode and takes, assessing the cut.
-- **Topic 3 — Apply New AI Technologies to Improve Video Production:** remedial actions (replace objects, upscale, reframe, regenerate a shot), voice, music and cinematic effects, comparing models, industry standards and AI disclosure, publishing, a mini capstone and the core ethical issues of GenAI video.
+- **Topic 1 — Create and Edit Video Script Using Generative AI (GAI):** what makes a video engaging, hooks for the first three seconds, one message, characters, a 15-second story in five beats, scripts and storyboards with GenAI, house rules and a work plan.
+- **Topic 2 — Improve Video Footage on GAI Powered Video Platforms:** shot sizes, camera angles and movement, light, lens, colour and cinematic effects, the Higgsfield UI, prompts for characters and prompts that follow the storyboard, Draft takes and quality checks.
+- **Topic 3 — Apply new AI technologies to Improve Video Production:** post-production in CapCut, what to cut when a video runs long, captions, music and colour, AI tools that fix and finish (remove objects, VFX, voice, music, enhance audio), remedial actions, export standards and ethics.
 
-## Labs
+## Activities
 
-Ten labs, all in Higgsfield; Lab 10 is a mini capstone. Every prompt is on one copy page: [labs/prompts.html](labs/prompts.html). Each folder holds `README.pdf` (step-by-step instructions), `prompts.html` (one-click copy prompts), `prompts.pdf` and `assets/` (mock briefs, templates, checklists and sample media). Start from the [labs home page](labs/index.html).
+Three activities build one video. Every prompt is on one copy page: [labs/prompts.html](labs/prompts.html). Each folder holds `README.pdf` (step-by-step instructions), `prompts.html` (one-click copy prompts), `prompts.pdf` and `assets/` (templates and samples). Start from the [activities home page](labs/index.html).
 
-**Topic 1**
-
-1. [Sign Up and Make Your First 15-Second Video](labs/lab-01-sign-up-and-make-your-first-15-second-video/)
-2. [Write the Script and Shot List with Supercomputer and AI Director](labs/lab-02-write-the-script-and-shot-list-with-supercompute/)
-3. [Set the House Rules: Standards, Work Plan and Credit Budget](labs/lab-03-set-the-house-rules-standards-work-plan-and-cred/)
-
-**Topic 2**
-
-4. [Build Your Elements: Characters, Locations and Props](labs/lab-04-build-your-elements-characters-locations-and-pro/)
-5. [Direct Shots and Takes in Cinema Studio](labs/lab-05-direct-shots-and-takes-in-cinema-studio/)
-6. [Cut, Caption and Assess the Scene](labs/lab-06-cut-caption-and-assess-the-scene/)
-
-**Topic 3**
-
-7. [Fix What Fails: Remedial Actions in Higgsfield](labs/lab-07-fix-what-fails-remedial-actions-in-higgsfield/)
-8. [Add Voice, Music and Cinematic Effects](labs/lab-08-add-voice-music-and-cinematic-effects/)
-9. [Use-Case Sprint: One Product Photo to a Published 15-Second Ad](labs/lab-09-use-case-sprint-one-product-photo-to-a-published/)
-10. [Mini Capstone: Direct Your Own 15-Second Video in Higgsfield](labs/lab-10-mini-capstone-direct-your-own-15-second-video-in/)
+1. [Hook, Story and Storyboard: Plan Your 15-Second Video](labs/lab-01-hook-story-and-storyboard-plan-your-15-second-vi/) (Topic 1)
+2. [Shoot It in Higgsfield: Characters, Cinematic Shots and Takes](labs/lab-02-shoot-it-in-higgsfield-characters-cinematic-shot/) (Topic 2)
+3. [Finish It in CapCut: Cut, Polish and Export the Final Video](labs/lab-03-finish-it-in-capcut-cut-polish-and-export-the-fi/) (Topic 3)
 
 ## What you need
 
-- A laptop with Chrome and a headset.
-- A Higgsfield account on a paid plan. Sign up with the course link [higgsfield.ai?fpr=alfred-d0d32b](https://higgsfield.ai?fpr=alfred-d0d32b) — this is the trainer's affiliate link: the trainer may earn a commission and you pay the normal price. The labs run on higgsfield.ai, which needs a paid plan (Plus was US$49/month, or US$39 billed yearly, for 1,000 credits on 8 Nov 2026). The free 3-day trial needs a card, renews to Plus unless cancelled within 3 days, and its credits worked only through the Higgsfield MCP, not on the website.
+- A laptop with Chrome and a headset, and [CapCut desktop](https://www.capcut.com) (free download; some tools are marked Pro).
+- A Higgsfield account for Activity 2. Sign up with the course link [higgsfield.ai?fpr=alfred-d0d32b](https://higgsfield.ai?fpr=alfred-d0d32b): this is the trainer's affiliate link; the trainer may earn a commission and you pay the normal price. The website needs a paid plan (Plus was US$49/month, or US$39 billed yearly, for 1,000 credits on 8 Nov 2026).
+- No paid plan? [VidoGrid](https://vidogrid.ai) is free to start for 480p test takes (observed 23 Nov 2026).
 - Budget guide: a 15-second Seedance 2.5 Draft costs about 45 credits; the 1080p final about 240.
-- Reference: [Higgsfield API docs](https://docs.higgsfield.ai/docs) · [Supercomputer and Skills](https://higgsfield.ai/supercomputer-intro).
 
 ## Public courseware package
 
 | Item | Files |
 |---|---|
-| Slide deck (v11) | [PPTX](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v11.pptx>) · [PDF](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v11.pdf>) |
+| Slide deck (v12) | [PPTX](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v12.pptx>) · [PDF](<courseware/Creating Engaging Videos with Generative AI (GenAI)-v12.pdf>) |
 | Learner Guide | [DOCX](<courseware/LG-Creating Engaging Videos with Generative AI (GenAI).docx>) · [PDF](<courseware/LG-Creating Engaging Videos with Generative AI (GenAI).pdf>) · [Markdown](<LG-Creating Engaging Videos with Generative AI (GenAI).md>) |
 | Lesson Plan | [DOCX](<courseware/LP-Creating Engaging Videos with Generative AI (GenAI).docx>) · [PDF](<courseware/LP-Creating Engaging Videos with Generative AI (GenAI).pdf>) |
-| Demo films | [SOLA product ad (15 s)](<courseware/assets/videos/marketing-sola-15s-h264.mp4>) · [Ringfall sci-fi scene (15 s)](<courseware/assets/videos/scifi-ring-15s-h264.mp4>) |
-| Labs | [`labs/`](labs/) — 10 hands-on labs · [all prompts](labs/prompts.html) |
+| Videos | [Video A, boring (20 s)](<courseware/assets/videos/t1-boring-20s.mp4>) · [Video B, engaging (18 s)](<courseware/assets/videos/t1-engaging-18s.mp4>) · [SOLA ad (15 s)](<courseware/assets/videos/marketing-sola-15s-h264.mp4>) · [Ringfall (15 s)](<courseware/assets/videos/scifi-ring-15s-h264.mp4>) |
+| Activities | [`labs/`](labs/) — 3 hands-on activities · [all prompts](labs/prompts.html) |
 
-In PowerPoint Slide Show, click a video to play it: the two demo films are embedded; the YouTube examples need internet and **Enable Content** on the yellow security bar first.
+In PowerPoint Slide Show, click a video to play it: all four videos are embedded and play offline.
 
 ## Distribution boundary
 

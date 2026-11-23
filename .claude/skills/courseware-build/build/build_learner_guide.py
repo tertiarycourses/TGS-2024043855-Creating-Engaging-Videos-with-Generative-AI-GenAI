@@ -48,33 +48,25 @@ def img(path,caption): B.append(("img",(path,caption)))
 
 # One Higgsfield workflow screenshot per lab (QA: every lab shows its workflow), copied to a public path
 # for the Markdown mirror. These are the same privacy-cleaned screenshots the deck uses.
-LAB_SHOT={1:("009c","Cinema Studio's video panel: prompt box, model, resolution, duration and credit cost (shown at 720p; in Lab 1 you switch to a 480p Draft, about 45 credits)"),
-          2:("015","Who, where, what happens: the three answers every script needs"),
-          3:("023","Supercomputer's Skills list: type / to call a skill such as youtube-script"),
-          4:("041","A character reference sheet: full body front, full body back, face portrait (before step 3 covers the full-body face)"),
-          5:("036","Cinema Studio: the panel where references, camera and look come together"),
-          6:("066","Keep a useful first take: watch with sound, choose one change, save the prompt and take"),
-          7:("019","Fix one thing per instruction: remove or replace an object and keep the rest of the shot"),
-          8:("005","Camera setup in Cinema Studio: camera body, lens and aperture"),
-          9:("018","A usable product reference: the full object, clear light, visible edges"),
-          10:("016","The Supercomputer loop for your capstone: start a scene, talk it through, make your Draft")}
+LAB_SHOT={1:(os.path.join(ASSETS,"sb","storyboard-sola.jpg"),"A finished storyboard: five timed panels with size, angle, movement, action and sound (the SOLA ad)"),
+          2:(os.path.join(ASSETS,"hf","hf_036.jpg"),"Cinema Studio: attach your Elements, set camera, lens, light and colour, then paste your storyboard prompt"),
+          3:(os.path.join(ASSETS,"capcut","capcut_editor.jpg"),"The CapCut editor: import and tool tabs (left), player and Ratio (centre), timeline (bottom), Export (top right)")}
 LG_IMG=os.path.join(REPO,"courseware","assets","lg"); os.makedirs(LG_IMG,exist_ok=True)
 def lab_img(n):
     if n not in LAB_SHOT: return
-    hid,cap=LAB_SHOT[n]; src=os.path.join(ASSETS,"hf",f"hf_{hid}.jpg")
+    src,cap=LAB_SHOT[n]
     if not os.path.exists(src): return
-    import shutil; dst=os.path.join(LG_IMG,f"lab-{n:02d}.jpg"); shutil.copyfile(src,dst)
-    img(dst,f"Figure {n}. Lab {n}: {cap}.")
+    import shutil; dst=os.path.join(LG_IMG,f"activity-{n:02d}.jpg"); shutil.copyfile(src,dst)
+    img(dst,f"Figure {n}. Activity {n}: {cap}.")
 
 # ---------------- content ----------------
 h1("Introduction")
 p(f"This Learner Guide accompanies the WSQ course {C.TITLE} ({C.COURSE_CODE}), conducted by {C.ORG}. "
-  "It gives the full step-by-step instructions and copy-and-adapt prompts for all 10 hands-on labs (Lab 10 is a mini capstone), organised "
-  "by the three course topics. The slides give you the concepts and each lab's overview; this guide is where "
-  "the full procedure lives.")
-p("Every lab runs in one studio: Higgsfield (higgsfield.ai). You brief Supercomputer, Higgsfield's agent, in plain "
-  "English, or you direct each shot yourself in Cinema Studio. Two 15-second films made this way for the course "
-  "(a SOLA product ad and the Ringfall sci-fi scene) are embedded in the slides, so you can see the finish line before you start.")
+  "It gives the full step-by-step instructions and copy-and-adapt prompts for the three hands-on activities, one per topic. "
+  "Together they take one video from idea to export: you plan it (Activity 1), shoot it (Activity 2) and edit it (Activity 3).")
+p("Topic 1 opens with two videos made from the same footage: one you stop watching, one you watch to the end. The difference is "
+  "the four ingredients this course teaches first: hooks, one message, characters and storytelling. You then plan your own "
+  "video on a storyboard, shoot it in Higgsfield (higgsfield.ai) with cinematic technique, and finish it in CapCut.")
 
 h1("Course Learning Outcomes")
 bullets(C.LEARNING_OUTCOMES)
@@ -82,32 +74,31 @@ h3("Skills Framework alignment")
 p(f"TSC: {C.TSC_TITLE} ({C.TSC_CODE}).")
 bullets(C.TSC_KNOWLEDGE + C.TSC_ABILITIES)
 
-h1("The Higgsfield Video Pipeline")
-p("Keep this process in mind through every lab; it is the map of the whole course:")
+h1("The Video Pipeline")
+p("Keep this process in mind through every activity; it is the map of the whole course:")
 steps([(f"{lbl} — {det}", "") for lbl,det in C.PIPELINE])
-p("Labs 1–3 cover stage 1 (script, shot list, standards and budget). Lab 4 covers stage 2 (Elements). "
-  "Labs 5–6 cover stage 3 (shots, takes and assessing the cut). Labs 7–8 cover stage 4 (fix and finish). "
-  "Lab 9 runs the whole pipeline on a real use case and covers stage 5 (publish).")
+p("Activity 1 covers stage 1 (story and storyboard). Activity 2 covers stages 2 and 3 (characters, shots and takes in Higgsfield). "
+  "Activity 3 covers stages 4 and 5 (the edit in CapCut, export and publish).")
 
 h1("Before You Start — Environment Setup")
 h3("What you need")
 bullets([
  "A laptop (Windows or Mac) with Chrome and a working internet connection; a headset for reviewing audio.",
- f"A Higgsfield account. Sign up at {C.HF_SIGNUP} ({C.HF_DISCLOSURE})",
+ f"A Higgsfield account for Activity 2. Sign up at {C.HF_SIGNUP} ({C.HF_DISCLOSURE})",
  C.HF_PLAN_NOTE,
- "Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026). Labs 1–9 are designed around Draft takes, with one or two 1080p finals.",
- "Optional for Lab 9: a TikTok account to connect in Higgsfield (post as private or only-me in class).",
- f"Reference: Higgsfield API docs — {C.HF_DOCS} (authentication, requests, polling, webhooks, model endpoints); Supercomputer and Skills — https://higgsfield.ai/supercomputer-intro",
+ "No paid plan? "+C.VIDOGRID_NOTE,
+ "Free 6-month AI subscription (SkillsFuture): "+" ".join(f"{h}: {d}" for h,d in C.FREE_AI_SUB)+" Details: "+C.FREE_AI_SUB_URL+".",
+ "CapCut desktop for Activity 3: "+C.CAPCUT_NOTE,
+ "Budget guide: a 15-second Seedance 2.5 Draft (480p) costs about 45 credits; the 1080p final of the same 15 s about 240 (read on Higgsfield, 9 Nov 2026).",
 ])
-h3("Conventions used in every lab")
+h3("Conventions used in every activity")
 bullets([
- "PROMPT blocks are copy-and-adapt: replace the bracketed parts with your own idea before submitting.",
+ "PROMPT blocks are copy-and-adapt: replace the parts in <angle brackets> with your own idea before submitting.",
  "Draft first: test every idea on Seedance 2.5 Draft (480p) and finalise only the take you would show a client.",
- "Approve every spend yourself in Supercomputer; leave 'Always allow' off in class.",
- "Save every artefact (prompts, takes, checklists, exports): later labs build on them, and they are your Practical Performance evidence.",
- "Only clone YOUR OWN voice, and only use faces, products, music and footage you have the rights and consent to use.",
- "Each lab folder holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with the mock files.",
- "All prompts in one place: open labs/prompts.html — every lab's prompts with a search box and a Copy button on each.",
+ "The AI drafts; you decide. Edit what it gives you: your edits and judgements are your assessment evidence.",
+ "Only use faces, voices, products, music and footage you have the rights and consent to use.",
+ "Each activity folder (labs/lab-0N-…) holds README.pdf (these steps), prompts.pdf, prompts.html (one-click copy) and assets/ with templates.",
+ "One screenshot per activity: each activity ends with the ONE screenshot the Practical Performance asks for.",
 ])
 
 # ---------------- per-topic, per-lab ----------------
@@ -117,14 +108,14 @@ for t in C.TOPICS:
     h3("Key concepts")
     bullets([f"{k} — {v}" for k,v in t["concepts"]])
     for a in [x for x in ACT if x["topic"]==t["num"]]:
-        h2(f"Lab {a['num']} — {a['title']}")
+        h2(f"Activity {a['num']} — {a['title']}")
         p(f"Maps to: {a['objective']}.")
         p(f"Goal: {a['desc']}")
         lab_img(a["num"])
         h3("What you'll build")
         p(a["build"]+f"   (Tools: {a['services']}.)")
         if a.get("prompts"):
-            h3("Prompts for this lab")
+            h3("Prompts for this activity")
             for lbl,txt_ in a["prompts"]:
                 prompt(lbl,txt_)
         h3("Step-by-step")
@@ -132,17 +123,22 @@ for t in C.TOPICS:
         h3("Check your work")
         p(a["test"])
         if a.get("assets"):
-            h3("Mock assets in the lab folder")
+            h3("Templates and samples in the activity folder")
             bullets(a["assets"])
         if a.get("evidence"):
-            h3("Evidence to keep (screenshots for the PP)")
+            h3("Your PP evidence: one screenshot")
             bullets(a["evidence"])
-        note(f"This lab has its own folder: labs/lab-{a['num']:02d}-{_slug(a['title'])}/ — "
+        note(f"This activity has its own folder: labs/lab-{a['num']:02d}-{_slug(a['title'])}/ — "
              "README.pdf holds these steps; prompts.html copies each prompt in one click.")
         rule()
 
 h2("Core Ethical Issues in GenAI Video")
-p("Topic 3 ends with the ethical issues every AI video raises. Each comes with the rule you apply in your own Higgsfield projects.")
+p("Topic 3 ends with the ethical issues every AI video raises. Each comes with the rule you apply in your own projects.")
+h3("Copyright and IP: four questions before you publish")
+bullets(["Who owns the output? Read your Higgsfield plan: commercial use is a plan feature, not a given.",
+         "Is the music licensed? Use generated music or a track cleared for commercial use; a trending song is not.",
+         "Did you copy a brand, a character or a style on purpose? Disney and Universal sued Midjourney in June 2025 over Darth Vader, Elsa and the Minions (CNBC, Reuters, 11 Jun 2025).",
+         "What does your editor's licence say? In June 2025 creators protested CapCut's updated terms over the licence they grant to uploaded content. Read the terms before you upload client work."])
 for h_,d_,r_ in C.ETHICS:
     h3(h_); p(d_); p("Your rule: "+r_)
 h3("Real cases: lawsuits, disputes and rulings")
@@ -151,10 +147,10 @@ rule()
 
 h1("Assessment Preparation")
 bullets([
- "Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions in Higgsfield, quality parameters, industry standards and new technologies.",
- "Practical Performance (PP), 1 hour, open book: 3 Higgsfield tasks covering A1–A7 that mirror Labs 1–3, 4–6 and 7–10 (Task 3 is rehearsed by the Lab 10 mini capstone). Paste screenshots of your work into the box under each task and upload your final video (MP4) to the TMS.",
- "Revisit the slide 'Quality issues → the Higgsfield fix' and your Lab 6 checklist: the WA questions on issues and fixes mirror them.",
- "Keep your Lab Studio project open during the PP; your saved Elements and prompts save you time.",
+ "Written Assessment (SAQ), 1 hour, open book: 5 questions covering K1–K5: quality issues in AI video, solutions to rectify them, quality parameters, industry standards and new technologies.",
+ "Practical Performance (PP), 1 hour, open book: 3 tasks covering A1–A7, one per activity. Task 1 = your storyboard sheet (Activity 1), Task 2 = your Higgsfield takes (Activity 2), Task 3 = your CapCut timeline and final video (Activity 3). Paste ONE screenshot per task, type the short answers asked for, and upload your final MP4 to the TMS.",
+ "Revisit the slides 'Quality issues → the Higgsfield fix' and 'Remedial actions: fix it in CapCut, or reshoot one shot': the WA questions on issues and fixes mirror them.",
+ "Keep your storyboard sheet, Higgsfield project and CapCut project open during the PP.",
 ])
 
 h1("Glossary")
@@ -173,6 +169,13 @@ gl=[
  ("Aspect ratio","Frame proportions: 16:9 (YouTube), 9:16 (TikTok, Shorts, Reels), 21:9 (cinema)."),
  ("AI disclosure label","The platform setting that marks realistic AI-generated content (TikTok's AI-generated label, YouTube's altered or synthetic content setting)."),
  ("Credits","Higgsfield's usage currency; every generation shows its credit cost before you approve it."),
+ ("Hook","The first 1–3 seconds of a video, built to stop the scroll: a question, a number, a surprise or the action already under way."),
+ ("Storyboard","The video planned panel by panel: time, shot size, angle, movement, action, sound and on-screen text."),
+ ("Camera angle","Where the camera looks from: eye level, low, high, bird's-eye, Dutch tilt, over-the-shoulder, POV."),
+ ("CapCut","A video editor (desktop, web and mobile) with a timeline, auto captions, text, music, filters and export settings."),
+ ("Cut on action","Cutting while something moves, so the edit feels invisible."),
+ ("J-cut / L-cut","An edit where the sound of the next shot starts early (J) or the last shot's sound runs on (L)."),
+ ("Safe area","The part of a 9:16 frame not covered by platform buttons and captions; keep text inside it."),
 ]
 B.append(("dl",gl))
 
@@ -189,7 +192,8 @@ VROWS=[
   "prompt pages per lab; Higgsfield sign-up and plan terms; PP evidence by pasted screenshots and a TMS video upload.","Tertiary Infotech Academy"),
  ("9","9 November 2026","deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers.","Tertiary Infotech Academy"),
  ("10","9 November 2026","Embedded videos fixed: each slide's transition now precedes its click-to-play timing (PowerPoint dropped the timing when the order was reversed), so all YouTube Shorts and MP4 demo films play in Slide Show; three GPT Image 2.6 images added (Topic 1 opener, ethics opener, Thank You); LP, LG, FG and AP realigned to the v10 slide numbers.","Tertiary Infotech Academy"),
- (C.VERSION.lstrip("v"),C.VERSION_DATE,"Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order).","Tertiary Infotech Academy"),
+ ("11","9 November 2026","Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order).","Tertiary Infotech Academy"),
+ (C.VERSION.lstrip("v"),C.VERSION_DATE,"Restructured to story, shoot, edit with one activity per topic: Activity 1 hook, story and storyboard (with house rules and work plan); Activity 2 characters, cinematic shots and takes in Higgsfield (VidoGrid as a free option); Activity 3 cut, polish and export in CapCut. New sections on hooks, one message, characters, storytelling, shot sizes, camera angles and movement, cinematic effects, what to cut when a video runs long, and copyright and IP. PP evidence: one screenshot per activity.","Tertiary Infotech Academy"),
 ]
 
 def render_md():

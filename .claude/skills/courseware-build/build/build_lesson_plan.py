@@ -47,10 +47,10 @@ def _slide_ranges():
         joined="\n".join(texts)
         for a in ACT:
             n=a["num"]
-            if f"LAB {n} · " in joined or f"LAB {n}\n" in joined or any(t.strip()==f"LAB {n}" for t in texts):
+            if any(t.strip().startswith(f"ACTIVITY {n} · ") or t.strip()==f"ACTIVITY {n}" for t in texts):
                 lo,hi=labs.get(n,(i,i)); labs[n]=(min(lo,i),max(hi,i))
         for tp in C.TOPICS:
-            if any(t.strip()==f"TOPIC {tp['code']}" for t in texts) and tp["num"] not in topics:
+            if any(t.strip() in (f"TOPIC {tp['code']}",f"TOPIC {tp['num']}") for t in texts) and tp["num"] not in topics:
                 topics[tp["num"]]=i
     return labs,topics
 LAB_SLIDES,TOPIC_SLIDES=_slide_ranges()
@@ -62,48 +62,44 @@ def _ref(nums):
     return f" (Slides {lo}–{hi})"
 
 def lab_titles(nums):
-    return "; ".join(f"Lab {a['num']}: {a['title']}" for a in ACT if a['num'] in nums)+_ref(nums)
+    return "; ".join(f"Activity {a['num']}: {a['title']}" for a in ACT if a['num'] in nums)+_ref(nums)
 
 def topic_ref(tnum):
     return f" (from Slide {TOPIC_SLIDES[tnum]})" if tnum in TOPIC_SLIDES else ""
 
 # ------------------------------------------------ schedule (single source of truth for timing)
-SCHEDULE = {   # each LU block sums to the CP hours: LU1 4 h (9:30-14:30), LU2 5 h (14:30-18:30 + Day 2 9:30-10:30), LU3 5 h (10:30-16:30)
+SCHEDULE = {   # each LU block sums to the CP hours: LU1 4 h, LU2 5 h, LU3 5 h. Hands-on matches the CP practical split: LU1 120, LU2 150, LU3 150 = 420 min (7 h)
  1: (C.DAY_THEMES[1], [
-    ("9:30","10:00",30,"admin","LU1 · Welcome, digital attendance (AM), introductions, ground rules, outline, learning outcomes and Higgsfield sign-up with the course link"),
-    ("10:00","10:40",40,"topic","LU1 · Concepts for Lab 1: the impact of AI on video creation, five use cases (AI movie, micro drama, influencer, singer, marketing), Cinema Studio, the lazy prompt, Supercomputer approvals, K1 quality issues"+topic_ref(1)),
-    ("10:40","11:15",35,"lab","LU1 · Hands-on: "+lab_titles([1])),
-    ("11:15","11:30",15,"break","LU1 · Tea break"),
-    ("11:30","12:00",30,"topic","LU1 · Concepts for Lab 2: who/where/what happens, the Supercomputer loop, AI Director, story elements, the three-part prompt, presets and Skills"),
-    ("12:00","12:40",40,"lab","LU1 · Hands-on: "+lab_titles([2])),
-    ("12:40","13:00",20,"topic","LU1 · Concepts for Lab 3: platform specs, credit budgets, turning standards into a skill"),
+    ("9:30","10:00",30,"admin","LU1 · Welcome, digital attendance (AM), introductions, ground rules, outline, learning outcomes, LMS download"),
+    ("10:00","10:30",30,"topic","LU1 · What makes a video engaging? Play Video A (boring) and Video B (engaging), pair discussion, the four ingredients: hooks, message, characters, storytelling"+topic_ref(1)),
+    ("10:30","11:00",30,"topic","LU1 · Hooks and the first three seconds; six hook types; one video, one message; characters people follow; a 15-second story in five beats; show it, don't say it"),
+    ("11:00","11:15",15,"break","LU1 · Tea break"),
+    ("11:15","11:30",15,"topic","LU1 · Storyboards: the six fields, two examples (SOLA, Ringfall) and the films they became; scripts with Higgsfield Supercomputer and AI Director; editing the script (A1); K1 defects; house rules (A2); work plan and credit budget (A3)"),
+    ("11:30","13:00",90,"lab","LU1 · Hands-on (part 1: message, hook, character, five beats, GenAI script and storyboard): "+lab_titles([1])),
     ("13:00","14:00",60,"lunch","Lunch break"),
-    ("14:00","14:30",30,"lab","LU1 · Digital attendance (PM). Hands-on: "+lab_titles([3])),
-    ("14:30","15:15",45,"topic","LU2 · Concepts for Lab 4: Elements — casting, character sheets, locations, props, saving Elements, image models"+topic_ref(2)),
-    ("15:15","16:15",60,"lab","LU2 · Hands-on: "+lab_titles([4])),
-    ("16:15","16:30",15,"break","LU2 · Tea break"),
-    ("16:30","17:00",30,"topic","LU2 · Concepts for Lab 5: references and roles, Cinema Studio controls, shot structure and sizes, sound, Draft mode and takes"),
-    ("17:00","18:15",75,"lab","LU2 · Hands-on: "+lab_titles([5])),
+    ("14:00","14:30",30,"lab","LU1 · Digital attendance (PM). Hands-on (part 2: script edits, house rules, work plan, ONE screenshot of the storyboard sheet); two learners share their storyboards"),
+    ("14:30","15:15",45,"topic","LU2 · Shot sizes, camera angles, camera movement, composition and sound; light and lens, colour and genre, cinematic effects"+topic_ref(2)),
+    ("15:15","15:45",30,"topic","LU2 · The Higgsfield UI (home page, sign-up, Cinema Studio); free AI subscriptions and VidoGrid; prompts for character assets"),
+    ("15:45","16:00",15,"break","LU2 · Tea break"),
+    ("16:00","16:20",20,"topic","LU2 · Prompts that follow the storyboard (panel → prompt line); Draft mode, up to three Drafts per shot"),
+    ("16:20","18:15",115,"lab","LU2 · Hands-on (part 1: character and location Elements, storyboard prompt, Draft takes for every panel): "+lab_titles([2])),
     ("18:15","18:30",15,"recap","LU2 · Day 1 recap, Q&A"),
  ]),
  2: (C.DAY_THEMES[2], [
-    ("9:30","9:45",15,"recap","LU2 · Day 1 recap and digital attendance (AM)"),
-    ("9:45","10:00",15,"topic","LU2 · Concepts for Lab 6: the director's loop, continuity, issues → fixes, quality parameters"),
-    ("10:00","10:30",30,"lab","LU2 · Hands-on: "+lab_titles([6])),
+    ("9:30","9:55",25,"topic","LU2 · Day 1 recap and digital attendance (AM); review the take for story and emotion (A4); quality issues and fixes (K2); quality parameters (K3, A5)"),
+    ("9:55","10:30",35,"lab","LU2 · Hands-on (part 2: review against the storyboard, score PASS/FAIL, finalise the keeper at 1080p, download, ONE screenshot of the takes)"),
     ("10:30","10:45",15,"break","LU3 · Tea break"),
-    ("10:45","11:15",30,"topic","LU3 · Concepts for Lab 7: remedial actions, removing and replacing objects, industry standards (K4)"+topic_ref(3)),
-    ("11:15","12:00",45,"lab","LU3 · Hands-on: "+lab_titles([7])),
-    ("12:00","12:20",20,"topic","LU3 · Concepts for Lab 8: voice, music and cinematic effects (K5); evaluating new technologies (A7)"),
-    ("12:20","13:00",40,"lab","LU3 · Hands-on: "+lab_titles([8])),
+    ("10:45","11:20",35,"topic","LU3 · Post-production in CapCut: the five passes; CapCut home and editor; trainer demo; too long? what to cut first; editing rules that keep viewers watching"+topic_ref(3)),
+    ("11:20","13:00",100,"lab","LU3 · Hands-on (part 1: import, ratio, assemble, cut to 15–20 s): "+lab_titles([3])),
     ("13:00","14:00",60,"lunch","Lunch break"),
-    ("14:00","14:20",20,"topic","LU3 · Digital attendance (PM). Concepts for Lab 9: product references, campaign stills, from stills to video"),
-    ("14:20","15:00",40,"lab","LU3 · Hands-on: "+lab_titles([9])),
-    ("15:00","15:15",15,"break","LU3 · Tea break"),
-    ("15:15","16:00",45,"lab","LU3 · Mini capstone (concepts + hands-on): "+lab_titles([10])),
-    ("16:00","16:15",15,"topic","LU3 · Core ethical issues in GenAI video (consent, IP, deepfakes, jobs, bias, environment, transparency) and course summary"),
+    ("14:00","14:25",25,"topic","LU3 · Digital attendance (PM). Polish in CapCut: text, captions, music, colour, transitions; AI tools that fix and finish: remove objects, add VFX, clone voice (consent), generative AI music and voice-over, enhance audio (K5); remedial actions (A6); evaluating new AI technologies (A7)"),
+    ("14:25","15:15",50,"lab","LU3 · Hands-on (part 2: hook text, captions, music, colour, quality check and fixes, export 1080p, ONE screenshot of the timeline, MP4 to the TMS)"),
+    ("15:15","15:30",15,"break","LU3 · Tea break"),
+    ("15:30","15:50",20,"topic","LU3 · Export to the industry standard and responsible AI (K4): platform specs, rights, consent, AI labels, advertising codes; showcase of three learner videos"),
+    ("15:50","16:15",25,"topic","LU3 · Ethics before you publish: copyright and IP, consent and likeness, deepfakes, bias, displacement, environment, transparency, with real cases; course summary"),
     ("16:15","16:30",15,"recap","LU3 · Revision, TRAQOM survey, Briefing for Assessment, Assessment digital attendance"),
     ("16:30","17:30",60,"assess","Written Assessment (WA) — Short-Answer Questions (SAQ), 1 hour, open book"),
-    ("17:30","18:30",60,"assess","Practical Performance (PP) — three Higgsfield tasks, 1 hour, open book; Task 3 is the learner's own 15-second mini-project video; screenshots pasted under each task and videos uploaded to the TMS"),
+    ("17:30","18:30",60,"assess","Practical Performance (PP) — three tasks, one per activity (storyboard, Higgsfield footage, CapCut final cut), 1 hour, open book; ONE screenshot and short typed answers per task; final video uploaded to the TMS"),
  ]),
 }
 
@@ -122,7 +118,8 @@ prodoc.add_version_control(doc,[
   "Whole pipeline moved into Higgsfield (Supercomputer, AI Director, Elements, Cinema Studio, Seedance 2.5 and Draft mode), replacing the multi-tool v7 stack; 9 labs in 3 topics re-timed to the CP learning units; Higgsfield sign-up with the trainer's affiliate link; two demo films and 10 real-world use-case videos embedded; trainer changed to Mr Tay Hoo Wee; PP evidence by pasted screenshots plus a TMS video upload.","Tertiary Infotech Academy"),
  ("9","9 November 2026","deck aligned to the Claude Code house design throughout — LMS login and LMS courseware slides redesigned, Big Picture folded into Topic 1, Practice Exam slide removed (not a certification-exam course), YouTube and MP4 videos click-to-play in Slide Show, Shorts-only rule applied to examples, admin and recap slides as cards, a one-page all-prompts copy page for learners, and a new Lab 10 mini capstone in which each learner directs their own 15-second video (LU3 re-timed, still 5 h); Topic 3 now ends with the core ethical issues of GenAI video; LP, LG, FG and AP realigned to the v9 slide numbers.","Tertiary Infotech Academy"),
  ("10","9 November 2026","Embedded videos fixed: each slide's transition now precedes its click-to-play timing (PowerPoint dropped the timing when the order was reversed), so all YouTube Shorts and MP4 demo films play in Slide Show; three GPT Image 2.6 images added (Topic 1 opener, ethics opener, Thank You); LP, LG, FG and AP realigned to the v10 slide numbers.","Tertiary Infotech Academy"),
- (C.VERSION.lstrip("v"),C.VERSION_DATE,"Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order).","Tertiary Infotech Academy"),
+ ("11","9 November 2026","Character-sheet slides and Lab 4 now explain the covered full-body face as Higgsfield's identity trick (one clear face for the model to copy), not a defect; the first YouTube slide's trainer notes (slide 28) and the Facilitator Guide's trainer preparation say to click Enable Content first; LU and topic titles aligned to the Course Proposal wording; schedule slide redrawn as timed tiles; one Higgsfield workflow screenshot per lab added to the Learner Guide; FG, AP and answer-key formatting tidied (code lines, rubric rows, record order).","Tertiary Infotech Academy"),
+ (C.VERSION.lstrip("v"),C.VERSION_DATE,"Restructured to story, shoot, edit with one activity per topic: Topic 1 opens with a boring and an engaging video and teaches hooks, one message, characters, storytelling and storyboards (Activity 1: storyboard sheet with house rules and work plan); Topic 2 teaches shot sizes, camera angles and movement, light, lens and cinematic effects, the Higgsfield UI and character and storyboard prompts (Activity 2: footage in Higgsfield; VidoGrid as a free option); Topic 3 teaches post-production in CapCut, what to cut when a video runs long, polish, remedial actions and export, and ends with ethics (IP, copyright, bias) (Activity 3: final video). PP evidence reduced to one screenshot per activity; LU hours unchanged.","Tertiary Infotech Academy"),
 ])
 prodoc.add_toc(doc)
 
@@ -135,7 +132,7 @@ info=[("Course Title",C.TITLE),("WSQ Course Reference",C.COURSE_CODE),
       ("TSC",f"{C.TSC_TITLE} ({C.TSC_CODE})"),
       ("Duration","2 days · 8 hours per day (16 hours, including the 2-hour final assessment)"),
       ("Daily Timing","9:30 am – 6:30 pm (1-hour lunch; tea breaks within training time)"),
-      ("Mode","Classroom, instructor-led; hands-on GenAI video production labs, all in Higgsfield (higgsfield.ai, paid plan)"),
+      ("Mode","Classroom, instructor-led; three hands-on activities: storyboard, footage in Higgsfield (higgsfield.ai; VidoGrid free option), final edit in CapCut desktop"),
       ("Trainer",C.TRAINER)]
 t=doc.add_table(rows=0,cols=2); t.style="Table Grid"
 for k,v in info:
@@ -182,17 +179,17 @@ for day,(theme,rows) in SCHEDULE.items():
     p=doc.add_paragraph(); r=p.add_run(f"Total time: {training} minutes ({training//60} hours), excluding lunch."); r.italic=True; r.font.size=Pt(9.5); r.font.color.rgb=GREY
     assert training==480, f"Day {day} training minutes = {training}, expected 480"
 
-H("Lab Reference (aligned to the TSC)",1)
+H("Activity Reference (aligned to the TSC)",1)
 tt=doc.add_table(rows=0,cols=3); tt.style="Table Grid"
 hdr=tt.add_row().cells
-for i,htext in enumerate(["Topic","K/A coverage","Labs"]):
+for i,htext in enumerate(["Topic","K/A coverage","Activity"]):
     set_cell(hdr[i],htext,bold=True,size=10,color=RGBColor(0xFF,0xFF,0xFF),fill=HEADER_FILL)
 for tp in C.TOPICS:
     acts=[a for a in ACT if a["topic"]==tp["num"]]
     cells=tt.add_row().cells
     set_cell(cells[0],f"Topic {tp['code']}: {tp['title']}",bold=True,size=9.5,fill=TOPIC_FILL)
     set_cell(cells[1],tp["weighting"],size=9.5,fill=TOPIC_FILL)
-    set_cell(cells[2],", ".join(f"Lab {a['num']}" for a in acts),size=9.5)
+    set_cell(cells[2],"; ".join(f"Activity {a['num']}: {a['title']}" for a in acts),size=9.5)
 
 prodoc.add_page_numbers(doc)
 prodoc.enable_update_fields(doc)

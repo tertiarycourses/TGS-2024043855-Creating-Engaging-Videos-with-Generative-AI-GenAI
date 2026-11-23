@@ -201,7 +201,7 @@ def cover():
     txt(s,Inches(0.6),Inches(1.75),Inches(9.6),Inches(2.3),[[(C.TITLE,40,WHITE,True)]],anchor=MSO_ANCHOR.BOTTOM)
     rect(s,Inches(0.62),Inches(4.2),Inches(1.6),Inches(0.05),CORAL)
     txt(s,Inches(0.6),Inches(4.4),Inches(9.4),Inches(0.8),
-        [[("Made entirely in Higgsfield: Supercomputer · Cinema Studio · Seedance 2.5 · Elements · Draft mode",15,PALE,False)]])
+        [[("Story first, shot in Higgsfield, finished in CapCut: hooks · storyboards · cinematic shots · the edit",15,PALE,False)]])
     txt(s,Inches(0.6),Inches(5.45),Inches(7),Inches(0.8),
         [[("Tertiary Infotech Academy Pte Ltd",13,WHITE,True)],[("UEN 201200696W",10,PALE,False)]],space=2)
     txt(s,Inches(0.6),Inches(6.75),Inches(10),Inches(0.3),
@@ -217,7 +217,7 @@ def section(kicker,title,n,sub="",items=None):
     txt(s,Inches(0.9),Inches(2.95),Inches(7.4),Inches(1.8),[[(title,_fit_title(title,34),WHITE,True)]])
     if sub: txt(s,Inches(0.92),Inches(4.75),Inches(7.2),Inches(0.9),[[(sub,14,PALE,False)]])
     if items:
-        y=Inches(2.45)
+        y=Inches(3.15)
         for i,it in enumerate(items[:5],1):
             txt(s,Inches(8.75),y,Inches(0.4),Inches(0.4),[[(str(i),14,CORAL,True)]])
             txt(s,Inches(9.2),y,Inches(3.6),Inches(0.5),[[(it,11.5,PALE,False)]])
@@ -256,10 +256,49 @@ def big_statement(line1,line2,kicker,color=BLUE,img=None,note=None):
     footer(s,dark=True); return s
 
 PALETTE=[BLUE,TEAL,VIOLET,AMBER]
+# Punch lines (owner request, 23 Nov 2026): a one-line pitch under the title of tile, table and process slides.
+PUNCH={
+ "AI tools that fix and finish the footage":"Reshoots used to cost a day. Now they cost a sentence.",
+ "Free AI subscriptions for video creation":"Six months of premium AI, free: pick the one that makes videos.",
+ "Four ingredients of an engaging video":"Same footage, same product. The difference was decided before anyone pressed Generate.",
+ "Video A vs Video B, second by second":"Video B cost nothing extra. It just had a story.",
+ "Six hooks that stop the scroll":"You have three seconds. Spend them on curiosity, not a logo.",
+ "One video, one message":"If you say three things, they remember none.",
+ "Characters people follow":"Nobody watches a bottle for 20 seconds. Everybody watches a person with a problem.",
+ "A 15-second story in five beats":"Hook, problem, turn, payoff, call to action. Three seconds each. Done.",
+ "Show it, don't say it: six ways video carries a message":"The ice on the bottle says 'cold' before any caption can.",
+ "A storyboard is your video before it costs a credit":"Fixing a panel costs a pencil. Fixing a take costs 240 credits.",
+ "Edit the script before you shoot it (A1)":"The AI writes the first draft. The edits you make are the evidence.",
+ "Six defects to plan out at the storyboard stage (K1)":"Every defect you plan out now is a reshoot you never pay for.",
+ "House rules: one platform, one spec":"Decide the rules before the shoot, not in the panic before posting.",
+ "Shot sizes: decide what the viewer must read":"Wide says where. Close says how it feels.",
+ "Camera angles change how we feel about the character":"Move the camera ten degrees and the hero becomes the victim.",
+ "Camera movement: motion with a meaning":"If the camera moves, it should mean something.",
+ "Cinematic effects that lift AI footage":"Effects are seasoning. One or two per film, never the meal.",
+ "Storyboard panel → prompt line":"Your storyboard is already your prompt: one row, one shot line.",
+ "Review the take for story and emotion (A4)":"'Make it better' is not a note. 'Shot 3: hold the smile' is.",
+ "Quality issues → the Higgsfield fix":"Know the defect, know the fix: that is half the Written Assessment.",
+ "Parameters to assess the footage (K3, A5)":"Score it before you edit it. Bad footage stays bad on a nice timeline.",
+ "Post-production in CapCut: five passes":"Structure first, polish last. Never caption a shot you might cut.",
+ "The cutting order when a video runs long":"Kill the logo intro first. Nobody has ever missed it.",
+ "Editing rules that keep viewers watching":"Good cuts are invisible. Bad cuts are all anyone remembers.",
+ "Polish in CapCut: what each tab is for":"Most viewers start muted: your captions are your soundtrack.",
+ "What captions, music and voice add to the cut":"Music under the ice clink, never over it.",
+ "Remedial actions: fix it in CapCut, or reshoot one shot":"A trim is free. A reshoot is 240 credits. Try the trim first.",
+ "Export to the industry standard (K4)":"A great video in the wrong ratio is a cropped video.",
+ "Industry standards and responsible AI (K4)":"Compliance is not paperwork. It is how your video stays online.",
+ "Evaluate a new AI technology (A7, K5)":"A new tool earns its place by saving time or raising quality. Ideally both.",
+ "Copyright and IP: four questions before you publish":"You can generate anything. You can't publish everything.",
+ "Core ethical issues in GenAI video":"Every one of these has already cost someone a lawsuit, a job or their trust.",
+ "Seven issues, seven rules for your own videos":"Seven rules. Check them before you press Post.",
+ "What You Achieved":"Two days ago you had an idea. Now you have a published-ready video.",
+ "The Pipeline You Now Own":"Story first, shoot second, edit last. That order works on any tool.",
+}
 def tile_grid(title,items,kicker=None,cols=2,size=15,icons=None,accent=BLUE,note=None):
-    s=head(slide(),title,kicker,kcolor=accent)
+    pl=PUNCH.get(title)
+    s=head_sub(slide(),title,kicker,pl,accent) if pl else head(slide(),title,kicker,kcolor=accent)
     n=len(items); rows=math.ceil(n/cols)
-    X0=Inches(0.85); Y0=Inches(1.95); TOTW=Inches(11.63); AREAH=Inches(4.78)
+    X0=Inches(0.85); Y0=Inches(2.35 if pl else 1.95); TOTW=Inches(11.63); AREAH=Inches(4.38 if pl else 4.78)
     gx=Inches(0.3); gy=Inches(0.26)
     cw=int((TOTW-gx*(cols-1))/cols); ch=int((AREAH-gy*(rows-1))/rows)
     bd=Inches(0.6)
@@ -296,7 +335,8 @@ def flow_h(title,steps,kicker=None,color=BLUE):
 
 def process_map(title,stages,kicker=None,color=BLUE,synthesis=None,animate=True):
     """Real rounded-rect stages joined by real connectors with arrowheads."""
-    s=head(slide(),title,kicker,kcolor=color)
+    pl=PUNCH.get(title)
+    s=head_sub(slide(),title,kicker,pl,color) if pl else head(slide(),title,kicker,kcolor=color)
     n=len(stages); X0=Inches(0.85); TOTW=Inches(11.63)
     gap=Inches(0.42); cw=int((TOTW-gap*(n-1))/n)
     y=Inches(2.35); ch=Inches(2.35) if synthesis else Inches(3.0)
@@ -335,11 +375,12 @@ def process_map(title,stages,kicker=None,color=BLUE,synthesis=None,animate=True)
     footer(s); return s
 
 def compare_table(title,headers,rows,kicker=None,accent=BLUE,note=None):
-    s=head(slide(),title,kicker,kcolor=accent)
+    pl=PUNCH.get(title)
+    s=head_sub(slide(),title,kicker,pl,accent) if pl else head(slide(),title,kicker,kcolor=accent)
     X0=Inches(0.85); TOTW=Inches(11.63); ncol=len(headers)
     first=int(TOTW*0.26); rest=int((TOTW-first)/(ncol-1))
     widths=[first]+[rest]*(ncol-1)
-    y=Inches(1.95); hh=Inches(0.52)
+    y=Inches(2.3 if pl else 1.95); hh=Inches(0.52)
     x=X0
     for i,h in enumerate(headers):
         rect(s,x,y,widths[i],hh,INK)
@@ -721,12 +762,12 @@ tile_grid("Ground Rules",[
 lms_login_slide()
 lms_courseware_slide()
 tile_grid("Lesson Plan — 2 Days, 8 hours/day",[
- ("Day 1 · 9:30–14:30 · LU1 (4 h)","Attendance, introductions, Higgsfield sign-up; the impact of AI on video and its use cases; Labs 1–3. PM attendance at 14:00."),
- ("Day 1 · 14:30–18:30 · LU2","Elements: characters, locations, props (Lab 4); shots and takes in Cinema Studio (Lab 5); Day 1 recap at 18:15."),
- ("Day 2 · 9:30–10:30 · LU2 (5 h in total)","Attendance; cut, caption and assess the scene (Lab 6)."),
- ("Day 2 · 10:30–16:30 · LU3 (5 h)","Tea break 10:30–10:45, then fix, voice, music and effects (Labs 7–8); use-case sprint (Lab 9); mini capstone (Lab 10); ethics of GenAI video and course summary."),
+ ("Day 1 · 9:30–14:30 · LU1 (4 h)","Welcome and attendance; what makes a video engaging (two videos); hooks, message, characters, storytelling; script and storyboard with GenAI; Activity 1. Lunch 13:00–14:00."),
+ ("Day 1 · 14:30–18:30 · LU2","Shot sizes, camera angles and movement, light, lens and cinematic effects; the Higgsfield UI; character and storyboard prompts; Activity 2 begins. Recap 18:15."),
+ ("Day 2 · 9:30–10:30 · LU2 (5 h in total)","Attendance; finish Activity 2: review, score and finalise the takes."),
+ ("Day 2 · 10:30–16:15 · LU3 (5 h)","Post-production in CapCut: cut to time, captions, music, colour, quality checks, remedial actions, export; Activity 3; ethics (IP, copyright, bias, consent)."),
  ("Day 2 · 16:15–16:30 · close of LU3","Revision, TRAQOM survey, Briefing for Assessment and assessment attendance."),
- ("Day 2 · 16:30–18:30 · Assessment","Written Assessment (SAQ), 1 h, then Practical Performance (PP), 1 h.")],
+ ("Day 2 · 16:30–18:30 · Assessment","Written Assessment (SAQ), 1 h, then Practical Performance (PP), 1 h: one screenshot per activity.")],
  kicker="SCHEDULE · LU1 4 H · LU2 5 H · LU3 5 H",cols=2,size=12)
 two_col("Skills Framework",[
  (f"TSC: {C.TSC_TITLE}  ·  {C.TSC_CODE}",0)]+[(k,1) for k in C.TSC_KNOWLEDGE],
@@ -738,10 +779,10 @@ tile_grid("Learning Outcomes",[
  ("LO3 — Apply new AI","Apply new AI technologies to improve efficiency and quality in accordance to industry standards.")],
  kicker="WHAT YOU'LL ACHIEVE",cols=1,size=16)
 tile_grid("Course Outline",[
- (f"Topic 1 — {C.TOPICS[0]['title']}","Script, plan and make your first video: Higgsfield sign-up, Supercomputer and AI Director scripts and shot lists, standards, work plan and credit budget.  (Labs 1–3)"),
- (f"Topic 2 — {C.TOPICS[1]['title']}","Build, shoot and assess: Elements (characters, locations, props), references, Cinema Studio shots and takes, Draft mode, cut, captions and quality scoring.  (Labs 4–6)"),
- (f"Topic 3 — {C.TOPICS[2]['title']}","Fix, finish and publish: replace objects, upscale, reframe, voice, music, effects, model comparison, a published ad and your own mini capstone video.  (Labs 7–10)")],
- kicker="THREE TOPICS · TEN HANDS-ON LABS · ONE STUDIO: HIGGSFIELD",cols=1,size=15)
+ (f"Topic 1 — {C.TOPICS[0]['title']}","Story before software: what makes a video engaging, hooks, one message, characters, a five-beat story, a GenAI script and a storyboard.  (Activity 1: your storyboard)"),
+ (f"Topic 2 — {C.TOPICS[1]['title']}","Shoot it like a director: shot sizes, camera angles and movement, light, lens and cinematic effects; characters and storyboard prompts in Higgsfield.  (Activity 2: your footage)"),
+ (f"Topic 3 — {C.TOPICS[2]['title']}","Finish it in CapCut: cut to time, captions, music, colour, quality checks and fixes, export to platform spec; ethics before you publish.  (Activity 3: your final video)")],
+ kicker="THREE TOPICS · THREE ACTIVITIES · ONE VIDEO FROM IDEA TO EXPORT",cols=1,size=15)
 tile_grid("Briefing for Assessment",[
  "Place phones and other materials under the table or on the floor.",
  "No photos or recording of assessment scripts.",
@@ -765,503 +806,511 @@ tile_grid("Criteria for Funding",[
  ("Assessed Competent","Complete the assessment and be assessed as 'Competent'.")],
  kicker="WSQ FUNDING",cols=1,size=15)
 
-# ---- use cases (shown in Topic 1)
-def yt_short_slide(title,lead,second,kicker,sub=None,band=None,note=None,lead_vertical=True):
-    """Embed the owner-named YouTube video (a Short, or one named long film) and show a second, sourced example
-    as a fact card with no embed or link (house rule: learners only get Shorts, plus videos the owner names).
-    lead = (video_id, label, fact); second = (label, fact)."""
-    s=head_sub(slide(),title,kicker,sub,VIOLET)
-    lid,llab,lfact=lead; slab,sfact=second
-    if lead_vertical:
-        lw,lh=2.42,4.3; url=f"https://www.youtube.com/shorts/{lid}"
-    else:
-        lw,lh=7.0,7.0*9/16; url=f"https://www.youtube.com/watch?v={lid}"
-    th=os.path.join(YT,f"{lid}.jpg")
-    add_online_video(s,url,0.85,2.35,lw,lh,poster=th if os.path.exists(th) else None,name=llab)
-    def card(x,y,w,h,col,tag,lab,fact):
-        rect(s,Inches(x),Inches(y),Inches(w),Inches(h),LIGHT); rect(s,Inches(x),Inches(y),Inches(0.08),Inches(h),col)
-        txt(s,Inches(x+0.25),Inches(y),Inches(w-0.4),Inches(h),[[(tag,9.5,col,True)],[(lab,13,INK,True)],[(fact,11.5,GREY,False)]],anchor=MSO_ANCHOR.MIDDLE,space=3)
-    cx=0.85+lw+0.35; cw=12.48-cx
-    tag="◀ CLICK TO PLAY · THE SHORT" if lead_vertical else "◀ CLICK TO PLAY · THE FILM"
-    note=_enable_once(note)
-    if band:
-        card(cx,2.35,cw,1.45,VIOLET,tag,llab,lfact)
-        card(cx,3.95,cw,1.45,TEAL,"ALSO IN THE NEWS",slab,sfact)
-        y=5.55; rect(s,Inches(cx),Inches(y),Inches(cw),Inches(6.85-y),LIGHT); rect(s,Inches(cx),Inches(y),Inches(cw),Inches(0.07),AMBER)
-        txt(s,Inches(cx+0.25),Inches(y+0.08),Inches(cw-0.4),Inches(6.85-y-0.1),[[("WHAT IT MEANS FOR YOU",9.5,AMBER,True)],[(band,12,INK,False)]],anchor=MSO_ANCHOR.MIDDLE,space=3)
-    else:
-        card(cx,2.35,cw,2.0,VIOLET,tag,llab,lfact)
-        card(cx,4.5,cw,2.35,TEAL,"ALSO IN THE NEWS",slab,sfact)
+# ================= v12 (23 Nov 2026): story -> shoot in Higgsfield -> edit in CapCut =================
+from pptx.enum.dml import MSO_LINE
+CC=os.path.join(ASSETS,"capcut"); SB=os.path.join(ASSETS,"sb")
+def cc(n): return os.path.join(CC,f"capcut_{n}.jpg")
+def sb(n): return os.path.join(SB,f"{n}.jpg")
+
+def placeholder_slide(title,kicker,sub,what,shows,note=None,accent=TEAL):
+    """A clearly marked VIDEO TO ADD frame (owner rule, 23 Nov 2026: no video yet -> a visual the trainer replaces)."""
+    s=head_sub(slide(),title,kicker,sub,accent)
+    x,y,w=0.85,2.35,7.2; h=w*9/16
+    box=rect(s,Inches(x),Inches(y),Inches(w),Inches(h),LIGHT,line=GREY)
+    box.line.dash_style=MSO_LINE.DASH; box.line.width=Pt(2)
+    d=1.1; oval(s,Inches(x+w/2-d/2),Inches(y+h/2-d/2-0.45),Inches(d),Inches(d),accent)
+    txt(s,Inches(x+w/2-d/2),Inches(y+h/2-d/2-0.45),Inches(d),Inches(d),[[("▶",30,WHITE,True)]],align=PP_ALIGN.CENTER,anchor=MSO_ANCHOR.MIDDLE)
+    txt(s,Inches(x+0.3),Inches(y+h/2+0.3),Inches(w-0.6),Inches(1.0),
+        [[("VIDEO TO ADD · TRAINER",13,accent,True)],[(what,12,GREY,False)]],align=PP_ALIGN.CENTER,space=3)
+    rx=x+w+0.3; rw=12.48-rx; n=len(shows); gy=0.14; th=(h-gy*(n-1))/n
+    for i,(lab,t) in enumerate(shows):
+        yy=y+(th+gy)*i; col=PALETTE[i%len(PALETTE)]
+        rect(s,Inches(rx),Inches(yy),Inches(rw),Inches(th),LIGHT); rect(s,Inches(rx),Inches(yy),Inches(0.08),Inches(th),col)
+        txt(s,Inches(rx+0.25),Inches(yy),Inches(rw-0.4),Inches(th),[[(lab,13,col,True)],[(t,11.5,INK,False)]],anchor=MSO_ANCHOR.MIDDLE,space=2)
+    notes(s,(note or "")+" Placeholder: record a short screen capture (30–90 s) and insert it over the dashed frame (Insert > Video > This Device), then delete the frame.")
+    footer(s); return s
+
+def picture_slide(title,img,kicker,sub=None,note=None,accent=BLUE):
+    """One full-width visual (storyboard sheet, timeline diagram) with a one-line pitch."""
+    s=head_sub(slide(),title,kicker,sub,accent)
+    fit_pic(s,img,Inches(0.85),Inches(2.3),Inches(11.63),Inches(4.6))
     notes(s,note); footer(s); return s
 
-def use_case_slides():
-    big_numbers("AI has changed the economics of video",[
-     ("US$2K","a national TV ad","Kalshi's NBA Finals spot: about US$2,000 and 15 clips cut from 300–400 generations (The Keyword)"),
-     ("14 days","a 95-minute feature","Hell Grind: 15 people, under US$500K (CineD)"),
-     ("45","credits a test take","one 15-second Seedance 2.5 Draft in Higgsfield, before you commit to 1080p")],
-     kicker="TOPIC 1 · THE IMPACT OF AI ON VIDEO CREATION",sub="Budgets, crews and timelines that used to decide who could make video no longer do",
-     band="The new bottleneck is direction: knowing what to ask for, judging the take, and fixing what fails. That is this course.",
-     note="Sources on slide. Kalshi's view counts (30M+/100M) are the creator's own claims, so quote the cost and the airing.")
-    compare_table("What AI changes at each stage of production",
-     ["Stage","Before AI","With AI (in Higgsfield)"],
-     [["Script & storyboard","Writer + storyboard artist, days","Supercomputer / AI Director, minutes; you review and edit"],
-      ["Casting & locations","Auditions, permits, travel","Elements: cast, sets and props generated and saved"],
-      ["The shoot","Crew, camera, lights, a day per scene","Cinema Studio takes: camera, lens, light set in the prompt"],
-      ["Fixes & reshoots","Re-book cast and crew","Replace an object, regenerate one shot, upscale"],
-      ["Sound & music","Composer, voice artist, studio","Native audio, generated soundtrack, consented voice"],
-      ["New risks","—","Likeness, rights, disclosure, quality drift: K4 rules apply"]],
-     kicker="TOPIC 1 · BEFORE AND AFTER",accent=VIOLET,
-     note="Ask: which of these jobs disappears, and which becomes more valuable? (Direction, review, compliance.)")
-    tile_grid("Five ways AI video already earns audiences",[
-     ("AI movie","Hell Grind: a 95-minute Higgsfield feature, 15 people, 14 days (CineD)."),
-     ("AI micro drama","Kling's Mountains & Seas premiered on Kuaishou on 13 Jul 2024: 52M+ views (Caixin)."),
-     ("AI influencer","Aitana López, an AI model, earns up to €10,000 a month (Euronews)."),
-     ("AI singer","Xania Monet: first AI act on a Billboard radio chart, No. 30 Adult R&B Airplay (Nov 2025)."),
-     ("AI marketing","Kalshi's NBA Finals ad: about US$2,000, made with Google Veo 3 (The Keyword)."),
-     ("Your turn","Lab 9 ends with your own 15-second ad, published or uploaded to the TMS.")],
-     kicker="TOPIC 1 · USE CASES",cols=2,size=13,accent=VIOLET)
-    yt_short_slide("AI movies: cinema-grade scenes from a prompt",
-     ("1yLAbK5F3E8","The Most Insane AI Film You'll See Today (Seedance 2.5)","Video: Theoretically Media. A short film made with Seedance 2.5, the model you will use in Labs 1–9."),
-     ("Hell Grind — Higgsfield Originals (2026)","95 minutes, under US$500K, 15 people, 14 days (CineD). Billed by Higgsfield as the first AI feature film."),
-     kicker="USE CASE 1 · AI MOVIE",sub="Long-form stories need what Topic 2 teaches: Elements that keep every face and set consistent",
-     lead_vertical=False,
-     note="Slide Show: click the video to play (internet needed; click Enable Content on the yellow bar first). Hell Grind did not screen in the official Cannes programme; say so if asked.")
-    yt_short_slide("AI micro dramas: one-minute episodes, no film set",
-     ("opCFOkfX6YE","The Healer's Refusal — an AI-generated Chinese micro drama","A vertical, cliff-hanger episode made entirely with AI: the format built for TikTok and YouTube Shorts."),
-     ("Mountains & Seas: Breaking Waves — Kling AI","Kuaishou's AI micro drama premiered 13 Jul 2024 and passed 52M views (Caixin)."),
-     kicker="USE CASE 2 · AI MICRO DRAMA",sub="Short, serial, vertical stories: the format Lab 9's variation prompt practises",
-     band="Two characters, one twist, 9:16. Save the cast as Elements so episode 2 looks like episode 1.")
-    yt_short_slide("AI influencers: one face, posting every day",
-     ("jZZJHrrlg04","Creating an AI influencer with Higgsfield AI Influencer Studio","A creator builds a consistent virtual influencer inside Higgsfield (Shafin Tech)."),
-     ("Aitana López — BBC World Service report","An AI model earning up to €10,000 a month, about €3,000 on average (Euronews)."),
-     kicker="USE CASE 3 · AI INFLUENCER",sub="Higgsfield's AI Influencer tool and a saved @char Element make the same face repeatable",
-     band="Consistency is the product: a character sheet plus an @char Element. Disclose that the person is synthetic (K4).",
-     note="Link to K4: TikTok and YouTube both ask creators to label realistic AI content.")
-    yt_short_slide("AI singers: a voice, a song, a music video",
-     ("Y7i1z6UGOnQ","Pretty Little Baby — an AI cover (Ai Music Sunny)","An AI singer covering Connie Francis's song: a fast-growing Shorts genre, and a live rights question."),
-     ("Xania Monet — How Was I Supposed to Know?","First AI act on a Billboard radio chart: No. 30 on Adult R&B Airplay (Billboard, Nov 2025). Music made with Suno."),
-     kicker="USE CASE 4 · AI SINGER",sub="Music video, voice and soundtrack: Lab 8 gives you all three inside Higgsfield",
-     band="Covering someone else's song or voice needs the rights holder's permission. Original music and your own voice are safe ground.",
-     note="Discussion (K4): is an AI cover of a real artist's song publishable? Who owns the voice? Tie to the Lab 8 consent form.")
-    yt_short_slide("AI marketing: studio-quality ads in minutes",
-     ("THplxezacD8","Higgsfield Marketing Studio — UGC ads in seconds","A creator makes UGC-style product ads in Higgsfield's Marketing Studio (AI Tech Pro)."),
-     ("Kalshi NBA Finals ad — PJ Ace (2025)","About US$2,000; 300–400 generations cut to 15 clips with Google Veo 3; aired in Game 3 of the NBA Finals (The Keyword)."),
-     kicker="USE CASE 5 · AI MARKETING",sub="The use case you will run end to end in Lab 9: one product photo to a published ad",
-     band="Start from a clean product photo, keep the product identical in every shot, label the ad as AI-generated.",
-     note="The SOLA ad in the Big Picture section was made the same way: one prompt, five shots, 240 credits at 1080p.")
+# ---------------- TOPIC 1: story, hooks, storyboard ----------------
+def topic1_concepts():
+    big_statement("Same bottle. Same footage. Only one makes you care.",
+     "Watch two short videos made from the same Higgsfield clips. Then tell us: what makes a video engaging?",
+     "TOPIC 1 · WHAT MAKES A VIDEO ENGAGING?",color=BLUE,img="creator-desk.jpg",
+     note="Image: generated with Higgsfield GPT Image 2.6. Set up the experiment: no explanation yet, just 'watch these two'.")
+    video_slide(C.OPENER_VIDEOS[0],"VIDEO A · 20 SECONDS",
+     "Watch it to the end. Notice the moment you stopped paying attention.",
+     note="Play with sound (there is none, deliberately). Ask: at which second did you lose interest? Most rooms say 'at the logo card'. Built for the course from stills of the SOLA footage, 23 Nov 2026.")
+    video_slide(C.OPENER_VIDEOS[1],"VIDEO B · 18 SECONDS",
+     "Same product, same footage. A hook, a person and a payoff.",
+     note="Play with sound. Then ask the room the question on the next slide before you reveal the answer. Built for the course from the Higgsfield SOLA ad, 23 Nov 2026.")
+    big_statement("Your turn: what makes a video engaging?",
+     "Two minutes with your neighbour. Name three things Video B did that Video A did not. Write them down before the next slide.",
+     "DISCUSSION · 5 MINUTES",color=TEAL,
+     note="Collect answers on the whiteboard. Group them into the four ingredients on the next slide: hooks, message, characters, storytelling.")
+    tile_grid("Four ingredients of an engaging video",[
+     ("Hooks","Earn the next second in the first three. Video B opens on a question; Video A opens on a logo."),
+     ("Message","One sentence the viewer keeps: 'stays cold after the run'. Video A lists three features."),
+     ("Characters","A person with a problem. We watch the runner; nobody watches a packshot for 20 s."),
+     ("Storytelling","Hook, problem, turn, payoff, call to action. Video A has no turn and no payoff.")],
+     kicker="TOPIC 1 · THE ANSWER",cols=2,size=15,icons=["H","M","C","S"])
+    compare_table("Video A vs Video B, second by second",
+     ["","Video A","Video B"],
+     [["0–3 s","Logo card, small grey text","Question hook over a sweating bottle"],
+      ["Message","Three features, no point","One promise: still cold after the run"],
+      ["Character","None","A runner at sunrise"],
+      ["Story","None: still, still, still","Problem → grab → drink → payoff"],
+      ["Sound","Silence","Ice clink, breath, city"],
+      ["Ending","'Thank you for watching'","Call to action: 'Pre-order today'"]],
+     kicker="DECONSTRUCT THE TWO CUTS",accent=VIOLET,
+     note="Point out that Video B is not more expensive: it uses the same footage. The difference is decided before the camera rolls, in the story and the storyboard.")
+    big_numbers("The first three seconds decide the rest",[
+     ("47%","of the value","of a video campaign was delivered in the first 3 seconds"),
+     ("74%","of the value","was delivered within the first 10 seconds"),
+     ("3 s","your hook window","in every video you make in this course")],
+     kicker="HOOKS · WHY THE OPENING MATTERS",sub="Meta (then Facebook) with Nielsen, February 2016: 'up to' these shares of campaign value",
+     band="Start on the action, the question or the surprise. Never on a logo, a greeting or a title card.",
+     note="Source: Facebook for Business, 'Updated features for video ads', Feb 2016, citing Nielsen analysis ('up to 47%… in the first three seconds', 'up to 74%… in the first ten'). Quote it as 'up to'.")
+    tile_grid("Six hooks that stop the scroll",[
+     ("Ask a question","'Warm water by your first kilometre?'"),
+     ("Drop a number","'3 hours a day on your phone. Try 15 minutes on you.'"),
+     ("Break the pattern","An unexpected image: the bottle sweating in a freezer of ice."),
+     ("Start mid-action","Open on the runner already sprinting; explain nothing yet."),
+     ("Show before / after","Tired face, cut, the same face smiling: the story in two frames."),
+     ("Open a loop","'Watch what happens at the top of the stairs.' Pay it off at the end.")],
+     kicker="HOOKS · PICK ONE FOR ACTIVITY 1",cols=2,size=13,accent=VIOLET,
+     note="hook-cards.pdf in the Activity 1 folder has these six with blank lines. Learners write three hook options and circle one.")
+    tile_grid("One video, one message",[
+     ("The one-sentence test","[Audience] should [feel or do] because [reason]. 'Weekend runners should pick SOLA because it stays cold after the run.'"),
+     ("Two 'and's = two videos","'Cold and stylish and eco-friendly' is three messages. Pick one; save the rest for episode 2."),
+     ("Say it with pictures","If the message needs a voice-over to make sense, the shots are wrong. The drink, the ice, the smile carry it."),
+     ("End on the action","The call to action is the message turned into a verb: pre-order, book, try, share.")],
+     kicker="MESSAGE · THE ONE THING THEY REMEMBER",cols=2,size=13)
+    tile_grid("Characters people follow",[
+     ("A face in 3 seconds","People watch people. Get a face on screen early, even in a product ad."),
+     ("A want","She wants to finish the run. The viewer leans in because she wants something."),
+     ("A problem","Heat, tiredness, a deadline: no obstacle, no story."),
+     ("A consistent look","Same face, hair and clothes in every shot. In Topic 2 you lock it as a Higgsfield Element."),
+     ("A change","The last shot shows her different: refreshed, proud, relieved. That change is your payoff.")],
+     kicker="CHARACTERS · THE ONE THE CAMERA FOLLOWS",cols=1,size=13,accent=TEAL)
+    process_map("A 15-second story in five beats",[
+     ("Hook","0–3 s · stop the scroll"),
+     ("Problem","3–6 s · what is in the way"),
+     ("Turn","6–10 s · the product or idea acts"),
+     ("Payoff","10–13 s · the world changes"),
+     ("Call to action","13–15 s+ · what to do now")],
+     kicker="STORYTELLING · THE STRUCTURE YOU WILL STORYBOARD",color=VIOLET,
+     synthesis=("Five beats, three seconds each","Video B follows it exactly. Pixar's story spine says the same thing in long form: once upon a time… every day… one day… because of that… until finally."))
+    tile_grid("Show it, don't say it: six ways video carries a message",[
+     ("The picture","Ice on the bottle says 'cold' faster than any caption."),
+     ("Shot size","A close-up says 'feel this'; a wide says 'look where we are'."),
+     ("Sound","An ice clink, a breath, a music hit on the payoff."),
+     ("On-screen text","Six words or fewer: most social video starts muted."),
+     ("Pace","Fast cuts for energy; hold a shot for emotion."),
+     ("Colour and light","Golden hour feels warm and hopeful; blue night feels lonely.")],
+     kicker="HOW VIDEO CONVEYS THE MESSAGE",cols=2,size=13,accent=AMBER)
+    compare_table("A storyboard is your video before it costs a credit",
+     ["Panel field","What you write","Example (SOLA, panel 1)"],
+     [["Time","Where the panel sits in the 15 s","0–3 s"],
+      ["Size · angle · move","Shot size, camera angle, camera movement","Extreme close-up · low · slow push-in"],
+      ["Action","What we see happen","Sun slides across the sweating bottle"],
+      ["Sound","Ambience, effect, music, voice","Wind, distant city"],
+      ["On-screen text","Hook, caption or call to action","'Warm water by your first kilometre?'"],
+      ["Frame","A sketch or a generated still","Stick figure or a 2-credit Higgsfield image"]],
+     kicker="STORYBOARD · THE SIX FIELDS",accent=TEAL,
+     note="storyboard-sheet.pdf in the Activity 1 folder has these fields for six panels, plus boxes for the house rules and the work plan.")
+    picture_slide("Example 1: the SOLA storyboard",sb("storyboard-sola"),"STORYBOARD · EXAMPLE",
+     "Five panels, each with size, angle, movement, action and sound. Next: the film it became.",
+     note="Ask: which panel is the hook, which is the payoff? (Panel 1 and panel 5.)")
+    video_slide(C.DEMO_VIDEOS[0],"STORYBOARD → FILM · MADE IN HIGGSFIELD",
+     "The same five panels, generated in one Seedance 2.5 prompt",
+     note="Play with sound. Point out each panel as it arrives. The bottle stays identical because every shot names it; the music hit lands on the packshot because the Sound line asked for it.")
+    picture_slide("Example 2: the Ringfall storyboard",sb("storyboard-ringfall"),"STORYBOARD · EXAMPLE",
+     "Four panels for a sci-fi scene: establish, follow, react, reveal.",
+     note="Ask: why does the close-up of her face (panel 3) come before the reveal (panel 4)? We see her awe before we see what she sees.")
+    video_slide(C.DEMO_VIDEOS[1],"STORYBOARD → FILM · MADE IN HIGGSFIELD",
+     "Establish, follow, react, reveal: the storyboard on screen",
+     note="The extreme wide at 11–15 s sells the scale. Ask which shot learners would cut if it had to be 10 s.")
+    shot_hero("Let GenAI draft the script: brief it like a director",hf("015"),[
+     ("WHO","Your character: 'a runner, 30, at sunrise'."),
+     ("WHERE","One location you could photograph: 'a city rooftop'."),
+     ("WHAT HAPPENS","One visible action with an ending: 'drinks, smiles, runs on'.")],
+     kicker="SCRIPT · HIGGSFIELD SUPERCOMPUTER",sub="Three lines remove the three guesses a lazy prompt leaves to the model",img_h=2.4)
+    shot_steps("AI Director turns a brief into a script and storyboard",hf("040"),[
+     ("Project brief","Where the locked script and storyboard live."),
+     ("Elements","The characters and locations this project can call."),
+     ("AI Director","Opens the director chat inside the project."),
+     ("Suggested starts","'Write a script', 'Generate an 8-shot storyboard'.")],
+     kicker="SCRIPT · AI DIRECTOR",sub="Your writers' room sits inside the project, next to the footage",
+     marks=[(0.07,0.14),(0.05,0.25),(0.06,0.47),(0.87,0.52)])
+    tile_grid("Edit the script before you shoot it (A1)",[
+     ("Hook in 3 s?","If the first panel is a logo or a greeting, rewrite it."),
+     ("One message?","Strike every line that serves a second message."),
+     ("A character who wants something?","Give them a problem in panel 2."),
+     ("A visual payoff?","The last panel must look different from the first."),
+     ("Shootable in time?","Three actions in a 3-second panel will not render."),
+     ("Write the edits down","Each edit you make is A1 evidence for PP Task 1.")],
+     kicker="A1 · REVIEW THE SCRIPT LIKE AN EDITOR",cols=2,size=13,
+     note="AI drafts; you decide. The PP asks for the edits you made, not the AI's first version.")
+    tile_grid("Six defects to plan out at the storyboard stage (K1)",[
+     ("Identity drift","The hero's face or clothes change between shots."),
+     ("Prop teleport","The bottle swaps hands or vanishes mid-scene."),
+     ("Broken physics","Hands merge, liquids melt, people walk through tables."),
+     ("Audio mismatch","Footsteps without feet, music over dialogue."),
+     ("Garbled text","Signs and labels turn into nonsense letters: add text in the edit instead."),
+     ("Wrong spec","Wrong ratio, 480p left in the final, a cut mid-movement.")],
+     kicker="K1 · TYPES OF QUALITY ISSUES",cols=2,size=13,accent=AMBER)
+    compare_table("House rules: one platform, one spec",
+     ["","YouTube","TikTok / Shorts","Instagram Reels"],
+     [["Ratio","16:9 landscape","9:16 vertical","9:16 vertical"],
+      ["Your length","15–60 s","15–20 s","15–20 s"],
+      ["Pacing","Build with structure","Hook in 1–3 s, fast cuts","Aesthetic-first, fast"],
+      ["Captions","Recommended","Essential (muted viewing)","Essential"],
+      ["AI label","Disclose realistic AI content","AI-generated label","Label AI content"]],
+     kicker="A2 · STANDARDS AND GUIDELINES",accent=VIOLET,
+     note="The house rules box on the storyboard sheet: platform spec, captions, music rights, PDPA consent, AI label, IMDA/ASAS codes.")
+    big_numbers("Plan the budget before the shoot",[
+     ("45","credits","a 15 s Seedance 2.5 Draft at 480p"),
+     ("240","credits","the same 15 s at 1080p, about 5× the price"),
+     ("3","Drafts max","per shot before you finalise one")],
+     kicker="A3 · WORK PLAN AND CREDIT BUDGET",sub="Read on Higgsfield, 9 Nov 2026: put these numbers in the work-plan box",
+     band="Work plan: storyboard lock → Elements → Draft takes → 1080p finals → CapCut edit → review → export → publish.")
 
-def bp_intro():
-    """Topic 1 opener: why AI video, two demo films, the pipeline."""
-    big_statement("Two 15-second films. Two prompts. Zero cameras.",
-     "Both clips on the next slides were made for this course in Higgsfield with Seedance 2.5, one prompt each, sound included. By the end of Day 2 you will direct your own.",
-     "WHY THIS COURSE",color=BLUE,img="creator-desk.jpg",
-     note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K, 0.5 credits). Prompt: modern video creator's desk at night, laptop with an editing timeline, storyboard notebook, terracotta lamp light, no text or logos.")
-    video_slide(C.DEMO_VIDEOS[0],"MADE IN HIGGSFIELD · AI MARKETING",
-     "A product ad with a hero packshot, written as five timed shots",
-     note="Play it with sound. Point out: the bottle stays the same in every shot because the prompt names it in every shot; the beat hits on the packshot because the Sound line asked for it. Cost: 240 credits at 1080p; the same take as a 480p Draft costs 45.")
-    video_slide(C.DEMO_VIDEOS[1],"MADE IN HIGGSFIELD · AI SCI-FI",
-     "An epic scene with an establishing shot, a reveal and a payoff",
-     note="Ask learners which shot sells the scale (the extreme wide at 11–15 s) and why the close-up comes before it (we see her awe before we see what she sees).")
-    process_map("The Higgsfield Video Pipeline",C.PIPELINE,
-     kicker="THE PROCESS YOU'LL RUN — EVERY LAB MAPS TO A STAGE",
-     synthesis=("One platform, five stages",
-      "You script and plan in Supercomputer (Topic 1), build Elements and direct takes in Cinema Studio (Topic 2), then fix, finish and publish (Topic 3)."))
-
-def bp_studio():
-    """Topic 1: the Higgsfield studio, sign-up, references and models (before Lab 1)."""
-    shot_steps("Every tool you need sits on one home page",hf("002"),[
-     ("Supercomputer","The agent: brief it in plain English, it plans, prompts and asks before it spends."),
-     ("Seedance 2.5","ByteDance's video model: 4–30 s, up to 1080p, native sound, 50 references."),
+# ---------------- TOPIC 2: cinematic technique in Higgsfield ----------------
+def topic2_concepts():
+    tile_grid("Shot sizes: decide what the viewer must read",[
+     ("Extreme wide (EWS)","Where are we? Scale, world, the city at sunrise."),
+     ("Wide (WS)","The whole body and the place around it."),
+     ("Medium (MS)","Waist up: action and gesture."),
+     ("Medium close-up (MCU)","Chest up: the face starts to talk."),
+     ("Close-up (CU)","The face, the emotion, the reaction."),
+     ("Extreme close-up (ECU)","A detail: the ice, the label, an eye.")],
+     kicker="TOPIC 2 · SHOTS",cols=2,size=13)
+    shot_hero("Every numbered shot in your prompt starts with a size",hf("058"),[
+     ("Wide","Character and surroundings: where are we?"),
+     ("Medium close-up","Expression and upper-body action: what are they doing?"),
+     ("Close-up","A face, a reaction or an important detail: what do they feel?")],
+     kicker="SHOTS · SIZE IN HIGGSFIELD",sub="Three words at the start of each shot line change the whole film",img_h=3.1)
+    tile_grid("Camera angles change how we feel about the character",[
+     ("Eye level","Neutral, honest: we meet them as equals."),
+     ("Low angle","Looking up: power, confidence, a hero."),
+     ("High angle","Looking down: small, tired, vulnerable."),
+     ("Bird's-eye / top shot","A map of the action; patterns, scale."),
+     ("Dutch tilt","A tilted horizon: unease, something is wrong."),
+     ("Over-the-shoulder / POV","Put the viewer inside the scene, in their shoes.")],
+     kicker="CAMERA ANGLES",cols=2,size=13,accent=TEAL)
+    tile_grid("Camera movement: motion with a meaning",[
+     ("Push-in (dolly in)","Move closer as the emotion rises."),
+     ("Pull-out / drone pull-back","Reveal the world: the payoff in scale."),
+     ("Pan / tilt","Follow a look, reveal the next thing in the room."),
+     ("Tracking","Move with the runner: energy and momentum."),
+     ("Crane / orbit","A hero moment; circle the product."),
+     ("Handheld / locked off","Handheld for urgency; locked off for calm and packshots.")],
+     kicker="CAMERA MOVEMENT",cols=2,size=13,accent=VIOLET)
+    shot_pair("Compose the frame, then write what we hear",
+     (hf("060"),"Rule of thirds","Eyes on the upper third, the subject off-centre, space in the direction she looks."),
+     (hf("061"),"Sound is part of the prompt","Ambience, footsteps, clothing movement, dialogue. Seedance renders it with the picture."),
+     kicker="COMPOSITION AND SOUND",sub="Two lines in the prompt that separate a clip from a scene")
+    shot_pair("Light and lens: the look in two settings",
+     (hf("005"),"Camera, lens, aperture","DV Camcorder to Modern; Halation Vintage to Clean Sharp; f/1.4 for shallow focus, f/11 for deep focus."),
+     (hf("003"),"Lighting presets","Silhouette, Practicals, Window, Overhead fall, or place your own lights. Golden hour reads warm and hopeful."),
+     kicker="CINEMATIC TECHNIQUE · LIGHT + LENS",sub="Cinema Studio puts a camera crew's choices in two menus")
+    shot_pair("Grade the colour, set the genre",
+     (hf("004"),"Colour palette","Film colors, Nostalgic blue, Black gloss, Soft palette, or build your own grade."),
+     (hf("006"),"Genre, era, tempo","The conventions, the period and the cutting pace the model should follow."),
+     kicker="CINEMATIC TECHNIQUE · COLOUR + GENRE",sub="A grade and a genre tell the model the mood in two clicks")
+    tile_grid("Cinematic effects that lift AI footage",[
+     ("Slow motion","Stretch the payoff: the drink, the ice, the splash."),
+     ("Speed ramp","Fast into the action, slow on the moment, fast out."),
+     ("Shallow depth of field","Blur the background so the eye goes where you want."),
+     ("Silhouette and backlight","Shape and mood without showing every detail."),
+     ("Lens flare and halation","Warm, filmic highlights at golden hour."),
+     ("Colour grade","One look across every shot, so Draft and final takes match.")],
+     kicker="CINEMATIC EFFECTS",cols=2,size=13,accent=AMBER)
+    shot_steps("Higgsfield: every tool on one home page",hf("002"),[
+     ("Supercomputer","The agent: brief it in plain English; it asks before it spends."),
+     ("Seedance 2.5","The video model: 4–30 s, up to 1080p, native sound."),
      ("Cinema Studio 4.0","The director's chair: camera, lens, light, colour, genre."),
-     ("Genjutsu","One upload, many versions: swap objects, copy motion."),
+     ("Genjutsu","Swap objects or copy motion in existing footage."),
      ("Higgsfield in Claude & ChatGPT","The same studio through an MCP connector.")],
-     kicker="HIGGSFIELD.AI · THE HOME PAGE",sub="Learn five tiles today and you can find everything else from them",
-     marks=[(0.80,0.735),(0.59,0.735),(0.40,0.93),(0.43,0.735),(0.59,0.93)],
-     note="Live demo: open higgsfield.ai, hover each tile. The top nav (Image, Video, Audio, Genjutsu, Shorts Studio, AI Influencer) holds the single-purpose tools; Supercomputer can call all of them.")
+     kicker="HIGGSFIELD UI · THE HOME PAGE",sub="Learn five tiles and you can find everything else",
+     marks=[(0.80,0.735),(0.59,0.735),(0.40,0.93),(0.43,0.735),(0.59,0.93)])
     link_slide("Sign up with the course link",C.HF_SIGNUP,C.HF_SIGNUP_SHORT,[
      ("Sign up",f"Open {C.HF_SIGNUP_SHORT} and create your account with Google or email."),
      ("Disclosure",C.HF_DISCLOSURE),
-     ("Plan for the labs","Labs run on the website, which needs a paid plan. Plus: US$49/month or US$39 billed yearly for 1,000 credits (8 Nov 2026)."),
-     ("Free trial terms","3 days, needs a card, renews to Plus unless cancelled within 3 days; trial credits worked only through the Higgsfield MCP, not the website (8 Nov 2026).")],
-     kicker="SIGN-UP · BEFORE YOU START",sub="One link, one account: everything in this course happens inside it",
-     note="Check every learner can see a credit balance before Lab 1. If the class uses trainer-provided accounts, hand them out here and skip sign-up.")
-    tile_grid("Keep these three open beside the labs",[
-     ("Higgsfield API docs","For automation: authentication, requests, polling, webhooks and model endpoints — docs.higgsfield.ai/docs"),
-     ("Supercomputer and Skills","The agent, its Skills Marketplace and skill import from Claude, Claude Code, Codex and ChatGPT — higgsfield.ai/supercomputer-intro"),
-     ("Course labs","Every prompt on one copy page (labs/prompts.html), plus instruction PDFs and mock assets for Labs 1–10 — labs/index.html")],
-     kicker="HIGGSFIELD · REFERENCES",cols=1,size=14,
-     note="Trainer prep (not for learners, house rule: Shorts only): 'Higgsfield AI Tutorial for Beginners (2026) | Step-by-Step' by Metics Media, youtube.com/watch?v=Mt91SiQotOU — a good walkthrough of the UI to rehearse before class.")
-    compare_table("The models inside Higgsfield",
-     ["Model","Made by","Best for","Length · quality"],
-     [["Seedance 2.5","ByteDance","General video, native sound, 50 references","4–30 s · up to 1080p"],
-      ["Seedance 2.5 Draft","ByteDance","Cheap test takes you finalise later","4–30 s · 480p"],
-      ["Cinema Studio 4.0","Higgsfield","Camera, lens, light and genre control","next-gen cinematic"],
-      ["Kling 4.0 / Flash","Kuaishou","Motion quality, multi-shot","3–30 s · 1080p"],
-      ["Higgsfield Genjutsu","Higgsfield","Replace objects, copy motion, many versions","4–30 s · 1080p"]],
-     kicker="WHAT THE PICKER SHOWS · NOV 2026",accent=BLUE,
-     note="Pick per shot, not per project: Draft to explore, Seedance 2.5 to finish, Genjutsu to fix.")
-    shot_pair("Two menus, one decision: which engine shoots this take?",
-     (hf("007"),"Cinema Studio versions","4.0 is the next-gen cinematic model; 3.5 added camera selection, style presets and AI Director; 3.0 added speed ramps; 2.5 moves the camera from a start frame."),
-     (hf("008"),"The video model list","Seedance 2.5 (TOP) and its 480p Draft, Genjutsu and Genjutsu Lite, Kling 4.0 and the new 4.0 Flash, each with its resolution and 3–30 s range."),
-     kicker="MODELS · WHERE TO CHOOSE",sub="You will compare two of these on the same prompt in Lab 9")
+     ("Plan for Activity 2","The website needs a paid plan. Plus: US$49/month or US$39 billed yearly for 1,000 credits (8 Nov 2026)."),
+     ("Free trial terms","3 days, needs a card, renews to Plus unless cancelled; trial credits worked only via the Higgsfield MCP (8 Nov 2026)."),
+     ("No paid plan? Try VidoGrid free",C.VIDOGRID_NOTE)],
+     kicker="HIGGSFIELD · SIGN-UP",sub="One account: your characters, takes and finals all live in it",
+     note="Check every learner can see a credit balance before Activity 2. If the class uses trainer-provided accounts, hand them out here.")
+    tile_grid("Free AI subscriptions for video creation",[(h,d) for h,d in C.FREE_AI_SUB]+
+     [("Free to start, today","VidoGrid (vidogrid.ai): 480p test takes with your storyboard prompt; check the cost on the Generate button.")],
+     kicker="SKILLSFUTURE · FREE 6-MONTH AI SUBSCRIPTION",cols=1,size=12,accent=TEAL,icons=["G","S","+","✓","V"],
+     note="Source: MySkillsFuture, 'Redeem AI Subscription to Further Your AI Learning' (last updated 21 Oct 2026). Only courses carrying the 'Free AI sub' label qualify: check this course's MySkillsFuture listing before telling learners they are eligible.")
+    shot_steps("Cinema Studio: the panel where the storyboard becomes footage",hf("036"),[
+     ("References 0/50","Attach your character and location Elements."),
+     ("Film setup · Camera","Camera body, lens and aperture."),
+     ("Colour palette · Lighting","The grade and the light scheme."),
+     ("Describe your scene","Type @ to drop in a saved character or location."),
+     ("Model and settings","Model, resolution, ratio, length, sound, takes, credits.")],
+     kicker="HIGGSFIELD UI · CINEMA STUDIO",sub="Set the look once, then every take inherits it",
+     marks=[(0.38,0.50),(0.54,0.50),(0.76,0.50),(0.49,0.58),(0.47,0.66)])
+    shot_pair("Prompt your character before you shoot a frame",
+     (hf("038"),"Ask Supercomputer to cast","'Main character for a 15-second ad: 30, runner, grey sportswear.' It loads the character-sheet skill."),
+     (hf("039"),"Choose from the options","Photoreal candidates. You pick one; only then does it build the reference sheet."),
+     kicker="CHARACTER ASSETS · CASTING PROMPT",sub="A cast you chose on purpose beats a face the model invents every take",img_h=3.4)
+    shot_hero("One sheet, three views: the reference every shot obeys",hf("041"),[
+     ("Full body, front","Clothes, shoes, proportions. 'Same outfit in every view.'"),
+     ("Full body, back","What the camera sees when she runs away from it."),
+     ("Face portrait","The one face every shot copies: Higgsfield covers the full-body face on purpose.")],
+     kicker="CHARACTER ASSETS · REFERENCE SHEET",sub="Plain background, consistent light: the model copies exactly what it sees",img_h=3.0,
+     note="The covered full-body face is Higgsfield's identity trick, not a defect: one sharp face for the model to copy.")
+    shot_pair("Save once as an Element, call it by name",
+     (hf("048"),"@char_runner in every prompt","One saved Element, attached automatically, prompt after prompt: the fix for drifting faces (K2)."),
+     (hf("049"),"The Element form","Category (Character, Location, Prop), Name, Element ID such as char_runner, a one-line description."),
+     kicker="CHARACTER ASSETS · ELEMENTS",sub="Naming rule: char_, loc_, prop_ + a short slug")
+    shot_hero("Locations need anchors a shot can point at",hf("046"),[
+     ("Spatial anchors","The counter, the stools, the window: things a shot line can name."),
+     ("No people","Your saved character will be placed into it."),
+     ("Save it","loc_rooftop becomes @loc_rooftop in every prompt.")],
+     kicker="CHARACTER ASSETS · LOCATIONS",sub="'She sits on the third stool' only works if the stool exists in the reference",img_h=3.0)
+    compare_table("Storyboard panel → prompt line",
+     ["Panel","Time","Size · angle · move","Action · light"],
+     [["1 Hook","0–3 s","ECU · low · slow push-in","Sun slides across the sweating bottle · golden backlight"],
+      ["2 Problem","3–6 s","MS · eye level · handheld","@char_runner stops, breathless, wipes her brow"],
+      ["3 Turn","6–10 s","CU · eye level · static","She drinks; ice clinks; eyes close"],
+      ["4 Payoff","10–13 s","EWS · high · drone pull-back","She runs on across @loc_rooftop at sunrise"],
+      ["5 CTA","13–15 s","MS · eye level · locked off","Hero packshot, space for the logo"]],
+     kicker="PROMPTS THAT FOLLOW THE STORYBOARD",accent=VIOLET,
+     note="One storyboard row = one numbered shot line. Add ONE Sound line for the whole clip. storyboard-to-prompt.csv in the Activity 2 folder has this layout.")
+    shot_pair("Write the scene, attach the references, number the shots",
+     (hf("056"),"Context, references, shots","01 scene context in 1–2 sentences; 02 references and their roles; 03 the numbered, timed shots."),
+     (hf("057"),"A real prompt with @handles","Each Element '100% as shown', with who holds what and where they stand."),
+     kicker="PROMPTS THAT FOLLOW THE STORYBOARD",sub="The format the Activity 2 prompt gives you to adapt")
+    shot_steps("Draft mode: three test takes cost less than one final",hf("062"),[
+     ("References attached","Character and location Elements."),
+     ("Your storyboard prompt","Scene, references, numbered shots, Sound line."),
+     ("Seedance 2.5 Draft","480p, your ratio, 15 s, sound on."),
+     ("Generate Draft","About 45 credits a 15 s take; review before you spend more.")],
+     kicker="TAKES · DRAFT MODE",sub="Explore at 480p, commit at 1080p",
+     marks=[(0.35,0.445),(0.80,0.60),(0.30,0.965),(0.925,0.81)])
+    shot_pair("Up to three Drafts per shot, then finalise one",
+     (hf("063"),"Draft takes at 480p","Same prompt, several takes (four shown here). Compare the face, the bottle and the light."),
+     (hf("064"),"Generate the keeper in 1080p","The selected Draft re-rendered at full resolution: same take, full quality."),
+     kicker="TAKES · DRAFT → FINAL",sub="Drafts can be finalised within seven days")
+    tile_grid("Review the take for story and emotion (A4)",[
+     ("Look for","A weak opening image, a payoff with no sound, a reaction cut too early."),
+     ("Tie it to a shot","'Shot 3: hold the smile one more second.' A change without a shot number is vague."),
+     ("Name two","A4 needs at least two story or emotion improvements, each tied to a numbered shot."),
+     ("Change one thing per take","Then you know which change fixed it.")],
+     kicker="A4 · REVIEW FOOTAGE FOR STORY AND EMOTION",cols=2,size=13,accent=TEAL)
+    compare_table("Quality issues → the Higgsfield fix",
+     ["Issue (K1)","Typical cause","Fix (K2)"],
+     [["Face changes between shots","No character reference","Character Element + sheet"],
+      ["Set changes between shots","No location reference","Location Element with anchors"],
+      ["Prop swaps hands or vanishes","Holder not stated","'@prop… in @char…'s right hand'"],
+      ["Wrong object in the shot","Model guessed","Genjutsu Replace Object, or regenerate"],
+      ["Soft, low-res footage","480p Draft exported","Finalise at 1080p or Upscale"],
+      ["Garbled on-screen text","Model drew the letters","Remove it; add text in CapCut"]],
+     kicker="K1 → K2 · THE WA ASKS EXACTLY THIS",accent=TEAL)
+    tile_grid("Parameters to assess the footage (K3, A5)",[
+     ("Resolution & sharpness","1080p for the final; no 480p Draft left in."),
+     ("Motion & physics","No melting hands, sliding feet or stutter."),
+     ("Continuity","Face, clothes, props and set match shot to shot."),
+     ("Audio","Effects match the action; nothing clipped."),
+     ("Pacing & length","Each panel lands in its time; total 15–20 s."),
+     ("Compliance","Ratio, safe area, rights, consent, AI label planned.")],
+     kicker="K3 · SCORE EVERY TAKE BEFORE YOU EDIT",cols=2,size=13)
+
+# ---------------- TOPIC 3: post-production in CapCut ----------------
+def topic3_concepts():
+    big_statement("The edit is where the story is written a second time.",
+     "Higgsfield gives you raw takes. CapCut is where you cut them to time, add the words and the music, and make it publishable.",
+     "TOPIC 3 · POST-PRODUCTION",color=BLUE,img="directors-chair.jpg")
+    process_map("Post-production in CapCut: five passes",[
+     ("Import + ratio","clips in, 9:16 or 16:9"),
+     ("Assemble","storyboard order"),
+     ("Cut to time","15–20 s, hook first"),
+     ("Polish","captions · text · music · colour"),
+     ("Check + export","house rules · 1080p · MP4")],
+     kicker="THE EDITING WORKFLOW",color=TEAL,
+     synthesis=("One pass at a time","Structure before polish: never caption a clip you may still cut."))
+    shot_steps("CapCut home: start a project, or let AI start it",cc("home"),[
+     ("Create project","Opens an empty editor: you will use this in Activity 3."),
+     ("EditPilot","Describe an idea or task; CapCut's AI drafts and edits in one flow."),
+     ("AI video","Turn an idea or image into a clip."),
+     ("Extend video","Extend a clip that ends too soon."),
+     ("AI edit","Edit clips by describing the change."),
+     ("Video Studio","Generate 30-second videos with Seedance 2.5, the model you used in Higgsfield.")],
+     kicker="CAPCUT UI · HOME (DESKTOP 9.7.1)",sub="Read on CapCut for Mac, 23 Nov 2026; the account panel is blurred",
+     marks=[(0.455,0.143),(0.19,0.235),(0.56,0.26),(0.775,0.26),(0.885,0.26),(0.075,0.39)],
+     note="Labels read from CapCut desktop 9.7.1 on 23 Nov 2026. Some tools are marked Pro (paid). The free editor covers everything Activity 3 needs.")
+    shot_steps("The CapCut editor: five areas you will use",cc("editor"),[
+     ("Import","Bring in your Higgsfield MP4s."),
+     ("Tool tabs","Media, Audio, Text, Effects, Transitions, Captions, Filters, Adjustment."),
+     ("Player + Ratio","Preview; set 9:16 or 16:9 with Ratio."),
+     ("Timeline","Clips, text, captions and audio as stacked tracks."),
+     ("Export","Resolution, frame rate, format.")],
+     kicker="CAPCUT UI · THE EDITOR",sub="Left: what you add. Centre: what you see. Bottom: when it happens.",
+     marks=[(0.215,0.32),(0.20,0.065),(0.64,0.696),(0.30,0.876),(0.964,0.02)],
+     note="Project name and local path are blurred. Split at the playhead: Cmd+B (Mac) or Ctrl+B (Windows).")
+    placeholder_slide("Watch the edit: from takes to a timeline","CAPCUT · DEMO",
+     "A one-minute walkthrough of Activity 3, recorded by the trainer",
+     "Screen recording of CapCut: import three Higgsfield takes, set 9:16, split and delete, add auto captions and music, export.",
+     [("0:00 Import + Ratio","Three MP4s in; Ratio → 9:16."),
+      ("0:15 Split and delete","Cmd/Ctrl+B at the playhead; delete the warm-up."),
+      ("0:30 Text + captions","Hook line in 0–3 s; auto captions, fix one word."),
+      ("0:45 Music + export","Track under the ice clink; 1080p, 30 fps, MP4.")],
+     note="Owner rule (23 Nov 2026): where we have no video yet, show a visual and the trainer adds the recording.")
+    picture_slide("Too long? Here is what to cut first",sb("cut-timeline"),"CUT TO TIME",
+     "A 32-second raw assembly becomes a 16-second ad: same footage, half the length, twice the punch",
+     note="Walk the grey blocks: logo intro, warm-up, repeated drink, second wide, thank-you card. None of them serves the one message.")
+    tile_grid("The cutting order when a video runs long",[
+     ("1 · Intros and outros","Logo cards, greetings, 'thank you for watching'. Put the logo on the last shot instead."),
+     ("2 · Warm-ups","Cut to the action: start each shot the moment something happens."),
+     ("3 · Repeats","Two drinks, two wides: keep the better take, delete the other."),
+     ("4 · Dead air","Pauses, slow starts, the second after the payoff."),
+     ("5 · Second messages","Anything that serves a message you are not telling."),
+     ("Never cut","The hook, every beat of the one message, the payoff, the call to action.")],
+     kicker="TOO LONG? WHAT TO CUT",cols=2,size=13,accent=AMBER)
+    tile_grid("Editing rules that keep viewers watching",[
+     ("Cut on action","Cut while something moves: the hand reaching, the head turning. The cut disappears."),
+     ("Change the size at every cut","Wide to close-up, not wide to wide: a jump cut feels like a mistake."),
+     ("Hold the emotion","Give the close-up one more beat than feels necessary."),
+     ("J-cut and L-cut","Let the sound of the next shot start early, or the last shot's sound run on."),
+     ("1–3 s per shot","Social pacing; slow down only for the payoff."),
+     ("End on the payoff","Cut out the moment after the story has landed.")],
+     kicker="PACING AND RHYTHM",cols=2,size=13,accent=VIOLET)
+    tile_grid("Polish in CapCut: what each tab is for",[
+     ("Text","Hook line in 0–3 s; call-to-action card at the end; inside the safe area."),
+     ("Captions","Auto captions, then read and fix every word. Muted viewers rely on them."),
+     ("Audio","Music cleared for commercial use, lowered under the key sound, faded out."),
+     ("Filters · Adjustment","One colour look across every clip so Draft and final shots match."),
+     ("Transitions","One or two, or none: a hard cut is the default."),
+     ("Ratio","9:16 for TikTok, Reels and Shorts; 16:9 for YouTube; reframe the subject into the safe area.")],
+     kicker="POLISH · CAPTIONS, TEXT, MUSIC, COLOUR",cols=2,size=13)
+    tile_grid("AI tools that fix and finish the footage",[
+     ("Remove or replace objects","Higgsfield Genjutsu Replace Object swaps a wrong prop in finished footage and keeps the motion."),
+     ("Add VFX","Higgsfield effect presets on a shot, or CapCut's Effects tab on the timeline: one or two, never the meal."),
+     ("Clone a voice","Higgsfield Create Voice from a clean sample of YOUR voice, or a voice whose owner gave written consent."),
+     ("Generative AI music","Higgsfield Audio composes a track from genre, tempo and mood: cleared, original, cut to your length."),
+     ("AI voice-over","Type the narration, generate the voice, drop it on the CapCut audio track under the picture."),
+     ("Enhance audio","CapCut's audio settings: volume, fades, keyframes, and noise reduction or voice enhancement where your version offers them.")],
+     kicker="K5 · NEW AI TECHNOLOGIES FOR THE FINISH",cols=2,size=12,accent=VIOLET,
+     note="Covers the CP's LU3 techniques: remove objects, add VFX, clone voice, generative AI music, generative AI voice-over, enhance audio. Consent rule: only clone a voice whose owner agreed in writing.")
+    shot_steps("Remove an object without re-shooting",hf("019"),[
+     ("Attach the shot","Drop the image or clip into Supercomputer."),
+     ("Say what changes","'Remove the table and put the glasses on a plinth.'"),
+     ("Keep everything else","Light, angle and the object itself stay as they were.")],
+     kicker="REMOVE OBJECTS · HIGGSFIELD",sub="For video, Genjutsu Replace Object does the same while keeping the motion",img_w=7.6)
+    compare_table("What captions, music and voice add to the cut",
+     ["Feature","Parameter it supports","How"],
+     [["Captions","Clarity and accessibility","Viewers on mute still follow the story; keep them in the safe area"],
+      ["Music","Pacing and engagement","A track matched to the cut, under the key sounds, landing on the payoff"],
+      ["Voice","Clarity and consistency","One recognisable voice: a stock voice, or your own with consent"]],
+     kicker="K3 · CAPTIONS, MUSIC AND VOICE",accent=TEAL,
+     note="Rights check: generated or licensed music only. Voice cloning only with the owner's written consent.")
+    compare_table("Remedial actions: fix it in CapCut, or reshoot one shot",
+     ["Fails the check","Remedial action (A6)","Where"],
+     [["Runs 32 s, platform wants 15–20 s","Cut in the order above","CapCut: split + delete"],
+      ["Captions wrong or off-screen","Correct words, move into safe area","CapCut: Captions"],
+      ["Music drowns the key sound","Lower music, fade, keyframe volume","CapCut: Audio"],
+      ["Shots don't match in colour","One filter / adjustment on all clips","CapCut: Filters, Adjustment"],
+      ["Face drifts in one shot","Regenerate that shot with the Element","Higgsfield, then re-import"],
+      ["Soft 480p footage","Finalise the Draft at 1080p","Higgsfield, then re-import"]],
+     kicker="A6 · REMEDIAL ACTIONS",accent=AMBER,
+     note="Cheapest fix first: a CapCut trim costs nothing; a 1080p regeneration costs about 240 credits.")
+    compare_table("Export to the industry standard (K4)",
+     ["Platform","Ratio · size","Frame rate · format","Before you post"],
+     [["TikTok","9:16 · 1080×1920","30 fps · MP4 (H.264)","AI-generated label on"],
+      ["Instagram Reels","9:16 · 1080×1920","30 fps · MP4","Label AI content"],
+      ["YouTube Shorts","9:16 · 1080×1920","30 fps · MP4","Altered or synthetic content setting"],
+      ["YouTube","16:9 · 1920×1080","30 fps · MP4","Altered or synthetic content setting"]],
+     kicker="K4 · EXPORT SETTINGS",accent=VIOLET,
+     note="CapCut's export dialog sets resolution, frame rate, bitrate, codec and format. Watch the exported file once on a phone before posting.")
+    tile_grid("Industry standards and responsible AI (K4)",[
+     ("Platform specs","Ratio, resolution, duration and loudness per platform."),
+     ("Commercial rights","Your Higgsfield plan and your CapCut music must cover client work."),
+     ("Consent & PDPA","Written permission for any real face or voice."),
+     ("AI disclosure","TikTok's AI-generated label; YouTube's altered or synthetic content setting."),
+     ("Advertising codes","IMDA and ASAS rules apply to AI ads too."),
+     ("Accuracy","No claims you cannot prove: 'stays cold' needs a test, or a softer line.")],
+     kicker="COMPLY BEFORE YOU PUBLISH",cols=2,size=13,accent=AMBER)
+    compare_table("Evaluate a new AI technology (A7, K5)",
+     ["Criterion","Ask","Example"],
+     [["Efficiency","Minutes or credits saved per finished video?","CapCut auto captions: minutes, not an hour of typing"],
+      ["Quality","Does the output meet your house rules?","Higgsfield Elements: the same face in every shot"],
+      ["Control","Can you direct and correct it?","Draft mode: up to three takes to compare before you commit"],
+      ["Rights","Commercial use allowed on your plan?","Check the music licence and the plan terms"],
+      ["Fit","Does it slot into Higgsfield → CapCut?","Seedance 2.5 is also inside CapCut Video Studio"]],
+     kicker="A REPEATABLE EVALUATION RUBRIC",accent=VIOLET,
+     note="The AI drafts the evaluation; the learner decides the rating. PP Task 3 asks for two technologies, each with an efficiency and a quality gain.")
+
+def ethics_slides():
+    big_statement("Just because you can generate it doesn't mean you should publish it.",
+        "Copyright and IP, consent, bias, deepfakes, disclosure: the last check before your video goes live.",
+        "TOPIC 3 · ETHICS",img="ethics-face.jpg",
+        note="Image: generated with Higgsfield GPT Image 2.6. Fictional face, not a real person.")
+    tile_grid("Copyright and IP: four questions before you publish",[
+     ("Who owns the output?","Read your Higgsfield plan: commercial use is a plan feature, not a given."),
+     ("Is the music licensed?","Use generated music or a track cleared for commercial use; a trending song is not."),
+     ("Did you copy a brand, a character or a style on purpose?","Disney and Universal sued Midjourney in June 2025 over Darth Vader, Elsa and the Minions."),
+     ("What does your editor's licence say?","In June 2025 creators protested CapCut's updated terms over the licence they grant to uploaded content. Read before you upload client work.")],
+     kicker="ETHICS · INTELLECTUAL PROPERTY AND COPYRIGHT",cols=1,size=13,accent=RUST,
+     note="Sources: CNBC and Reuters, 11 Jun 2025 (Disney and Universal v. Midjourney); creator discussion of CapCut's June 2025 terms update (r/CapCut, June 2025): describe it as complaints, not a ruling.")
+    tile_grid("Core ethical issues in GenAI video",[(h,d) for h,d,_ in C.ETHICS],
+        kicker="TOPIC 3 · ETHICS BEFORE YOU PUBLISH",cols=2,size=12,accent=RUST,
+        note="Ask each table to pick the issue most relevant to the video they made in Activity 3.")
+    for part,rows in (("1/2",C.ETHICS_CASES[:5]),("2/2",C.ETHICS_CASES[5:])):
+        compare_table(f"When it went wrong: real cases ({part})",
+            ["Issue","Case","What happened"],
+            [[i,c,w] for i,c,w,_ in rows],kicker="TOPIC 3 · LAWSUITS, DISPUTES AND RULINGS",accent=RUST,
+            note="Sources (verified 9 Nov 2026): "+"; ".join(f"{c} — {src}" for _,c,_,src in rows))
+    compare_table("Seven issues, seven rules for your own videos",
+        ["Issue","Your rule in every project"],
+        [[h,r] for h,_,r in C.ETHICS],kicker="TOPIC 3 · FROM ETHICS TO PRACTICE",accent=RUST)
+
+TOPIC_CONCEPTS={1:topic1_concepts,2:topic2_concepts,3:topic3_concepts}
 
 # ---------------- TOPICS + ACTIVITIES ----------------
 TOPIC_ACTS={t["num"]:[a for a in ACTIVITIES if a["topic"]==t["num"]] for t in C.TOPICS}
-CARD_COLORS=[BLUE,TEAL,VIOLET]
 
-def lab_concepts(lab):
-    """Knowledge → lab: the concept slides each lab applies, shown directly before that lab."""
-    if lab==1:
-        bp_intro()
-        use_case_slides()
-        bp_studio()
-        shot_steps("Type one line, get fifteen seconds of film",hf("009c"),[
-         ("Describe the scene","Plain English in the prompt box; @ adds a saved character or location."),
-         ("Pick the model","Seedance 2.5 here; switch to Draft for cheap tests."),
-         ("Set quality and length","720p and 15 s cost 105 credits; 1080p costs 240."),
-         ("Generate","Credits are shown on the button before you press it.")],
-         kicker="CINEMA STUDIO · VIDEO",sub="The fastest route from idea to clip, and the one Lab 1 starts with",
-         marks=[(0.52,0.60),(0.23,0.75),(0.42,0.75),(0.84,0.70)])
-        shot_pair("A lazy prompt works, but the model makes your choices",
-         (hf("011"),"Format + vibe","'15-second video' + 'epic sci-fi scene' is enough to generate. That is the lazy prompt you type first in Lab 1."),
-         (hf("012"),"What you leave out, the model decides","Character, world/location and camera all become the model's guess, so every take tells a different story."),
-         kicker="THE LAZY PROMPT",sub="Speed now, inconsistency later: know the trade before you press Generate",
-         note="Run the lazy prompt live on Draft (45 credits). Ask the room to name what the model chose for them.")
-        video_slide(C.LAZY_TEST,"LAB 1 PREVIEW · TESTED IN HIGGSFIELD",
-         "Same prompt you will type in Lab 1. No character, no plot: proof that unbriefed means undirected",
-         note="Rendered for this course on 9 Nov 2026 as a Seedance 2.5 Draft (45 credits). Learners' takes will differ: that variation is the point.")
-        shot_steps("Supercomputer asks before it spends a credit",hf("014c"),[
-         ("The prompt it wrote","Read the scene, shots and grade it built from your chat."),
-         ("The settings","Model, ratio, length, resolution and quality, all editable."),
-         ("Approve with the price","240 credits for 15 s at 1080p; switch to Draft first."),
-         ("Leave 'Always allow' off","Approve each spend by hand in class.")],
-         kicker="SUPERCOMPUTER · THE APPROVAL CARD",sub="An agent with a budget gate: you stay the producer",
-         marks=[(0.25,0.80),(0.25,0.89),(0.85,0.96),(0.58,0.96)],
-         note="Supercomputer is Higgsfield's agent ('powered by Opus 5.5' on the home tile). It can call every Higgsfield tool; the approval card is where a human stays in charge.")
-        tile_grid("Six defects every AI video can have (K1)",[
-         ("Identity drift","The hero's face, hair or clothes change between shots."),
-         ("Prop teleport","The case swaps hands or vanishes mid-scene."),
-         ("Broken physics","Hands merge, liquids melt, people walk through tables."),
-         ("Audio mismatch","Footsteps without feet, lips out of sync, music over dialogue."),
-         ("Garbled text","Signs and labels turn into nonsense letters."),
-         ("Wrong spec","Wrong ratio, 480p left in the final, cut mid-movement.")],
-         kicker="K1 · TYPES OF QUALITY ISSUES",cols=2,size=13,accent=AMBER)
-    if lab==2:
-        shot_hero("Brief like a director: who, where, what happens",hf("015"),[
-         ("WHO","One character with a job and a look: 'a bartender'."),
-         ("WHERE","One location you could photograph: 'an empty bar'."),
-         ("WHAT HAPPENS","One visible action with an ending: 'lights off, walk to the window'.")],
-         kicker="SCRIPT · THE THREE-LINE BRIEF",sub="Three lines remove the three guesses the lazy prompt left to the model",img_h=2.4)
-        shot_pair("Talk the scene through, then refine one change at a time",
-         (hf("016"),"Start → talk → draft","New chat, your idea (and a photo if you have one), let it ask questions, answer, read its prompt, generate the draft."),
-         (hf("017"),"Refine & save","Describe ONE change, read the updated prompt, keep the take that works. One change per run tells you what fixed it."),
-         kicker="SUPERCOMPUTER · THE WORKING LOOP",sub="The loop you will repeat in every lab from here on")
-        shot_steps("AI Director turns a brief into a script and storyboard",hf("040"),[
-         ("Project brief","Where the locked script and shot list live."),
-         ("Elements","The characters, locations and props this project can call."),
-         ("AI Director","Opens the director chat inside the project."),
-         ("Suggested starts","'Write a script', 'Generate an 8-shot storyboard', '15-second perfume commercial'.")],
-         kicker="PROJECTS · AI DIRECTOR",sub="Your writers' room lives inside the project, next to the footage",
-         marks=[(0.07,0.14),(0.05,0.25),(0.06,0.47),(0.87,0.52)])
-        tile_grid("Good Story Elements",[
-         ("Identifiable hero","A protagonist the audience recognises themselves in."),
-         ("A clear desire","What does the hero want? Ambiguity kills engagement."),
-         ("A real obstacle","No obstacle, no story: conflict is the heart of drama."),
-         ("Action & outcome","The hero acts; the world changes. Show the transformation."),
-         ("Resolution","End the story world in a new state, with your call to action."),
-         ("The story spine","Once upon a time… then one day… but… so… until finally…")],
-         kicker="A1 · REVIEW THE SCRIPT BEFORE YOU SHOOT",cols=2,size=13)
-        process_map("Build every prompt in three parts",[
-         ("Scene context","visible action, 1–2 sentences"),
-         ("References","@elements and their roles"),
-         ("Shots","numbered, timed, sized"),
-         ("Sound","ambience, foley, dialogue"),
-         ("Settings","model, ratio, length, Draft")],
-         kicker="THE HIGGSFIELD PROMPT FORMAT",color=VIOLET,
-         synthesis=("Write it like a call sheet","Every shot names a size, an action and a camera. The model stops guessing and starts following."))
-        shot_pair("Ready-made presets and skills do the heavy lifting",
-         (hf("013"),"A preset packs scene, camera, light and sound","Pick one and the model receives a full brief. Good for speed; you still check it fits your story."),
-         (hf("023"),"Skills: rules for a specific job","Type / in Supercomputer: Katana, Visual Studio, Cinematic Director, Brand Asset Creation, Video Motion Graphics Editor, /youtube-script."),
-         kicker="SHORTCUTS · PRESETS AND SKILLS",sub="Lab 2 uses /youtube-script; Lab 9 uses /product-photoshoot")
-        tile_grid("Add a skill to Supercomputer: three ways",[
-         ("Install from the Marketplace","Skills in the left sidebar → browse official and community skills → Install. Higgsfield calls Skills 'installable workflows'."),
-         ("Import what you already have","Bring your skills and memory from Claude, Claude Code, Codex or ChatGPT (the import uses the Higgsfield MCP connection)."),
-         ("Create your own","A skill is rules + guidelines for one job: when to use it, the steps, the style rules, the output format."),
-         ("Run it with a slash","Type / in the Supercomputer prompt and pick the skill: /youtube-script, /product-photoshoot, /house-standards.")],
-         kicker="SUPERCOMPUTER · SKILLS",cols=2,size=13,
-         note="Sources: higgsfield.ai/supercomputer-intro (Skills = installable workflows from the Marketplace; import from Claude, Claude Code, Codex, ChatGPT). Confirm the exact Create/Import button labels on your own account before class; the UI changes often.")
-    if lab==3:
-        compare_table("Tailoring the cut to the platform",
-         ["","YouTube","TikTok / Shorts","Instagram Reels"],
-         [["Length","60 s – 10 min","15 – 60 s","15 – 90 s"],
-          ["Ratio","16:9 landscape","9:16 vertical","9:16 vertical"],
-          ["Pacing","Build with structure","Hook in 1–3 s, fast cuts","Aesthetic-first, fast"],
-          ["Captions","Recommended","Essential (muted viewing)","Essential"],
-          ["AI label","Disclose realistic AI content","AI-generated label","Label AI content"]],
-         kicker="ONE SCENE ≠ EVERY PLATFORM",accent=VIOLET,
-         note="Higgsfield's Reframe turns a 16:9 take into 9:16; plan the safe area when you write the shots.")
-        big_numbers("Draft first: the cheapest quality gate you have",[
-         ("45","credits","a 15 s Seedance 2.5 Draft at 480p"),
-         ("240","credits","the same 15 s at 1080p, 5× the price"),
-         ("7","days","to finalise any Draft you keep at 1080p")],
-         kicker="A3 · BUDGET THE WORK PLAN IN CREDITS",sub="Read on Higgsfield, 9 Nov 2026: put these numbers in your Lab 3 work plan",
-         band="Rule for every lab: test the idea on Draft, finalise only the take you would show a client.")
-        compare_table("Turn your standards sheet into a skill",
-         ["Part of the skill","What you write","Example: /house-standards"],
-         [["Name","short, lower-case, hyphenated","house-standards"],
-          ["When to use","the job it does","Every video for our agency's clients"],
-          ["Rules","the non-negotiables","Saved Elements only; 1080p finals; AI label on; no real likeness without consent"],
-          ["Steps","the order of work","Draft 480p → review → finalise 1080p → checklist → export 16:9 + 9:16"],
-          ["Output format","what it must hand back","Prompt in three parts + a credit estimate + a pass/fail checklist"]],
-         kicker="LAB 3 PREVIEW · CREATE YOUR OWN SKILL",accent=TEAL,
-         note="A skill turns a one-off standards document into a rule the agent follows on every job: the A2 standards become enforced, not just written.")
-    if lab==4:
-        shot_pair("Cast your lead before you shoot a frame",
-         (hf("038"),"Ask Supercomputer to cast","'Main character in a biker road movie, 25, modern clothing'. It loads the character-sheet skill and writes a casting prompt for Soul 2.0."),
-         (hf("039"),"Choose from five options","Five photoreal candidates. You pick one; only then does it build the reference sheet."),
-         kicker="ELEMENTS · CHARACTERS",sub="A cast you chose on purpose beats a face the model invents every take",img_h=3.4)
-        shot_hero("One sheet, three views: the reference every shot obeys",hf("041"),[
-         ("Full body, front","Clothes, shoes, proportions."),
-         ("Full body, back","What the camera sees when he walks away."),
-         ("Face portrait","The identity every shot copies. Next: make it the only face on the sheet.")],
-         kicker="ELEMENTS · CHARACTER SHEET",sub="Plain background, consistent light: the model copies exactly what it sees",img_h=3.0)
-        shot_pair("Cover one face, keep one face: the trick that locks identity",
-         (hf("042"),"Blank the full-body face","The white oval is deliberate. The small, soft face in the full-body view is hidden, so the model copies the sharp close-up into every shot."),
-         (hf("043"),"Same trick for the friend","His full-body face is covered too. Each character has exactly one face to copy, so two people share a shot without swapping faces."),
-         kicker="ELEMENTS · CONSISTENCY",sub="Two faces on one sheet means two identities to blend; leave the model only one (K2)",
-         note="The covered face is not a defect. Higgsfield's character-sheet skill hides the face on the full-body view so the close-up portrait is the only face reference, which keeps the face identical from shot to shot. Outfit and body still come from the full-body views.")
-        shot_pair("Edit one detail and keep it in every view",
-         (hf("044"),"A targeted edit","'Give him a silver wallet chain… white ribbed tank top, same in all views.' Seedream 5.0 Pro, 3 credits."),
-         (hf("045"),"Different models, different casts","Soul 2.0, Seedream 5.0 Pro and Nano Banana Pro each read the same brief their own way."),
-         kicker="ELEMENTS · REFINE THE CHARACTER",sub="Fix wardrobe on the sheet, not shot by shot")
-        shot_hero("Build locations with anchors you can name in a shot",hf("046"),[
-         ("Spatial anchors","The counter, the stools, the pool table, the window: things a shot can point at."),
-         ("People optional","Extras give scale; your saved characters will replace them."),
-         ("Save it","loc_bar-interior becomes @loc_bar-interior in every prompt.")],
-         kicker="ELEMENTS · LOCATIONS",sub="'He sits on the third stool' only works if the stool exists in the reference",img_h=3.0)
-        shot_hero("A prop on four models: compare before you commit",hf("047"),[
-         ("Same prompt","A slim orange hard-shell briefcase, white background, no logos."),
-         ("Different cost","Nano Banana Pro 2 credits, GPT Image Sunburst 3, Seedream 5.0 Pro 3, Soul Cinema 0.125."),
-         ("Pick on fit","Shape, colour and detail that survive a close-up.")],
-         kicker="ELEMENTS · PROPS",sub="The cheapest image is not always the cheapest choice: a wrong prop costs a re-shoot",img_h=3.0)
-        shot_pair("Save once, reuse by name",
-         (hf("048"),"@char_biker in every prompt","One saved Element, one reference attached automatically, prompt after prompt."),
-         (hf("049"),"The Element form","Category (Character, Location, Prop), Name, Element ID such as char_biker, description and custom properties."),
-         kicker="ELEMENTS · SAVE AS ELEMENT",sub="Naming rule: char_, loc_, prop_ + a short slug, so the whole crew finds it")
-        shot_hero("Five saved Elements: your cast, sets and props",hf("050"),[
-         ("Characters","@char_biker, @char_friend"),
-         ("Locations","@loc_bar-interior, @loc_bar-entrance"),
-         ("Prop","@prop_suitcase, ready for every shot")],
-         kicker="ELEMENTS · THE FINISH LINE",sub="What your My elements page should show at the end of the Elements lab",img_h=3.0)
-        shot_pair("Pick the image model for the job",
-         (hf("034"),"Four image models","Soul 2.0 for people, Soul Cinema for film stills, GPT Image Sunburst for scenes, Nano Banana Pro for detailed places."),
-         (hf("037"),"Two ways to generate","Text to image from a prompt, or image to image from a single picture to make variations."),
-         kicker="IMAGES · MODELS AND MODES",sub="Elements start as images, so the image model decides the look of your film")
-        shot_pair("Tested for this course: the Elements prompts work as written",
-         (os.path.join(VID,"lab4-test-bar.jpg"),"Location prompt → the bar","Counter on the right, eight stools, pool table at the back, window on the left: every spatial anchor the prompt named. About 2 credits."),
-         (os.path.join(VID,"lab4-test-case.jpg"),"Prop prompt → the case","Slim orange ribbed lid, black handle, two metal latches, white background, no logos. About 2 credits."),
-         kicker="LAB 4 PREVIEW · TESTED IN HIGGSFIELD",sub="Name what the shot must contain and the image model delivers it",
-         note="Generated 9 Nov 2026 with the exact Lab 4 prompts. The same images ship in labs/lab-04…/assets as samples.")
-    if lab==5:
-        shot_hero("Each reference gets a job: character, location, camera, voice",hf("051"),[
-         ("Face / image → Character","Who appears, exactly as shown."),
-         ("Place / image → Location · video → Camera move","Where it happens, and how the camera travels."),
-         ("Audio → Voice","What the character sounds like.")],
-         kicker="REFERENCES · ROLES",sub="A reference without a role is a suggestion; with a role it is an instruction",img_h=3.1)
-        big_numbers("Up to fifty references in one generation",[
-         ("30","images","faces, outfits, products, places"),
-         ("10","videos","camera moves and motion to copy"),
-         ("10","audio files","voices, music, sound to match")],
-         kicker="REFERENCES · SEEDANCE 2.5 LIMITS",sub="More references, fewer guesses",
-         band="What each image carries: a person = face + clothes; a prop = shape + colour + details; a place = space + light + colour.")
-        shot_steps("Cinema Studio: every control a film crew has",hf("036"),[
-         ("References 0/50","Attach Elements, images, video and audio."),
-         ("Film setup · Camera","Camera body, lens and aperture."),
-         ("Colour palette · Lighting","The grade and the light scheme."),
-         ("Describe your scene","Type @ to drop in a saved character or location."),
-         ("Model and settings","Cinema Studio 4.0, 1080p, 16:9, 5 s, sound, 1–4 takes; 80 credits.")],
-         kicker="CINEMA STUDIO · THE PANEL",sub="Set the look once, then every take inherits it",
-         marks=[(0.38,0.50),(0.54,0.50),(0.76,0.50),(0.49,0.58),(0.47,0.66)])
-        shot_pair("Set the camera and the light like a DP",
-         (hf("005"),"Camera, lens, aperture, movement","DV Camcorder to Modern; Halation Vintage to Clean Sharp; f/11 deep focus to f/1.4 wide open."),
-         (hf("003"),"Lighting presets","Auto, Silhouette, Practicals, Window, Overhead fall, or place your own lights."),
-         kicker="CINEMATIC EFFECTS · CAMERA + LIGHT",sub="Shallow focus and practical lamps make the bar feel real at night")
-        shot_pair("Grade the colour and set the genre",
-         (hf("004"),"Colour palette","Lime Jam, Black gloss, Film colors, Nostalgic blue, Candy pink, Soft palette, Static Noon, or build your own."),
-         (hf("006"),"Genre, era, tempo","The story conventions the model should follow, the period, and the cutting pace."),
-         kicker="CINEMATIC EFFECTS · COLOUR + GENRE",sub="A grade and a genre tell the model the mood in two clicks")
-        shot_hero("One continuous shot or a multishot with cuts",hf("053"),[
-         ("One continuous shot","'Follow a man along a busy sidewalk… frontal view at the corner… no cuts.' Good for immersion."),
-         ("Multishot · cuts","'15 seconds, six shots, a cut between each': feet, hand, pedestrian pass, profile, kerb, corner."),
-         ("Seedance range","4–30 seconds per generation; you choose the structure in the prompt.")],
-         kicker="SHOTS · STRUCTURE",sub="Decide the structure before the words: it changes every line you write",img_h=3.0)
-        shot_pair("Write the three parts, then attach the references",
-         (hf("056"),"Context, references, shots","01 scene context in 1–2 sentences; 02 references and their roles; 03 the shots that describe the action."),
-         (hf("057"),"A real prompt with @handles","@char_biker, @char_friend and @prop_suitcase each '100% as shown', with who holds what and where they sit."),
-         kicker="SHOTS · THE PROMPT",sub="Lab 5 gives you this exact bar-scene prompt to adapt")
-        shot_hero("Choose the shot size for what the audience must read",hf("058"),[
-         ("Wide","Character and surroundings: where are we?"),
-         ("Medium close-up","Expression and upper-body action: what are they doing?"),
-         ("Close-up","A face, a reaction or an important detail: what do they feel?")],
-         kicker="SHOTS · SIZE",sub="Every numbered shot in your prompt starts with one of these three words",img_h=3.1)
-        shot_gallery("Write each shot as size + purpose + camera",[
-         (hf("059_0"),"CLOSE-UP · recognition, exit frame"),
-         (hf("059_1"),"CUT TO THE FRIEND · shot 2, 5–8 s, medium, static"),
-         (hf("059_2"),"BEHIND THE COUNTER · left hand, dialogue in the action")],
-         kicker="SHOTS · ANNOTATED",sub="Three shot cards from the bar scene: copy the pattern into your shot list",
-         band="Pattern: SHOT n · time · size · camera · action · the line or sound that lands in it.",img_h=2.95)
-        shot_pair("Compose the frame, then write what we hear",
-         (hf("060"),"Rule of thirds","Eyes on the upper third, the subject off-centre, space in the direction he looks."),
-         (hf("061"),"Sound is part of the prompt","Bar ambience, footsteps, clothing movement, dialogue already written in shot 4. Seedance renders it with the picture."),
-         kicker="TAKES · COMPOSITION AND SOUND",sub="Two lines in the prompt that separate a clip from a scene")
-        shot_steps("Draft mode: four test takes for the price of one final",hf("062"),[
-         ("References attached","Characters, prop and both bar locations."),
-         ("Three-part prompt","Scene context, references with roles, shots."),
-         ("Seedance 2.5 Draft","480p, 21:9, 16 s, 4 takes, sound on."),
-         ("Generate Draft","About 45 credits a take for 15 s; review before you spend more.")],
-         kicker="SHOTS & TAKES · DRAFT MODE",sub="Explore at 480p, commit at 1080p",
-         marks=[(0.18,0.44),(0.41,0.60),(0.21,0.87),(0.83,0.81)])
-        shot_pair("Test four ideas, finalise one",
-         (hf("063"),"Four 480p Drafts","Same prompt, four takes. Compare the walk, the case and the light."),
-         (hf("064"),"Generate the keeper in 1080p","The selected Draft is re-rendered at full resolution: same take, full quality."),
-         kicker="SHOTS & TAKES · DRAFT → FINAL",sub="Drafts can be finalised within seven days")
-    if lab==6:
-        shot_pair("Keep a useful first take, then direct the next one",
-         (hf("066"),"Before you refine","Watch with sound, choose ONE change or a variation, save the prompt and the take so you can compare."),
-         (hf("068"),"Direct the next take","Change one instruction, generate one take, compare, choose. Keep both prompts and clips."),
-         kicker="TAKES · THE DIRECTOR'S LOOP",sub="A take is a decision you can undo; a deleted take is a lesson lost")
-        shot_hero("Continuity: check the prop through the whole scene",hf("067"),[
-         ("Where?","Its position in each shot."),
-         ("Who holds it?","The right character, the right hand."),
-         ("Same?","Colour, shape and size from shot to shot.")],
-         kicker="A5 · ASSESS THE FOOTAGE",sub="Prop teleport is the defect viewers spot first",img_h=2.6)
-        compare_table("Quality issues → the Higgsfield fix",
-         ["Issue (K1)","Typical cause","Fix in Higgsfield (K2)"],
-         [["Face changes between shots","No character reference","Character Element + sheet"],
-          ["Set changes between shots","No location reference","Location Element with anchors"],
-          ["Prop swaps hands or vanishes","Holder not stated","'@prop… belongs to @char…, left hand'"],
-          ["Wrong object in the shot","Model guessed","Genjutsu Replace Object"],
-          ["Soft, low-res final","480p Draft exported","Finalise at 1080p or Upscale"],
-          ["Wrong ratio for TikTok","16:9 master only","Reframe to 9:16"]],
-         kicker="K1 → K2 · THE WA ASKS EXACTLY THIS",accent=TEAL,
-         note="Every issue on the left appears in the Written Assessment: know the matching fix.")
-        tile_grid("Parameters to assess AI video quality (K3)",[
-         ("Resolution & sharpness","1080p minimum for social; no 480p Draft in the final."),
-         ("Motion & physics","No melting hands, sliding feet or stutter at cuts."),
-         ("Continuity","Faces, clothes, props and sets match shot to shot."),
-         ("Audio","Dialogue clear above music; foley matches the action."),
-         ("Captions & pacing","Accurate, in sync, readable; cuts on the beat."),
-         ("Compliance","Platform specs, AI label, consent, rights.")],
-         kicker="K3 · SCORE EVERY CUT BEFORE EXPORT",cols=2,size=13)
-    if lab==7:
-        compare_table("Remedial actions: from FAIL to fixed",
-         ["Fails the check","Remedial action (A6)","Higgsfield tool"],
-         [["Wrong or drifting object","Swap it, keep the motion","Genjutsu Replace Object"],
-          ["One broken shot","Regenerate that shot only, same Elements","Cinema Studio"],
-          ["Soft or 480p footage","Upscale or finalise the Draft","Upscale · Seedance 2.5"],
-          ["16:9 only, TikTok needs 9:16","Reframe with a safe area","Reframe"],
-          ["Muddy or wrong sound","Rewrite the Sound line, regenerate","Seedance native audio"],
-          ["No AI label / no consent","Add label, record consent","Publish settings"]],
-         kicker="A6 · REMEDIAL ACTIONS",accent=AMBER,
-         note="Order fixes cheapest first: a sound-line rewrite on Draft costs 45 credits; a full 1080p re-shoot costs 240.")
-        shot_steps("Remove or replace an object without re-shooting",hf("019"),[
-         ("Attach the shot","Drop the image or clip into Supercomputer."),
-         ("Say what changes","'Remove the table and put the glasses on a plinth.'"),
-         ("Keep everything else","Light, angle and the object itself stay as they were.")],
-         kicker="REMOVE OBJECTS FROM A SCENE",sub="For video, Genjutsu Replace Object does the same while keeping the motion",img_w=7.6)
-        tile_grid("Industry standards & responsible AI (K4)",[
-         ("Platform specs","Resolution, ratio, duration and loudness per platform."),
-         ("Commercial rights","Check your Higgsfield plan covers client work."),
-         ("Consent & PDPA","Permission for real faces and voices; clone only with consent."),
-         ("AI disclosure","TikTok's AI-generated label; YouTube's altered or synthetic content setting."),
-         ("Advertising codes","IMDA and ASAS rules apply to AI ads too."),
-         ("Accuracy","No invented product claims; fact-check every line.")],
-         kicker="COMPLY BEFORE YOU PUBLISH",cols=2,size=13,accent=AMBER)
-    if lab==8:
-        tile_grid("Voice, music and effects: three vendors become three prompts",[
-         ("Native sound","Seedance 2.5 renders ambience, foley and dialogue with the picture."),
-         ("Soundtrack","Higgsfield Audio composes a track from genre, tempo and mood."),
-         ("Your voice","Create Voice from a clean sample: only with consent."),
-         ("Cinematic effects","Lighting presets, colour grades and effect presets on any shot."),
-         ("Enhance","Upscale to 1080p or 4K; reframe for vertical."),
-         ("Publish","Connect TikTok and post from Higgsfield, or export MP4.")],
-         kicker="K5 · TECHNOLOGIES THAT SPEED UP THE EDIT",cols=2,size=13)
-        compare_table("Evaluating a new AI technology (A7)",
-         ["Criterion","Ask","Red flag"],
-         [["Quality","Does output meet your standards sheet?","Drift, artefacts, robotic voice"],
-          ["Speed & cost","Minutes and credits per finished 15 s?","Credits burn faster than value"],
-          ["Control","Can you direct and iterate the result?","Black box, no editing"],
-          ["Rights","Commercial use on your plan?","Licence excludes client work"],
-          ["Fit","Works inside your Higgsfield pipeline?","New silo, manual re-export"]],
-         kicker="A REPEATABLE EVALUATION RUBRIC",accent=VIOLET,
-         note="Labs 8 and 9 use this rubric: rate voice, music and effects, then two video models on the same prompt.")
-    if lab==9:
-        shot_hero("Start every product video from a clean product reference",hf("018"),[
-         ("Full object","The whole product in frame, nothing cropped."),
-         ("Clear light","Even light, no hard shadows hiding the shape."),
-         ("Visible edges","A plain background so the outline is unmistakable.")],
-         kicker="AI MARKETING · PRODUCT REFERENCE",sub="The model can only keep what it can see",img_h=3.0)
-        shot_pair("Check the product survives generation",
-         (hf("020"),"Original vs generated","Compare the outline, the bridge and the frame. If a detail changed in a still, it will change in video."),
-         (hf("021"),"One photo becomes a campaign","Photo shoot, creator video and commercial, all from one product photo plus a character and a location."),
-         kicker="AI MARKETING · PRODUCT FIDELITY",sub="Approve the product in stills before you spend on video")
-        shot_pair("Cast a model and scout three locations",
-         (hf("025"),"One person, different views","Full body and face on one 16:9 sheet: the creator for every shot."),
-         (hf("028"),"Round 3 of the location scout","Generate, compare, tweak the prompt, run it again until three streets feel right."),
-         kicker="AI MARKETING · CAST AND SCOUT",sub="The same Elements workflow as Lab 4, pointed at a product")
-        shot_pair("Run the photoshoot skill, get the stills",
-         (hf("030"),"/product-photoshoot","'Six photos: three with her and three of just the glasses. Make them vertical, 9:16.'"),
-         (hf("031"),"Product close-ups","The product placed in each scouted location, light matched to the scene."),
-         kicker="AI MARKETING · CAMPAIGN STILLS",sub="Lab 9 runs this on the SOLA bottle")
-        shot_pair("Three references in, a viral reel out",
-         (hf("033"),"Character sheet + product photo + street image","The three references every shot of the reel inherits."),
-         (hf("035"),"One instruction to Supercomputer","'Generate a video in Cinema Studio using these images. Create a viral cinematic reels sunglasses commercial.'"),
-         kicker="AI MARKETING · FROM STILLS TO VIDEO",sub="Supercomputer writes the shots; you approve the spend")
-    if lab==10:
-        process_map("Mini capstone: your video, start to finish",[
-         ("Brief","use case + who/where/what"),
-         ("Elements","cast, set, product"),
-         ("Draft takes","2+ at 480p"),
-         ("Final + score","1080p, 7 parameters"),
-         ("Fix + publish","2 fixes, AI label")],
-         kicker="LAB 10 · PREVIEW · MINI CAPSTONE",color=TEAL,
-         synthesis=("The rehearsal for PP Task 3","Same evidence as the assessment: screenshots of your prompt, takes and fixes, a scorecard, and the MP4 you upload to the TMS. Budget: 500 credits."))
-        compare_table("What a strong capstone looks like",
-         ["Check","Competent looks like","Watch out for"],
-         [["Story","One clear who / where / what happens in 15 s","Three ideas crammed into one clip"],
-          ["Consistency","Saved Elements in every shot","Faces or products that change"],
-          ["Process","Draft takes before one 1080p final","Spending 240 credits per experiment"],
-          ["Quality","Scorecard before and after, two named fixes","'Looks fine' with no evidence"],
-          ["Compliance","Ratio per platform, AI label, no real likeness","Unlicensed logos or music"]],
-         kicker="LAB 10 · SCORECARD",accent=TEAL,
-         note="Walk the room during the capstone: check every learner has two Draft takes before they finalise, and that the checklist matches PP Task 3.")
+def act_flow(a):
+    process_map(f"How Activity {a['num']} Runs",[(t,"") for t in a["flow"]],
+        kicker=f"ACTIVITY {a['num']} · HOW IT RUNS — FULL STEPS IN THE LEARNER GUIDE",color=TEAL,animate=False)
 
-def lab_flow(a):
-    """The lab's 5-stage process map from its explicit `flow` labels (no step-by-step)."""
-    stages=[(t,"") for t in a["flow"]]
-    process_map(f"How Lab {a['num']} Runs",stages,
-        kicker=f"LAB {a['num']} · HOW IT RUNS — FULL STEPS IN THE LEARNER GUIDE",
-        color=TEAL,animate=False)
+def evidence_slide(a):
+    s=head_sub(slide(),f"Activity {a['num']} evidence: one screenshot",f"ACTIVITY {a['num']} · YOUR PP SCREENSHOT",
+               "The Practical Performance asks for exactly this screenshot, plus a few typed lines",TEAL)
+    rect(s,Inches(0.85),Inches(2.35),Inches(11.63),Inches(1.5),LIGHT); rect(s,Inches(0.85),Inches(2.35),Inches(0.1),Inches(1.5),TEAL)
+    txt(s,Inches(1.2),Inches(2.35),Inches(11.1),Inches(1.5),[[("📸  "+a["evidence"][0],17,INK,True)]],anchor=MSO_ANCHOR.MIDDLE)
+    rect(s,Inches(0.85),Inches(4.1),Inches(11.63),Inches(2.6),LIGHT); rect(s,Inches(0.85),Inches(4.1),Inches(0.1),Inches(2.6),BLUE)
+    txt(s,Inches(1.2),Inches(4.2),Inches(11.1),Inches(2.4),[[("✓  Check your work",16,BLUE,True)],[(a["test"],14,INK,False)]],anchor=MSO_ANCHOR.MIDDLE,space=6)
+    footer(s); return s
 
 for t in C.TOPICS:
+    acts=TOPIC_ACTS[t["num"]]
     section(f"TOPIC {int(t['code'])}",t["title"],t["code"],t["subtitle"],
-            items=[f"Lab {a['num']} — {a['title']}" for a in TOPIC_ACTS[t["num"]]])
+            items=[f"Activity {a['num']} — {a['title']}" for a in acts])
     tile_grid(f"Key Concepts — Topic {int(t['code'])}",t["concepts"],
               kicker=f"COVERS {t['weighting']}",cols=2,size=13)
-    acts=TOPIC_ACTS[t["num"]]
-    cards=[]
-    for gi,a in enumerate(acts):
-        cards.append((CARD_COLORS[gi%3],f"Lab {a['num']}",[a["title"],a["build"]]))
-    # 4 labs → tile grid instead of cards3
-    tile_grid(f"Hands-On Labs — Topic {int(t['code'])}",
-        [(f"Lab {a['num']} — {a['title']}",a["build"]) for a in acts],
-        kicker="WHAT YOU'LL DO",cols=1,size=13,icons=[str(a["num"]) for a in acts])
+    a0=acts[0]
+    tile_grid(f"Hands-On Activity — Topic {int(t['code'])}",
+        [(f"Activity {a0['num']} — {a0['title']}",a0["build"]),
+         ("Your PP evidence",a0["evidence"][0]),
+         ("It builds on",{1:"Nothing yet: this is where your video starts. Activity 2 shoots this storyboard.",
+                          2:"Your Activity 1 storyboard. Activity 3 edits the takes you make here.",
+                          3:"Your Activity 2 takes. The export is the final video you upload to the TMS."}[t["num"]])],
+        kicker="WHAT YOU'LL DO",cols=1,size=14,icons=[str(a0["num"]),"📸","↻"])
+    TOPIC_CONCEPTS[t["num"]]()
     for a in acts:
-        lab_concepts(a["num"])
-        activity_overview(f"LAB {a['num']}",a["title"],a["desc"],a["build"],a["services"],
-                          kicker=f"TOPIC {t['code']} · HANDS-ON",objective=a["objective"])
-        lab_flow(a)
-        # prompts: paginate so a slide never carries >2 prompts or >900 chars
+        activity_overview(f"ACTIVITY {a['num']}",a["title"],a["desc"],a["build"],a["services"],
+                          kicker=f"ACTIVITY {a['num']} · TOPIC {t['code']} · HANDS-ON",objective=a["objective"])
+        act_flow(a)
         pgs=[]; cur=[]; cur_len=0
         for pr in a.get("prompts",[]):
             if cur and (len(cur)==2 or cur_len+len(pr[1])>900):
@@ -1269,44 +1318,30 @@ for t in C.TOPICS:
             cur.append(pr); cur_len+=len(pr[1])
         if cur: pgs.append(cur)
         for pi,pg in enumerate(pgs,1):
-            prompt_slide(f"Lab {a['num']}",pg,kicker=f"LAB {a['num']} · COPY-AND-ADAPT PROMPTS",
+            prompt_slide(f"Activity {a['num']}",pg,kicker=f"ACTIVITY {a['num']} · COPY-AND-ADAPT PROMPTS",
                          part=f"({pi}/{len(pgs)})" if len(pgs)>1 else None)
-        test_slide(a["title"],a["test"],kicker=f"LAB {a['num']} · VERIFY")
+        evidence_slide(a)
     if t["num"]==3:
-        big_statement("Just because you can generate it doesn't mean you should publish it.",
-            "Seven ethical issues, nine real cases and one rule for each: the last stop before anything you make goes live.",
-            "TOPIC 3 · ETHICS",img="ethics-face.jpg",
-            note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K). Prompt: fictional face, photographic on one side, dissolving into a digital wireframe on the other, charcoal background, terracotta rim light, no text. Not a real person.")
-        tile_grid("Core ethical issues in GenAI video",[(h,d) for h,d,_ in C.ETHICS],
-            kicker="TOPIC 3 · ETHICS BEFORE YOU PUBLISH",cols=2,size=12,accent=RUST,
-            note="Owner-supplied list (9 Nov 2026). Facilitate: ask each table to pick the issue most relevant to the video they made in Lab 10.")
-        for part,rows in (("1/2",C.ETHICS_CASES[:5]),("2/2",C.ETHICS_CASES[5:])):
-            compare_table(f"When it went wrong: real cases ({part})",
-                ["Issue","Case","What happened"],
-                [[i,c,w] for i,c,w,_ in rows],kicker="TOPIC 3 · LAWSUITS, DISPUTES AND RULINGS",accent=RUST,
-                note="Sources (verified 9 Nov 2026): "+"; ".join(f"{c} — {src}" for _,c,_,src in rows))
-        compare_table("Seven issues, seven rules for your own videos",
-            ["Issue","Your rule in every Higgsfield project"],
-            [[h,r] for h,_,r in C.ETHICS],kicker="TOPIC 3 · FROM ETHICS TO PRACTICE",accent=RUST,
-            note="These rules sit on top of the K4 compliance checks: label AI content, clear consent and rights, follow platform and IMDA/ASAS codes.")
-    tile_grid(f"Recap — {t['title']}",
-            [(f"Lab {a['num']} — {a['title']}", "You built: "+a["build"]) for a in acts],
-            kicker="TOPIC RECAP · WHAT YOU CAN NOW DO",cols=1,size=13,icons=[str(a["num"]) for a in acts])
+        ethics_slides()
+    tile_grid(f"Recap — Topic {int(t['code'])}",
+            [(f"Activity {a['num']} — {a['title']}", "You built: "+a["build"]) for a in acts]+
+            [(k,v) for k,v in t["concepts"][:3]],
+            kicker="TOPIC RECAP · WHAT YOU CAN NOW DO",cols=1,size=12,icons=[str(a["num"]) for a in acts]+["✓","✓","✓"])
 
 # ---------------- CLOSE ----------------
 section("WRAP-UP","Course Summary & Next Steps","")
 process_map("The Pipeline You Now Own",C.PIPELINE,
- kicker="FROM PROMPT TO PUBLISHED — RECAP",
- synthesis=("Ten labs, one studio",
-  "Script and plan (Labs 1–3) → Elements (Lab 4) → shots and takes (Lab 5) → cut and assess (Lab 6) → fix (Lab 7) → voice, music, effects (Lab 8) → a published ad (Lab 9) → your own video, start to finish (Lab 10)."),
+ kicker="FROM IDEA TO PUBLISHED — RECAP",
+ synthesis=("Three activities, one video",
+  "Story and storyboard (Activity 1) → characters, cinematic shots and takes in Higgsfield (Activity 2) → cut, polish and export in CapCut (Activity 3)."),
  animate=False)
 tile_grid("What You Achieved",[
- ("Scripts & shot lists","Supercomputer and AI Director turn three lines into a timed, reviewable shot list."),
- ("Standards & budgets","A standards sheet and a work plan priced in real Draft and 1080p credits."),
- ("Elements","Characters, locations and props saved once and reused by @handle."),
- ("Shots & takes","Cinema Studio controls, references with roles, Draft first, 1080p for the keeper."),
- ("Fix & finish","Replace, upscale, reframe, voice, music and cinematic effects."),
- ("Evaluate & publish","A rubric for every new model, and an ad that is labelled and live.")],
+ ("Hooks & message","A hook for the first 3 seconds and one message in one sentence."),
+ ("Story & storyboard","Five beats on a six-panel storyboard, with house rules and a credit-priced work plan."),
+ ("Characters","A face that never drifts: a Higgsfield Element used in every shot."),
+ ("Cinematic shots","Size, angle, movement, light and lens written into every prompt line."),
+ ("The edit","Cut to time, captions, music and colour in CapCut; fixed what failed."),
+ ("Publish responsibly","1080p to platform spec, AI label on, rights and consent checked.")],
  kicker="LEARNING OUTCOMES DELIVERED",cols=2,size=13)
 tile_grid("Recommended Next Courses",[
  "WSQ - Mastering Prompt Engineering for Generative AI Content Creation",
@@ -1319,7 +1354,7 @@ tile_grid("Support",[
  "Email: enquiry@tertiaryinfotech.com",
  "Tel: +65 6100 0613",
  "Web: www.tertiarycourses.com.sg"],kicker="WE'RE HERE TO HELP")
-lms_courseware_slide()   # end-of-deck "Courseware & Assessment on the LMS" (wsq-slides order item 15)
+lms_courseware_slide()
 tile_grid("Cert & TRAQOM Survey (Mandatory)",[
  "Complete the TRAQOM course feedback survey on the LMS — it is mandatory for WSQ funding.",
  "Your digital certificate is issued on the LMS after you are assessed Competent.",
@@ -1328,7 +1363,7 @@ tile_grid("Briefing for Assessment",[
  "Place phones and other materials under the table or on the floor.",
  "No photos or recording of assessment scripts.",
  "No discussion during the assessment.",
- "Paste PP screenshots in the boxes; upload videos to the TMS.",
+ "PP: paste ONE screenshot per task, type the short answers, upload your final MP4 to the TMS.",
  "No liquid paper / correction tape.",
  "Scripts are collected when time is up."],
  kicker="ASSESSMENT RULES",cols=2,size=13)
@@ -1348,8 +1383,9 @@ tile_grid("Digital Attendance (Mandatory)",[
  "The trainer/administrator displays the digital attendance QR code from the SSG portal.",
  "Scan the QR code with your mobile phone camera and submit your attendance.",
  "A minimum of 75% attendance is required to be eligible for assessment and funding."],kicker="TRAQOM · SSG DIGITAL ATTENDANCE")
-big_statement("Thank You!","You can now take an idea to a published 15-second film in one studio: Higgsfield, with you as the director.","HAPPY CREATING",color=TEAL,img="directors-chair.jpg",
- note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K). Prompt: empty director's chair on a dark film stage under a warm spotlight, blank clapperboard, charcoal and terracotta, no text.")
+big_statement("Thank You!","You can now take an idea from a hook to a published video: story first, shot in Higgsfield, finished in CapCut.","HAPPY CREATING",color=TEAL,img="directors-chair.jpg",
+ note="Image: generated with Higgsfield GPT Image 2.6 (medium, 1K).")
+
 
 # ---------------- transitions (one pass) ----------------
 for i,s in enumerate(prs.slides):
