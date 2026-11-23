@@ -140,6 +140,10 @@ TOPICS = [
          ]),
 ]
 
+# LMS subtopics (lms_push.py --units-from reads TOPICS[i]["items"]): the key-concept headings.
+for _t in TOPICS:
+    _t["items"] = [c[0] for c in _t["concepts"]]
+
 # ------------------------------------------------------------------ the pipeline (visual process flow map)
 PIPELINE = [
     ("Story & Storyboard", "hook · message · character"),
